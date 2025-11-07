@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "certifications": "Certifications",
+    "recommendations": "Recommendations",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "tagline": "Building innovative solutions with modern technologies",
+    "cta": {
+      "contact": "Contact Me",
+      "viewCV": "Preview CV",
+      "downloadCV": "Download CV"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "intro": "I'm a passionate Software Engineering student at Stuttgart University with a strong foundation in AI/ML, full-stack development, and research. My journey spans from developing award-winning machine learning models to building production applications serving thousands of users. I'm always open to opportunities in research, internships, or collaboration. Let's build something amazing together!",
+    "downloadCV": "Download CV",
+    "viewCV": "View CV",
+    "contactMe": "Contact Me",
+    "workPermit": "Work Permit",
+    "location": "Location"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Innovative solutions combining cutting-edge technologies with real-world impact",
+    "filter": {
+      "all": "All Projects",
+      "ongoing": "In Progress",
+      "completed": "Completed"
+    },
+    "viewCode": "View Source Code",
+    "liveDemo": "Live Demo",
+    "viewMore": "View Full Details",
+    "highlights": "Key Highlights"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "subtitle": "Professional contributions and industry impact",
+    "viewMore": "View Details",
+    "present": "Present",
+    "achievements": "Key Achievements"
+  },
+  "education": {
+    "title": "Education",
+    "subtitle": "Academic excellence and research achievements",
+    "viewMore": "View Details",
+    "present": "Present",
+    "achievements": "Key Achievements"
+  },
+  "skills": {
+    "title": "Technical Expertise",
+    "subtitle": "Comprehensive skill set across the full development stack",
+    "frontend": "Frontend Development",
+    "backend": "Backend & Languages",
+    "databases": "Database Management",
+    "cloud": "Cloud & DevOps",
+    "tools": "AI/ML & Tools"
+  },
+  "certifications": {
+    "title": "Certifications & Awards",
+    "viewCertificate": "View Certificate",
+    "awards": "Awards & Scholarships"
+  },
+  "recommendations": {
+    "title": "Recommendations"
+  },
+  "volunteering": {
+    "title": "Volunteer Experience"
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Have a project in mind? I'm available for internships, research opportunities, and collaborations. Let's create something extraordinary!",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Tell me about your project or opportunity",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "email": "Email Me",
+      "phone": "Call Me",
+      "linkedin": "Connect on LinkedIn",
+      "github": "View GitHub Profile",
+      "location": "Location"
+    }
+  },
+  "footer": {
+    "downloadCV": "Download CV",
+    "viewCV": "View CV Online"
+  }
+}

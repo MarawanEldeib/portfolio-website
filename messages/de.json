@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "experience": "Erfahrung",
+    "education": "Ausbildung",
+    "skills": "Fähigkeiten",
+    "certifications": "Zertifikate",
+    "recommendations": "Empfehlungen",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "greeting": "Hallo, ich bin",
+    "tagline": "Entwicklung innovativer Lösungen mit modernen Technologien",
+    "cta": {
+      "contact": "Kontakt aufnehmen",
+      "viewCV": "Lebenslauf ansehen",
+      "downloadCV": "Lebenslauf herunterladen"
+    }
+  },
+  "about": {
+    "title": "Über mich",
+    "intro": "Ich bin ein leidenschaftlicher Student der Softwaretechnik an der Universität Stuttgart mit fundierten Kenntnissen in KI/ML, Full-Stack-Entwicklung und Forschung. Meine Reise reicht von der Entwicklung preisgekrönter Machine-Learning-Modelle bis hin zur Erstellung von Produktionsanwendungen für Tausende von Benutzern. Ich bin immer offen für Möglichkeiten in Forschung, Praktika oder Zusammenarbeit. Lassen Sie uns gemeinsam etwas Großartiges schaffen!",
+    "downloadCV": "Lebenslauf herunterladen",
+    "viewCV": "Lebenslauf anzeigen",
+    "contactMe": "Kontakt aufnehmen",
+    "workPermit": "Arbeitserlaubnis",
+    "location": "Standort"
+  },
+  "projects": {
+    "title": "Ausgewählte Projekte",
+    "subtitle": "Innovative Lösungen, die modernste Technologien mit realer Wirkung verbinden",
+    "filter": {
+      "all": "Alle Projekte",
+      "ongoing": "In Bearbeitung",
+      "completed": "Abgeschlossen"
+    },
+    "viewCode": "Quellcode ansehen",
+    "liveDemo": "Live Demo",
+    "viewMore": "Alle Details anzeigen",
+    "highlights": "Wichtige Highlights"
+  },
+  "experience": {
+    "title": "Berufserfahrung",
+    "subtitle": "Professionelle Beiträge und Branchenwirkung",
+    "viewMore": "Details anzeigen",
+    "present": "Heute",
+    "achievements": "Wichtige Erfolge"
+  },
+  "education": {
+    "title": "Ausbildung",
+    "subtitle": "Akademische Exzellenz und Forschungserfolge",
+    "viewMore": "Details anzeigen",
+    "present": "Heute",
+    "achievements": "Wichtige Erfolge"
+  },
+  "skills": {
+    "title": "Technische Expertise",
+    "subtitle": "Umfassendes Fachwissen über den gesamten Entwicklungsstack",
+    "frontend": "Frontend-Entwicklung",
+    "backend": "Backend & Programmiersprachen",
+    "databases": "Datenbankverwaltung",
+    "cloud": "Cloud & DevOps",
+    "tools": "KI/ML & Tools"
+  },
+  "certifications": {
+    "title": "Zertifikate & Auszeichnungen",
+    "viewCertificate": "Zertifikat ansehen",
+    "awards": "Auszeichnungen & Stipendien"
+  },
+  "recommendations": {
+    "title": "Empfehlungen"
+  },
+  "volunteering": {
+    "title": "Freiwilligenarbeit"
+  },
+  "contact": {
+    "title": "Lassen Sie uns zusammenarbeiten",
+    "subtitle": "Haben Sie ein Projekt im Sinn? Ich bin verfügbar für Praktika, Forschungsmöglichkeiten und Kooperationen. Lassen Sie uns gemeinsam etwas Außergewöhnliches schaffen!",
+    "form": {
+      "name": "Ihr Name",
+      "email": "Ihre E-Mail",
+      "message": "Erzählen Sie mir von Ihrem Projekt oder Ihrer Möglichkeit",
+      "send": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet!",
+      "error": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+    },
+    "info": {
+      "email": "E-Mail senden",
+      "phone": "Anrufen",
+      "linkedin": "Auf LinkedIn verbinden",
+      "github": "GitHub-Profil ansehen",
+      "location": "Standort"
+    }
+  },
+  "footer": {
+    "downloadCV": "Lebenslauf herunterladen",
+    "viewCV": "Lebenslauf online ansehen"
+  }
+}

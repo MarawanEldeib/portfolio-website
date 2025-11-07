@@ -1,0 +1,18 @@
+# Security: Disallow sensitive paths
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Performance: Allow search engines to crawl CSS/JS
+Allow: /*.css$
+Allow: /*.js$
+
+# Sitemap
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
