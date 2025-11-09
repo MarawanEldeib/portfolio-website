@@ -28,6 +28,22 @@ export default function Header() {
     { href: `/${locale}#contact`, label: t('contact'), id: 'contact' },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 80; // Height of fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   useEffect(() => {
     let ticking = false;
     
@@ -77,6 +93,7 @@ export default function Header() {
               <li key={item.href}>
                 <a
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.id)}
                   className={`text-sm font-medium transition-all relative ${
                     activeSection === item.id
                       ? 'text-blue-600 dark:text-blue-400'
@@ -135,12 +152,12 @@ export default function Header() {
               <li key={item.href}>
                 <a
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.id)}
                   className={`block py-2 text-sm font-medium transition-colors ${
                     activeSection === item.id
                       ? 'text-blue-600 dark:text-blue-400 font-semibold'
                       : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                   {activeSection === item.id && ' •'}

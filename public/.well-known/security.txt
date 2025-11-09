@@ -1,0 +1,4 @@
+Contact: mailto:marawandeep13@gmail.com
+Preferred-Languages: en, de
+Canonical: https://marawan-eldeib.com/.well-known/security.txt
+Expires: 2026-12-31T23:59:59Z
