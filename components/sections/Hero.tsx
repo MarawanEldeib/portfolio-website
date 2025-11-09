@@ -2,23 +2,29 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Download, Mail, Eye } from 'lucide-react';
+import { Mail, Eye } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import CVPreviewModal from '@/components/ui/CVPreviewModal';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
+import DownloadButton from '@/components/ui/DownloadButton';
+
+// Lazy load CV modal (only when needed)
+const CVPreviewModal = dynamic(() => import('@/components/ui/CVPreviewModal'), {
+  ssr: false,
+});
 
 export default function Hero() {
   const t = useTranslations('hero');
   
-  const roles = [
+  const roles = useMemo(() => [
     "Software Engineering Student",
     "AI/ML Enthusiast",
     "Full-Stack Developer",
     "Cybersecurity Enthusiast",
     "Research Developer",
     "Tech Innovator",
-  ];
+  ], []);
   
   const [currentRole, setCurrentRole] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -124,14 +130,12 @@ export default function Hero() {
               >
                 <Eye size={20} />
               </button>
-              <a
+              <DownloadButton
                 href="/cv/Marawan_Eldeib_Resume.pdf"
-                download
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-zinc-300 dark:border-zinc-700 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                variant="outline"
               >
-                <Download size={20} />
                 {t('cta.downloadCV')}
-              </a>
+              </DownloadButton>
             </div>
             <a
               href="#contact"
@@ -144,11 +148,13 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <CVPreviewModal
-        isOpen={showCVPreview}
-        onClose={() => setShowCVPreview(false)}
-        cvUrl="/cv/Marawan_Eldeib_Resume.pdf"
-      />
+      {showCVPreview && (
+        <CVPreviewModal
+          isOpen={showCVPreview}
+          onClose={() => setShowCVPreview(false)}
+          cvUrl="/cv/Marawan_Eldeib_Resume.pdf"
+        />
+      )}
     </section>
   );
 }

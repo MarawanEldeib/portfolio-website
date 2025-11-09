@@ -2,22 +2,29 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Download, Mail, FileText, CheckCircle, MapPin, Eye } from 'lucide-react';
+import { FileText, CheckCircle, MapPin } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
-import { useState, useEffect } from 'react';
-import CVPreviewModal from '@/components/ui/CVPreviewModal';
+import { useState, useEffect, useRef } from 'react';
+import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
 
 export default function About() {
   const t = useTranslations('about');
-  const [showCVPreview, setShowCVPreview] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { 
+    threshold: 0.2,
+    freezeOnceVisible: true 
+  });
+  
   const [showWelcome, setShowWelcome] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showStrengths, setShowStrengths] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [showClosing, setShowClosing] = useState(false);
 
-  const triggerAnimation = () => {
-    // Reset all animations first
+  useEffect(() => {
+    if (!isVisible) return;
+
+    // Reset animations
     setShowWelcome(false);
     setShowAboutMe(false);
     setShowStrengths(false);
@@ -30,50 +37,10 @@ export default function About() {
     setTimeout(() => setShowStrengths(true), 1400);
     setTimeout(() => setShowContact(true), 2000);
     setTimeout(() => setShowClosing(true), 2600);
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            triggerAnimation();
-          }
-        });
-      },
-      { threshold: 0.2 } // Trigger when 20% of section is visible
-    );
-
-    const section = document.getElementById('about');
-    if (section) {
-      observer.observe(section);
-    }
-
-    // Listen for hash changes (menu clicks)
-    const handleHashChange = () => {
-      if (window.location.hash === '#about') {
-        // Small delay to ensure scroll has completed
-        setTimeout(triggerAnimation, 100);
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    
-    // Check if already on about section on mount
-    if (window.location.hash === '#about') {
-      setTimeout(triggerAnimation, 300);
-    }
-
-    return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
-      window.removeEventListener('hashchange', handleHashChange);
-    };
-  }, []);
+  }, [isVisible]);
 
   return (
-    <section id="about" className="py-20 px-4 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950">
+    <section ref={sectionRef} id="about" className="py-20 px-4 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950">
       <div className="container mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -196,7 +163,7 @@ export default function About() {
                     animate={{ opacity: showStrengths ? 1 : 0, x: showStrengths ? 0 : -10 }}
                     transition={{ duration: 0.3, delay: 0.6 }}
                   >
-                    • A belief that I can figure out anything if I put my mind to it - <span className="text-cyan-300 hover:text-cyan-200 cursor-pointer" onClick={() => setShowCVPreview(true)}>Download my CV to get a better idea</span>
+                    • A belief that I can figure out anything if I put my mind to it - <a href="#home" className="text-cyan-300 hover:text-cyan-200 underline">scroll up to download my CV</a>
                   </motion.p>
                 </motion.div>
               </motion.div>
@@ -272,41 +239,8 @@ export default function About() {
               </motion.div>
             </div>
           </div>
-
-          {/* Action buttons below terminal */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
-            <button
-              onClick={() => setShowCVPreview(true)}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors shadow-lg"
-              title="Preview CV"
-            >
-              <Eye size={20} />
-              <span>Preview CV</span>
-            </button>
-            <a
-              href="/cv/Marawan_Eldeib_Resume.pdf"
-              download
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors shadow-lg"
-            >
-              <Download size={20} />
-              {t('downloadCV')}
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-lg"
-            >
-              <Mail size={20} />
-              {t('contactMe')}
-            </a>
-          </div>
         </motion.div>
       </div>
-
-      <CVPreviewModal
-        isOpen={showCVPreview}
-        onClose={() => setShowCVPreview(false)}
-        cvUrl="/cv/Marawan_Eldeib_Resume.pdf"
-      />
     </section>
   );
 }

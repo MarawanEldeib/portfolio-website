@@ -6,62 +6,12 @@ import { useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 import { projects } from '@/lib/data';
 import Image from 'next/image';
-import { 
-  SiPython, SiJavascript, SiTypescript, SiCplusplus, SiC,
-  SiReact, SiNextdotjs, SiFlutter, SiGraphql, SiSpringboot,
-  SiPytorch, SiTensorflow, SiOpencv, SiNumpy, SiScikitlearn,
-  SiMysql, SiPostgresql, SiMongodb, SiRedis, SiFirebase,
-  SiDocker, SiKubernetes, SiGit, SiGithub, SiGitlab, SiJira, SiLinux,
-  SiAmazon, SiGooglecloud, SiDart
-} from 'react-icons/si';
+import { TECH_ICONS, fadeInUp } from '@/lib/constants';
+import { SiDart } from 'react-icons/si';
 
 export default function Projects() {
   const t = useTranslations('projects');
   const [filter, setFilter] = useState<'all' | 'completed' | 'ongoing'>('all');
-
-  // Tech icons mapping
-  const techIcons: { [key: string]: any } = {
-    'Python': SiPython,
-    'JavaScript': SiJavascript,
-    'TypeScript': SiTypescript,
-    'C++': SiCplusplus,
-    'C/C++': SiC,
-    'React': SiReact,
-    'Next.js': SiNextdotjs,
-    'Flutter': SiFlutter,
-    'GraphQL': SiGraphql,
-    'Spring Boot': SiSpringboot,
-    'PyTorch': SiPytorch,
-    'TensorFlow': SiTensorflow,
-    'OpenCV': SiOpencv,
-    'NumPy': SiNumpy,
-    'Scikit-learn': SiScikitlearn,
-    'MySQL': SiMysql,
-    'PostgreSQL': SiPostgresql,
-    'MongoDB': SiMongodb,
-    'Redis': SiRedis,
-    'Firebase': SiFirebase,
-    'Docker': SiDocker,
-    'Kubernetes': SiKubernetes,
-    'Git': SiGit,
-    'GitHub': SiGithub,
-    'GitLab': SiGitlab,
-    'Jira': SiJira,
-    'Linux': SiLinux,
-    'AWS': SiAmazon,
-    'GCP': SiGooglecloud,
-    'Dart': SiDart,
-    'REST APIs': SiGraphql, // Using GraphQL icon as placeholder
-    'Unit Testing': SiGithub, // Using GitHub icon as placeholder
-    'Computer Vision': SiOpencv,
-    'Deep Learning': SiPytorch,
-    'Research': SiPython,
-    'AI/ML': SiPytorch,
-    'Backend Development': SiPython,
-    'Frontend Design': SiReact,
-    'Data Extraction': SiPython,
-    'LLM': SiPython,
-  };
 
   const filteredProjects = projects.filter(
     (project) => filter === 'all' || project.status === filter
@@ -150,11 +100,11 @@ export default function Projects() {
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => {
-                      const IconComponent = techIcons[tech];
+                      const IconComponent = TECH_ICONS[tech];
                       return (
                         <span
                           key={tech}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-100 dark:bg-zinc-700 text-xs font-medium rounded-md hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900 dark:hover:text-blue-300 hover:scale-110 transition-all duration-200 cursor-pointer"
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-100 text-xs font-medium rounded-md hover:bg-blue-100 hover:text-blue-700 hover:scale-110 transition-all duration-200 cursor-pointer"
                         >
                           {IconComponent && <IconComponent className="w-3.5 h-3.5" />}
                           {tech}

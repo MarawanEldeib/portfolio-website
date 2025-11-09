@@ -3,10 +3,11 @@
     "home": "Startseite",
     "about": "Über mich",
     "projects": "Projekte",
-    "experience": "Erfahrung",
+    "experience": "Berufserfahrung",
     "education": "Ausbildung",
     "skills": "Fähigkeiten",
-    "certifications": "Zertifikate",
+    "certifications": "Zertifizierungen",
+    "volunteering": "Freiwilligenarbeit",
     "recommendations": "Empfehlungen",
     "contact": "Kontakt"
   },
@@ -73,7 +74,8 @@
     "title": "Empfehlungen"
   },
   "volunteering": {
-    "title": "Freiwilligenarbeit"
+    "title": "Freiwilligenarbeit",
+    "subtitle": "Einen Beitrag für wichtige Anliegen durch Technologie und Service leisten"
   },
   "contact": {
     "title": "Lassen Sie uns zusammenarbeiten",
@@ -82,6 +84,7 @@
       "name": "Ihr Name",
       "email": "Ihre E-Mail",
       "message": "Erzählen Sie mir von Ihrem Projekt oder Ihrer Möglichkeit",
+      "attachment": "Anhang",
       "send": "Nachricht senden",
       "sending": "Wird gesendet...",
       "success": "Nachricht erfolgreich gesendet!",

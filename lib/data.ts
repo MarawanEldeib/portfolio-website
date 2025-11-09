@@ -16,36 +16,16 @@ export const personalInfo = {
 };
 
 export const skills = {
-  frontend: [
-    { name: "Flutter", level: 85 },
-    { name: "GraphQL", level: 80 },
-    { name: "REST APIs", level: 85 },
-  ],
-  backend: [
-    { name: "Python", level: 90 },
-    { name: "Java", level: 85 },
-    { name: "C/C++", level: 80 },
-    { name: "Spring Boot", level: 75 },
-    { name: "SQL", level: 80 },
-  ],
-  databases: [
-    { name: "SQL", level: 80 },
-    { name: "Firebase", level: 75 },
-  ],
-  cloud: [
-    { name: "AWS", level: 75 },
-    { name: "Docker", level: 80 },
-    { name: "Git", level: 90 },
-    { name: "Linux", level: 85 },
-  ],
-  tools: [
-    { name: "PyTorch", level: 85 },
-    { name: "Detectron2", level: 80 },
-    { name: "scikit-learn", level: 80 },
-    { name: "Jira", level: 85 },
-    { name: "Confluence", level: 80 },
-    { name: "MCP Server", level: 70 },
-  ],
+  frontend: ["Flutter", "GraphQL", "REST APIs", "React", "Next.js"],
+  backend: ["Python", "Java", "C/C++", "Spring Boot", "Node.js"],
+  databases: ["SQL", "PostgreSQL", "MySQL", "Firebase", "MongoDB"],
+  cloud: ["AWS", "Docker", "Git", "Linux", "CI/CD"],
+  tools: ["PyTorch", "Detectron2", "scikit-learn", "Jira", "Confluence", "MCP Server"],
+};
+
+export const languages = {
+  fluent: ["Arabic", "English"],
+  intermediate: ["German"],
 };
 
 export const projects = [
@@ -102,13 +82,25 @@ export const projects = [
   },
 ];
 
-export const timeline = [
+export const timeline: Array<{
+  id: number;
+  type: string;
+  title: string;
+  organization: string;
+  organizationLogo?: string;
+  location: string;
+  startDate: string;
+  endDate: string | null;
+  description: string;
+  skills: string[];
+  achievements: string[];
+  certificateUrl: string;
+}> = [
   {
     id: 1,
     type: "work",
     title: "Student Assistant (Hiwi)",
     organization: "Fraunhofer IOSB",
-    organizationLogo: "/images/logos/fraunhofer-iosb.png", // Download logo and place here
     location: "Karlsruhe, Germany",
     startDate: "2025-04",
     endDate: null,
@@ -126,7 +118,6 @@ export const timeline = [
     type: "work",
     title: "Software Engineer Intern",
     organization: "AirAsia",
-    organizationLogo: "/images/logos/airasia.png", // Download logo and place here
     location: "Kuala Lumpur, Malaysia",
     startDate: "2023-07",
     endDate: "2023-10",
@@ -144,7 +135,6 @@ export const timeline = [
     type: "education",
     title: "Master of Science in Software Engineering",
     organization: "Stuttgart University",
-    organizationLogo: "/images/logos/stuttgart-university.png", // Download logo and place here
     location: "Stuttgart, Germany",
     startDate: "2024-10",
     endDate: null,
@@ -162,7 +152,6 @@ export const timeline = [
     type: "education",
     title: "Bachelor of Engineering (Hons.) in Computer Engineering",
     organization: "Multimedia University",
-    organizationLogo: "/images/logos/multimedia-university.png", // Download logo and place here
     location: "Cyberjaya, Malaysia",
     startDate: "2020-07",
     endDate: "2024-10",
@@ -291,9 +280,24 @@ export const volunteering: Array<{
   id: number;
   organization: string;
   role: string;
+  location?: string;
   startDate: string;
   endDate: string | null;
   description: string;
+  skills?: string[];
+  organizationLogo?: string;
+  websiteUrl?: string;
 }> = [
-  // Add your volunteer experience here
+  {
+    id: 1,
+    organization: "Tech for Good Initiative",
+    role: "Software Development Volunteer",
+    location: "Stuttgart, Germany",
+    startDate: "2024-01",
+    endDate: null, // null means ongoing
+    description: "Developing web applications for non-profit organizations to help them digitize their processes and reach more beneficiaries. Built responsive websites using Next.js and integrated donation systems.",
+    skills: ["Next.js", "React", "TypeScript", "Vercel"],
+    websiteUrl: "https://example.org",
+  },
+  // Add more volunteer experiences here
 ];

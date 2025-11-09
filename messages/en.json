@@ -7,6 +7,7 @@
     "education": "Education",
     "skills": "Skills",
     "certifications": "Certifications",
+    "volunteering": "Volunteering",
     "recommendations": "Recommendations",
     "contact": "Contact"
   },
@@ -73,7 +74,8 @@
     "title": "Recommendations"
   },
   "volunteering": {
-    "title": "Volunteer Experience"
+    "title": "Volunteer Experience",
+    "subtitle": "Contributing to causes I care about through technology and service"
   },
   "contact": {
     "title": "Let's Work Together",
@@ -82,6 +84,7 @@
       "name": "Your Name",
       "email": "Your Email",
       "message": "Tell me about your project or opportunity",
+      "attachment": "Attachment",
       "send": "Send Message",
       "sending": "Sending...",
       "success": "Message sent successfully!",
