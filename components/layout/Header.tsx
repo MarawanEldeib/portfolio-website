@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import ThemeToggle from '@/components/ui/ThemeToggle';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const t = useTranslations('nav');
@@ -44,6 +45,18 @@ export default function Header() {
     }
     setIsMenuOpen(false);
   };
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     let ticking = false;
@@ -138,45 +151,132 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <motion.div
+              animate={{ rotate: isMenuOpen ? 90 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.div>
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <ul className="md:hidden mt-4 space-y-2">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.id)}
-                  className={`block py-2 text-sm font-medium transition-colors ${
-                    activeSection === item.id
-                      ? 'text-blue-600 dark:text-blue-400 font-semibold'
-                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
-                  }`}
+        {/* Mobile Navigation - Full Screen Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="md:hidden fixed inset-0 top-[73px] bg-white dark:bg-zinc-950 z-40 overflow-y-auto"
+            >
+              <div className="container mx-auto px-4 py-6">
+                <motion.ul
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={{
+                    open: {
+                      transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+                    },
+                    closed: {
+                      transition: { staggerChildren: 0.03, staggerDirection: -1 }
+                    }
+                  }}
+                  className="space-y-1"
                 >
-                  {item.label}
-                  {activeSection === item.id && ' •'}
-                </a>
-              </li>
-            ))}
-            <li className="flex items-center gap-2 pt-2 border-t border-zinc-200 dark:border-zinc-700 mt-2">
-              <ThemeToggle />
-              <div className="w-px h-6 bg-zinc-300 dark:bg-zinc-700" />
-              <Link href="/en" className="px-3 py-1 text-sm rounded bg-zinc-100 dark:bg-zinc-800">
-                EN
-              </Link>
-              <Link href="/de" className="px-3 py-1 text-sm rounded bg-zinc-100 dark:bg-zinc-800">
-                DE
-              </Link>
-            </li>
-          </ul>
-        )}
+                  {navItems.map((item, index) => (
+                    <motion.li
+                      key={item.href}
+                      variants={{
+                        open: {
+                          opacity: 1,
+                          x: 0,
+                          transition: { type: 'spring', damping: 20, stiffness: 300 }
+                        },
+                        closed: {
+                          opacity: 0,
+                          x: 50,
+                          transition: { duration: 0.2 }
+                        }
+                      }}
+                    >
+                      <a
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item.id)}
+                        className={`
+                          block py-4 px-4 rounded-lg text-base font-medium transition-all
+                          ${activeSection === item.id
+                            ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 border-l-4 border-blue-600 dark:border-blue-400'
+                            : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 border-l-4 border-transparent'
+                          }
+                        `}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>{item.label}</span>
+                          {activeSection === item.id && (
+                            <motion.span
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400"
+                            />
+                          )}
+                        </div>
+                      </a>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+
+                {/* Language & Theme Controls */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ delay: 0.3 }}
+                  className="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                        Theme
+                      </span>
+                      <ThemeToggle />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                        Language
+                      </span>
+                      <Link
+                        href="/en"
+                        className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                          locale === 'en'
+                            ? 'bg-blue-600 text-white dark:bg-blue-500'
+                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                        }`}
+                      >
+                        EN
+                      </Link>
+                      <Link
+                        href="/de"
+                        className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                          locale === 'de'
+                            ? 'bg-blue-600 text-white dark:bg-blue-500'
+                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                        }`}
+                      >
+                        DE
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );
