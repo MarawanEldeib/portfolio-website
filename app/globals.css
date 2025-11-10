@@ -1,52 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Modern Adaptive Theme - Professional Dark/Light */
+  /* Force Dark Mode - Modern Professional Theme */
   
-  /* Light Mode Variables */
-  --background: #ffffff;
-  --background-secondary: #f8fafc;
-  --background-tertiary: #f1f5f9;
-  --card-background: #ffffff;
-  --card-border: #e2e8f0;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --border-color: #e2e8f0;
+  /* Dark Mode Variables (Always Active) */
+  --background: #0a0a0a;
+  --background-secondary: #18181b;
+  --background-tertiary: #27272a;
+  --card-background: #18181b;
+  --card-border: #3f3f46;
+  --text-primary: #fafafa;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --border-color: #3f3f46;
   
-  /* Accent Colors - Consistent in both modes */
+  /* Accent Colors */
   --accent-primary: #3b82f6;
   --accent-secondary: #8b5cf6;
   --accent-success: #10b981;
   --accent-warning: #f59e0b;
   --accent-error: #ef4444;
   
-  /* Shadows - Light Mode */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-
-/* Dark Mode - Modern Professional Theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --background-secondary: #18181b;
-    --background-tertiary: #27272a;
-    --card-background: #18181b;
-    --card-border: #3f3f46;
-    --text-primary: #fafafa;
-    --text-secondary: #d4d4d8;
-    --text-muted: #a1a1aa;
-    --border-color: #3f3f46;
-    
-    /* Shadows - Dark Mode */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.6), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.7), 0 8px 10px -6px rgb(0 0 0 / 0.5);
-  }
+  /* Shadows - Dark Mode */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.6), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.7), 0 8px 10px -6px rgb(0 0 0 / 0.5);
 }
 
 html {
