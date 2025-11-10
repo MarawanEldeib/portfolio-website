@@ -90,7 +90,7 @@ Allow: /*.css$
 Allow: /*.js$
 
 # Sitemap
-Sitemap: https://marawaneldeib.com/sitemap.xml
+Sitemap: https://marawaneldeib.vercel.app/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
