@@ -94,7 +94,7 @@ export default function Projects() {
 
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+                  <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-justify">
                     {project.description}
                   </p>
 
@@ -104,7 +104,7 @@ export default function Projects() {
                       return (
                         <span
                           key={tech}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-100 text-xs font-medium rounded-md hover:bg-blue-100 hover:text-blue-700 hover:scale-110 transition-all duration-200 cursor-pointer"
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-100 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-xs font-medium rounded-md hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 hover:scale-110 transition-all duration-200 cursor-pointer"
                         >
                           {IconComponent && <IconComponent className="w-3.5 h-3.5" />}
                           {tech}

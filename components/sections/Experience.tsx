@@ -84,7 +84,7 @@ export default function Experience() {
                     </span>
                   </div>
 
-                  <p className="text-zinc-700 dark:text-zinc-300 mb-4">
+                  <p className="text-zinc-700 dark:text-zinc-300 mb-4 text-justify">
                     {item.description}
                   </p>
 

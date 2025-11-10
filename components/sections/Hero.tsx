@@ -94,7 +94,7 @@ export default function Hero() {
               <span className="inline-block w-0.5 h-6 md:h-8 bg-blue-600 dark:bg-blue-400 ml-1 animate-pulse"></span>
             </p>
           </div>
-          <p className="text-lg text-zinc-500 dark:text-zinc-500 mb-4 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-500 dark:text-zinc-500 mb-4 max-w-2xl mx-auto text-justify">
             {t('tagline')}
           </p>
 
