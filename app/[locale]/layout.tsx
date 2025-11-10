@@ -27,7 +27,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.vercel.app'),
   title: {
     default: "Marawan Eldeib - Software Engineering Student & AI Developer",
     template: "%s | Marawan Eldeib"
@@ -51,6 +51,16 @@ export const metadata: Metadata = {
   authors: [{ name: 'Marawan Eldeib' }],
   creator: 'Marawan Eldeib',
   publisher: 'Marawan Eldeib',
+  alternates: {
+    canonical: 'https://marawaneldeib.vercel.app',
+    languages: {
+      'en': 'https://marawaneldeib.vercel.app/en',
+      'de': 'https://marawaneldeib.vercel.app/de',
+    },
+  },
+  verification: {
+    google: 'google-site-verification-placeholder',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
