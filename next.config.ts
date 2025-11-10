@@ -41,9 +41,14 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
           },
+        ],
+      },
+      {
+        source: '/(en|de)',
+        headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, must-revalidate'
+            value: 'public, max-age=0, must-revalidate'
           },
         ],
       },
@@ -62,6 +67,15 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable'
+          },
+        ],
+      },
+      {
+        source: '/cv/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, immutable'
           },
         ],
       },
@@ -102,6 +116,12 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
     cpus: 4,
     scrollRestoration: true,
+    // Enable back/forward cache support
+    workerThreads: false,
+    // Optimize for bfcache
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
   },
   
   /* Performance: Optimize font loading */
