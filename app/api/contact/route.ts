@@ -141,7 +141,7 @@ export async function POST(request: NextRequest) {
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
-    const file = formData.get('file') as File | null;
+    const files = formData.getAll('files') as File[];
     const url = formData.get('url') as string | null;
 
     // Validate required fields
@@ -161,34 +161,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate file if provided
-    if (file) {
-      // Check file size
-      if (file.size > MAX_FILE_SIZE) {
+    // Validate files if provided
+    if (files.length > 0) {
+      // Check total number of files
+      if (files.length > 5) {
         return NextResponse.json(
-          { error: 'File size exceeds 10MB limit' },
+          { error: 'Maximum 5 files allowed' },
           { status: 400 }
         );
       }
 
-      // Check file type
-      if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-        return NextResponse.json(
-          { error: 'Invalid file type. Only PDF and Word documents are allowed' },
-          { status: 400 }
-        );
+      // Validate each file
+      for (const file of files) {
+        // Check file size
+        if (file.size > MAX_FILE_SIZE) {
+          return NextResponse.json(
+            { error: `File "${file.name}" exceeds 10MB limit` },
+            { status: 400 }
+          );
+        }
+
+        // Check file type
+        if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+          return NextResponse.json(
+            { error: `Invalid file type for "${file.name}". Only PDF and Word documents are allowed` },
+            { status: 400 }
+          );
+        }
+
+        // Validate magic bytes (basic security)
+        const isValidFile = await validateFileMagicBytes(file);
+        if (!isValidFile) {
+          return NextResponse.json(
+            { error: `Invalid file format detected for "${file.name}"` },
+            { status: 400 }
+          );
+        }
       }
 
-      // Validate magic bytes (basic security)
-      const isValidFile = await validateFileMagicBytes(file);
-      if (!isValidFile) {
-        return NextResponse.json(
-          { error: 'Invalid file format detected' },
-          { status: 400 }
-        );
-      }
-
-      // TODO: Virus scanning (VirusTotal API or ClamAV)
+      // TODO: Virus scanning for all files (VirusTotal API or ClamAV)
       // This requires additional API key and implementation
       // See FILE_UPLOAD.md for implementation details
     }
@@ -213,7 +224,7 @@ export async function POST(request: NextRequest) {
         <p><strong>Message:</strong></p>
         <p style="white-space: pre-wrap;">${message}</p>
         ${url ? `<p><strong>Attached URL:</strong> <a href="${url}" target="_blank">${url}</a></p>` : ''}
-        ${file ? `<p><strong>Attached File:</strong> ${file.name} (${(file.size / 1024).toFixed(2)} KB)</p>` : ''}
+        ${files.length > 0 ? `<p><strong>Attached Files:</strong> ${files.map(f => `${f.name} (${(f.size / 1024).toFixed(2)} KB)`).join(', ')}</p>` : ''}
       `;
 
       const emailData: any = {
@@ -224,15 +235,15 @@ export async function POST(request: NextRequest) {
         reply_to: email,
       };
 
-      // Add attachment if file is provided
-      if (file) {
-        const fileBuffer = Buffer.from(await file.arrayBuffer());
-        emailData.attachments = [
-          {
+      // Add attachments if files are provided
+      if (files.length > 0) {
+        const attachments = await Promise.all(
+          files.map(async (file) => ({
             filename: file.name,
-            content: fileBuffer,
-          },
-        ];
+            content: Buffer.from(await file.arrayBuffer()),
+          }))
+        );
+        emailData.attachments = attachments;
       }
 
       const resend = getResendClient();
@@ -242,7 +253,7 @@ export async function POST(request: NextRequest) {
       console.log('Contact form submission sent:', {
         name,
         email,
-        hasFile: !!file,
+        filesCount: files.length,
         hasUrl: !!url,
       });
 

@@ -17,7 +17,8 @@ export default function Contact() {
     email: '',
     message: '',
   });
-  const [attachment, setAttachment] = useState<File | string | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
+  const [url, setUrl] = useState('');
   const [attachmentError, setAttachmentError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -37,12 +38,14 @@ export default function Contact() {
       data.append('email', formData.email);
       data.append('message', formData.message);
       
-      if (attachment) {
-        if (typeof attachment === 'string') {
-          data.append('url', attachment);
-        } else {
-          data.append('file', attachment);
-        }
+      // Add multiple files
+      files.forEach(file => {
+        data.append('files', file);
+      });
+      
+      // Add URL if provided
+      if (url) {
+        data.append('url', url);
       }
       
       // Send to API endpoint
@@ -59,7 +62,8 @@ export default function Contact() {
       
       // Reset form
       setFormData({ name: '', email: '', message: '' });
-      setAttachment(null);
+      setFiles([]);
+      setUrl('');
       setShowSuccess(true);
     } catch (error) {
       console.error('Form submission error:', error);
@@ -154,7 +158,8 @@ export default function Contact() {
                     {t('form.attachment')} <span className="text-zinc-500 dark:text-zinc-400 text-xs font-normal">(Optional)</span>
                   </label>
                   <AttachmentUpload
-                    onAttachmentChange={setAttachment}
+                    onFilesChange={setFiles}
+                    onUrlChange={setUrl}
                     error={attachmentError}
                     onError={setAttachmentError}
                   />
