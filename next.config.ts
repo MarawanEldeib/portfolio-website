@@ -41,6 +41,28 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
           },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate'
+          },
+        ],
+      },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          },
         ],
       },
     ];
@@ -76,11 +98,9 @@ const nextConfig: NextConfig = {
   
   /* Experimental features for performance */
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', 'swiper', 'react-icons'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-icons'],
     optimizeCss: true,
-    // Better runtime performance
     cpus: 4,
-    // Faster page transitions
     scrollRestoration: true,
   },
   

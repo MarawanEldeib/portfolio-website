@@ -14,18 +14,25 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: 'swap',
+  preload: true,
+  fallback: ['ui-monospace', 'monospace'],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  title: "Marawan Eldeib - Software Engineering Student & Developer",
-  description: "Master's student in Software Engineering at Stuttgart University with experience in AI, deep learning, and full-stack development. Specializing in Python, Java, and machine learning solutions.",
+  title: {
+    default: "Marawan Eldeib - Software Engineering Student & AI Developer",
+    template: "%s | Marawan Eldeib"
+  },
+  description: "Master's student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB specializing in computer vision and deep learning. Expert in Python, Java, Flutter, and modern web technologies.",
   keywords: [
     'Software Engineer',
     'Full-Stack Developer',
@@ -47,9 +54,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://marawan-eldeib.com',
-    title: 'Marawan Eldeib - Software Engineering Student & Developer',
-    description: 'Master\'s student in Software Engineering at Stuttgart University with experience in AI, deep learning, and full-stack development.',
+    url: 'https://marawaneldeib.vercel.app',
+    title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
+    description: 'Master\'s student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB.',
     siteName: 'Marawan Eldeib Portfolio',
     images: [
       {
@@ -62,8 +69,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Marawan Eldeib - Software Engineering Student & Developer',
-    description: 'Master\'s student in Software Engineering with AI/ML expertise',
+    title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
+    description: 'Master\'s student in Software Engineering with 3+ years of AI/ML expertise at Fraunhofer IOSB and AirAsia',
     images: ['/images/Marawan.jpeg'],
   },
   robots: {
@@ -94,28 +101,14 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* Performance: Preconnect to external domains */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Performance: DNS prefetch for faster lookups */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        {/* Performance: Preconnect to critical domains */}
+        <link rel="preconnect" href="https://vercel.live" />
+        <link rel="dns-prefetch" href="https://vercel.live" />
         
         {/* SEO: Structured Data for ATS */}
         <StructuredData />
         
-        {/* Security: Content Security Policy */}
-        <meta httpEquiv="Content-Security-Policy" content="
-          default-src 'self';
-          script-src 'self' 'unsafe-inline' 'unsafe-eval';
-          style-src 'self' 'unsafe-inline';
-          img-src 'self' data: https:;
-          font-src 'self' data:;
-          connect-src 'self';
-          frame-ancestors 'self';
-          base-uri 'self';
-          form-action 'self';
-        " />
+        {/* Performance: Inline critical theme script to prevent FOUC */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
