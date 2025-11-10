@@ -73,6 +73,7 @@ export default function Volunteering() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-700"
+                            aria-label={`Visit ${volunteer.organization} website`}
                           >
                             <ExternalLink size={18} />
                           </a>

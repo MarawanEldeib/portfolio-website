@@ -90,9 +90,9 @@ export default function Recommendations() {
 
                     {/* Name and Title */}
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                      <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                         {recommendation.name}
-                      </h4>
+                      </h3>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
                         {recommendation.title}
                       </p>
