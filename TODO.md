@@ -43,4 +43,5 @@
 - Loading screen simplification
 - Skills redesign, Languages section
 - Dark mode, File/URL upload
-- Analytics, Form validation
+- Form validation
+- **Vercel Analytics integration** (custom event tracking for CV downloads, form submissions, certificate views, external links)

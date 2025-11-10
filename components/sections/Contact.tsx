@@ -7,7 +7,7 @@ import { Mail, Phone, Linkedin, Send, MapPin } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import CopyButton from '@/components/ui/CopyButton';
 import AttachmentUpload from '@/components/ui/AttachmentUpload';
-import { trackFormSubmit, trackFileUpload, trackURLAttach } from '@/lib/analytics';
+import { trackFormSubmit } from '@/lib/analytics';
 
 export default function Contact() {
   const t = useTranslations('contact');
@@ -26,19 +26,8 @@ export default function Contact() {
     setAttachmentError('');
     
     try {
-      // Determine attachment type
-      const attachmentType = typeof attachment === 'string' ? 'url' : attachment ? 'file' : undefined;
-      
       // Track analytics
-      trackFormSubmit(!!attachment, attachmentType);
-      
-      if (attachment) {
-        if (typeof attachment === 'string') {
-          trackURLAttach(attachment);
-        } else {
-          trackFileUpload(attachment.name, attachment.size, attachment.type);
-        }
-      }
+      trackFormSubmit();
       
       // Create FormData for file upload
       const data = new FormData();

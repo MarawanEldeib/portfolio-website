@@ -1,15 +1,21 @@
 /**
  * Analytics Tracking Utility
  * 
- * Comprehensive event tracking for all user interactions:
- * - CV downloads
+ * Integrated with Vercel Analytics for comprehensive tracking:
+ * - Custom events sent to Vercel Analytics
+ * - Automatic page views (handled by Vercel)
+ * - Automatic performance metrics (handled by Vercel Speed Insights)
+ * 
+ * What We Track:
+ * - CV downloads & previews
  * - Certificate views
- * - Code project clicks
- * - YouTube video plays
- * - File uploads
+ * - Project clicks (GitHub, demos)
  * - Form submissions
  * - External link clicks
+ * - Email/phone copy actions
  */
+
+import { track } from '@vercel/analytics';
 
 // Track event types
 export type TrackingEvent =
@@ -19,56 +25,24 @@ export type TrackingEvent =
   | 'certificate_click'
   | 'project_click'
   | 'github_click'
-  | 'youtube_play'
-  | 'youtube_click'
   | 'form_submit'
-  | 'file_upload'
-  | 'url_attach'
   | 'link_click'
   | 'email_copy'
   | 'phone_copy'
   | 'contact_click';
 
-interface TrackingData {
-  event: TrackingEvent;
-  properties?: Record<string, string | number | boolean>;
-  timestamp?: number;
-}
-
 /**
- * Track an event with Vercel Analytics or Google Analytics
+ * Track an event with Vercel Analytics
  */
 export function trackEvent(event: TrackingEvent, properties?: Record<string, string | number | boolean>) {
-  const data: TrackingData = {
-    event,
-    properties,
-    timestamp: Date.now(),
-  };
-
   // Log to console in development
   if (process.env.NODE_ENV === 'development') {
-    console.log('📊 Analytics Event:', data);
+    console.log('📊 Analytics Event:', event, properties);
   }
 
-  // Vercel Analytics (if installed)
-  if (typeof window !== 'undefined' && 'va' in window) {
-    // @ts-ignore - Vercel Analytics
-    window.va('event', event, properties);
-  }
-
-  // Google Analytics 4 (if installed)
-  if (typeof window !== 'undefined' && 'gtag' in window) {
-    // @ts-ignore - Google Analytics
-    window.gtag('event', event, properties);
-  }
-
-  // Send to custom analytics endpoint (optional)
-  if (process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT) {
-    fetch(process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    }).catch(err => console.error('Analytics error:', err));
+  // Send to Vercel Analytics
+  if (typeof window !== 'undefined') {
+    track(event, properties);
   }
 }
 
@@ -124,45 +98,10 @@ export function trackGitHubClick(repoName: string) {
 }
 
 /**
- * Track YouTube video interaction
- */
-export function trackYouTube(videoTitle: string, action: 'click' | 'play' | 'pause' | 'complete') {
-  trackEvent(action === 'play' ? 'youtube_play' : 'youtube_click', {
-    video_title: videoTitle,
-    action,
-    location: window.location.pathname,
-  });
-}
-
-/**
  * Track contact form submission
  */
-export function trackFormSubmit(hasAttachment: boolean, attachmentType?: 'file' | 'url') {
+export function trackFormSubmit() {
   trackEvent('form_submit', {
-    has_attachment: hasAttachment,
-    attachment_type: attachmentType || 'none',
-    location: window.location.pathname,
-  });
-}
-
-/**
- * Track file upload
- */
-export function trackFileUpload(fileName: string, fileSize: number, fileType: string) {
-  trackEvent('file_upload', {
-    file_name: fileName,
-    file_size: fileSize,
-    file_type: fileType,
-    location: window.location.pathname,
-  });
-}
-
-/**
- * Track URL attachment
- */
-export function trackURLAttach(url: string) {
-  trackEvent('url_attach', {
-    url_domain: new URL(url).hostname,
     location: window.location.pathname,
   });
 }
@@ -195,63 +134,5 @@ export function trackContactClick(method: 'email' | 'phone' | 'linkedin' | 'what
   trackEvent('contact_click', {
     method,
     location: window.location.pathname,
-  });
-}
-
-/**
- * Batch tracking for page view with engagement metrics
- */
-export function trackPageView(pagePath: string, referrer?: string) {
-  trackEvent('link_click', {
-    page_path: pagePath,
-    referrer: referrer || document.referrer,
-    screen_width: window.innerWidth,
-    screen_height: window.innerHeight,
-  });
-}
-
-/**
- * Track engagement time on page (call on page unload)
- */
-let pageLoadTime = Date.now();
-
-export function trackEngagementTime() {
-  const timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // seconds
-  
-  trackEvent('link_click', {
-    time_on_page: timeOnPage,
-    location: window.location.pathname,
-  });
-}
-
-// Auto-track engagement time on page unload
-if (typeof window !== 'undefined') {
-  window.addEventListener('beforeunload', trackEngagementTime);
-  
-  // Reset timer on page load
-  window.addEventListener('load', () => {
-    pageLoadTime = Date.now();
-  });
-}
-
-/**
- * Helper to track all external links automatically
- */
-export function setupAutoTracking() {
-  if (typeof window === 'undefined') return;
-
-  // Track all external link clicks
-  document.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
-    const anchor = target.closest('a');
-
-    if (anchor && anchor.href) {
-      const url = new URL(anchor.href, window.location.origin);
-      
-      // Only track external links
-      if (url.origin !== window.location.origin) {
-        trackLinkClick(anchor.href, anchor.textContent || anchor.getAttribute('aria-label') || 'Unknown');
-      }
-    }
   });
 }
