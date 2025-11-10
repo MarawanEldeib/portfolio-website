@@ -1,8 +1,9 @@
 # TODO
 
-## 🔥 Priority 1 - Email Testing
+## � Priority 1 - Email Testing
 - [ ] Get Resend API key from [resend.com/api-keys](https://resend.com/api-keys)
-- [ ] Add real API key to `.env.local`
+- [ ] Add real API key to Vercel environment variables
+- [ ] Redeploy to activate email functionality
 - [ ] Test contact form email delivery
 - [ ] Verify file attachments work
 - [ ] (Production) Verify domain in Resend dashboard
@@ -10,19 +11,14 @@
 
 ## 📝 Priority 2 - Content Updates
 - [ ] Add organization logos to `/public/images/logos/`
+  - [ ] Fraunhofer IOSB logo
+  - [ ] AirAsia logo
+  - [ ] University of Stuttgart logo
+  - [ ] Multimedia University logo
 - [ ] Add project screenshots
 - [ ] Add certificate images
 - [ ] Update certificate URLs (replace placeholders)
 - [ ] Add project video demos (optional)
-
-## 🚀 Priority 3 - Deploy
-- [ ] Push final changes to GitHub
-- [ ] Deploy to Vercel
-- [ ] Add environment variables in Vercel dashboard:
-  - `RESEND_API_KEY`
-  - `CONTACT_EMAIL`
-  - `NEXT_PUBLIC_SITE_URL`
-- [ ] Enable Vercel Analytics (optional)
 
 ## ⚡ Future Enhancements
 - [ ] Add CAPTCHA (reCAPTCHA v3)

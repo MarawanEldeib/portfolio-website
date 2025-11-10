@@ -78,7 +78,18 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion', 'swiper', 'react-icons'],
     optimizeCss: true,
+    // Better runtime performance
+    cpus: 4,
+    // Faster page transitions
+    scrollRestoration: true,
   },
-};
-
-export default withNextIntl(nextConfig);
+  
+  /* Performance: Optimize font loading */
+  poweredByHeader: false,
+  
+  /* Better caching */
+  onDemandEntries: {
+    maxInactiveAge: 60 * 1000,
+    pagesBufferLength: 5,
+  },
+};export default withNextIntl(nextConfig);
