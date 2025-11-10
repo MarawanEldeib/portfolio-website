@@ -2,7 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization of Resend client to avoid build-time errors
+let resendClient: Resend | null = null;
+function getResendClient() {
+  if (!resendClient) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error('RESEND_API_KEY environment variable is not set');
+    }
+    resendClient = new Resend(apiKey);
+  }
+  return resendClient;
+}
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ALLOWED_FILE_TYPES = [
@@ -224,6 +235,7 @@ export async function POST(request: NextRequest) {
         ];
       }
 
+      const resend = getResendClient();
       await resend.emails.send(emailData);
 
       // Log successful submission
