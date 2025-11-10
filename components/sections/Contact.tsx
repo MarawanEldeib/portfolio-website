@@ -7,6 +7,7 @@ import { Mail, Phone, Linkedin, Send, MapPin } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import CopyButton from '@/components/ui/CopyButton';
 import AttachmentUpload from '@/components/ui/AttachmentUpload';
+import SuccessModal from '@/components/ui/SuccessModal';
 import { trackFormSubmit } from '@/lib/analytics';
 
 export default function Contact() {
@@ -19,6 +20,7 @@ export default function Contact() {
   const [attachment, setAttachment] = useState<File | string | null>(null);
   const [attachmentError, setAttachmentError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +60,7 @@ export default function Contact() {
       // Reset form
       setFormData({ name: '', email: '', message: '' });
       setAttachment(null);
-      alert(result.message || 'Message sent successfully!');
+      setShowSuccess(true);
     } catch (error) {
       console.error('Form submission error:', error);
       alert(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
@@ -252,6 +254,14 @@ export default function Contact() {
           </div>
         </motion.div>
       </div>
+
+      {/* Success Modal */}
+      <SuccessModal
+        isOpen={showSuccess}
+        onClose={() => setShowSuccess(false)}
+        title="Message Sent Successfully! 🎉"
+        message="Thank you for reaching out! I've received your message and will get back to you as soon as possible. Usually within 24 hours."
+      />
     </section>
   );
 }
