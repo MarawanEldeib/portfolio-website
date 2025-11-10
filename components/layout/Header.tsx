@@ -24,6 +24,7 @@ export default function Header() {
     { href: `/${locale}#experience`, label: t('experience'), id: 'experience' },
     { href: `/${locale}#education`, label: t('education'), id: 'education' },
     { href: `/${locale}#certifications`, label: t('certifications'), id: 'certifications' },
+    { href: `/${locale}#volunteering`, label: t('volunteering'), id: 'volunteering' },
     { href: `/${locale}#recommendations`, label: t('recommendations'), id: 'recommendations' },
     { href: `/${locale}#contact`, label: t('contact'), id: 'contact' },
   ];

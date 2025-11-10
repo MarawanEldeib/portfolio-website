@@ -160,14 +160,32 @@ export default function Contact() {
                   />
                 </div>
 
-                <button
+                <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 active:bg-blue-800 dark:active:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium shadow-md hover:shadow-lg"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 dark:hover:from-blue-600 dark:hover:to-blue-700 active:from-blue-800 active:to-blue-900 dark:active:from-blue-700 dark:active:to-blue-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl relative overflow-hidden group"
                 >
-                  <Send size={20} />
-                  {isSubmitting ? 'Sending...' : t('form.send')}
-                </button>
+                  {/* Animated background shimmer */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    initial={{ x: '-100%' }}
+                    animate={{ x: isSubmitting ? '100%' : '-100%' }}
+                    transition={{ duration: 1.5, repeat: isSubmitting ? Infinity : 0, ease: 'linear' }}
+                  />
+                  
+                  <motion.div
+                    animate={isSubmitting ? { rotate: 360 } : { rotate: 0 }}
+                    transition={{ duration: 1, repeat: isSubmitting ? Infinity : 0, ease: 'linear' }}
+                  >
+                    <Send size={20} />
+                  </motion.div>
+                  
+                  <span className="relative">
+                    {isSubmitting ? 'Sending...' : t('form.send')}
+                  </span>
+                </motion.button>
               </form>
             </motion.div>
 
@@ -236,19 +254,6 @@ export default function Contact() {
                     </div>
                   </a>
                 </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 rounded-xl p-8 text-white shadow-lg">
-                <h3 className="text-xl font-semibold mb-3">Ready to collaborate?</h3>
-                <p className="mb-6 opacity-95">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-                </p>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="inline-block px-6 py-3 bg-white text-blue-600 dark:text-blue-700 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-100 transition-colors font-medium shadow-md hover:shadow-lg"
-                >
-                  Get in Touch
-                </a>
               </div>
             </motion.div>
           </div>
