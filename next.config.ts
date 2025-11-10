@@ -98,7 +98,7 @@ const nextConfig: NextConfig = {
   
   /* Experimental features for performance */
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-icons'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-icons', 'swiper'],
     optimizeCss: true,
     cpus: 4,
     scrollRestoration: true,

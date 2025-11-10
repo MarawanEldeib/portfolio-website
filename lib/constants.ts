@@ -20,17 +20,23 @@ export const LOADING_SPINNER_CLASSES = {
   spinner: 'animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600',
 } as const;
 
-// Common Animation Variants
+// Common Animation Variants - Optimized for performance
 export const fadeInUp = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: ANIMATION_DURATIONS.NORMAL },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-50px' },
+  transition: { 
+    duration: ANIMATION_DURATIONS.FAST,
+  },
 };
 
 export const fadeIn = {
   initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: ANIMATION_DURATIONS.NORMAL },
+  whileInView: { opacity: 1 },
+  viewport: { once: true },
+  transition: { 
+    duration: ANIMATION_DURATIONS.FAST,
+  },
 };
 
 export const slideInLeft = {
