@@ -168,23 +168,23 @@ export default function Header() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="md:hidden fixed inset-0 top-[73px] bg-white dark:bg-zinc-950 z-40 overflow-y-auto"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-lg max-h-[calc(100vh-73px)] overflow-y-auto"
             >
-              <div className="container mx-auto px-4 py-6">
+              <div className="container mx-auto px-4 py-4">
                 <motion.ul
                   initial="closed"
                   animate="open"
                   exit="closed"
                   variants={{
                     open: {
-                      transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+                      transition: { staggerChildren: 0.07, delayChildren: 0.1 }
                     },
                     closed: {
-                      transition: { staggerChildren: 0.03, staggerDirection: -1 }
+                      transition: { staggerChildren: 0.05, staggerDirection: -1 }
                     }
                   }}
                   className="space-y-1"
@@ -195,12 +195,12 @@ export default function Header() {
                       variants={{
                         open: {
                           opacity: 1,
-                          x: 0,
+                          y: 0,
                           transition: { type: 'spring', damping: 20, stiffness: 300 }
                         },
                         closed: {
                           opacity: 0,
-                          x: 50,
+                          y: -10,
                           transition: { duration: 0.2 }
                         }
                       }}
@@ -209,7 +209,7 @@ export default function Header() {
                         href={item.href}
                         onClick={(e) => handleNavClick(e, item.id)}
                         className={`
-                          block py-4 px-4 rounded-lg text-base font-medium transition-all
+                          block py-3 px-4 rounded-lg text-base font-medium transition-all
                           ${activeSection === item.id
                             ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 border-l-4 border-blue-600 dark:border-blue-400'
                             : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 border-l-4 border-transparent'
@@ -233,11 +233,11 @@ export default function Header() {
 
                 {/* Language & Theme Controls */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800"
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ delay: 0.4 }}
+                  className="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
@@ -252,7 +252,7 @@ export default function Header() {
                       </span>
                       <Link
                         href="/en"
-                        className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
                           locale === 'en'
                             ? 'bg-blue-600 text-white dark:bg-blue-500'
                             : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
@@ -262,7 +262,7 @@ export default function Header() {
                       </Link>
                       <Link
                         href="/de"
-                        className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
                           locale === 'de'
                             ? 'bg-blue-600 text-white dark:bg-blue-500'
                             : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
