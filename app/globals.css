@@ -1,11 +1,17 @@
 @import "tailwindcss";
 
+@variant dark (.dark &);
+
 /* Force dark mode globally */
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
   overflow-x: hidden;
   background: #0a0a0a;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 :root {

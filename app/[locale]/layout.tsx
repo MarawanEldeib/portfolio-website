@@ -111,7 +111,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
         {/* Performance: Preconnect to critical domains */}
         <link rel="preconnect" href="https://vercel.live" />
@@ -128,7 +128,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-500 dark`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-500`}
         suppressHydrationWarning
       >
         <LoadingIndicator />

@@ -60,7 +60,7 @@ export default function Hero() {
   }, [displayText, isDeleting, currentRole, roles]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20 dark:from-zinc-950 dark:via-blue-950/20 dark:to-purple-950/20">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-b from-zinc-950 via-blue-950/20 to-purple-950/20">
       <div className="container mx-auto max-w-4xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ export default function Hero() {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="mb-6"
           >
-            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-2xl overflow-hidden ring-4 ring-blue-100 dark:ring-blue-900">
+            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-2xl overflow-hidden ring-4 ring-blue-900">
               <Image
                 src="/images/Marawan.jpeg"
                 alt={personalInfo.name}
@@ -86,7 +86,7 @@ export default function Hero() {
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            {t('greeting')} <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">{personalInfo.name}</span>
+            {t('greeting')} <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">{personalInfo.name}</span>
           </h1>
           <div className="h-16 md:h-20 flex items-center justify-center">
             <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-semibold">
