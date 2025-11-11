@@ -1,6 +1,13 @@
 'use client';
 
+import { useEffect } from 'react';
+import { enforceDarkMode } from '@/lib/theme.config';
+
 export default function ThemeToggle() {
-  // Theme toggle removed - single light mode only
+  // Force dark mode always
+  useEffect(() => {
+    enforceDarkMode();
+  }, []);
+  
   return null;
 }

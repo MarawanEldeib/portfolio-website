@@ -1,7 +1,8 @@
 'use client';
 
-import { X, Download } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import DownloadButton from './DownloadButton';
 
 interface CVPreviewModalProps {
   isOpen: boolean;
@@ -70,14 +71,13 @@ export default function CVPreviewModal({ isOpen, onClose, cvUrl }: CVPreviewModa
         <div className="flex items-center justify-between p-4 border-b border-zinc-200 dark:border-zinc-700">
           <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">CV Preview</h3>
           <div className="flex items-center gap-2">
-            <a
+            <DownloadButton
               href={cvUrl}
-              download="Marawan_Eldeib_Resume.pdf"
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-sm font-medium"
+              variant="solid"
+              className="text-sm"
             >
-              <Download size={16} />
               Download
-            </a>
+            </DownloadButton>
             <button
               onClick={onClose}
               className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"

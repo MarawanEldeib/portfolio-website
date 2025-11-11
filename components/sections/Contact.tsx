@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslations } from 'next-intl';
@@ -7,7 +8,7 @@ import { Mail, Phone, Linkedin, Send, MapPin, AlertCircle } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import CopyButton from '@/components/ui/CopyButton';
 import AttachmentUpload from '@/components/ui/AttachmentUpload';
-import SuccessModal from '@/components/ui/SuccessModal';
+import toast from 'react-hot-toast';
 import { trackFormSubmit } from '@/lib/analytics';
 
 export default function Contact() {
@@ -32,7 +33,6 @@ export default function Contact() {
     message: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
 
   // Validate individual field
   const validateField = (name: string, value: string): string => {
@@ -185,12 +185,44 @@ export default function Contact() {
         // Handle specific error types
         if (result.error.includes('file') || result.error.includes('File')) {
           setErrors({ ...errors, attachment: result.error });
+          toast.error(result.error, { 
+            duration: 4000,
+            style: {
+              background: 'var(--card-background)',
+              color: 'var(--text-primary)',
+              border: '1px solid var(--card-border)',
+            },
+          });
         } else if (result.error.includes('email')) {
           setErrors({ ...errors, email: result.error });
+          toast.error(result.error, { 
+            duration: 4000,
+            style: {
+              background: 'var(--card-background)',
+              color: 'var(--text-primary)',
+              border: '1px solid var(--card-border)',
+            },
+          });
         } else if (result.error.includes('rate') || result.error.includes('many')) {
           setErrors({ ...errors, general: result.error });
+          toast.error(result.error, { 
+            duration: 4000,
+            style: {
+              background: 'var(--card-background)',
+              color: 'var(--text-primary)',
+              border: '1px solid var(--card-border)',
+            },
+          });
         } else {
           setErrors({ ...errors, general: result.error });
+          toast.error(result.error, { 
+            duration: 4000,
+            style: {
+              background: 'var(--card-background)',
+              color: 'var(--text-primary)',
+              border: '1px solid var(--card-border)',
+            },
+          });
         }
         return;
       }
@@ -201,12 +233,33 @@ export default function Contact() {
       setUrl('');
       setErrors({ name: '', email: '', message: '', attachment: '', general: '' });
       setTouched({ name: false, email: false, message: false });
-      setShowSuccess(true);
+      
+      // Show success toast
+      toast.success(
+        "Thank you for reaching out! I've received your message and will get back to you as soon as possible. Usually within 24 hours.",
+        {
+          duration: 3500,
+          style: {
+            background: 'var(--card-background)',
+            color: 'var(--text-primary)',
+            border: '1px solid var(--card-border)',
+          },
+        }
+      );
     } catch (error) {
       console.error('Form submission error:', error);
+      const errorMessage = 'Network error. Please check your connection and try again.';
       setErrors({
         ...errors,
-        general: 'Network error. Please check your connection and try again.',
+        general: errorMessage,
+      });
+      toast.error(errorMessage, { 
+        duration: 4000,
+        style: {
+          background: 'var(--card-background)',
+          color: 'var(--text-primary)',
+          border: '1px solid var(--card-border)',
+        },
       });
     } finally {
       setIsSubmitting(false);
@@ -483,14 +536,6 @@ export default function Contact() {
           </div>
         </motion.div>
       </div>
-
-      {/* Success Modal */}
-      <SuccessModal
-        isOpen={showSuccess}
-        onClose={() => setShowSuccess(false)}
-        title="Message Sent Successfully! 🎉"
-        message="Thank you for reaching out! I've received your message and will get back to you as soon as possible. Usually within 24 hours."
-      />
     </section>
   );
 }

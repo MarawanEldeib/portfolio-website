@@ -5,14 +5,21 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Award } from 'lucide-react';
 import { certifications, awards } from '@/lib/data';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, EffectCards } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/effect-cards';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default function Certifications() {
   const t = useTranslations('certifications');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section id="certifications" className="py-20 px-4 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950">
@@ -26,31 +33,36 @@ export default function Certifications() {
           <h2 className="text-4xl font-bold mb-12 text-center">{t('title')}</h2>
 
           {/* Certifications Carousel */}
-          {certifications.length > 0 && (
-            <div className="mb-12">
+          <div className="mb-12 max-w-md mx-auto">
+            {mounted && (
               <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={24}
-                slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-                breakpoints={{
-                  640: { slidesPerView: 1 },
-                  768: { slidesPerView: 2 },
-                  1024: { slidesPerView: 3 },
+                modules={[Navigation, Pagination, Autoplay, EffectCards]}
+                effect="cards"
+                grabCursor={true}
+                loop={false}
+                navigation={{
+                  enabled: true,
                 }}
-                className="certifications-swiper pb-12"
+                pagination={{ 
+                  clickable: true,
+                  dynamicBullets: true,
+                }}
+                autoplay={{ 
+                  delay: 3000, 
+                  disableOnInteraction: false, 
+                  pauseOnMouseEnter: true 
+                }}
+                cardsEffect={{
+                  perSlideOffset: 8,
+                  perSlideRotate: 2,
+                  rotate: true,
+                  slideShadows: true,
+                }}
+                className="pb-12"
               >
                 {certifications.map((cert) => (
                   <SwiperSlide key={cert.id}>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5 }}
-                      viewport={{ once: true }}
-                      className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 hover:border-2 hover:border-green-500 dark:hover:border-green-600 transition-all duration-300 cursor-pointer h-full"
-                    >
+                    <div className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
                       {cert.image ? (
                         <div className="relative h-40 bg-zinc-200 dark:bg-zinc-700">
                           <Image
@@ -85,12 +97,12 @@ export default function Certifications() {
                           </a>
                         )}
                       </div>
-                    </motion.div>
+                    </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
-          )}
+            )}
+          </div>
 
           {/* Awards */}
           {awards.length > 0 && (

@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
+import DownloadButton from '@/components/ui/DownloadButton';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -45,13 +46,12 @@ export default function Footer() {
           </div>
 
           <div className="flex gap-4">
-            <a
+            <DownloadButton
               href="/cv/Marawan_Eldeib_Resume.pdf"
-              download
-              className="px-4 py-2 text-sm bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+              variant="solid"
             >
               {t('downloadCV')}
-            </a>
+            </DownloadButton>
           </div>
         </div>
 

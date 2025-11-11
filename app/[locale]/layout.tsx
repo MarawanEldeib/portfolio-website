@@ -4,11 +4,13 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Toaster } from 'react-hot-toast';
 import "../globals.css";
 import ClientBackground from '@/components/ui/ClientBackground';
 import LoadingIndicator from '@/components/ui/LoadingIndicator';
 import StructuredData from '@/components/seo/StructuredData';
 import { VIEWPORT_CONFIG } from '@/lib/constants';
+import { THEME_CONFIG, DARK_MODE_SCRIPT } from '@/lib/theme.config';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -118,27 +120,28 @@ export default async function LocaleLayout({
         {/* SEO: Structured Data for ATS */}
         <StructuredData />
         
-        {/* Performance: Inline critical theme script to prevent FOUC */}
+        {/* Performance: Inline critical theme script to force dark mode */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const theme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (theme === 'dark' || (!theme && prefersDark)) {
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (e) {}
-            `,
+            __html: DARK_MODE_SCRIPT,
           }}
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-500`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-500 dark`}
         suppressHydrationWarning
       >
         <LoadingIndicator />
         <ClientBackground />
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            duration: 3500,
+            style: THEME_CONFIG.toast.style,
+            success: THEME_CONFIG.toast.success,
+            error: THEME_CONFIG.toast.error,
+          }}
+        />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

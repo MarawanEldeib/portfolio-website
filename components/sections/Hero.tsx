@@ -94,32 +94,9 @@ export default function Hero() {
               <span className="inline-block w-0.5 h-6 md:h-8 bg-blue-600 dark:bg-blue-400 ml-1 animate-pulse"></span>
             </p>
           </div>
-          <p className="text-lg text-zinc-500 dark:text-zinc-500 mb-4 max-w-2xl mx-auto text-justify">
+          <p className="text-lg text-zinc-500 dark:text-zinc-500 mb-8 max-w-2xl mx-auto text-justify">
             {t('tagline')}
           </p>
-
-          {/* Work Permit Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 rounded-full shadow-lg">
-              <div className="flex items-center justify-center w-5 h-5 bg-green-500 dark:bg-green-600 rounded-full">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="white" 
-                  strokeWidth="3" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                  className="w-3 h-3"
-                >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <span className="text-sm font-semibold text-green-700 dark:text-green-300">
-                Work Permit
-              </span>
-            </div>
-          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex gap-4">
@@ -137,6 +114,28 @@ export default function Hero() {
                 {t('cta.downloadCV')}
               </DownloadButton>
             </div>
+            
+            {/* Work Permit Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 rounded-full shadow-lg">
+              <div className="flex items-center justify-center w-5 h-5 bg-green-500 dark:bg-green-600 rounded-full">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="white" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                  className="w-3 h-3"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <span className="text-sm font-semibold text-green-700 dark:text-green-300">
+                {t('workPermit')}
+              </span>
+            </div>
+            
             <a
               href="#contact"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"

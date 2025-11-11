@@ -129,20 +129,20 @@ export default function Header() {
             <div className="w-px h-6 bg-zinc-300 dark:bg-zinc-700 mx-2" />
             <Link
               href="/en"
-              className={`px-3 py-1 text-sm rounded ${
+              className={`px-3 py-1 text-sm rounded transition-all ${
                 locale === 'en'
                   ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
-                  : 'text-zinc-600 dark:text-zinc-400'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'
               }`}
             >
               EN
             </Link>
             <Link
               href="/de"
-              className={`px-3 py-1 text-sm rounded ${
+              className={`px-3 py-1 text-sm rounded transition-all ${
                 locale === 'de'
                   ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
-                  : 'text-zinc-600 dark:text-zinc-400'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'
               }`}
             >
               DE
@@ -241,9 +241,6 @@ export default function Header() {
                 >
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                      <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                        Theme
-                      </span>
                       <ThemeToggle />
                     </div>
                     <div className="flex items-center gap-2">
@@ -252,20 +249,20 @@ export default function Header() {
                       </span>
                       <Link
                         href="/en"
-                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-all ${
                           locale === 'en'
                             ? 'bg-blue-600 text-white dark:bg-blue-500'
-                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                         }`}
                       >
                         EN
                       </Link>
                       <Link
                         href="/de"
-                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-all ${
                           locale === 'de'
                             ? 'bg-blue-600 text-white dark:bg-blue-500'
-                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                         }`}
                       >
                         DE

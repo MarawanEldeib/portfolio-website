@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Quote, Linkedin, User } from 'lucide-react';
 import { recommendations } from '@/lib/data';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -13,6 +14,11 @@ import 'swiper/css/pagination';
 
 export default function Recommendations() {
   const t = useTranslations('recommendations');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (recommendations.length === 0) {
     return null;
@@ -35,20 +41,36 @@ export default function Recommendations() {
           </div>
 
           {/* Recommendations Carousel */}
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={32}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 6000, disableOnInteraction: false }}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 2 },
-            }}
-            className="recommendations-swiper pb-12"
-          >
+          {mounted && (
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={32}
+              slidesPerView={1}
+              loop={true}
+              navigation={{
+                enabled: true,
+              }}
+              pagination={{ 
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+              breakpoints={{
+                640: { 
+                  slidesPerView: 1,
+                  spaceBetween: 24,
+                },
+                768: { 
+                  slidesPerView: 2,
+                  spaceBetween: 28,
+                },
+                1024: { 
+                  slidesPerView: 2,
+                  spaceBetween: 32,
+                },
+              }}
+              className="recommendations-swiper pb-12"
+            >
             {recommendations.map((recommendation) => (
               <SwiperSlide key={recommendation.id}>
                 <motion.div
@@ -118,6 +140,7 @@ export default function Recommendations() {
               </SwiperSlide>
             ))}
           </Swiper>
+          )}
         </motion.div>
       </div>
     </section>

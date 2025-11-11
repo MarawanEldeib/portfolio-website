@@ -14,6 +14,7 @@
   "hero": {
     "greeting": "Hallo, ich bin",
     "tagline": "Entwicklung innovativer Lösungen mit modernen Technologien",
+    "workPermit": "Arbeitserlaubnis",
     "cta": {
       "contact": "Kontakt aufnehmen",
       "viewCV": "Lebenslauf ansehen",
