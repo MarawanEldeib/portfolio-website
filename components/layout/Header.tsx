@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Menu, X } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import ThemeToggle from '@/components/ui/ThemeToggle';
@@ -17,18 +17,18 @@ export default function Header() {
 
   const locale = pathname.split('/')[1];
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { href: `/${locale}#home`, label: t('home'), id: 'home' },
     { href: `/${locale}#about`, label: t('about'), id: 'about' },
-    { href: `/${locale}#skills`, label: t('skills'), id: 'skills' },
-    { href: `/${locale}#projects`, label: t('projects'), id: 'projects' },
     { href: `/${locale}#experience`, label: t('experience'), id: 'experience' },
     { href: `/${locale}#education`, label: t('education'), id: 'education' },
+    { href: `/${locale}#projects`, label: t('projects'), id: 'projects' },
+    { href: `/${locale}#skills`, label: t('skills'), id: 'skills' },
     { href: `/${locale}#certifications`, label: t('certifications'), id: 'certifications' },
     { href: `/${locale}#volunteering`, label: t('volunteering'), id: 'volunteering' },
     { href: `/${locale}#recommendations`, label: t('recommendations'), id: 'recommendations' },
     { href: `/${locale}#contact`, label: t('contact'), id: 'contact' },
-  ];
+  ], [locale, t]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -189,7 +189,7 @@ export default function Header() {
                   }}
                   className="space-y-1"
                 >
-                  {navItems.map((item, index) => (
+                  {navItems.map((item) => (
                     <motion.li
                       key={item.href}
                       variants={{

@@ -31,7 +31,7 @@ export default function CopyButton({ text, label = 'Copy' }: CopyButtonProps) {
       }
 
       // Track analytics
-      trackCopy(label.includes('email') ? 'email' : 'phone', text);
+      trackCopy(label.includes('email') ? 'email' : 'phone');
 
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);

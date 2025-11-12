@@ -227,7 +227,16 @@ export async function POST(request: NextRequest) {
         ${files.length > 0 ? `<p><strong>Attached Files:</strong> ${files.map(f => `${f.name} (${(f.size / 1024).toFixed(2)} KB)`).join(', ')}</p>` : ''}
       `;
 
-      const emailData: any = {
+      interface EmailData {
+        from: string;
+        to: string;
+        subject: string;
+        html: string;
+        reply_to: string;
+        attachments?: Array<{ filename: string; content: Buffer }>;
+      }
+
+      const emailData: EmailData = {
         from: 'Contact Form <onboarding@resend.dev>', // Use your verified domain in production
         to: process.env.CONTACT_EMAIL || 'marawandeep13@gmail.com',
         subject: `Portfolio Contact: ${name}`,

@@ -1,6 +1,13 @@
 // Performance monitoring utilities
 
-export function reportWebVitals(metric: any) {
+interface WebVitalMetric {
+  name: string;
+  value: number;
+  id: string;
+  rating?: 'good' | 'needs-improvement' | 'poor';
+}
+
+export function reportWebVitals(metric: WebVitalMetric) {
   // Log Web Vitals to console in development
   if (process.env.NODE_ENV === 'development') {
     console.log(`[Web Vitals] ${metric.name}:`, metric.value);
@@ -21,7 +28,7 @@ export function measurePerformance(name: string, fn: () => void) {
 }
 
 // Debounce function for performance optimization
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
@@ -41,7 +48,7 @@ export function debounce<T extends (...args: any[]) => any>(
 }
 
 // Throttle function for performance optimization
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: unknown[]) => unknown>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {

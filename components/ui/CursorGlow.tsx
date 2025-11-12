@@ -8,8 +8,12 @@ export default function CursorGlow() {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    // Check if device supports touch
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    // Check if device supports touch (deferred to avoid hydration mismatch)
+    const checkTouchDevice = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+
+    checkTouchDevice();
 
     const updatePosition = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });

@@ -18,7 +18,9 @@ export default function Certifications() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    // Defer mounting to ensure client-side hydration
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -39,18 +41,18 @@ export default function Certifications() {
                 modules={[Navigation, Pagination, Autoplay, EffectCards]}
                 effect="cards"
                 grabCursor={true}
-                loop={false}
+                loop={true}
                 navigation={{
                   enabled: true,
                 }}
-                pagination={{ 
+                pagination={{
                   clickable: true,
                   dynamicBullets: true,
                 }}
-                autoplay={{ 
-                  delay: 3000, 
-                  disableOnInteraction: false, 
-                  pauseOnMouseEnter: true 
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true
                 }}
                 cardsEffect={{
                   perSlideOffset: 8,

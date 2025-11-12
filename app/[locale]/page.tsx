@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
@@ -29,10 +28,10 @@ export default function Home() {
         <Hero />
         <About />
         <Summary />
-        <Skills />
-        <Projects />
         <Experience />
         <Education />
+        <Projects />
+        <Skills />
         <Certifications />
         <Volunteering />
         <Recommendations />

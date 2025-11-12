@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { FileText, CheckCircle, MapPin } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import { useState, useEffect, useRef } from 'react';
 import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
@@ -24,19 +23,19 @@ export default function About() {
   useEffect(() => {
     if (!isVisible) return;
 
-    // Reset animations
-    setShowWelcome(false);
-    setShowAboutMe(false);
-    setShowStrengths(false);
-    setShowContact(false);
-    setShowClosing(false);
+    // Trigger animations in sequence with timeouts
+    const timeouts = [
+      setTimeout(() => setShowWelcome(true), 200),
+      setTimeout(() => setShowAboutMe(true), 800),
+      setTimeout(() => setShowStrengths(true), 1400),
+      setTimeout(() => setShowContact(true), 2000),
+      setTimeout(() => setShowClosing(true), 2600)
+    ];
 
-    // Trigger animations in sequence
-    setTimeout(() => setShowWelcome(true), 200);
-    setTimeout(() => setShowAboutMe(true), 800);
-    setTimeout(() => setShowStrengths(true), 1400);
-    setTimeout(() => setShowContact(true), 2000);
-    setTimeout(() => setShowClosing(true), 2600);
+    // Cleanup timeouts on unmount
+    return () => {
+      timeouts.forEach(timeout => clearTimeout(timeout));
+    };
   }, [isVisible]);
 
   return (
@@ -102,7 +101,7 @@ export default function About() {
                     animate={{ opacity: showAboutMe ? 1 : 0, x: showAboutMe ? 0 : -10 }}
                     transition={{ duration: 0.3, delay: 0.4 }}
                   >
-                    • I'm a <span className="text-white font-semibold">Software Engineering Student</span> at <span className="text-white font-semibold">Stuttgart University</span>.
+                    • I&apos;m a <span className="text-white font-semibold">Software Engineering Student</span> at <span className="text-white font-semibold">Stuttgart University</span>.
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0, x: -10 }}

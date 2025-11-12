@@ -8,7 +8,8 @@ export default function LoadingIndicator() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    // Defer mounting check
+    const mountTimer = setTimeout(() => setIsMounted(true), 0);
 
     // Check if page is fully loaded
     const handleLoad = () => {
@@ -25,6 +26,7 @@ export default function LoadingIndicator() {
     }
 
     return () => {
+      clearTimeout(mountTimer);
       window.removeEventListener('load', handleLoad);
     };
   }, []);

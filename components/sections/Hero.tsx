@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Mail, Eye } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import Image from 'next/image';
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import DownloadButton from '@/components/ui/DownloadButton';
 
@@ -85,8 +85,19 @@ export default function Hero() {
             </div>
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            {t('greeting')} <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">{personalInfo.name}</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
+            {t('greeting')}{' '}
+            <span
+              className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
+              style={{
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+                WebkitTextFillColor: 'transparent'
+              }}
+            >
+              {personalInfo.name}
+            </span>
           </h1>
           <div className="h-16 md:h-20 flex items-center justify-center">
             <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-semibold">

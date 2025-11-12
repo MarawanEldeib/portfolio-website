@@ -9,12 +9,20 @@ export default function AnimatedBackground() {
   useEffect(() => {
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
+    const updateMotionPreference = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    updateMotionPreference();
+
+    // Listen for changes to reduced motion preference
+    mediaQuery.addEventListener('change', updateMotionPreference);
 
     // Defer animation start for better initial load
     const timer = setTimeout(() => setIsLoaded(true), 100);
-    
-    return () => clearTimeout(timer);
+
+    return () => {
+      clearTimeout(timer);
+      mediaQuery.removeEventListener('change', updateMotionPreference);
+    };
   }, []);
 
   // Don't render animations if user prefers reduced motion

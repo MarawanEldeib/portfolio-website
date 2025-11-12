@@ -13,11 +13,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default function Recommendations() {
-  const t = useTranslations('recommendations');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    // Defer mounting to ensure client-side hydration
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   if (recommendations.length === 0) {
@@ -87,7 +88,7 @@ export default function Recommendations() {
 
                   {/* Recommendation Text */}
                   <p className="text-zinc-700 dark:text-zinc-300 text-lg mb-6 italic leading-relaxed text-justify">
-                    "{recommendation.text}"
+                    &quot;{recommendation.text}&quot;
                   </p>
 
                   {/* Recommender Info */}

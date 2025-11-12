@@ -142,9 +142,9 @@ export default function Volunteering() {
             Passionate About Giving Back
           </h3>
           <p className="text-zinc-600 max-w-2xl mx-auto">
-            I believe in using technology to make a positive impact on society. 
-            If you have a volunteer opportunity or know of a cause that could benefit from my skills, 
-            I'd love to hear about it!
+            I believe in using technology to make a positive impact on society.
+            If you have a volunteer opportunity or know of a cause that could benefit from my skills,
+            I&apos;d love to hear about it!
           </p>
         </motion.div>
       </div>

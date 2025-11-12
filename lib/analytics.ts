@@ -120,7 +120,7 @@ export function trackLinkClick(url: string, linkText: string) {
 /**
  * Track email/phone copy
  */
-export function trackCopy(type: 'email' | 'phone', value: string) {
+export function trackCopy(type: 'email' | 'phone') {
   trackEvent(type === 'email' ? 'email_copy' : 'phone_copy', {
     type,
     location: window.location.pathname,

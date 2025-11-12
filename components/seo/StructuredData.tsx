@@ -3,6 +3,8 @@
 import { personalInfo } from '@/lib/data';
 
 export default function StructuredData() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.vercel.app';
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -10,8 +12,8 @@ export default function StructuredData() {
     jobTitle: personalInfo.title,
     email: personalInfo.email,
     telephone: personalInfo.phone,
-    url: 'https://marawan-eldeib.com', // Update with your domain
-    image: 'https://marawan-eldeib.com/images/Marawan.jpeg',
+    url: siteUrl,
+    image: `${siteUrl}/images/Marawan.jpeg`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Stuttgart',

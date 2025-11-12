@@ -6,8 +6,7 @@ import { useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 import { projects } from '@/lib/data';
 import Image from 'next/image';
-import { TECH_ICONS, fadeInUp } from '@/lib/constants';
-import { SiDart } from 'react-icons/si';
+import { TECH_ICONS } from '@/lib/constants';
 
 export default function Projects() {
   const t = useTranslations('projects');
@@ -30,10 +29,10 @@ export default function Projects() {
 
           {/* Filter Buttons */}
           <div className="flex justify-center gap-4 mb-12">
-            {['all', 'completed', 'ongoing'].map((status) => (
+            {(['all', 'completed', 'ongoing'] as const).map((status) => (
               <button
                 key={status}
-                onClick={() => setFilter(status as any)}
+                onClick={() => setFilter(status)}
                 className={`px-4 py-2 rounded-lg transition-colors ${
                   filter === status
                     ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900'
