@@ -377,11 +377,11 @@ export const recommendations: Array<{
   },
   {
     id: 2,
-    name: "Ahmad Rahman",
-    title: "Lead Software Engineer",
-    company: "AirAsia",
+    name: "Muhammad Hafiz Bin Khairudin",
+    title: "Head of Technology & Product",
+    company: "Ikhlas Com Travel Sdn Bhd (AirAsia)",
     image: "", // Add profile image URL here
-    text: "Working with Marawan on the IKHLAS mobile app was a great experience. He quickly grasped complex GraphQL implementations and delivered robust solutions. His dedication and technical expertise made him a valuable team member.",
+    text: "Marawan is a sterling communicator, adept at conveying complex technical ideas clearly and persuasively. His adaptability to diverse technical challenges is impressive - he demonstrated remarkable versatility in mobile software development, adapting to new programming languages and technologies with ease. His work ethics and discipline are exemplary, consistently meeting tight deadlines while maintaining the highest quality of work. Marawan is an amazing team player whose supportive nature and ability to motivate others have been crucial in high-pressure situations.",
     linkedin: "",
   },
   {
