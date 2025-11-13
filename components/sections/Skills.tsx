@@ -65,7 +65,7 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 rounded-xl p-8 shadow-lg border-2 border-purple-200 dark:border-purple-800"
+            className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 rounded-xl p-8 shadow-lg border-2 border-purple-200 dark:border-purple-800 hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-2xl transition-all duration-300 cursor-pointer"
           >
             <div className="flex items-center gap-3 mb-6">
               <LanguagesIcon className="text-purple-600 dark:text-purple-400" size={28} />
