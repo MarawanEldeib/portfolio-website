@@ -8,7 +8,7 @@ export const personalInfo = {
   github: "https://github.com/MarawanEldeib",
   location: "Stuttgart, Baden-Württemberg, Germany",
   image: "/images/Marawan.jpeg",
-  summary: "Passionate Software Engineering graduate student at Stuttgart University with a proven track record in AI/ML, full-stack development, and research. Experienced in developing scalable applications used by 10,000+ users and creating award-winning machine learning models with 98.5% accuracy. Skilled in Python, Java, Flutter, and cloud technologies, with hands-on experience at Fraunhofer IOSB and AirAsia.",
+  summary: "Sedulous Computer Engineer with hands-on experience in software development and AI, gained through practical roles at AirAsia, a leading Malaysian multinational and academic projects. Eager to solve real-world problems using cutting-edge technology solutions.",
   workPermit: {
     hasPermit: true,
     details: "Working Student - Available on Request",
@@ -25,7 +25,7 @@ export const skills = {
 export const languages = {
   native: ["Arabic"],
   proficient: ["English"],
-  intermediate: ["German"],
+  intermediate: ["German (B1)"],
 };
 
 export const projects = [
@@ -342,14 +342,24 @@ export const volunteering: Array<{
 }> = [
   {
     id: 1,
-    organization: "Tech for Good Initiative",
-    role: "Software Development Volunteer",
-    location: "Stuttgart, Germany",
-    startDate: "2024-01",
-    endDate: null, // null means ongoing
-    description: "Developing web applications for non-profit organizations to help them digitize their processes and reach more beneficiaries. Built responsive websites using Next.js and integrated donation systems.",
-    skills: ["Next.js", "React", "TypeScript", "Vercel"],
-    websiteUrl: "https://example.org",
+    organization: "Smart Farming & Precision Agriculture Program",
+    role: "Facilitator for AI & Machine Learning Workshop",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2024-06",
+    endDate: "2024-06",
+    description: "Supported in delivering AI and machine learning sessions on smart farming to 20+ international participants. Received positive feedback for clear communication and networking with participants.",
+    skills: ["AI", "Machine Learning", "Smart Farming", "Public Speaking", "Networking"],
+    websiteUrl: "",
   },
-  // Add more volunteer experiences here
+  {
+    id: 2,
+    organization: "IEEE Multimedia University Student Branch",
+    role: "Head of Membership & Student Affairs",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2022-12",
+    endDate: "2023-12",
+    description: "Launched campaigns that increased IEEE club membership by over 30 and enhanced student engagement in professional growth and networking. Coordinated a workshop for 30 primary school students on building and controlling robot cars and coached a team of 6 children.",
+    skills: ["Leadership", "Event Management", "Student Engagement", "Robotics", "Mentoring"],
+    websiteUrl: "",
+  },
 ];
