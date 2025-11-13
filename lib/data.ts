@@ -138,8 +138,8 @@ export const timeline: Array<{
     location: "Stuttgart, Germany",
     startDate: "2024-10",
     endDate: null,
-    description: "Major in Software Engineering/Computer Hardware; Minor in Information Technology. Expected graduation: September 2026.",
-    skills: ["Software Engineering", "Computer Hardware", "Information Technology"],
+    description: "Major in Software Engineering/Computer Hardware; Minor in Information Technology. Expected graduation: September 2026. Relevant Coursework: Distributed Systems (TCP/IP), Operating Systems (Linux), Cloud Computing (AWS), Real-Time Systems.",
+    skills: ["Software Engineering", "Computer Hardware", "Information Technology", "Distributed Systems", "Operating Systems", "Cloud Computing"],
     achievements: [
       "Expected graduation: September 2026",
       "Focus on Software Engineering and Computer Hardware"
