@@ -348,6 +348,15 @@ export const awards = [
   },
   {
     id: 2,
+    title: "2nd Place - VLSI Design Challenge",
+    issuer: "Intel Corporation",
+    date: "2024-01",
+    description: "Won 2nd place in the University VLSI Virtual Bootcamp - Introduction to VLSI Design Challenge",
+    image: "", // No image yet
+    certificateUrl: "", // Add certificate URL here
+  },
+  {
+    id: 3,
     title: "First Class Honors",
     issuer: "Multimedia University",
     date: "2024-10",
