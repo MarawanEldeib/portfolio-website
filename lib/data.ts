@@ -97,6 +97,57 @@ export const projects = [
       "Remote control and real-time monitoring"
     ],
   },
+  {
+    id: 5,
+    title: "BodyMath App",
+    description: "Software Engineering Course Project (Oct 2022 - Dec 2022). Coded a Flutter-based fitness app integrating four calculators: BMI, calorie intake, body fat, and ideal weight, using Firebase for backend support and designed a user-friendly admin mode for adding or removing users. Illustrated two user engagement elements health advice and GIF images, increased user satisfaction and interactivity within the app.",
+    image: "",
+    tech: ["Flutter", "Firebase", "Mobile Development", "UI/UX Design"],
+    github: "https://github.com/MarawanEldeib",
+    live: undefined,
+    video: undefined,
+    status: "completed" as const,
+    highlights: [
+      "Four fitness calculators (BMI, calorie, body fat, ideal weight)",
+      "Firebase backend with admin management",
+      "Enhanced user engagement with health advice and GIF images",
+      "User-friendly interface design"
+    ],
+  },
+  {
+    id: 6,
+    title: "Bookstore Database",
+    description: "Database Systems Course Project (Jan 2022 - Mar 2022). Created a MySQL bookstore database using PhpMyAdmin, streamlined inventory management with real-time visibility into book quantities. Implemented advanced filtering capabilities to search by author, publisher using SQL coding and PhpMyAdmin's UI, enhanced data accessibility.",
+    image: "",
+    tech: ["MySQL", "PhpMyAdmin", "SQL", "Database Design", "Inventory Management"],
+    github: "https://github.com/MarawanEldeib",
+    live: undefined,
+    video: undefined,
+    status: "completed" as const,
+    highlights: [
+      "MySQL database for bookstore inventory",
+      "Real-time book quantity tracking",
+      "Advanced filtering by author and publisher",
+      "Enhanced data accessibility with SQL queries"
+    ],
+  },
+  {
+    id: 7,
+    title: "Smart Parking System",
+    description: "Microcontroller and Microprocessor Systems Course Project (Aug 2021 - Nov 2021). Visualized a keypad for secure password entry and four sensors, represented by switches in the simulation, at each of the two entrances and exits. Systemized a 7-segment display to show available parking spaces in Zones A and B, enhancing the system's user interface and parking efficiency.",
+    image: "",
+    tech: ["Microcontrollers", "Embedded Systems", "Sensors", "7-Segment Display", "System Simulation"],
+    github: "https://github.com/MarawanEldeib",
+    live: undefined,
+    video: undefined,
+    status: "completed" as const,
+    highlights: [
+      "Keypad-based secure password entry system",
+      "Four-sensor parking detection system",
+      "7-segment display for real-time space availability",
+      "Two-zone parking management (Zone A & B)"
+    ],
+  },
 ];
 
 export const timeline: Array<{
