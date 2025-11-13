@@ -365,33 +365,27 @@ export const recommendations: Array<{
   image?: string;
   text: string;
   linkedin?: string;
+  email?: string;
 }> = [
   {
     id: 1,
-    name: "Dr. Sarah Johnson",
-    title: "Senior Research Scientist",
-    company: "Fraunhofer IOSB",
-    image: "", // Add profile image URL here
-    text: "Marawan is an exceptional researcher with strong technical skills in AI and machine learning. His contribution to our Digital Product Passport project has been outstanding, consistently delivering high-quality work and demonstrating excellent problem-solving abilities.",
-    linkedin: "",
-  },
-  {
-    id: 2,
     name: "Muhammad Hafiz Bin Khairudin",
     title: "Head of Technology & Product",
     company: "Ikhlas Com Travel Sdn Bhd (AirAsia)",
     image: "", // Add profile image URL here
     text: "Marawan is a sterling communicator, adept at conveying complex technical ideas clearly and persuasively. His adaptability to diverse technical challenges is impressive - he demonstrated remarkable versatility in mobile software development, adapting to new programming languages and technologies with ease. His work ethics and discipline are exemplary, consistently meeting tight deadlines while maintaining the highest quality of work. Marawan is an amazing team player whose supportive nature and ability to motivate others have been crucial in high-pressure situations.",
     linkedin: "",
+    email: "hafiz@airasia.com",
   },
   {
-    id: 3,
+    id: 2,
     name: "Mohd Haris Lye Abdullah",
     title: "Lecturer, Faculty of Engineering",
     company: "Multimedia University",
     image: "", // Add profile image URL here
     text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
     linkedin: "",
+    email: "haris.lye@mmu.edu.my",
   },
 ];
 
