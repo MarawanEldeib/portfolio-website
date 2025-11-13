@@ -217,6 +217,22 @@ export const timeline: Array<{
     ],
     certificateUrl: "", // Replace with your actual degree certificate/transcript URL
   },
+  {
+    id: 6,
+    type: "education",
+    title: "Foundation in Engineering",
+    organization: "Multimedia University",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2018-11",
+    endDate: "2020-06",
+    description: "CGPA: 3.31/4.0. Foundation program providing essential engineering fundamentals and preparing students for degree-level engineering studies.",
+    skills: ["Engineering Fundamentals", "Mathematics", "Physics", "Chemistry"],
+    achievements: [
+      "CGPA: 3.31/4.0",
+      "Merit International Scholarship"
+    ],
+    certificateUrl: "", // Replace with your actual certificate/transcript URL
+  },
 ];
 
 export const certifications: Array<{
