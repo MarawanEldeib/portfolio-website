@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About",
+    "about": "About Me",
     "projects": "Projects",
     "experience": "Experience",
     "education": "Education",
@@ -67,7 +67,7 @@
     "tools": "AI/ML & Tools"
   },
   "certifications": {
-    "title": "Certifications & Awards",
+    "title": "Certifications",
     "viewCertificate": "View Certificate",
     "awards": "Awards & Scholarships"
   },

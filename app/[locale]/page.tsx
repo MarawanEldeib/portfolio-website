@@ -18,7 +18,6 @@ const Certifications = dynamic(() => import('@/components/sections/Certification
 const Volunteering = dynamic(() => import('@/components/sections/Volunteering'));
 const Recommendations = dynamic(() => import('@/components/sections/Recommendations'));
 const Contact = dynamic(() => import('@/components/sections/Contact'));
-const ScrollToTop = dynamic(() => import('@/components/ui/ScrollToTop'));
 
 export default function Home() {
   return (
@@ -38,7 +37,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <ScrollToTop />
     </div>
   );
 }
