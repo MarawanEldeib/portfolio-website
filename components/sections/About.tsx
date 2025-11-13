@@ -39,7 +39,7 @@ export default function About() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} id="about" className="py-20 px-4 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950">
+    <section ref={sectionRef} className="py-20 px-4 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950">
       <div className="container mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ export default function About() {
             </div>
 
             {/* Terminal content */}
-            <div className="p-8 font-mono text-sm md:text-base space-y-6">
+            <div className="p-4 sm:p-6 md:p-8 font-mono text-base space-y-6">
               {/* Welcome message */}
               <motion.p 
                 initial={{ opacity: 0 }}

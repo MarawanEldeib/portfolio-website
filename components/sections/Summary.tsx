@@ -25,10 +25,10 @@ export default function Summary() {
           <div className="flex items-start gap-4">
             <Sparkles className="text-blue-600 dark:text-blue-400 flex-shrink-0 mt-1" size={28} />
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
                 Professional Summary
               </h2>
-              <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed text-justify">
+              <p className="text-base sm:text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed text-justify">
                 {personalInfo.summary}
               </p>
             </div>

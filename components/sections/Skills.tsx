@@ -24,11 +24,11 @@ export default function Skills() {
           {...fadeInUp}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-3 text-center text-zinc-900 dark:text-zinc-50">{t('title')}</h2>
-          <p className="text-center text-zinc-600 dark:text-zinc-400 mb-12">{t('subtitle')}</p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-center text-zinc-900 dark:text-zinc-50">{t('title')}</h2>
+          <p className="text-center text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-12 px-4">{t('subtitle')}</p>
 
           {/* Technical Skills */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
             {skillCategories.map((category, catIndex) => (
               <motion.div
                 key={category.key}
@@ -72,28 +72,28 @@ export default function Skills() {
               <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">Languages</h3>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Fluent</h4>
                 <div className="flex flex-wrap gap-2">
                   {languages.fluent.map((lang) => (
                     <span
                       key={lang}
-                      className="px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-medium shadow-md"
+                      className="px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-medium shadow-md hover:bg-purple-700 dark:hover:bg-purple-600 hover:scale-110 transition-all duration-200 cursor-pointer"
                     >
                       {lang}
                     </span>
                   ))}
                 </div>
               </div>
-              
+
               <div>
                 <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Intermediate</h4>
                 <div className="flex flex-wrap gap-2">
                   {languages.intermediate.map((lang) => (
                     <span
                       key={lang}
-                      className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg font-medium border-2 border-purple-300 dark:border-purple-700"
+                      className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg font-medium border-2 border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/50 hover:scale-110 transition-all duration-200 cursor-pointer"
                     >
                       {lang}
                     </span>
