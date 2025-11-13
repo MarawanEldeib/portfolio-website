@@ -150,6 +150,23 @@ export const timeline: Array<{
   {
     id: 2,
     type: "work",
+    title: "Teaching Assistant",
+    organization: "Faculty of Engineering, Multimedia University",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2024-08",
+    endDate: "2024-10",
+    description: "Organized a targeted revision session on digital logic concepts, resulting in improved exam performance for attendees. Assisted the professor in providing academic support, ensuring students effectively applied theoretical knowledge to practical circuit design tasks.",
+    skills: ["Digital Logic", "Circuit Design", "Teaching", "Academic Support", "Communication"],
+    achievements: [
+      "Improved student exam performance through targeted revision",
+      "Enhanced student understanding of digital logic concepts",
+      "Supported practical application of theoretical knowledge"
+    ],
+    certificateUrl: "", // Replace with your actual certificate/reference letter URL
+  },
+  {
+    id: 3,
+    type: "work",
     title: "Software Engineer Intern",
     organization: "AirAsia",
     location: "Kuala Lumpur, Malaysia",
@@ -165,7 +182,7 @@ export const timeline: Array<{
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
-    id: 3,
+    id: 4,
     type: "education",
     title: "Master of Science",
     organization: "Stuttgart University",
@@ -181,7 +198,7 @@ export const timeline: Array<{
     certificateUrl: "", // Replace with your actual enrollment certificate/transcript URL
   },
   {
-    id: 4,
+    id: 5,
     type: "education",
     title: "Bachelor of Engineering (Hons.)",
     organization: "Multimedia University",
