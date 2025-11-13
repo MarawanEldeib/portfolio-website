@@ -2,12 +2,26 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+// Dynamically import Lottie to reduce initial bundle size
+const Lottie = dynamic(() => import('lottie-react'), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function LoadingIndicator() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
+  const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
+    // Load animation data
+    fetch('/animations/loading.json')
+      .then((response) => response.json())
+      .then((data) => setAnimationData(data))
+      .catch((error) => console.error('Error loading animation:', error));
+
     // Defer mounting check
     const mountTimer = setTimeout(() => setIsMounted(true), 0);
 
@@ -16,7 +30,7 @@ export default function LoadingIndicator() {
       // Small delay to ensure everything is ready
       setTimeout(() => {
         setIsLoading(false);
-      }, 300); // Reduced from 500ms
+      }, 300);
     };
 
     if (document.readyState === 'complete') {
@@ -39,10 +53,10 @@ export default function LoadingIndicator() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }} // Reduced from 0.5s
+          transition={{ duration: 0.3 }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-zinc-950"
         >
-          {/* Simple Logo/Initials with optimized gradient */}
+          {/* ME Logo/Initials with gradient */}
           <motion.div
             className="text-6xl md:text-7xl font-black mb-8"
             animate={{
@@ -55,7 +69,7 @@ export default function LoadingIndicator() {
               ],
             }}
             transition={{
-              duration: 2, // Reduced from 3s
+              duration: 2,
               repeat: Infinity,
               ease: 'linear',
             }}
@@ -69,37 +83,20 @@ export default function LoadingIndicator() {
             ME
           </motion.div>
 
-          {/* Animated loading bar */}
-          <div className="relative w-48 h-2 bg-zinc-800 rounded-full overflow-hidden">
-            <motion.div
-              className="absolute inset-0 rounded-full"
-              animate={{
-                backgroundImage: [
-                  'linear-gradient(90deg, #3b82f6, #8b5cf6)',
-                  'linear-gradient(90deg, #8b5cf6, #ec4899)',
-                  'linear-gradient(90deg, #ec4899, #f59e0b)',
-                  'linear-gradient(90deg, #f59e0b, #10b981)',
-                  'linear-gradient(90deg, #10b981, #3b82f6)',
-                ],
-                x: ['-100%', '100%'],
-              }}
-              transition={{
-                x: {
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                },
-                backgroundImage: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'linear',
-                },
-              }}
-              style={{
-                width: '50%',
-              }}
-            />
-          </div>
+          {/* Lottie Loading Animation */}
+          {animationData && (
+            <div className="w-48 h-48 md:w-56 md:h-56">
+              <Lottie
+                animationData={animationData}
+                loop={true}
+                autoplay={true}
+                style={{ width: '100%', height: '100%' }}
+                rendererSettings={{
+                  preserveAspectRatio: 'xMidYMid meet'
+                }}
+              />
+            </div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
