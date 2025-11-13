@@ -31,19 +31,19 @@ export const languages = {
 export const projects = [
   {
     id: 1,
-    title: "MangoVision",
-    description: "Award-winning deep learning computer vision system for precision agriculture. Developed an advanced object detection model using PyTorch and Detectron2 to identify and locate mango fruits in aerial drone imagery. The model achieved an impressive 98.5% detection accuracy across diverse lighting conditions and mango varieties. This research project earned the 'Best Research Project' award at Multimedia University and demonstrates practical applications of AI in agricultural optimization and crop yield estimation.",
+    title: "MangoVision - Mango Fruit Detection from Aerial Images",
+    description: "Award-winning deep learning computer vision system for precision agriculture developed as Final Year Project (Nov 2023 - Jul 2024). Developed and trained YOLO and Faster R-CNN models using PyTorch on drone images, achieving 98.5% accuracy with YOLO, outperforming Detectron2. Created MangoVision, a bilingual GUI with image/video processing and GPS-integrated map, enhancing smart farming by reducing labour and improving detection accuracy.",
     image: "", // No image yet
-    tech: ["Python", "PyTorch", "Detectron2", "Computer Vision", "Deep Learning", "Research"],
+    tech: ["Python", "PyTorch", "YOLO", "Faster R-CNN", "Detectron2", "Computer Vision", "Deep Learning", "GUI Development"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined, // Add video demo link here
     status: "completed" as const,
     highlights: [
-      "98.5% detection accuracy on aerial imagery",
+      "98.5% detection accuracy with YOLO model",
       "Awarded Best Research Project at MMU",
-      "Real-world application in precision agriculture",
-      "Published research methodology and findings"
+      "Bilingual GUI with GPS-integrated mapping",
+      "Outperformed Detectron2 in accuracy benchmarks"
     ],
   },
   {
@@ -78,6 +78,40 @@ export const projects = [
       "Frontend UX redesign for improved usability",
       "Backend workflow optimization",
       "Research contribution to circular economy"
+    ],
+  },
+  {
+    id: 4,
+    title: "Good-Shape-Fitness-Center App",
+    description: "Advanced Microprocessors Course Project (May 2023 - Jun 2023). Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
+    image: "",
+    tech: ["Assembly Language", "EMU8086", "Microprocessors", "System Programming"],
+    github: "https://github.com/MarawanEldeib",
+    live: undefined,
+    video: undefined,
+    status: "completed" as const,
+    highlights: [
+      "Assembly language programming with EMU8086",
+      "Interactive user-friendly class enrollment system",
+      "Automated pricing calculations",
+      "Enhanced operational efficiency"
+    ],
+  },
+  {
+    id: 5,
+    title: "IoT-Based Smart Door Lock System (Cypher)",
+    description: "Capstone Project (Oct 2022 - Jan 2023). Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
+    image: "",
+    tech: ["Arduino", "Flutter", "Firebase", "IoT", "PCB Design", "Mobile Development"],
+    github: "https://github.com/MarawanEldeib",
+    live: undefined,
+    video: undefined,
+    status: "completed" as const,
+    highlights: [
+      "Led 3-member team on IoT security project",
+      "PCB-based smart lock with motion detection",
+      "Flutter mobile app with Firebase backend",
+      "Remote control and real-time monitoring"
     ],
   },
 ];
