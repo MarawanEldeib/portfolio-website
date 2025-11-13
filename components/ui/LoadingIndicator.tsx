@@ -69,31 +69,36 @@ export default function LoadingIndicator() {
             ME
           </motion.div>
 
-          {/* Simplified loading dots */}
-          <div className="flex gap-3">
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={i}
-                className="w-3 h-3 rounded-full"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.5, 1, 0.5],
-                  backgroundColor: [
-                    '#3b82f6',
-                    '#8b5cf6',
-                    '#ec4899',
-                    '#f59e0b',
-                    '#10b981',
-                    '#3b82f6',
-                  ],
-                }}
-                transition={{
-                  duration: 1.5, // Reduced from 2s
+          {/* Animated loading bar */}
+          <div className="relative w-48 h-2 bg-zinc-800 rounded-full overflow-hidden">
+            <motion.div
+              className="absolute inset-0 rounded-full"
+              animate={{
+                backgroundImage: [
+                  'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                  'linear-gradient(90deg, #8b5cf6, #ec4899)',
+                  'linear-gradient(90deg, #ec4899, #f59e0b)',
+                  'linear-gradient(90deg, #f59e0b, #10b981)',
+                  'linear-gradient(90deg, #10b981, #3b82f6)',
+                ],
+                x: ['-100%', '100%'],
+              }}
+              transition={{
+                x: {
+                  duration: 1.2,
                   repeat: Infinity,
-                  delay: i * 0.15, // Reduced from 0.2
-                }}
-              />
-            ))}
+                  ease: 'easeInOut',
+                },
+                backgroundImage: {
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'linear',
+                },
+              }}
+              style={{
+                width: '50%',
+              }}
+            />
           </div>
         </motion.div>
       )}
