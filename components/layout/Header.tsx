@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import { Menu, X } from 'lucide-react';
@@ -12,13 +12,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Header() {
   const t = useTranslations('nav');
   const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isLanguageChanging, setIsLanguageChanging] = useState(false);
 
   const locale = pathname.split('/')[1];
 
+  const handleLanguageChange = (newLocale: string) => {
+    setIsLanguageChanging(true);
+    router.push(`/${newLocale}`);
+  };
+
   const navItems = useMemo(() => [
-    { href: `/${locale}#home`, label: t('home'), id: 'home' },
     { href: `/${locale}#about`, label: t('about'), id: 'about' },
     { href: `/${locale}#experience`, label: t('experience'), id: 'experience' },
     { href: `/${locale}#education`, label: t('education'), id: 'education' },
@@ -127,31 +133,33 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
             <div className="w-px h-6 bg-zinc-300 dark:bg-zinc-700 mx-2" />
-            <Link
-              href="/en"
-              className={`px-3 py-1 text-sm rounded transition-all ${
-                locale === 'en'
-                  ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'
-              }`}
-            >
-              EN
-            </Link>
-            <Link
-              href="/de"
-              className={`px-3 py-1 text-sm rounded transition-all ${
-                locale === 'de'
-                  ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'
-              }`}
-            >
-              DE
-            </Link>
+            <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1">
+              <button
+                onClick={() => handleLanguageChange('en')}
+                className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${
+                  locale === 'en'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => handleLanguageChange('de')}
+                className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${
+                  locale === 'de'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+              >
+                DE
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+            className="md:hidden p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -239,34 +247,39 @@ export default function Header() {
                   transition={{ delay: 0.4 }}
                   className="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800"
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                        Theme
+                      </span>
                       <ThemeToggle />
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-between">
                       <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
                         Language
                       </span>
-                      <Link
-                        href="/en"
-                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-all ${
-                          locale === 'en'
-                            ? 'bg-blue-600 text-white dark:bg-blue-500'
-                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                        }`}
-                      >
-                        EN
-                      </Link>
-                      <Link
-                        href="/de"
-                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-all ${
-                          locale === 'de'
-                            ? 'bg-blue-600 text-white dark:bg-blue-500'
-                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                        }`}
-                      >
-                        DE
-                      </Link>
+                      <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1">
+                        <button
+                          onClick={() => handleLanguageChange('en')}
+                          className={`px-4 py-2 text-sm font-medium rounded-md transition-all min-w-[60px] min-h-[44px] flex items-center justify-center ${
+                            locale === 'en'
+                              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                              : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                          }`}
+                        >
+                          EN
+                        </button>
+                        <button
+                          onClick={() => handleLanguageChange('de')}
+                          className={`px-4 py-2 text-sm font-medium rounded-md transition-all min-w-[60px] min-h-[44px] flex items-center justify-center ${
+                            locale === 'de'
+                              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                              : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                          }`}
+                        >
+                          DE
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
