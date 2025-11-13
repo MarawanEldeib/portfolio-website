@@ -16,15 +16,15 @@ export const personalInfo = {
 };
 
 export const skills = {
-  frontend: ["Flutter", "GraphQL", "REST APIs", "React", "Next.js"],
-  backend: ["Python", "Java", "C/C++", "Spring Boot", "Node.js"],
-  databases: ["SQL", "PostgreSQL", "MySQL", "Firebase", "MongoDB"],
-  cloud: ["AWS", "Docker", "Git", "Linux", "CI/CD"],
-  tools: ["PyTorch", "Detectron2", "scikit-learn", "Jira", "Confluence", "MCP Server"],
+  languages: ["Python", "Java", "C/C++", "SQL", "Assembly"],
+  frameworks: ["Spring Boot", "Flutter", "PyTorch", "Detectron2", "scikit-learn"],
+  tools: ["AWS", "Docker", "Git", "GraphQL", "REST APIs", "Firebase", "Jira", "Confluence", "MCP Server"],
+  systems: ["Linux", "Windows"],
 };
 
 export const languages = {
-  fluent: ["Arabic", "English"],
+  native: ["Arabic"],
+  proficient: ["English"],
   intermediate: ["German"],
 };
 
@@ -99,19 +99,19 @@ export const timeline: Array<{
   {
     id: 1,
     type: "work",
-    title: "Student Assistant (Hiwi)",
+    title: "Software Engineer (Working Student)",
     organization: "Fraunhofer IOSB",
     location: "Karlsruhe, Germany",
     startDate: "2025-04",
     endDate: null,
-    description: "Contributing to cutting-edge research at Germany's leading applied research organization. Spearheading the evaluation of LLM-based AI data extraction systems, implementing rigorous testing frameworks to ensure ≥90% accuracy benchmarks. Leading frontend redesign initiatives to enhance user experience for the Digital Product Passport demonstrator, a key project in sustainable manufacturing. Refactoring legacy Python backend workflows to improve performance, maintainability, and scalability. Collaborating with interdisciplinary teams of researchers and engineers on EU-funded circular economy projects.",
-    skills: ["Python", "LLM", "AI Evaluation", "Backend Development", "Frontend Design", "Research"],
+    description: "Evaluated LLM-based AI data extraction against defined metrics, maintaining results at a ≥90% accuracy threshold. Refactored backend workflows and enhanced frontend design to improve system performance and user experience of the Digital Product Passport demonstrator.",
+    skills: ["Python", "LLM", "AI Evaluation", "Backend Development", "Frontend Design"],
     achievements: [
       "Maintained ≥90% AI extraction accuracy",
-      "Refactored critical backend workflows",
-      "Enhanced frontend UX design"
+      "Refactored backend workflows",
+      "Enhanced frontend design and user experience"
     ],
-    certificateUrl: "https://fraunhofer.de/certificates/hiwi-2025", // Replace with your actual certificate/reference letter URL
+    certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
     id: 2,
@@ -121,49 +121,47 @@ export const timeline: Array<{
     location: "Kuala Lumpur, Malaysia",
     startDate: "2023-07",
     endDate: "2023-10",
-    description: "Delivered high-impact contributions to AirAsia's IKHLAS charity mobile application serving 10,000+ active users across Southeast Asia. Architected and implemented GraphQL API integration layer, modernizing data fetching patterns and improving app performance. Developed responsive Flutter UI components with Firebase real-time synchronization. Conducted comprehensive manual and automated unit testing, identifying and resolving critical bugs that enhanced app stability. Worked in an Agile/Scrum environment using Jira for sprint planning and Confluence for documentation. Collaborated with cross-functional teams including designers, product managers, and QA engineers.",
-    skills: ["GraphQL", "Flutter", "Firebase", "Jira", "Confluence", "Unit Testing", "Scrum", "API Development"],
+    description: "Enhanced software quality by conducting manual and unit testing, debugging critical issues, and improving app stability for 10,000+ users using Jira. Developed and integrated APIs using GraphQL for the IKHLAS mobile app, collaborating within a Scrum team to ensure timely feature delivery.",
+    skills: ["GraphQL", "Jira", "Unit Testing", "Scrum", "API Development", "Debugging"],
     achievements: [
-      "GraphQL API integration for 10,000+ users",
-      "Improved app performance and stability",
-      "Cross-functional Agile collaboration"
+      "Improved app stability for 10,000+ users",
+      "Developed GraphQL API integration",
+      "Collaborated in Scrum team for timely delivery"
     ],
-    certificateUrl: "https://drive.google.com/file/d/YOUR_REFERENCE_LETTER", // Replace with your actual certificate/reference letter URL
+    certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
     id: 3,
     type: "education",
-    title: "Master of Science in Software Engineering",
+    title: "Master of Science",
     organization: "Stuttgart University",
     location: "Stuttgart, Germany",
     startDate: "2024-10",
     endDate: null,
-    description: "Pursuing advanced studies in Software Engineering with a focus on modern software architectures, distributed systems, and intelligent systems. Major in Software Engineering and Computer Hardware; Minor in Information Technology. Engaged in cutting-edge research and coursework covering topics including cloud computing, machine learning systems, software quality assurance, and advanced algorithms. Expected graduation: September 2026.",
-    skills: ["Software Engineering", "Computer Hardware", "Distributed Systems", "Cloud Computing", "IT"],
+    description: "Major in Software Engineering/Computer Hardware; Minor in Information Technology. Expected graduation: September 2026.",
+    skills: ["Software Engineering", "Computer Hardware", "Information Technology"],
     achievements: [
-      "Enrolled in prestigious German technical university",
-      "Focus on advanced software architectures",
-      "Research in AI/ML systems"
+      "Expected graduation: September 2026",
+      "Focus on Software Engineering and Computer Hardware"
     ],
-    certificateUrl: "https://uni-stuttgart.de/students/enrollment-cert", // Replace with your actual enrollment certificate/transcript URL
+    certificateUrl: "", // Replace with your actual enrollment certificate/transcript URL
   },
   {
     id: 4,
     type: "education",
-    title: "Bachelor of Engineering (Hons.) in Computer Engineering",
+    title: "Bachelor of Engineering (Hons.)",
     organization: "Multimedia University",
     location: "Cyberjaya, Malaysia",
     startDate: "2020-07",
     endDate: "2024-10",
-    description: "Graduated with First Class Honors (CGPA: 3.7/4.0), demonstrating academic excellence across computer engineering disciplines. Completed comprehensive coursework in software engineering, computer architecture, electronics, embedded systems, data structures, algorithms, and machine learning. Final Year Project: MangoVision - an innovative deep learning system for mango fruit detection from aerial images, achieving 98.5% accuracy using PyTorch and Detectron2. This groundbreaking research earned the 'Best Research Project' award, showcasing expertise in AI/ML, computer vision, and research methodology.",
-    skills: ["Computer Engineering", "Electronics", "Embedded Systems", "Machine Learning", "PyTorch", "Computer Vision", "Research"],
+    description: "Major in Computer; Minors in Electronics. CGPA: 3.7/4.0 (First Class Honors). Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project).",
+    skills: ["Computer Engineering", "Electronics", "Machine Learning", "PyTorch", "Computer Vision"],
     achievements: [
       "First Class Honors (CGPA: 3.7/4.0)",
       "Best Research Project Award",
-      "98.5% ML model accuracy",
-      "Published research work"
+      "MangoVision: 98.5% accuracy"
     ],
-    certificateUrl: "https://mmu.edu.my/degree-certificates/2024", // Replace with your actual degree certificate/transcript URL
+    certificateUrl: "", // Replace with your actual degree certificate/transcript URL
   },
 ];
 
