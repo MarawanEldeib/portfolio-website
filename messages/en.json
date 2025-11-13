@@ -60,11 +60,10 @@
   "skills": {
     "title": "Technical Expertise",
     "subtitle": "Comprehensive skill set across the full development stack",
-    "frontend": "Frontend Development",
-    "backend": "Backend & Languages",
-    "databases": "Database Management",
-    "cloud": "Cloud & DevOps",
-    "tools": "AI/ML & Tools"
+    "languages": "Programming Languages",
+    "frameworks": "Frameworks & Libraries",
+    "tools": "Tools & Technologies",
+    "systems": "Operating Systems"
   },
   "certifications": {
     "title": "Certifications",

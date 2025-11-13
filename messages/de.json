@@ -60,11 +60,10 @@
   "skills": {
     "title": "Technische Expertise",
     "subtitle": "Umfassendes Fachwissen über den gesamten Entwicklungsstack",
-    "frontend": "Frontend-Entwicklung",
-    "backend": "Backend & Programmiersprachen",
-    "databases": "Datenbankverwaltung",
-    "cloud": "Cloud & DevOps",
-    "tools": "KI/ML & Tools"
+    "languages": "Programmiersprachen",
+    "frameworks": "Frameworks & Bibliotheken",
+    "tools": "Tools & Technologien",
+    "systems": "Betriebssysteme"
   },
   "certifications": {
     "title": "Zertifikate",
