@@ -65,6 +65,23 @@ export const projects = [
   },
   {
     id: 3,
+    title: "RainRoot IoT Watering System",
+    description: "Embedded IoT Systems and Applications Course Project (Apr 2023 - Jun 2023). Automated an IoT-based plant watering system, incorporating advanced technology for efficient irrigation management. Integrated ThingsBoard for system monitoring, utilising three distinct sensors for precise soil moisture and water level monitoring.",
+    image: "",
+    tech: ["IoT", "ThingsBoard", "Arduino", "Sensors", "Embedded Systems", "Automation"],
+    github: "https://github.com/MarawanEldeib",
+    live: undefined,
+    video: undefined,
+    status: "completed" as const,
+    highlights: [
+      "Automated irrigation management system",
+      "ThingsBoard integration for monitoring",
+      "Three-sensor system for precision",
+      "Real-time soil moisture and water level tracking"
+    ],
+  },
+  {
+    id: 4,
     title: "IoT-Based Smart Door Lock System (Cypher)",
     description: "Capstone Project (Oct 2022 - Jan 2023). Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
     image: "",
