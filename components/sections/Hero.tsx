@@ -60,7 +60,7 @@ export default function Hero() {
   }, [displayText, isDeleting, currentRole, roles]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-b from-zinc-950 via-blue-950/20 to-purple-950/20">
+    <section id="about" className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-b from-zinc-950 via-blue-950/20 to-purple-950/20">
       <div className="container mx-auto max-w-4xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -85,7 +85,7 @@ export default function Hero() {
             </div>
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white">
             {t('greeting')}{' '}
             <span
               className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
@@ -99,13 +99,13 @@ export default function Hero() {
               {personalInfo.name}
             </span>
           </h1>
-          <div className="h-16 md:h-20 flex items-center justify-center">
-            <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-semibold">
+          <div className="h-16 sm:h-18 md:h-20 flex items-center justify-center">
+            <p className="text-lg sm:text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-semibold">
               {displayText}
-              <span className="inline-block w-0.5 h-6 md:h-8 bg-blue-600 dark:bg-blue-400 ml-1 animate-pulse"></span>
+              <span className="inline-block w-0.5 h-5 sm:h-6 md:h-8 bg-blue-600 dark:bg-blue-400 ml-1 animate-pulse"></span>
             </p>
           </div>
-          <p className="text-lg text-zinc-500 dark:text-zinc-500 mb-8 max-w-2xl mx-auto text-justify">
+          <p className="text-base sm:text-lg text-zinc-500 dark:text-zinc-500 mb-8 max-w-2xl mx-auto text-center px-4 sm:px-0">
             {t('tagline')}
           </p>
           
@@ -113,8 +113,9 @@ export default function Hero() {
             <div className="flex gap-4">
               <button
                 onClick={() => setShowCVPreview(true)}
-                className="inline-flex items-center justify-center px-4 py-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-                title="Preview CV"
+                className="inline-flex items-center justify-center px-4 py-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px]"
+                title="View CV"
+                aria-label="View CV"
               >
                 <Eye size={20} />
               </button>

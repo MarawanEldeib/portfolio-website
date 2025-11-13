@@ -22,7 +22,7 @@ export default function Footer() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors"
+              className="p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -31,14 +31,14 @@ export default function Footer() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors"
+              className="p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="p-2 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors"
+              className="p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Email"
             >
               <Mail size={20} />
