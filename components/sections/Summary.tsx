@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sparkles, Award, Users, Code2 } from 'lucide-react';
+import { Award, Users, Code2 } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 
 export default function Summary() {
@@ -12,30 +12,23 @@ export default function Summary() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-950/10 dark:via-purple-950/10 dark:to-pink-950/10">
-      <div className="container mx-auto max-w-6xl">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-950/10 dark:via-purple-950/10 dark:to-pink-950/10">
+      <div className="container mx-auto max-w-6xl px-0 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="space-y-8"
         >
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-left text-zinc-900 dark:text-zinc-50">Professional Summary</h2>
+
           {/* Summary Text */}
-          <div className="flex items-start gap-4">
-            <Sparkles className="text-blue-600 dark:text-blue-400 flex-shrink-0 mt-1" size={28} />
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                Professional Summary
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed text-left">
-                {personalInfo.summary}
-              </p>
-            </div>
-          </div>
+          <p className="text-sm sm:text-base md:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed text-left max-w-4xl mb-12">
+            {personalInfo.summary}
+          </p>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -45,13 +38,13 @@ export default function Summary() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white dark:bg-zinc-800/50 backdrop-blur-sm rounded-2xl p-6 border border-zinc-200 dark:border-zinc-700 hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-blue-50 hover:to-purple-50 dark:hover:from-blue-950/30 dark:hover:to-purple-950/30 hover:border-2 hover:border-blue-500 dark:hover:border-blue-600 transition-all duration-300 cursor-pointer"
+                  className="bg-white dark:bg-zinc-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-zinc-200 dark:border-zinc-700 hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-blue-50 hover:to-purple-50 dark:hover:from-blue-950/30 dark:hover:to-purple-950/30 hover:border-2 hover:border-blue-500 dark:hover:border-blue-600 transition-all duration-300 cursor-pointer"
                 >
-                  <Icon className="text-blue-600 dark:text-blue-400 mb-3" size={32} />
-                  <div className="text-2xl font-bold text-zinc-900 dark:text-white mb-1">
+                  <Icon className="text-blue-600 dark:text-blue-400 mb-2 sm:mb-3" size={28} />
+                  <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
                     {stat.label}
                   </div>
                 </motion.div>
