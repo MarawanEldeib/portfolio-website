@@ -249,13 +249,10 @@ export default function Header() {
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                        Theme
-                      </span>
                       <ThemeToggle />
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                      <span className="text-base font-semibold text-zinc-700 dark:text-zinc-300">
                         Language
                       </span>
                       <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1">
