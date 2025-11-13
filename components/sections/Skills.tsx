@@ -73,7 +73,7 @@ export default function Skills() {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
+              <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                 <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Fluent</h4>
                 <div className="flex flex-wrap gap-2">
                   {languages.fluent.map((lang) => (
@@ -87,7 +87,7 @@ export default function Skills() {
                 </div>
               </div>
 
-              <div>
+              <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                 <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Intermediate</h4>
                 <div className="flex flex-wrap gap-2">
                   {languages.intermediate.map((lang) => (
