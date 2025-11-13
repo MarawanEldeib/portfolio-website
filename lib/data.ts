@@ -148,6 +148,23 @@ export const projects = [
       "Two-zone parking management (Zone A & B)"
     ],
   },
+  {
+    id: 8,
+    title: "Plagiarism Checker",
+    description: "Object-Oriented C++ Course Project (Feb 2022 - Mar 2022). Software that assists lecturers in identifying source code that has been copied or cloned from another student's source code.",
+    image: "",
+    tech: ["C++", "Object-Oriented Programming", "Algorithm Design", "Code Analysis"],
+    github: "https://github.com/MarawanEldeib",
+    live: undefined,
+    video: undefined,
+    status: "completed" as const,
+    highlights: [
+      "Source code plagiarism detection system",
+      "Object-oriented design in C++",
+      "Assists lecturers in academic integrity",
+      "Clone detection algorithms"
+    ],
+  },
 ];
 
 export const timeline: Array<{
