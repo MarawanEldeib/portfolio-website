@@ -348,21 +348,21 @@ export const awards = [
   },
   {
     id: 2,
-    title: "2nd Place - VLSI Design Challenge",
-    issuer: "Intel Corporation",
-    date: "2024-01",
-    description: "Won 2nd place in the University VLSI Virtual Bootcamp - Introduction to VLSI Design Challenge",
-    image: "", // No image yet
-    certificateUrl: "", // Add certificate URL here
-  },
-  {
-    id: 3,
     title: "First Class Honors",
     issuer: "Multimedia University",
     date: "2024-10",
     description: "Graduated with First Class Honors, CGPA: 3.7/4.0",
     image: "", // No image yet
     certificateUrl: "https://mmu.edu.my/transcripts/honors-2024", // Replace with your actual certificate URL
+  },
+  {
+    id: 3,
+    title: "2nd Place - VLSI Design Challenge",
+    issuer: "Intel Corporation",
+    date: "2024-01",
+    description: "Won 2nd place in the University VLSI Virtual Bootcamp - Introduction to VLSI Design Challenge",
+    image: "", // No image yet
+    certificateUrl: "", // Add certificate URL here
   },
 ];
 
