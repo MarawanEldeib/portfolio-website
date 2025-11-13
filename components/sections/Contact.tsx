@@ -267,27 +267,27 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-white dark:bg-zinc-950">
-      <div className="container mx-auto max-w-5xl">
+    <section id="contact" className="py-20 px-4 sm:px-6 bg-white dark:bg-zinc-950">
+      <div className="container mx-auto max-w-5xl px-0 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-center text-zinc-900 dark:text-zinc-50">{t('title')}</h2>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center text-zinc-900 dark:text-zinc-50 px-4 sm:px-0">{t('title')}</h2>
+          <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 mb-12 text-center px-4 sm:px-0">
             {t('subtitle')}
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-8 shadow-lg border border-zinc-200 dark:border-zinc-800"
+              className="bg-white dark:bg-zinc-900 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg border border-zinc-200 dark:border-zinc-800"
             >
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 {/* General Error */}
@@ -474,11 +474,11 @@ export default function Contact() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="bg-white dark:bg-zinc-900 rounded-xl p-8 shadow-lg border border-zinc-200 dark:border-zinc-800">
-                <h3 className="text-xl font-semibold mb-6 text-zinc-900 dark:text-zinc-50">Contact Information</h3>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors group">
+              <div className="bg-white dark:bg-zinc-900 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg border border-zinc-200 dark:border-zinc-800">
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-zinc-900 dark:text-zinc-50">Contact Information</h3>
+
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors group">
                     <Mail className="text-blue-600 dark:text-blue-400 mt-1" size={24} />
                     <div className="flex-1">
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('info.email')}</p>
@@ -494,7 +494,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors group">
+                  <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors group">
                     <Phone className="text-blue-600 dark:text-blue-400 mt-1" size={24} />
                     <div className="flex-1">
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('info.phone')}</p>
@@ -510,7 +510,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 p-4 rounded-lg">
+                  <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg">
                     <MapPin className="text-blue-600 dark:text-blue-400 mt-1" size={24} />
                     <div>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('info.location')}</p>
@@ -522,7 +522,7 @@ export default function Contact() {
                     href={personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-4 p-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                    className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
                   >
                     <Linkedin className="text-blue-600 dark:text-blue-400 mt-1" size={24} />
                     <div>
