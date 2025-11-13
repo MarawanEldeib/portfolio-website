@@ -154,12 +154,15 @@ export const timeline: Array<{
     location: "Cyberjaya, Malaysia",
     startDate: "2020-07",
     endDate: "2024-10",
-    description: "Major in Computer; Minors in Electronics. CGPA: 3.7/4.0 (First Class Honors). Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project).",
-    skills: ["Computer Engineering", "Electronics", "Machine Learning", "PyTorch", "Computer Vision"],
+    description: "Major in Computer; Minors in Electronics. CGPA: 3.7/4.0 (First Class Honors). Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project). Relevant Coursework: Software Engineering; Operating Systems; Artificial Intelligence; Embedded IoT; Networking Protocols; Database Systems; Cybersecurity.",
+    skills: ["Computer Engineering", "Electronics", "Machine Learning", "PyTorch", "Computer Vision", "Software Engineering", "Operating Systems", "Artificial Intelligence", "Embedded IoT"],
     achievements: [
       "First Class Honors (CGPA: 3.7/4.0)",
+      "Gold Medal at iNVENTX Invention Exhibition 2024",
+      "Best Project at MMU Career Fair 2024",
       "Best Research Project Award",
-      "MangoVision: 98.5% accuracy"
+      "Merit International Scholarship",
+      "Dean's List"
     ],
     certificateUrl: "", // Replace with your actual degree certificate/transcript URL
   },
