@@ -48,40 +48,6 @@ export const projects = [
   },
   {
     id: 2,
-    title: "IKHLAS Mobile App",
-    description: "Production-ready mobile application development for AirAsia's charity platform serving over 10,000 active users. Architected and implemented robust GraphQL API integration layer, replacing legacy REST endpoints with modern, efficient data fetching. Built responsive Flutter UI components with real-time Firebase synchronization. Collaborated in an Agile/Scrum environment, conducting comprehensive unit testing and debugging to ensure seamless user experience across iOS and Android platforms.",
-    image: "", // No image yet
-    tech: ["GraphQL", "Flutter", "Firebase", "REST APIs", "Dart", "Scrum", "Unit Testing"],
-    github: "https://github.com/MarawanEldeib",
-    live: undefined,
-    video: undefined, // Add video demo link here
-    status: "completed" as const,
-    highlights: [
-      "Served 10,000+ active users",
-      "GraphQL API integration for optimized data fetching",
-      "Cross-platform mobile development (iOS & Android)",
-      "Agile development with comprehensive testing"
-    ],
-  },
-  {
-    id: 3,
-    title: "Digital Product Passport Demonstrator",
-    description: "Enterprise-level web application for Fraunhofer IOSB's circular economy initiative. Leading frontend redesign efforts to improve user experience and data visualization for product lifecycle tracking. Implementing LLM-based AI data extraction pipeline with rigorous quality assurance, maintaining ≥90% accuracy benchmarks. Refactoring legacy backend workflows to improve performance and maintainability. Contributing to cutting-edge research in sustainable manufacturing and product transparency.",
-    image: "", // No image yet
-    tech: ["Python", "LLM", "AI/ML", "Backend Development", "Frontend Design", "Data Extraction"],
-    github: undefined,
-    live: undefined,
-    video: undefined, // Add video demo link here
-    status: "ongoing" as const,
-    highlights: [
-      "≥90% AI data extraction accuracy",
-      "Frontend UX redesign for improved usability",
-      "Backend workflow optimization",
-      "Research contribution to circular economy"
-    ],
-  },
-  {
-    id: 4,
     title: "Good-Shape-Fitness-Center App",
     description: "Advanced Microprocessors Course Project (May 2023 - Jun 2023). Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
     image: "",
@@ -98,7 +64,7 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: 3,
     title: "IoT-Based Smart Door Lock System (Cypher)",
     description: "Capstone Project (Oct 2022 - Jan 2023). Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
     image: "",
