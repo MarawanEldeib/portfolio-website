@@ -102,7 +102,7 @@ export default function Volunteering() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-zinc-700 mb-4 leading-relaxed text-justify">
+                  <p className="text-zinc-700 mb-4 leading-relaxed text-left">
                     {volunteer.description}
                   </p>
 

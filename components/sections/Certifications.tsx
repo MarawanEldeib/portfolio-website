@@ -135,7 +135,7 @@ export default function Certifications() {
                         <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-3">
                           {new Date(award.date).toLocaleDateString('en', { month: 'long', year: 'numeric' })}
                         </p>
-                        <p className="text-zinc-700 dark:text-zinc-300 mb-3 text-justify">
+                        <p className="text-zinc-700 dark:text-zinc-300 mb-3 text-left leading-relaxed">
                           {award.description}
                         </p>
                         {award.certificateUrl && (

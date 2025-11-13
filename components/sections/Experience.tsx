@@ -41,17 +41,6 @@ export default function Experience() {
                 </div>
 
                 <div className="relative bg-white dark:bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-950/30 dark:hover:to-blue-900/30 hover:border-2 hover:border-blue-500 dark:hover:border-blue-600 transition-all duration-300 cursor-pointer">
-                  {/* Status Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      item.endDate === null
-                        ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
-                        : 'bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100'
-                    }`}>
-                      {item.endDate === null ? 'Ongoing' : 'Completed'}
-                    </span>
-                  </div>
-
                   <div className="flex items-start gap-4 mb-4">
                     {item.organizationLogo && (
                       <div className="flex-shrink-0 w-16 h-16 relative rounded-lg overflow-hidden bg-white dark:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 flex items-center justify-center">
@@ -64,9 +53,19 @@ export default function Experience() {
                         />
                       </div>
                     )}
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                      <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-2">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <h3 className="text-lg sm:text-xl font-semibold flex-1 min-w-0">{item.title}</h3>
+                        {/* Status Badge */}
+                        <span className={`flex-shrink-0 px-3 py-1 rounded-full text-xs font-medium ${
+                          item.endDate === null
+                            ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
+                            : 'bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100'
+                        }`}>
+                          {item.endDate === null ? 'Ongoing' : 'Completed'}
+                        </span>
+                      </div>
+                      <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400">
                         {item.organization}
                       </p>
                     </div>
@@ -84,7 +83,7 @@ export default function Experience() {
                     </span>
                   </div>
 
-                  <p className="text-zinc-700 dark:text-zinc-300 mb-4 text-justify">
+                  <p className="text-zinc-700 dark:text-zinc-300 mb-4 text-left leading-relaxed">
                     {item.description}
                   </p>
 

@@ -93,7 +93,7 @@ export default function Projects() {
 
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-justify">
+                  <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-left leading-relaxed">
                     {project.description}
                   </p>
 
