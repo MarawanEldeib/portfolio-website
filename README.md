@@ -13,6 +13,17 @@ Modern portfolio website built with Next.js 16.
 **i18n:** next-intl
 **UI:** Lucide React, React Hook Form
 
+## Content Updates Needed
+
+- [ ] Add organization logos to `/public/images/logos/`
+  - Fraunhofer IOSB logo
+  - AirAsia logo
+  - University of Stuttgart logo
+  - Multimedia University logo
+- [ ] Add project screenshots
+- [ ] Add certificate images
+- [ ] Update certificate URLs
+
 ## Contact
 
 **Marawan Eldeib**
