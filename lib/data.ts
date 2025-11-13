@@ -386,11 +386,11 @@ export const recommendations: Array<{
   },
   {
     id: 3,
-    name: "Prof. Dr. Michael Weber",
-    title: "Professor of Computer Engineering",
+    name: "Mohd Haris Lye Abdullah",
+    title: "Lecturer, Faculty of Engineering",
     company: "Multimedia University",
     image: "", // Add profile image URL here
-    text: "Marawan's final year project on MangoVision demonstrated exceptional research capabilities and deep understanding of computer vision. His 98.5% accuracy achievement and 'Best Research Project' award are well-deserved recognitions of his talent.",
+    text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
     linkedin: "",
   },
 ];
