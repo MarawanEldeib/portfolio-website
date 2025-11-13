@@ -51,7 +51,7 @@ export default function DownloadButton({
 
   const baseClasses = variant === 'outline'
     ? 'border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100'
-    : 'bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 dark:hover:bg-blue-600';
+    : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl';
 
   const stateClasses = {
     idle: '',
@@ -75,9 +75,22 @@ export default function DownloadButton({
           <motion.div
             key="download"
             initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
+            animate={{
+              scale: 1,
+              rotate: 0,
+              y: [0, -5, 0]
+            }}
             exit={{ scale: 0, rotate: 180, opacity: 0 }}
-            transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
+            transition={{
+              scale: { duration: 0.3, type: "spring", stiffness: 200 },
+              rotate: { duration: 0.3, type: "spring", stiffness: 200 },
+              y: {
+                duration: 1.5,
+                repeat: Infinity,
+                repeatDelay: 2,
+                ease: "easeInOut"
+              }
+            }}
           >
             <Download size={20} />
           </motion.div>
