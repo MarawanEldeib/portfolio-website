@@ -57,6 +57,35 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
           },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https: blob:",
+              "font-src 'self' data:",
+              "connect-src 'self' https://vercel.live https://va.vercel-scripts.com https://*.linkedin.com",
+              "media-src 'self' data:",
+              "object-src 'none'",
+              "frame-ancestors 'self'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "upgrade-insecure-requests"
+            ].join('; ')
+          },
+          {
+            key: 'Cross-Origin-Embedder-Policy',
+            value: 'credentialless'
+          },
+          {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin'
+          },
+          {
+            key: 'Cross-Origin-Resource-Policy',
+            value: 'cross-origin'
+          },
         ],
       },
       {

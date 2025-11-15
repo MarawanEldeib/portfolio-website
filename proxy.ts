@@ -37,7 +37,34 @@ export default function middleware(request: NextRequest) {
   }
 
   // Continue with internationalization
-  return intlMiddleware(request);
+  const response = intlMiddleware(request);
+
+  // Secure the NEXT_LOCALE cookie
+  const cookies = response.headers.get('set-cookie');
+  if (cookies) {
+    // Split multiple Set-Cookie headers if they exist
+    const cookieArray = cookies.split(',').map(cookie => {
+      // If it's the NEXT_LOCALE cookie, add security flags
+      if (cookie.includes('NEXT_LOCALE=')) {
+        // Remove any existing Secure flag to avoid duplicates
+        let secureCookie = cookie.replace(/;\s*Secure/gi, '');
+        // Add Secure flag for HTTPS
+        if (!secureCookie.includes('Secure')) {
+          secureCookie += '; Secure';
+        }
+        return secureCookie;
+      }
+      return cookie;
+    });
+
+    // Set the modified cookies
+    response.headers.delete('set-cookie');
+    cookieArray.forEach(cookie => {
+      response.headers.append('set-cookie', cookie.trim());
+    });
+  }
+
+  return response;
 }
 
 export const config = {
