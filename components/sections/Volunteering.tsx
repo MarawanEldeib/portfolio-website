@@ -28,7 +28,7 @@ export default function Volunteering() {
           viewport={{ once: true }}
         >
           <div className="flex items-center gap-3 mb-2">
-            <Heart className="text-red-500" size={32} />
+            <Heart className="text-purple-500" size={32} />
             <h2 className="text-4xl font-bold">{t('title')}</h2>
           </div>
           <p className="text-zinc-600 mb-12">
@@ -79,7 +79,7 @@ export default function Volunteering() {
                           </a>
                         )}
                       </h3>
-                      <p className="text-lg text-blue-600 font-medium">
+                      <p className="text-lg text-purple-600 font-medium">
                         {volunteer.organization}
                       </p>
                     </div>
@@ -114,7 +114,7 @@ export default function Volunteering() {
                         return (
                           <span
                             key={skill}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-red-50 text-red-700 text-xs font-medium rounded-md border border-red-200"
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-50 text-purple-700 text-xs font-medium rounded-md border border-purple-200"
                           >
                             {IconComponent && <IconComponent className="w-3.5 h-3.5" />}
                             {skill}
@@ -135,9 +135,9 @@ export default function Volunteering() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-12 text-center bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-8 border border-red-200"
+          className="mt-12 text-center bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-8 border border-purple-200"
         >
-          <Heart className="text-red-500 mx-auto mb-4" size={48} />
+          <Heart className="text-purple-500 mx-auto mb-4" size={48} />
           <h3 className="text-2xl font-bold text-zinc-900 mb-2">
             Passionate About Giving Back
           </h3>
