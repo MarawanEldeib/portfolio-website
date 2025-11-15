@@ -39,6 +39,7 @@ export const projects = [
     live: undefined,
     video: undefined, // Add video demo link here
     status: "completed" as const,
+    date: "2024-07", // July 2024 (end date)
     highlights: [
       "98.5% detection accuracy with YOLO model",
       "Awarded Best Research Project at MMU",
@@ -56,6 +57,7 @@ export const projects = [
     live: undefined,
     video: undefined,
     status: "completed" as const,
+    date: "2023-06", // June 2023
     highlights: [
       "Assembly language programming with EMU8086",
       "Interactive user-friendly class enrollment system",
@@ -73,6 +75,7 @@ export const projects = [
     live: undefined,
     video: undefined,
     status: "completed" as const,
+    date: "2023-06", // June 2023
     highlights: [
       "Automated irrigation management system",
       "ThingsBoard integration for monitoring",
@@ -90,6 +93,7 @@ export const projects = [
     live: undefined,
     video: undefined,
     status: "completed" as const,
+    date: "2023-01", // January 2023
     highlights: [
       "Led 3-member team on IoT security project",
       "PCB-based smart lock with motion detection",
@@ -107,6 +111,7 @@ export const projects = [
     live: undefined,
     video: undefined,
     status: "completed" as const,
+    date: "2022-12", // December 2022
     highlights: [
       "Four fitness calculators (BMI, calorie, body fat, ideal weight)",
       "Firebase backend with admin management",
@@ -124,6 +129,7 @@ export const projects = [
     live: undefined,
     video: undefined,
     status: "completed" as const,
+    date: "2022-03", // March 2022
     highlights: [
       "MySQL database for bookstore inventory",
       "Real-time book quantity tracking",
@@ -141,6 +147,7 @@ export const projects = [
     live: undefined,
     video: undefined,
     status: "completed" as const,
+    date: "2021-11", // November 2021
     highlights: [
       "Keypad-based secure password entry system",
       "Four-sensor parking detection system",
@@ -158,6 +165,7 @@ export const projects = [
     live: undefined,
     video: undefined,
     status: "completed" as const,
+    date: "2022-03", // March 2022
     highlights: [
       "Source code plagiarism detection system",
       "Object-oriented design in C++",

@@ -12,9 +12,12 @@ export default function Projects() {
   const t = useTranslations('projects');
   const [filter, setFilter] = useState<'all' | 'completed' | 'ongoing'>('all');
 
-  const filteredProjects = projects.filter(
-    (project) => filter === 'all' || project.status === filter
-  );
+  const filteredProjects = projects
+    .filter((project) => filter === 'all' || project.status === filter)
+    .sort((a, b) => {
+      // Sort by date descending (most recent first)
+      return b.date.localeCompare(a.date);
+    });
 
   return (
     <section id="projects" className="py-20 px-4 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950">
