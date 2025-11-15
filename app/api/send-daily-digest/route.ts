@@ -119,11 +119,11 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    const recipientEmail = process.env.NOTIFICATION_EMAIL || process.env.CONTACT_EMAIL;
+    const recipientEmail = process.env.CONTACT_EMAIL;
 
     if (!recipientEmail) {
       return NextResponse.json(
-        { error: 'NOTIFICATION_EMAIL not configured' },
+        { error: 'CONTACT_EMAIL not configured' },
         { status: 500 }
       );
     }

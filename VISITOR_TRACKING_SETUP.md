@@ -18,7 +18,7 @@ Copy `.env.local.example` to `.env.local` and add the following:
 ```env
 # Required for email functionality
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxx
-NOTIFICATION_EMAIL=your_email@example.com
+CONTACT_EMAIL=your_email@example.com
 
 # Optional: Customize the sender email
 RESEND_FROM_EMAIL=Portfolio Analytics <noreply@yourdomain.com>
@@ -63,8 +63,8 @@ The `vercel.json` file is already configured to run the daily digest at 8 AM UTC
 ### 5. Add Environment Variables to Vercel
 
 In your Vercel project settings, add:
-- `RESEND_API_KEY`
-- `NOTIFICATION_EMAIL`
+- `RESEND_API_KEY` (already added for contact form)
+- `CONTACT_EMAIL` (already added for contact form)
 - `RESEND_FROM_EMAIL` (optional)
 - `CRON_SECRET` (must match your local value)
 
@@ -163,7 +163,7 @@ Modify `/app/api/track-visit/route.ts` to capture more information like:
 1. Check Vercel logs for errors
 2. Verify `RESEND_API_KEY` is correct
 3. Check Resend dashboard for delivery status
-4. Ensure `NOTIFICATION_EMAIL` is set
+4. Ensure `CONTACT_EMAIL` is set
 5. Check spam folder
 
 ### Tracking not working?
