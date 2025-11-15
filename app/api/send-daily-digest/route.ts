@@ -1,30 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { kv } from '@vercel/kv';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const DATA_DIR = path.join(process.cwd(), 'data');
-const VISITS_FILE = path.join(DATA_DIR, 'visits.json');
 
 interface VisitData {
   date: string;
   count: number;
   paths: { [key: string]: number };
   referrers: { [key: string]: number };
-}
-
-interface VisitsStore {
-  [date: string]: VisitData;
-}
-
-async function getVisitsData(): Promise<VisitsStore> {
-  try {
-    const data = await fs.readFile(VISITS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch {
-    return {};
-  }
 }
 
 function generateEmailHTML(data: VisitData): string {
@@ -93,7 +77,7 @@ function generateEmailHTML(data: VisitData): string {
 
         <div class="footer">
           <p>This is an automated daily report from your portfolio website.</p>
-          <p>Powered by Resend</p>
+          <p>Powered by Resend & Vercel KV</p>
         </div>
       </body>
     </html>
@@ -108,9 +92,11 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const visitsData = await getVisitsData();
     const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-    const yesterdayData = visitsData[yesterday];
+    const key = `visits:${yesterday}`;
+
+    // Get yesterday's data from KV
+    const yesterdayData = await kv.get<VisitData>(key);
 
     if (!yesterdayData || yesterdayData.count === 0) {
       return NextResponse.json({
