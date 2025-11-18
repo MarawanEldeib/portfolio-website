@@ -12,6 +12,7 @@ import StructuredData from '@/components/seo/StructuredData';
 import VisitTracker from '@/components/analytics/VisitTracker';
 import { VIEWPORT_CONFIG } from '@/lib/constants';
 import { THEME_CONFIG, DARK_MODE_SCRIPT } from '@/lib/theme.config';
+import PassiveEventsInit from '@/components/utils/PassiveEventsInit';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -132,16 +133,22 @@ export default async function LocaleLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-500`}
         suppressHydrationWarning
       >
+        <PassiveEventsInit />
         <LoadingIndicator />
         <ClientBackground />
-        <Toaster 
+        <Toaster
           position="top-right"
+          containerStyle={{
+            top: 80,
+          }}
           toastOptions={{
             duration: 3500,
             style: THEME_CONFIG.toast.style,
             success: THEME_CONFIG.toast.success,
             error: THEME_CONFIG.toast.error,
           }}
+          // Improve performance by reducing re-renders
+          reverseOrder={false}
         />
         <NextIntlClientProvider messages={messages}>
           {children}
