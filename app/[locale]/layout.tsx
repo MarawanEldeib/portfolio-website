@@ -140,7 +140,6 @@ export default async function LocaleLayout({
         suppressHydrationWarning
       >
         <PassiveEventsInit />
-        <LoadingIndicator />
         <ClientBackground />
         <Toaster
           position="top-right"
