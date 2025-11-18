@@ -244,7 +244,7 @@ const timelineData: Array<{
     startDate: "2023-07",
     endDate: "2023-10",
     description: "Developed new features and fixed bugs for the IKHLAS mobile app serving 10,000+ users. Implemented GraphQL API integrations and refactored existing codebase to improve maintainability. Conducted comprehensive testing, debugging, and issue reporting using Jira. Collaborated closely with cross-functional Scrum team to deliver features on schedule.",
-    skills: ["GraphQL", "Jira", "Unit Testing", "Scrum", "API Development", "Debugging", "Code Refactoring", "Teamwork"],
+    skills: ["GraphQL", "Jira", "Unit Testing", "Scrum", "API Development", "Debugging", "Code Refactoring", "Teamwork", "Feature Development", "Bug Fixing", "Issue Reporting"],
     achievements: [],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
