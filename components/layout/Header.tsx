@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LAYOUT_CONSTANTS } from '@/lib/constants';
 
 export default function Header() {
   const t = useTranslations('nav');
@@ -40,9 +41,8 @@ export default function Header() {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const headerOffset = 80; // Height of fixed header
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition = elementPosition + window.pageYOffset - LAYOUT_CONSTANTS.HEADER_HEIGHT;
 
       window.scrollTo({
         top: offsetPosition,
@@ -71,7 +71,7 @@ export default function Header() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const sections = navItems.map(item => item.id);
-          const scrollPosition = window.scrollY + 100; // Offset for header height
+          const scrollPosition = window.scrollY + LAYOUT_CONSTANTS.SCROLL_OFFSET;
 
           for (let i = sections.length - 1; i >= 0; i--) {
             const section = document.getElementById(sections[i]);
