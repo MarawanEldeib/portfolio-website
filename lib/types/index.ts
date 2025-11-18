@@ -62,6 +62,7 @@ export interface Recommendation {
   text: string;
   image?: string;
   linkedin?: string;
+  profileUrl?: string;
 }
 
 // Personal Info Types
