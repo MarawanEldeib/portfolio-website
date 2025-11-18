@@ -33,31 +33,41 @@ export default function Hero() {
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
-    const typingSpeed = isDeleting ? 50 : 100;
+    const typingSpeed = isDeleting ? 30 : 80; // Faster for better performance
     const currentFullText = roles[currentRole];
+    let rafId: number;
+    let lastUpdate = Date.now();
 
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        // Typing
-        if (displayText.length < currentFullText.length) {
-          setDisplayText(currentFullText.slice(0, displayText.length + 1));
+    const animate = () => {
+      const now = Date.now();
+      if (now - lastUpdate >= typingSpeed) {
+        if (!isDeleting) {
+          // Typing
+          if (displayText.length < currentFullText.length) {
+            setDisplayText(currentFullText.slice(0, displayText.length + 1));
+          } else {
+            // Finished typing, wait then start deleting
+            setTimeout(() => setIsDeleting(true), 1500); // Reduced wait time
+            return;
+          }
         } else {
-          // Finished typing, wait then start deleting
-          setTimeout(() => setIsDeleting(true), 2000);
+          // Deleting
+          if (displayText.length > 0) {
+            setDisplayText(displayText.slice(0, -1));
+          } else {
+            // Finished deleting, move to next role
+            setIsDeleting(false);
+            setCurrentRole((prev) => (prev + 1) % roles.length);
+            return;
+          }
         }
-      } else {
-        // Deleting
-        if (displayText.length > 0) {
-          setDisplayText(displayText.slice(0, -1));
-        } else {
-          // Finished deleting, move to next role
-          setIsDeleting(false);
-          setCurrentRole((prev) => (prev + 1) % roles.length);
-        }
+        lastUpdate = now;
       }
-    }, typingSpeed);
+      rafId = requestAnimationFrame(animate);
+    };
 
-    return () => clearTimeout(timer);
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
   }, [displayText, isDeleting, currentRole, roles]);
 
   return (

@@ -66,36 +66,43 @@ export default function Header() {
 
   useEffect(() => {
     let ticking = false;
-    
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Only update if scroll changed significantly (reduce calculations)
+      if (Math.abs(currentScrollY - lastScrollY) < 50 && !ticking) return;
+
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const sections = navItems.map(item => item.id);
-          const scrollPosition = window.scrollY + LAYOUT_CONSTANTS.SCROLL_OFFSET;
+          const scrollPosition = currentScrollY + LAYOUT_CONSTANTS.SCROLL_OFFSET;
 
           for (let i = sections.length - 1; i >= 0; i--) {
             const section = document.getElementById(sections[i]);
             if (section) {
               const sectionTop = section.offsetTop;
               const sectionHeight = section.offsetHeight;
-              
+
               if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 setActiveSection(sections[i]);
                 break;
               }
             }
           }
-          
+
+          lastScrollY = currentScrollY;
           ticking = false;
         });
-        
+
         ticking = true;
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Call once on mount
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navItems]);
 
