@@ -217,12 +217,12 @@ const timelineData: Array<{
     location: "Karlsruhe, Germany",
     startDate: "2025-04",
     endDate: null,
-    description: "Evaluated LLM-based AI data extraction against defined metrics, maintaining results at a ≥90% accuracy threshold. Refactored backend workflows and enhanced frontend design to improve system performance and user experience of the Digital Product Passport demonstrator.",
-    skills: ["Python", "LLM", "AI Evaluation", "Backend Development", "Frontend Design"],
+    description: "Developed comprehensive test suites for LLM-based AI data extraction system, ensuring ≥90% accuracy threshold across evaluation metrics. Implemented automated testing frameworks in Java to validate AI model performance and reliability. Refactored backend workflows and enhanced frontend design to improve system performance and user experience of the Digital Product Passport demonstrator.",
+    skills: ["Java", "Testing", "LLM", "AI Evaluation", "Backend Development", "Frontend Design"],
     achievements: [
-      "Maintained ≥90% AI extraction accuracy",
-      "Refactored backend workflows",
-      "Enhanced frontend design and user experience"
+      "Developed automated testing framework for AI evaluation",
+      "Maintained ≥90% AI extraction accuracy through comprehensive testing",
+      "Refactored backend workflows and enhanced frontend UX"
     ],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
