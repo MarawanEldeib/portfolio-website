@@ -219,11 +219,7 @@ const timelineData: Array<{
     endDate: null,
     description: "Developed comprehensive test suites for LLM-based AI data extraction system, ensuring ≥90% accuracy threshold across evaluation metrics. Implemented automated testing frameworks in Java to validate AI model performance and reliability. Refactored backend workflows and enhanced frontend design to improve system performance and user experience of the Digital Product Passport demonstrator.",
     skills: ["Java", "Testing", "LLM", "AI Evaluation", "Backend Development", "Frontend Design"],
-    achievements: [
-      "Developed automated testing framework for AI evaluation",
-      "Maintained ≥90% AI extraction accuracy through comprehensive testing",
-      "Refactored backend workflows and enhanced frontend UX"
-    ],
+    achievements: [],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
@@ -236,11 +232,7 @@ const timelineData: Array<{
     endDate: "2024-10",
     description: "Organized a targeted revision session on digital logic concepts, resulting in improved exam performance for attendees. Assisted the professor in providing academic support, ensuring students effectively applied theoretical knowledge to practical circuit design tasks.",
     skills: ["Digital Logic", "Circuit Design", "Teaching", "Academic Support", "Communication"],
-    achievements: [
-      "Improved student exam performance through targeted revision",
-      "Enhanced student understanding of digital logic concepts",
-      "Supported practical application of theoretical knowledge"
-    ],
+    achievements: [],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
@@ -253,11 +245,7 @@ const timelineData: Array<{
     endDate: "2023-10",
     description: "Enhanced software quality by conducting manual and unit testing, debugging critical issues, and improving app stability for 10,000+ users using Jira. Developed and integrated APIs using GraphQL for the IKHLAS mobile app, collaborating within a Scrum team to ensure timely feature delivery.",
     skills: ["GraphQL", "Jira", "Unit Testing", "Scrum", "API Development", "Debugging"],
-    achievements: [
-      "Improved app stability for 10,000+ users",
-      "Developed GraphQL API integration",
-      "Collaborated in Scrum team for timely delivery"
-    ],
+    achievements: [],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
