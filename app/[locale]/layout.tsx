@@ -115,13 +115,19 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
+        {/* SEO: Meta Description - Ensures Lighthouse detects it */}
+        <meta
+          name="description"
+          content="Master's student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB specializing in computer vision and deep learning. Expert in Python, Java, Flutter, and modern web technologies."
+        />
+
         {/* Performance: Preconnect to critical domains */}
         <link rel="preconnect" href="https://vercel.live" />
         <link rel="dns-prefetch" href="https://vercel.live" />
-        
+
         {/* SEO: Structured Data for ATS */}
         <StructuredData />
-        
+
         {/* Performance: Inline critical theme script to force dark mode */}
         <script
           dangerouslySetInnerHTML={{
