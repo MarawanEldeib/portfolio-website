@@ -83,9 +83,9 @@ export default function Experience() {
                     </span>
                   </div>
 
-                  <p className="text-zinc-700 dark:text-zinc-300 mb-4 text-left leading-relaxed">
+                  <div className="text-zinc-700 dark:text-zinc-300 mb-4 text-left leading-relaxed whitespace-pre-line">
                     {item.description}
-                  </p>
+                  </div>
 
                   {item.achievements && item.achievements.length > 0 && (
                     <div className="mb-4">
