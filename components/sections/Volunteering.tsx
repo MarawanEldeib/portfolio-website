@@ -21,17 +21,17 @@ export default function Volunteering() {
   };
 
   return (
-    <section id="volunteering" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+    <section id="volunteering" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-950 dark:to-zinc-900">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           {...fadeInUp}
           viewport={{ once: true }}
         >
-          <div className="flex items-center gap-3 mb-2">
-            <Heart className="text-purple-500" size={32} />
-            <h2 className="text-4xl font-bold">{t('title')}</h2>
+          <div className="flex items-center gap-3 mb-4 justify-center">
+            <Heart className="text-purple-500 dark:text-purple-400" size={32} />
+            <h2 className="text-4xl font-bold text-center">{t('title')}</h2>
           </div>
-          <p className="text-zinc-600 mb-12">
+          <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-12 text-center">
             {t('subtitle')}
           </p>
         </motion.div>

@@ -444,7 +444,7 @@ export const recommendations: Array<{
   },
 ];
 
-export const volunteering: Array<{
+const volunteeringData: Array<{
   id: string;
   organization: string;
   role: string;
@@ -479,3 +479,15 @@ export const volunteering: Array<{
     websiteUrl: "",
   },
 ];
+
+// Sort volunteering by startDate descending (most recent first), then by endDate descending
+// Ongoing items (endDate = null) come first when startDate is the same
+export const volunteering = volunteeringData.sort((a, b) => {
+  const startCompare = b.startDate.localeCompare(a.startDate);
+  if (startCompare !== 0) return startCompare;
+
+  // If startDate is the same, sort by endDate (ongoing items first)
+  if (a.endDate === null) return -1;
+  if (b.endDate === null) return 1;
+  return b.endDate.localeCompare(a.endDate);
+});
