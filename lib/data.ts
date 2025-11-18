@@ -32,7 +32,7 @@ const projectsData = [
   {
     id: "1",
     title: "MangoVision - Mango Fruit Detection from Aerial Images",
-    description: "Award-winning deep learning computer vision system for precision agriculture developed as Final Year Project. Developed and trained YOLO and Faster R-CNN models using PyTorch on drone images, achieving 98.5% accuracy with YOLO, outperforming Detectron2. Created MangoVision, a bilingual GUI with image/video processing and GPS-integrated map, enhancing smart farming by reducing labour and improving detection accuracy.",
+    description: "Award-winning deep learning computer vision system for precision agriculture. Developed and trained YOLO and Faster R-CNN models using PyTorch on drone images, achieving 98.5% accuracy with YOLO, outperforming Detectron2. Created MangoVision, a bilingual GUI with image/video processing and GPS-integrated map, enhancing smart farming by reducing labour and improving detection accuracy.",
     image: "", // No image yet
     tech: ["Python", "PyTorch", "YOLO", "Faster R-CNN", "Detectron2", "Computer Vision", "Deep Learning", "GUI Development"],
     github: "https://github.com/MarawanEldeib",
@@ -41,6 +41,7 @@ const projectsData = [
     status: "completed" as const,
     startDate: "2023-11",
     endDate: "2024-07",
+    course: "Final Year Project",
     highlights: [
       "98.5% detection accuracy with YOLO model",
       "Awarded Best Research Project at MMU",
@@ -51,7 +52,7 @@ const projectsData = [
   {
     id: "2",
     title: "Good-Shape-Fitness-Center App",
-    description: "Advanced Microprocessors Course Project. Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
+    description: "Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
     image: "",
     tech: ["Assembly Language", "EMU8086", "Microprocessors", "System Programming"],
     github: "https://github.com/MarawanEldeib",
@@ -60,6 +61,7 @@ const projectsData = [
     status: "completed" as const,
     startDate: "2023-05",
     endDate: "2023-06",
+    course: "Advanced Microprocessors",
     highlights: [
       "Assembly language programming with EMU8086",
       "Interactive user-friendly class enrollment system",
@@ -70,7 +72,7 @@ const projectsData = [
   {
     id: "3",
     title: "RainRoot IoT Watering System",
-    description: "Embedded IoT Systems and Applications Course Project. Automated an IoT-based plant watering system, incorporating advanced technology for efficient irrigation management. Integrated ThingsBoard for system monitoring, utilising three distinct sensors for precise soil moisture and water level monitoring.",
+    description: "Automated an IoT-based plant watering system, incorporating advanced technology for efficient irrigation management. Integrated ThingsBoard for system monitoring, utilising three distinct sensors for precise soil moisture and water level monitoring.",
     image: "",
     tech: ["IoT", "ThingsBoard", "Arduino", "Sensors", "Embedded Systems", "Automation"],
     github: "https://github.com/MarawanEldeib",
@@ -79,6 +81,7 @@ const projectsData = [
     status: "completed" as const,
     startDate: "2023-04",
     endDate: "2023-06",
+    course: "Embedded IoT Systems and Applications",
     highlights: [
       "Automated irrigation management system",
       "ThingsBoard integration for monitoring",
@@ -89,7 +92,7 @@ const projectsData = [
   {
     id: "4",
     title: "IoT-Based Smart Door Lock System (Cypher)",
-    description: "Capstone Project. Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
+    description: "Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
     image: "",
     tech: ["Arduino", "Flutter", "Firebase", "IoT", "PCB Design", "Mobile Development"],
     github: "https://github.com/MarawanEldeib",
@@ -98,6 +101,7 @@ const projectsData = [
     status: "completed" as const,
     startDate: "2022-10",
     endDate: "2023-01",
+    course: "Capstone Project",
     highlights: [
       "Led 3-member team on IoT security project",
       "PCB-based smart lock with motion detection",
@@ -108,7 +112,7 @@ const projectsData = [
   {
     id: "5",
     title: "BodyMath App",
-    description: "Software Engineering Course Project. Coded a Flutter-based fitness app integrating four calculators: BMI, calorie intake, body fat, and ideal weight, using Firebase for backend support and designed a user-friendly admin mode for adding or removing users. Illustrated two user engagement elements health advice and GIF images, increased user satisfaction and interactivity within the app.",
+    description: "Coded a Flutter-based fitness app integrating four calculators: BMI, calorie intake, body fat, and ideal weight, using Firebase for backend support and designed a user-friendly admin mode for adding or removing users. Illustrated two user engagement elements health advice and GIF images, increased user satisfaction and interactivity within the app.",
     image: "",
     tech: ["Flutter", "Firebase", "Mobile Development", "UI/UX Design"],
     github: "https://github.com/MarawanEldeib",
@@ -117,6 +121,7 @@ const projectsData = [
     status: "completed" as const,
     startDate: "2022-10",
     endDate: "2022-12",
+    course: "Software Engineering",
     highlights: [
       "Four fitness calculators (BMI, calorie, body fat, ideal weight)",
       "Firebase backend with admin management",
@@ -127,7 +132,7 @@ const projectsData = [
   {
     id: "6",
     title: "Bookstore Database",
-    description: "Database Systems Course Project. Created a MySQL bookstore database using PhpMyAdmin, streamlined inventory management with real-time visibility into book quantities. Implemented advanced filtering capabilities to search by author, publisher using SQL coding and PhpMyAdmin's UI, enhanced data accessibility.",
+    description: "Created a MySQL bookstore database using PhpMyAdmin, streamlined inventory management with real-time visibility into book quantities. Implemented advanced filtering capabilities to search by author, publisher using SQL coding and PhpMyAdmin's UI, enhanced data accessibility.",
     image: "",
     tech: ["MySQL", "PhpMyAdmin", "SQL", "Database Design", "Inventory Management"],
     github: "https://github.com/MarawanEldeib",
@@ -136,6 +141,7 @@ const projectsData = [
     status: "completed" as const,
     startDate: "2022-01",
     endDate: "2022-03",
+    course: "Database Systems",
     highlights: [
       "MySQL database for bookstore inventory",
       "Real-time book quantity tracking",
@@ -146,7 +152,7 @@ const projectsData = [
   {
     id: "7",
     title: "Smart Parking System",
-    description: "Microcontroller and Microprocessor Systems Course Project. Visualized a keypad for secure password entry and four sensors, represented by switches in the simulation, at each of the two entrances and exits. Systemized a 7-segment display to show available parking spaces in Zones A and B, enhancing the system's user interface and parking efficiency.",
+    description: "Visualized a keypad for secure password entry and four sensors, represented by switches in the simulation, at each of the two entrances and exits. Systemized a 7-segment display to show available parking spaces in Zones A and B, enhancing the system's user interface and parking efficiency.",
     image: "",
     tech: ["Microcontrollers", "Embedded Systems", "Sensors", "7-Segment Display", "System Simulation"],
     github: "https://github.com/MarawanEldeib",
@@ -155,6 +161,7 @@ const projectsData = [
     status: "completed" as const,
     startDate: "2021-08",
     endDate: "2021-11",
+    course: "Microcontroller and Microprocessor Systems",
     highlights: [
       "Keypad-based secure password entry system",
       "Four-sensor parking detection system",
@@ -165,7 +172,7 @@ const projectsData = [
   {
     id: "8",
     title: "Plagiarism Checker",
-    description: "Object-Oriented C++ Course Project. Software that assists lecturers in identifying source code that has been copied or cloned from another student's source code.",
+    description: "Software that assists lecturers in identifying source code that has been copied or cloned from another student's source code.",
     image: "",
     tech: ["C++", "Object-Oriented Programming", "Algorithm Design", "Code Analysis"],
     github: "https://github.com/MarawanEldeib",
@@ -174,6 +181,7 @@ const projectsData = [
     status: "completed" as const,
     startDate: "2022-02",
     endDate: "2022-03",
+    course: "Object-Oriented C++",
     highlights: [
       "Source code plagiarism detection system",
       "Object-oriented design in C++",

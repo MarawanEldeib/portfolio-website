@@ -17,6 +17,7 @@ export interface Project {
   status: Exclude<ProjectStatus, 'all'>;
   startDate: string;
   endDate: string | null;
+  course?: string;
 }
 
 // Timeline Types
