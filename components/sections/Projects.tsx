@@ -7,6 +7,7 @@ import { Github, ExternalLink } from 'lucide-react';
 import { projects } from '@/lib/data';
 import Image from 'next/image';
 import { TECH_ICONS } from '@/lib/constants';
+import ProjectStatusBadge from '@/components/ui/ProjectStatusBadge';
 
 export default function Projects() {
   const t = useTranslations('projects');
@@ -67,13 +68,7 @@ export default function Projects() {
                       className="object-cover"
                     />
                     <div className="absolute top-4 right-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        project.status === 'completed'
-                          ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
-                          : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100'
-                      }`}>
-                        {t(`filter.${project.status}`)}
-                      </span>
+                      <ProjectStatusBadge status={project.status} />
                     </div>
                   </div>
                 )}
@@ -83,13 +78,7 @@ export default function Projects() {
                       {project.title.charAt(0)}
                     </div>
                     <div className="absolute top-4 right-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        project.status === 'completed'
-                          ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
-                          : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100'
-                      }`}>
-                        {t(`filter.${project.status}`)}
-                      </span>
+                      <ProjectStatusBadge status={project.status} />
                     </div>
                   </div>
                 )}
