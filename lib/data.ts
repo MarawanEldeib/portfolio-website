@@ -30,7 +30,7 @@ export const languages = {
 
 export const projects = [
   {
-    id: 1,
+    id: "1",
     title: "MangoVision - Mango Fruit Detection from Aerial Images",
     description: "Award-winning deep learning computer vision system for precision agriculture developed as Final Year Project (Nov 2023 - Jul 2024). Developed and trained YOLO and Faster R-CNN models using PyTorch on drone images, achieving 98.5% accuracy with YOLO, outperforming Detectron2. Created MangoVision, a bilingual GUI with image/video processing and GPS-integrated map, enhancing smart farming by reducing labour and improving detection accuracy.",
     image: "", // No image yet
@@ -48,7 +48,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: "2",
     title: "Good-Shape-Fitness-Center App",
     description: "Advanced Microprocessors Course Project (May 2023 - Jun 2023). Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
     image: "",
@@ -66,7 +66,7 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: "3",
     title: "RainRoot IoT Watering System",
     description: "Embedded IoT Systems and Applications Course Project (Apr 2023 - Jun 2023). Automated an IoT-based plant watering system, incorporating advanced technology for efficient irrigation management. Integrated ThingsBoard for system monitoring, utilising three distinct sensors for precise soil moisture and water level monitoring.",
     image: "",
@@ -84,7 +84,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: "4",
     title: "IoT-Based Smart Door Lock System (Cypher)",
     description: "Capstone Project (Oct 2022 - Jan 2023). Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
     image: "",
@@ -102,7 +102,7 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: "5",
     title: "BodyMath App",
     description: "Software Engineering Course Project (Oct 2022 - Dec 2022). Coded a Flutter-based fitness app integrating four calculators: BMI, calorie intake, body fat, and ideal weight, using Firebase for backend support and designed a user-friendly admin mode for adding or removing users. Illustrated two user engagement elements health advice and GIF images, increased user satisfaction and interactivity within the app.",
     image: "",
@@ -120,7 +120,7 @@ export const projects = [
     ],
   },
   {
-    id: 6,
+    id: "6",
     title: "Bookstore Database",
     description: "Database Systems Course Project (Jan 2022 - Mar 2022). Created a MySQL bookstore database using PhpMyAdmin, streamlined inventory management with real-time visibility into book quantities. Implemented advanced filtering capabilities to search by author, publisher using SQL coding and PhpMyAdmin's UI, enhanced data accessibility.",
     image: "",
@@ -138,7 +138,7 @@ export const projects = [
     ],
   },
   {
-    id: 7,
+    id: "7",
     title: "Smart Parking System",
     description: "Microcontroller and Microprocessor Systems Course Project (Aug 2021 - Nov 2021). Visualized a keypad for secure password entry and four sensors, represented by switches in the simulation, at each of the two entrances and exits. Systemized a 7-segment display to show available parking spaces in Zones A and B, enhancing the system's user interface and parking efficiency.",
     image: "",
@@ -156,7 +156,7 @@ export const projects = [
     ],
   },
   {
-    id: 8,
+    id: "8",
     title: "Plagiarism Checker",
     description: "Object-Oriented C++ Course Project (Feb 2022 - Mar 2022). Software that assists lecturers in identifying source code that has been copied or cloned from another student's source code.",
     image: "",
@@ -176,7 +176,7 @@ export const projects = [
 ];
 
 export const timeline: Array<{
-  id: number;
+  id: string;
   type: string;
   title: string;
   organization: string;
@@ -190,7 +190,7 @@ export const timeline: Array<{
   certificateUrl: string;
 }> = [
   {
-    id: 1,
+    id: "1",
     type: "work",
     title: "Software Engineer (Working Student)",
     organization: "Fraunhofer IOSB",
@@ -207,7 +207,7 @@ export const timeline: Array<{
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
-    id: 2,
+    id: "2",
     type: "work",
     title: "Teaching Assistant",
     organization: "Faculty of Engineering, Multimedia University",
@@ -224,7 +224,7 @@ export const timeline: Array<{
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
-    id: 3,
+    id: "3",
     type: "work",
     title: "Software Engineer Intern",
     organization: "AirAsia",
@@ -241,7 +241,7 @@ export const timeline: Array<{
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
   },
   {
-    id: 4,
+    id: "4",
     type: "education",
     title: "Master of Science",
     organization: "Stuttgart University",
@@ -257,7 +257,7 @@ export const timeline: Array<{
     certificateUrl: "", // Replace with your actual enrollment certificate/transcript URL
   },
   {
-    id: 5,
+    id: "5",
     type: "education",
     title: "Bachelor of Engineering (Hons.)",
     organization: "Multimedia University",
@@ -277,7 +277,7 @@ export const timeline: Array<{
     certificateUrl: "", // Replace with your actual degree certificate/transcript URL
   },
   {
-    id: 6,
+    id: "6",
     type: "education",
     title: "Foundation in Engineering",
     organization: "Multimedia University",
@@ -295,7 +295,7 @@ export const timeline: Array<{
 ];
 
 export const certifications: Array<{
-  id: number;
+  id: string;
   title: string;
   issuer: string;
   date: string;
@@ -303,7 +303,7 @@ export const certifications: Array<{
   credentialUrl?: string;
 }> = [
   {
-    id: 1,
+    id: "1",
     title: "Front-End Web Development with React",
     issuer: "The Hong Kong University of Science and Technology",
     date: "2022-03",
@@ -311,7 +311,7 @@ export const certifications: Array<{
     credentialUrl: "https://www.coursera.org/account/accomplishments/verify/YOUR_CERT_ID", // Replace with your actual certificate URL
   },
   {
-    id: 2,
+    id: "2",
     title: "Six Sigma Certification",
     issuer: "The Council for Six Sigma Certification (CSSC)",
     date: "2023-10",
@@ -319,7 +319,7 @@ export const certifications: Array<{
     credentialUrl: "https://example.com/certificates/six-sigma", // Replace with your actual certificate URL
   },
   {
-    id: 3,
+    id: "3",
     title: "AWS Certified Solutions Architect",
     issuer: "Amazon Web Services",
     date: "2024-05",
@@ -327,7 +327,7 @@ export const certifications: Array<{
     credentialUrl: "https://example.com/certificates/aws-architect", // Replace with your actual certificate URL
   },
   {
-    id: 4,
+    id: "4",
     title: "Machine Learning Specialization",
     issuer: "Stanford University & DeepLearning.AI",
     date: "2023-08",
@@ -335,7 +335,7 @@ export const certifications: Array<{
     credentialUrl: "https://www.coursera.org/account/accomplishments/specialization/YOUR_CERT_ID", // Replace with your actual certificate URL
   },
   {
-    id: 5,
+    id: "5",
     title: "Python for Data Science and AI",
     issuer: "IBM",
     date: "2023-02",
@@ -346,7 +346,7 @@ export const certifications: Array<{
 
 export const awards = [
   {
-    id: 1,
+    id: "1",
     title: "Best Research Project",
     issuer: "Multimedia University",
     date: "2024-10",
@@ -355,7 +355,7 @@ export const awards = [
     certificateUrl: "https://mmu.edu.my/awards/best-research-2024", // Replace with your actual award certificate URL
   },
   {
-    id: 2,
+    id: "2",
     title: "First Class Honors",
     issuer: "Multimedia University",
     date: "2024-10",
@@ -364,7 +364,7 @@ export const awards = [
     certificateUrl: "https://mmu.edu.my/transcripts/honors-2024", // Replace with your actual certificate URL
   },
   {
-    id: 3,
+    id: "3",
     title: "2nd Place - VLSI Design Challenge",
     issuer: "Intel Corporation",
     date: "2024-01",
@@ -375,7 +375,7 @@ export const awards = [
 ];
 
 export const recommendations: Array<{
-  id: number;
+  id: string;
   name: string;
   title: string;
   company: string;
@@ -385,7 +385,7 @@ export const recommendations: Array<{
   email?: string;
 }> = [
   {
-    id: 1,
+    id: "1",
     name: "Muhammad Hafiz Bin Khairudin",
     title: "Head of Technology & Product",
     company: "Ikhlas Com Travel Sdn Bhd (AirAsia)",
@@ -395,7 +395,7 @@ export const recommendations: Array<{
     email: "hafiz@airasia.com",
   },
   {
-    id: 2,
+    id: "2",
     name: "Mohd Haris Lye Abdullah",
     title: "Lecturer, Faculty of Engineering",
     company: "Multimedia University",
@@ -407,7 +407,7 @@ export const recommendations: Array<{
 ];
 
 export const volunteering: Array<{
-  id: number;
+  id: string;
   organization: string;
   role: string;
   location?: string;
@@ -419,7 +419,7 @@ export const volunteering: Array<{
   websiteUrl?: string;
 }> = [
   {
-    id: 1,
+    id: "1",
     organization: "Smart Farming & Precision Agriculture Program",
     role: "Facilitator for AI & Machine Learning Workshop",
     location: "Cyberjaya, Malaysia",
@@ -430,7 +430,7 @@ export const volunteering: Array<{
     websiteUrl: "",
   },
   {
-    id: 2,
+    id: "2",
     organization: "IEEE Multimedia University Student Branch",
     role: "Head of Membership & Student Affairs",
     location: "Cyberjaya, Malaysia",
