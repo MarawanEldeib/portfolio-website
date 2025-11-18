@@ -113,9 +113,20 @@ export default function Recommendations() {
 
                     {/* Name and Title */}
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                        {recommendation.name}
-                      </h3>
+                      {recommendation.profileUrl ? (
+                        <a
+                          href={recommendation.profileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-transparent hover:decoration-purple-600 dark:hover:decoration-purple-400"
+                        >
+                          {recommendation.name}
+                        </a>
+                      ) : (
+                        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                          {recommendation.name}
+                        </h3>
+                      )}
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
                         {recommendation.title}
                       </p>
