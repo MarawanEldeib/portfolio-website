@@ -55,7 +55,9 @@ import {
   SiLinux, SiAmazon, SiGooglecloud, SiDart
 } from 'react-icons/si';
 
-export const TECH_ICONS: { [key: string]: any } = {
+import { IconType } from 'react-icons';
+
+export const TECH_ICONS: Record<string, IconType> = {
   'Python': SiPython,
   'JavaScript': SiJavascript,
   'TypeScript': SiTypescript,
@@ -125,4 +127,10 @@ export const BREAKPOINTS = {
   LG: 1024,
   XL: 1280,
   '2XL': 1536,
+} as const;
+
+// Layout Constants
+export const LAYOUT_CONSTANTS = {
+  HEADER_HEIGHT: 80, // px - Height of fixed header for scroll offset calculations
+  SCROLL_OFFSET: 100, // px - Additional offset for active section detection
 } as const;

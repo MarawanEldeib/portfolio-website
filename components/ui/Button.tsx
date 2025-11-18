@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-import { clsx } from 'clsx';
+import { cn } from '@/lib/utils';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline';
@@ -16,7 +16,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className={clsx(
+      className={cn(
         'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors',
         {
           'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200':
