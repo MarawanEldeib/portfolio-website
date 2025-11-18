@@ -28,18 +28,19 @@ export const languages = {
   intermediate: ["German (B1)"],
 };
 
-export const projects = [
+const projectsData = [
   {
     id: "1",
     title: "MangoVision - Mango Fruit Detection from Aerial Images",
-    description: "Award-winning deep learning computer vision system for precision agriculture developed as Final Year Project (Nov 2023 - Jul 2024). Developed and trained YOLO and Faster R-CNN models using PyTorch on drone images, achieving 98.5% accuracy with YOLO, outperforming Detectron2. Created MangoVision, a bilingual GUI with image/video processing and GPS-integrated map, enhancing smart farming by reducing labour and improving detection accuracy.",
+    description: "Award-winning deep learning computer vision system for precision agriculture developed as Final Year Project. Developed and trained YOLO and Faster R-CNN models using PyTorch on drone images, achieving 98.5% accuracy with YOLO, outperforming Detectron2. Created MangoVision, a bilingual GUI with image/video processing and GPS-integrated map, enhancing smart farming by reducing labour and improving detection accuracy.",
     image: "", // No image yet
     tech: ["Python", "PyTorch", "YOLO", "Faster R-CNN", "Detectron2", "Computer Vision", "Deep Learning", "GUI Development"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined, // Add video demo link here
     status: "completed" as const,
-    date: "2024-07", // July 2024 (end date)
+    startDate: "2023-11",
+    endDate: "2024-07",
     highlights: [
       "98.5% detection accuracy with YOLO model",
       "Awarded Best Research Project at MMU",
@@ -50,14 +51,15 @@ export const projects = [
   {
     id: "2",
     title: "Good-Shape-Fitness-Center App",
-    description: "Advanced Microprocessors Course Project (May 2023 - Jun 2023). Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
+    description: "Advanced Microprocessors Course Project. Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
     image: "",
     tech: ["Assembly Language", "EMU8086", "Microprocessors", "System Programming"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined,
     status: "completed" as const,
-    date: "2023-06", // June 2023
+    startDate: "2023-05",
+    endDate: "2023-06",
     highlights: [
       "Assembly language programming with EMU8086",
       "Interactive user-friendly class enrollment system",
@@ -68,14 +70,15 @@ export const projects = [
   {
     id: "3",
     title: "RainRoot IoT Watering System",
-    description: "Embedded IoT Systems and Applications Course Project (Apr 2023 - Jun 2023). Automated an IoT-based plant watering system, incorporating advanced technology for efficient irrigation management. Integrated ThingsBoard for system monitoring, utilising three distinct sensors for precise soil moisture and water level monitoring.",
+    description: "Embedded IoT Systems and Applications Course Project. Automated an IoT-based plant watering system, incorporating advanced technology for efficient irrigation management. Integrated ThingsBoard for system monitoring, utilising three distinct sensors for precise soil moisture and water level monitoring.",
     image: "",
     tech: ["IoT", "ThingsBoard", "Arduino", "Sensors", "Embedded Systems", "Automation"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined,
     status: "completed" as const,
-    date: "2023-06", // June 2023
+    startDate: "2023-04",
+    endDate: "2023-06",
     highlights: [
       "Automated irrigation management system",
       "ThingsBoard integration for monitoring",
@@ -86,14 +89,15 @@ export const projects = [
   {
     id: "4",
     title: "IoT-Based Smart Door Lock System (Cypher)",
-    description: "Capstone Project (Oct 2022 - Jan 2023). Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
+    description: "Capstone Project. Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
     image: "",
     tech: ["Arduino", "Flutter", "Firebase", "IoT", "PCB Design", "Mobile Development"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined,
     status: "completed" as const,
-    date: "2023-01", // January 2023
+    startDate: "2022-10",
+    endDate: "2023-01",
     highlights: [
       "Led 3-member team on IoT security project",
       "PCB-based smart lock with motion detection",
@@ -104,14 +108,15 @@ export const projects = [
   {
     id: "5",
     title: "BodyMath App",
-    description: "Software Engineering Course Project (Oct 2022 - Dec 2022). Coded a Flutter-based fitness app integrating four calculators: BMI, calorie intake, body fat, and ideal weight, using Firebase for backend support and designed a user-friendly admin mode for adding or removing users. Illustrated two user engagement elements health advice and GIF images, increased user satisfaction and interactivity within the app.",
+    description: "Software Engineering Course Project. Coded a Flutter-based fitness app integrating four calculators: BMI, calorie intake, body fat, and ideal weight, using Firebase for backend support and designed a user-friendly admin mode for adding or removing users. Illustrated two user engagement elements health advice and GIF images, increased user satisfaction and interactivity within the app.",
     image: "",
     tech: ["Flutter", "Firebase", "Mobile Development", "UI/UX Design"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined,
     status: "completed" as const,
-    date: "2022-12", // December 2022
+    startDate: "2022-10",
+    endDate: "2022-12",
     highlights: [
       "Four fitness calculators (BMI, calorie, body fat, ideal weight)",
       "Firebase backend with admin management",
@@ -122,14 +127,15 @@ export const projects = [
   {
     id: "6",
     title: "Bookstore Database",
-    description: "Database Systems Course Project (Jan 2022 - Mar 2022). Created a MySQL bookstore database using PhpMyAdmin, streamlined inventory management with real-time visibility into book quantities. Implemented advanced filtering capabilities to search by author, publisher using SQL coding and PhpMyAdmin's UI, enhanced data accessibility.",
+    description: "Database Systems Course Project. Created a MySQL bookstore database using PhpMyAdmin, streamlined inventory management with real-time visibility into book quantities. Implemented advanced filtering capabilities to search by author, publisher using SQL coding and PhpMyAdmin's UI, enhanced data accessibility.",
     image: "",
     tech: ["MySQL", "PhpMyAdmin", "SQL", "Database Design", "Inventory Management"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined,
     status: "completed" as const,
-    date: "2022-03", // March 2022
+    startDate: "2022-01",
+    endDate: "2022-03",
     highlights: [
       "MySQL database for bookstore inventory",
       "Real-time book quantity tracking",
@@ -140,14 +146,15 @@ export const projects = [
   {
     id: "7",
     title: "Smart Parking System",
-    description: "Microcontroller and Microprocessor Systems Course Project (Aug 2021 - Nov 2021). Visualized a keypad for secure password entry and four sensors, represented by switches in the simulation, at each of the two entrances and exits. Systemized a 7-segment display to show available parking spaces in Zones A and B, enhancing the system's user interface and parking efficiency.",
+    description: "Microcontroller and Microprocessor Systems Course Project. Visualized a keypad for secure password entry and four sensors, represented by switches in the simulation, at each of the two entrances and exits. Systemized a 7-segment display to show available parking spaces in Zones A and B, enhancing the system's user interface and parking efficiency.",
     image: "",
     tech: ["Microcontrollers", "Embedded Systems", "Sensors", "7-Segment Display", "System Simulation"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined,
     status: "completed" as const,
-    date: "2021-11", // November 2021
+    startDate: "2021-08",
+    endDate: "2021-11",
     highlights: [
       "Keypad-based secure password entry system",
       "Four-sensor parking detection system",
@@ -158,14 +165,15 @@ export const projects = [
   {
     id: "8",
     title: "Plagiarism Checker",
-    description: "Object-Oriented C++ Course Project (Feb 2022 - Mar 2022). Software that assists lecturers in identifying source code that has been copied or cloned from another student's source code.",
+    description: "Object-Oriented C++ Course Project. Software that assists lecturers in identifying source code that has been copied or cloned from another student's source code.",
     image: "",
     tech: ["C++", "Object-Oriented Programming", "Algorithm Design", "Code Analysis"],
     github: "https://github.com/MarawanEldeib",
     live: undefined,
     video: undefined,
     status: "completed" as const,
-    date: "2022-03", // March 2022
+    startDate: "2022-02",
+    endDate: "2022-03",
     highlights: [
       "Source code plagiarism detection system",
       "Object-oriented design in C++",
@@ -175,7 +183,19 @@ export const projects = [
   },
 ];
 
-export const timeline: Array<{
+// Sort projects by startDate descending (most recent first), then by endDate descending
+// Ongoing projects (endDate = null) come first when startDate is the same
+export const projects = projectsData.sort((a, b) => {
+  const startCompare = b.startDate.localeCompare(a.startDate);
+  if (startCompare !== 0) return startCompare;
+
+  // If startDate is the same, sort by endDate (ongoing projects first)
+  if (a.endDate === null) return -1;
+  if (b.endDate === null) return 1;
+  return b.endDate.localeCompare(a.endDate);
+});
+
+const timelineData: Array<{
   id: string;
   type: string;
   title: string;
@@ -294,7 +314,19 @@ export const timeline: Array<{
   },
 ];
 
-export const certifications: Array<{
+// Sort timeline by startDate descending (most recent first), then by endDate descending
+// Ongoing items (endDate = null) come first when startDate is the same
+export const timeline = timelineData.sort((a, b) => {
+  const startCompare = b.startDate.localeCompare(a.startDate);
+  if (startCompare !== 0) return startCompare;
+
+  // If startDate is the same, sort by endDate (ongoing items first)
+  if (a.endDate === null) return -1;
+  if (b.endDate === null) return 1;
+  return b.endDate.localeCompare(a.endDate);
+});
+
+const certificationsData: Array<{
   id: string;
   title: string;
   issuer: string;
@@ -344,7 +376,10 @@ export const certifications: Array<{
   },
 ];
 
-export const awards = [
+// Sort certifications by date in descending order (most recent first)
+export const certifications = certificationsData.sort((a, b) => b.date.localeCompare(a.date));
+
+const awardsData = [
   {
     id: "1",
     title: "Best Research Project",
@@ -373,6 +408,9 @@ export const awards = [
     certificateUrl: "", // Add certificate URL here
   },
 ];
+
+// Sort awards by date in descending order (most recent first)
+export const awards = awardsData.sort((a, b) => b.date.localeCompare(a.date));
 
 export const recommendations: Array<{
   id: string;

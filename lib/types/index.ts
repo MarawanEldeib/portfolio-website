@@ -15,6 +15,8 @@ export interface Project {
   live?: string;
   video?: string;
   status: Exclude<ProjectStatus, 'all'>;
+  startDate: string;
+  endDate: string | null;
 }
 
 // Timeline Types

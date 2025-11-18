@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Calendar } from 'lucide-react';
 import { projects } from '@/lib/data';
 import Image from 'next/image';
 import { TECH_ICONS } from '@/lib/constants';
@@ -17,7 +17,7 @@ export default function Projects() {
     .filter((project) => filter === 'all' || project.status === filter)
     .sort((a, b) => {
       // Sort by date descending (most recent first)
-      return b.date.localeCompare(a.date);
+      return b.startDate.localeCompare(a.startDate);
     });
 
   return (
@@ -85,6 +85,13 @@ export default function Projects() {
 
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+
+                  <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-3">
+                    <Calendar size={14} />
+                    {new Date(project.startDate).toLocaleDateString('en', { month: 'short', year: 'numeric' })} -{' '}
+                    {project.endDate ? new Date(project.endDate).toLocaleDateString('en', { month: 'short', year: 'numeric' }) : t('present')}
+                  </div>
+
                   <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-left leading-relaxed">
                     {project.description}
                   </p>
