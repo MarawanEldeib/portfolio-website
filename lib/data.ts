@@ -251,7 +251,7 @@ const timelineData: Array<{
     location: "Kuala Lumpur, Malaysia (Hybrid)",
     startDate: "2023-07",
     endDate: "2023-10",
-    description: "• Developed new features and fixed bugs for the IKHLAS mobile app serving 10,000+ users\n• Implemented GraphQL API integrations and refactored existing codebase to improve maintainability\n• Conducted comprehensive testing, debugging, and issue reporting using Jira\n• Collaborated closely with cross-functional Scrum team to deliver features on schedule",
+    description: "IKHLAS.COM is a travel platform startup under AirAsia, part of Capital A - Southeast Asia's leading airline group.\n\n• Developed new features and fixed bugs for the mobile app serving 10,000+ users using GraphQL API integrations\n• Refactored existing codebase to improve maintainability and code quality\n• Conducted comprehensive testing, debugging, and issue reporting using Jira in Agile environment\n• Collaborated with cross-functional Scrum team to deliver features on schedule",
     skills: ["GraphQL", "Jira", "Unit Testing", "Scrum", "API Development", "Debugging", "Code Refactoring", "Teamwork", "Feature Development", "Bug Fixing", "Issue Reporting"],
     achievements: [],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
