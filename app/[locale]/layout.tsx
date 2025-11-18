@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import dynamic from 'next/dynamic';
 import { Toaster } from 'react-hot-toast';
 import "../globals.css";
-import ClientBackground from '@/components/ui/ClientBackground';
-import LoadingIndicator from '@/components/ui/LoadingIndicator';
 import StructuredData from '@/components/seo/StructuredData';
-import VisitTracker from '@/components/analytics/VisitTracker';
 import { VIEWPORT_CONFIG } from '@/lib/constants';
 import { THEME_CONFIG, DARK_MODE_SCRIPT } from '@/lib/theme.config';
 import PassiveEventsInit from '@/components/utils/PassiveEventsInit';
+
+// Lazy load analytics and background components (non-critical)
+const Analytics = dynamic(() => import('@vercel/analytics/react').then(mod => ({ default: mod.Analytics })), { ssr: false });
+const SpeedInsights = dynamic(() => import('@vercel/speed-insights/next').then(mod => ({ default: mod.SpeedInsights })), { ssr: false });
+const ClientBackground = dynamic(() => import('@/components/ui/ClientBackground'), { ssr: false });
+const VisitTracker = dynamic(() => import('@/components/analytics/VisitTracker'), { ssr: false });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

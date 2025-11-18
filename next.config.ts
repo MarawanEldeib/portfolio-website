@@ -150,7 +150,14 @@ const nextConfig: NextConfig = {
   
   /* Experimental features for performance */
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-icons', 'swiper', 'react-hot-toast'],
+    optimizePackageImports: [
+      'lucide-react',
+      'framer-motion',
+      'react-icons',
+      'react-hot-toast',
+      '@vercel/analytics',
+      '@vercel/speed-insights',
+    ],
     optimizeCss: true,
     cpus: 4,
     scrollRestoration: true,
@@ -158,6 +165,19 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
+  },
+
+  /* Webpack optimizations */
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Optimize client-side bundle
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,
+        sideEffects: false,
+      };
+    }
+    return config;
   },
   
   /* Performance: Optimize font loading */

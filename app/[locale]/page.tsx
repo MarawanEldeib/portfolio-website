@@ -2,22 +2,18 @@ import dynamic from 'next/dynamic';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import Summary from '@/components/sections/Summary';
-import Skills from '@/components/sections/Skills';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import LoadingSpinner from '@/components/ui/LoadingSpinner';
 
-// Lazy load below-the-fold components for better performance
-const Projects = dynamic(() => import('@/components/sections/Projects'), {
-  loading: () => <LoadingSpinner />,
-});
-
-const Experience = dynamic(() => import('@/components/sections/Experience'));
-const Education = dynamic(() => import('@/components/sections/Education'));
-const Certifications = dynamic(() => import('@/components/sections/Certifications'));
-const Volunteering = dynamic(() => import('@/components/sections/Volunteering'));
-const Recommendations = dynamic(() => import('@/components/sections/Recommendations'));
-const Contact = dynamic(() => import('@/components/sections/Contact'));
+// Lazy load below-the-fold components for better performance (no loading spinner to reduce bundle)
+const Skills = dynamic(() => import('@/components/sections/Skills'), { ssr: true });
+const Experience = dynamic(() => import('@/components/sections/Experience'), { ssr: true });
+const Education = dynamic(() => import('@/components/sections/Education'), { ssr: true });
+const Projects = dynamic(() => import('@/components/sections/Projects'), { ssr: true });
+const Certifications = dynamic(() => import('@/components/sections/Certifications'), { ssr: true });
+const Volunteering = dynamic(() => import('@/components/sections/Volunteering'), { ssr: true });
+const Recommendations = dynamic(() => import('@/components/sections/Recommendations'), { ssr: true });
+const Contact = dynamic(() => import('@/components/sections/Contact'), { ssr: false });
 
 export default function Home() {
   return (
