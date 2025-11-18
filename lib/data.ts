@@ -272,13 +272,14 @@ const timelineData: Array<{
     location: "Cyberjaya, Malaysia",
     startDate: "2020-07",
     endDate: "2024-10",
-    description: "Major in Computer; Minors in Electronics. CGPA: 3.7/4.0 (First Class Honors). Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project). Relevant Coursework: Software Engineering; Operating Systems; Artificial Intelligence; Embedded IoT; Networking Protocols; Database Systems; Cybersecurity.",
+    description: "Major in Computer; Minors in Electronics. First Class Honors. Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project). Relevant Coursework: Software Engineering; Operating Systems; Artificial Intelligence; Embedded IoT; Networking Protocols; Database Systems; Cybersecurity.",
     skills: ["Computer Engineering", "Electronics", "Machine Learning", "PyTorch", "Computer Vision", "Software Engineering", "Operating Systems", "Artificial Intelligence", "Embedded IoT"],
     achievements: [
       "First Class Honors (CGPA: 3.7/4.0)",
       "Gold Medal at iNVENTX Invention Exhibition 2024",
       "Best Project at MMU Career Fair 2024",
       "Best Research Project Award",
+      "Book Award",
       "Merit International Scholarship",
       "Dean's List"
     ],
@@ -292,10 +293,11 @@ const timelineData: Array<{
     location: "Cyberjaya, Malaysia",
     startDate: "2018-11",
     endDate: "2020-06",
-    description: "CGPA: 3.31/4.0. Foundation program providing essential engineering fundamentals and preparing students for degree-level engineering studies.",
-    skills: ["Engineering Fundamentals", "Mathematics", "Physics", "Chemistry"],
+    description: "Foundation program providing essential engineering fundamentals and preparing students for degree-level engineering studies.",
+    skills: ["Engineering Fundamentals", "Mathematics", "Physics", "Chemistry", "C Programming", "Business Management"],
     achievements: [
       "CGPA: 3.31/4.0",
+      "Dean's List",
       "Merit International Scholarship"
     ],
     certificateUrl: "", // Replace with your actual certificate/transcript URL
@@ -468,6 +470,17 @@ const volunteeringData: Array<{
     description: "Launched campaigns that increased IEEE club membership by over 30 and enhanced student engagement in professional growth and networking. Coordinated a workshop for 30 primary school students on building and controlling robot cars and coached a team of 6 children.",
     skills: ["Leadership", "Event Management", "Student Engagement", "Robotics", "Mentoring"],
     websiteUrl: "",
+  },
+  {
+    id: "3",
+    organization: "Skippy Snacks",
+    role: "Founder & Operator",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2019-11",
+    endDate: "2020-06",
+    description: "Founded and operated Skippy Snacks, a food and drinks business for Business Management course. Donated part of profits to dog shelter, combining entrepreneurship with animal welfare support.",
+    skills: ["Entrepreneurship", "Business Management", "Social Responsibility", "Sales", "Customer Service"],
+    websiteUrl: "https://www.instagram.com/skippy_snacks_mmu?igsh=YmM0MXA4b2tzaWE3",
   },
 ];
 
