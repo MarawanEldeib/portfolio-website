@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { Resend } from 'resend';
+import { validateEmail, validateUrl, validateFiles } from '@/lib/validation';
 
 // Lazy initialization of Resend client to avoid build-time errors
 let resendClient: Resend | null = null;
@@ -15,31 +16,15 @@ function getResendClient() {
   return resendClient;
 }
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-const ALLOWED_FILE_TYPES = [
-  'application/pdf',
-  'application/msword',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-];
-
-// Blocked URL domains (phishing, malware, URL shorteners)
-const BLOCKED_DOMAINS = [
-  'bit.ly',
-  'tinyurl.com',
-  'goo.gl',
-  't.co',
-  'ow.ly',
-  'buff.ly',
-  'adf.ly',
-  'bc.vc',
-  'shorte.st',
-  'sh.st',
-];
+// Note: Validation constants and functions moved to @/lib/validation for reusability
 
 // Rate limiting store (in production, use Redis or similar)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 
-// Simple rate limiting: 5 requests per 15 minutes per IP
+/**
+ * Simple rate limiting: 5 requests per 15 minutes per IP
+ * In production, use Redis or similar for distributed rate limiting
+ */
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const limit = rateLimitMap.get(ip);
@@ -58,67 +43,6 @@ function checkRateLimit(ip: string): boolean {
 
   limit.count++;
   return true;
-}
-
-// Validate file magic bytes (basic security check)
-async function validateFileMagicBytes(file: File): Promise<boolean> {
-  const buffer = await file.arrayBuffer();
-  const bytes = new Uint8Array(buffer.slice(0, 4));
-
-  // PDF: %PDF (25 50 44 46)
-  if (bytes[0] === 0x25 && bytes[1] === 0x50 && bytes[2] === 0x44 && bytes[3] === 0x46) {
-    return true;
-  }
-
-  // DOC/DOCX: D0 CF 11 E0 (old Word) or 50 4B 03 04 (ZIP/DOCX)
-  if (
-    (bytes[0] === 0xd0 && bytes[1] === 0xcf && bytes[2] === 0x11 && bytes[3] === 0xe0) ||
-    (bytes[0] === 0x50 && bytes[1] === 0x4b && bytes[2] === 0x03 && bytes[3] === 0x04)
-  ) {
-    return true;
-  }
-
-  return false;
-}
-
-// Validate URL for security (phishing, malware, etc.)
-function validateUrl(urlString: string): { valid: boolean; error?: string } {
-  try {
-    const url = new URL(urlString);
-
-    // Only allow HTTPS
-    if (url.protocol !== 'https:') {
-      return { valid: false, error: 'Only HTTPS URLs are allowed for security' };
-    }
-
-    // Check for blocked domains
-    const hostname = url.hostname.toLowerCase();
-    for (const blocked of BLOCKED_DOMAINS) {
-      if (hostname.includes(blocked)) {
-        return { valid: false, error: 'URL shorteners and blocked domains are not allowed' };
-      }
-    }
-
-    // Check for suspicious patterns
-    if (hostname.includes('..') || hostname.includes('@')) {
-      return { valid: false, error: 'Suspicious URL pattern detected' };
-    }
-
-    // Must have a valid TLD
-    if (!hostname.includes('.')) {
-      return { valid: false, error: 'Invalid URL format' };
-    }
-
-    // Check for IP addresses (often used in phishing)
-    const ipRegex = /^(\d{1,3}\.){3}\d{1,3}$/;
-    if (ipRegex.test(hostname)) {
-      return { valid: false, error: 'IP addresses are not allowed. Please use domain names.' };
-    }
-
-    return { valid: true };
-  } catch (e) {
-    return { valid: false, error: 'Invalid URL format' };
-  }
 }
 
 export async function POST(request: NextRequest) {
@@ -153,50 +77,22 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    const emailValidation = validateEmail(email);
+    if (!emailValidation.valid) {
       return NextResponse.json(
-        { error: 'Invalid email format' },
+        { error: emailValidation.error },
         { status: 400 }
       );
     }
 
     // Validate files if provided
     if (files.length > 0) {
-      // Check total number of files
-      if (files.length > 5) {
+      const filesValidation = await validateFiles(files);
+      if (!filesValidation.valid) {
         return NextResponse.json(
-          { error: 'Maximum 5 files allowed' },
+          { error: filesValidation.error },
           { status: 400 }
         );
-      }
-
-      // Validate each file
-      for (const file of files) {
-        // Check file size
-        if (file.size > MAX_FILE_SIZE) {
-          return NextResponse.json(
-            { error: `File "${file.name}" exceeds 10MB limit` },
-            { status: 400 }
-          );
-        }
-
-        // Check file type
-        if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-          return NextResponse.json(
-            { error: `Invalid file type for "${file.name}". Only PDF and Word documents are allowed` },
-            { status: 400 }
-          );
-        }
-
-        // Validate magic bytes (basic security)
-        const isValidFile = await validateFileMagicBytes(file);
-        if (!isValidFile) {
-          return NextResponse.json(
-            { error: `Invalid file format detected for "${file.name}"` },
-            { status: 400 }
-          );
-        }
       }
 
       // TODO: Virus scanning for all files (VirusTotal API or ClamAV)
