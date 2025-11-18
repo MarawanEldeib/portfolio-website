@@ -222,6 +222,7 @@ const timelineData: Array<{
     type: "work",
     title: "Software Engineer (Working Student)",
     organization: "Fraunhofer IOSB",
+    organizationLogo: "/images/logos/Logo_fraunhofer_IOSB.webp",
     location: "Karlsruhe, Germany (Hybrid)",
     startDate: "2025-04",
     endDate: null,
@@ -235,6 +236,7 @@ const timelineData: Array<{
     type: "work",
     title: "Teaching Assistant",
     organization: "Faculty of Engineering, Multimedia University",
+    organizationLogo: "/images/logos/logo-mmu.png",
     location: "Cyberjaya, Malaysia (Hybrid)",
     startDate: "2024-08",
     endDate: "2024-10",
@@ -248,6 +250,7 @@ const timelineData: Array<{
     type: "work",
     title: "Software Engineer Intern",
     organization: "AirAsia",
+    organizationLogo: "/images/logos/logo_AirAsia.png",
     location: "Kuala Lumpur, Malaysia (Hybrid)",
     startDate: "2023-07",
     endDate: "2023-10",
@@ -261,6 +264,7 @@ const timelineData: Array<{
     type: "education",
     title: "Master of Science",
     organization: "Stuttgart University",
+    organizationLogo: "/images/logos/logo_stuttgart.png",
     location: "Stuttgart, Germany",
     startDate: "2024-10",
     endDate: null,
@@ -277,6 +281,7 @@ const timelineData: Array<{
     type: "education",
     title: "Bachelor of Engineering (Hons.)",
     organization: "Multimedia University",
+    organizationLogo: "/images/logos/logo-mmu.png",
     location: "Cyberjaya, Malaysia",
     startDate: "2020-07",
     endDate: "2024-10",
@@ -298,6 +303,7 @@ const timelineData: Array<{
     type: "education",
     title: "Foundation in Engineering",
     organization: "Multimedia University",
+    organizationLogo: "/images/logos/logo-mmu.png",
     location: "Cyberjaya, Malaysia",
     startDate: "2018-11",
     endDate: "2020-06",
@@ -426,10 +432,9 @@ export const recommendations: Array<{
     name: "Muhammad Hafiz Bin Khairudin",
     title: "Head of Technology & Product",
     company: "Ikhlas Com Travel Sdn Bhd (AirAsia)",
-    image: "", // Add profile image URL here
+    image: "/images/recommendations/hafiz.jpeg", // Add profile image URL here
     text: "Marawan is a sterling communicator, adept at conveying complex technical ideas clearly and persuasively. His adaptability to diverse technical challenges is impressive - he demonstrated remarkable versatility in mobile software development, adapting to new programming languages and technologies with ease. His work ethics and discipline are exemplary, consistently meeting tight deadlines while maintaining the highest quality of work. Marawan is an amazing team player whose supportive nature and ability to motivate others have been crucial in high-pressure situations.",
-    linkedin: "https://www.linkedin.com/in/muhammad-hafiz-khairudin/", // Add actual LinkedIn URL
-    profileUrl: "https://www.linkedin.com/in/muhammad-hafiz-khairudin/", // Add actual profile URL (LinkedIn or company profile)
+    linkedin: "https://www.linkedin.com/in/hafizkhairudin/",
     email: "hafiz@airasia.com",
   },
   {
@@ -437,10 +442,10 @@ export const recommendations: Array<{
     name: "Mohd Haris Lye Abdullah",
     title: "Lecturer, Faculty of Engineering",
     company: "Multimedia University",
-    image: "", // Add profile image URL here
+    image: "/images/recommendations/haris.jpg", // Add profile image URL here
     text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
-    linkedin: "https://www.linkedin.com/in/haris-lye/", // Add actual LinkedIn URL
-    profileUrl: "https://mmu.edu.my/faculty/haris-lye", // Add actual university profile URL
+    linkedin: "https://www.linkedin.com/in/harislye/",
+    profileUrl: "https://mmuexpert.mmu.edu.my/harislye",
     email: "haris.lye@mmu.edu.my",
   },
 ];
