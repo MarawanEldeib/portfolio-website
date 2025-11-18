@@ -217,7 +217,7 @@ const timelineData: Array<{
     location: "Karlsruhe, Germany (Hybrid)",
     startDate: "2025-04",
     endDate: null,
-    description: "Developed comprehensive test suites for LLM-based AI data extraction system, ensuring ≥90% accuracy threshold across evaluation metrics. Implemented automated testing frameworks in Java to validate AI model performance and reliability. Refactored backend workflows and enhanced frontend design to improve system performance and user experience of the Digital Product Passport demonstrator.",
+    description: "• Developed comprehensive test suites for LLM-based AI data extraction system, ensuring ≥90% accuracy threshold across evaluation metrics\n• Implemented automated testing frameworks in Java to validate AI model performance and reliability\n• Refactored backend workflows and enhanced frontend design to improve system performance and user experience of the Digital Product Passport demonstrator",
     skills: ["Java", "Testing", "LLM", "AI Evaluation", "Backend Development", "Frontend Design"],
     achievements: [],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
@@ -230,7 +230,7 @@ const timelineData: Array<{
     location: "Cyberjaya, Malaysia (Hybrid)",
     startDate: "2024-08",
     endDate: "2024-10",
-    description: "Organized a targeted revision session on digital logic concepts, resulting in improved exam performance for attendees. Assisted the professor in providing academic support, ensuring students effectively applied theoretical knowledge to practical circuit design tasks.",
+    description: "• Organized targeted revision sessions on digital logic concepts, resulting in improved exam performance for attendees\n• Assisted professor in providing academic support to students\n• Ensured students effectively applied theoretical knowledge to practical circuit design tasks",
     skills: ["Digital Logic", "Circuit Design", "Teaching", "Academic Support", "Communication"],
     achievements: [],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
@@ -243,7 +243,7 @@ const timelineData: Array<{
     location: "Kuala Lumpur, Malaysia (Hybrid)",
     startDate: "2023-07",
     endDate: "2023-10",
-    description: "Developed new features and fixed bugs for the IKHLAS mobile app serving 10,000+ users. Implemented GraphQL API integrations and refactored existing codebase to improve maintainability. Conducted comprehensive testing, debugging, and issue reporting using Jira. Collaborated closely with cross-functional Scrum team to deliver features on schedule.",
+    description: "• Developed new features and fixed bugs for the IKHLAS mobile app serving 10,000+ users\n• Implemented GraphQL API integrations and refactored existing codebase to improve maintainability\n• Conducted comprehensive testing, debugging, and issue reporting using Jira\n• Collaborated closely with cross-functional Scrum team to deliver features on schedule",
     skills: ["GraphQL", "Jira", "Unit Testing", "Scrum", "API Development", "Debugging", "Code Refactoring", "Teamwork", "Feature Development", "Bug Fixing", "Issue Reporting"],
     achievements: [],
     certificateUrl: "", // Replace with your actual certificate/reference letter URL
