@@ -272,7 +272,7 @@ const timelineData: Array<{
     skills: ["Software Engineering", "Computer Hardware", "Information Technology", "Distributed Systems", "Operating Systems", "Cloud Computing"],
     achievements: [
       "Expected graduation: March 2027",
-      "Focus on Software Engineering and Computer Hardware"
+      "Specializing in Security & Cloud Infrastructure, Software Engineering, Service Management"
     ],
     certificateUrl: "", // Replace with your actual enrollment certificate/transcript URL
   },
@@ -382,6 +382,15 @@ export const certifications = certificationsData.sort((a, b) => b.date.localeCom
 const awardsData = [
   {
     id: "1",
+    title: "First Class Honors",
+    issuer: "Multimedia University",
+    date: "2024-11",
+    description: "Graduated with First Class Honors, CGPA: 3.7/4.0",
+    image: "", // No image yet
+    certificateUrl: "https://mmu.edu.my/transcripts/honors-2024", // Replace with your actual certificate URL
+  },
+  {
+    id: "2",
     title: "Best Research Project",
     issuer: "Multimedia University",
     date: "2024-10",
@@ -390,22 +399,13 @@ const awardsData = [
     certificateUrl: "https://mmu.edu.my/awards/best-research-2024", // Replace with your actual award certificate URL
   },
   {
-    id: "2",
-    title: "First Class Honors",
-    issuer: "Multimedia University",
-    date: "2024-10",
-    description: "Graduated with First Class Honors, CGPA: 3.7/4.0",
-    image: "", // No image yet
-    certificateUrl: "https://mmu.edu.my/transcripts/honors-2024", // Replace with your actual certificate URL
-  },
-  {
     id: "3",
     title: "2nd Place - VLSI Design Challenge",
     issuer: "Intel Corporation",
     date: "2024-01",
     description: "Won 2nd place in the University VLSI Virtual Bootcamp - Introduction to VLSI Design Challenge",
     image: "", // No image yet
-    certificateUrl: "", // Add certificate URL here
+    certificateUrl: "https://intel.com/vlsi-challenge-2024", // Add your actual certificate URL here
   },
 ];
 
@@ -420,6 +420,7 @@ export const recommendations: Array<{
   image?: string;
   text: string;
   linkedin?: string;
+  profileUrl?: string;
   email?: string;
 }> = [
   {
@@ -429,7 +430,8 @@ export const recommendations: Array<{
     company: "Ikhlas Com Travel Sdn Bhd (AirAsia)",
     image: "", // Add profile image URL here
     text: "Marawan is a sterling communicator, adept at conveying complex technical ideas clearly and persuasively. His adaptability to diverse technical challenges is impressive - he demonstrated remarkable versatility in mobile software development, adapting to new programming languages and technologies with ease. His work ethics and discipline are exemplary, consistently meeting tight deadlines while maintaining the highest quality of work. Marawan is an amazing team player whose supportive nature and ability to motivate others have been crucial in high-pressure situations.",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/muhammad-hafiz-khairudin/", // Add actual LinkedIn URL
+    profileUrl: "https://www.linkedin.com/in/muhammad-hafiz-khairudin/", // Add actual profile URL (LinkedIn or company profile)
     email: "hafiz@airasia.com",
   },
   {
@@ -439,7 +441,8 @@ export const recommendations: Array<{
     company: "Multimedia University",
     image: "", // Add profile image URL here
     text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/haris-lye/", // Add actual LinkedIn URL
+    profileUrl: "https://mmu.edu.my/faculty/haris-lye", // Add actual university profile URL
     email: "haris.lye@mmu.edu.my",
   },
 ];
