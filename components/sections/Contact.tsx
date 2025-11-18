@@ -10,6 +10,7 @@ import CopyButton from '@/components/ui/CopyButton';
 import AttachmentUpload from '@/components/ui/AttachmentUpload';
 import toast from 'react-hot-toast';
 import { trackFormSubmit } from '@/lib/analytics';
+import { toastConfig } from '@/lib/toast-config';
 
 export default function Contact() {
   const t = useTranslations('contact');
@@ -185,44 +186,16 @@ export default function Contact() {
         // Handle specific error types
         if (result.error.includes('file') || result.error.includes('File')) {
           setErrors({ ...errors, attachment: result.error });
-          toast.error(result.error, { 
-            duration: 4000,
-            style: {
-              background: 'var(--card-background)',
-              color: 'var(--text-primary)',
-              border: '1px solid var(--card-border)',
-            },
-          });
+          toast.error(result.error, toastConfig.error);
         } else if (result.error.includes('email')) {
           setErrors({ ...errors, email: result.error });
-          toast.error(result.error, { 
-            duration: 4000,
-            style: {
-              background: 'var(--card-background)',
-              color: 'var(--text-primary)',
-              border: '1px solid var(--card-border)',
-            },
-          });
+          toast.error(result.error, toastConfig.error);
         } else if (result.error.includes('rate') || result.error.includes('many')) {
           setErrors({ ...errors, general: result.error });
-          toast.error(result.error, { 
-            duration: 4000,
-            style: {
-              background: 'var(--card-background)',
-              color: 'var(--text-primary)',
-              border: '1px solid var(--card-border)',
-            },
-          });
+          toast.error(result.error, toastConfig.error);
         } else {
           setErrors({ ...errors, general: result.error });
-          toast.error(result.error, { 
-            duration: 4000,
-            style: {
-              background: 'var(--card-background)',
-              color: 'var(--text-primary)',
-              border: '1px solid var(--card-border)',
-            },
-          });
+          toast.error(result.error, toastConfig.error);
         }
         return;
       }
@@ -237,14 +210,7 @@ export default function Contact() {
       // Show success toast
       toast.success(
         "Thank you for reaching out! I've received your message and will get back to you as soon as possible. Usually within 24 hours.",
-        {
-          duration: 3500,
-          style: {
-            background: 'var(--card-background)',
-            color: 'var(--text-primary)',
-            border: '1px solid var(--card-border)',
-          },
-        }
+        toastConfig.success
       );
     } catch (error) {
       console.error('Form submission error:', error);
@@ -253,14 +219,7 @@ export default function Contact() {
         ...errors,
         general: errorMessage,
       });
-      toast.error(errorMessage, { 
-        duration: 4000,
-        style: {
-          background: 'var(--card-background)',
-          color: 'var(--text-primary)',
-          border: '1px solid var(--card-border)',
-        },
-      });
+      toast.error(errorMessage, toastConfig.error);
     } finally {
       setIsSubmitting(false);
     }
