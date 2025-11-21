@@ -9,6 +9,7 @@ import "../globals.css";
 import ClientBackground from '@/components/ui/ClientBackground';
 import StructuredData from '@/components/seo/StructuredData';
 import VisitTracker from '@/components/analytics/VisitTracker';
+import LoadingIndicator from '@/components/ui/LoadingIndicator';
 import { VIEWPORT_CONFIG } from '@/lib/constants';
 import { THEME_CONFIG, DARK_MODE_SCRIPT } from '@/lib/theme.config';
 import PassiveEventsInit from '@/components/utils/PassiveEventsInit';
@@ -138,6 +139,7 @@ export default async function LocaleLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-500`}
         suppressHydrationWarning
       >
+        <LoadingIndicator />
         <PassiveEventsInit />
         <ClientBackground />
         <Toaster
