@@ -108,7 +108,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-      <nav className="container mx-auto px-3 py-4">
+      <nav className="container mx-auto px-10 py-4">
         <div className="flex items-center justify-between">
           <Link href={`/${locale}`} className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
             {personalInfo.name}
@@ -186,7 +186,7 @@ export default function Header() {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-lg max-h-[calc(100vh-73px)] overflow-y-auto"
             >
-              <div className="container mx-auto px-4 py-4">
+              <div className="container mx-auto px-10 py-4">
                 <motion.ul
                   initial="closed"
                   animate="open"

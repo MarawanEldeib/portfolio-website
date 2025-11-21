@@ -32,6 +32,46 @@ export const languages = {
 
 const projectsData: Project[] = [
   {
+    id: "new-2",
+    title: "Decentralized Public Chat Room",
+    description: "Engineered a resilient, decentralized P2P chat ecosystem. Implements Causal and Total Ordering via Vector Clocks to guarantee message consistency across concurrent events. Features robust fault-tolerance utilizing the Bully Algorithm for dynamic leader election and reliable multicast to ensure delivery during node failures. Architected to handle asynchronous communication and crash failures in distributed environments.",
+    image: "",
+    tech: ["Distributed Systems", "Python", "Socket Programming", "Multithreading", "Vector Clocks", "Bully Algorithm", "Reliable Multicast"],
+    github: "https://github.com/ayushmittalde/chat_app_DS",
+    video: undefined,
+    pdf: "/documents/distributed-systems-chat-report.pdf",
+    status: "completed" as const,
+    startDate: "2024-11",
+    endDate: "2025-02",
+    course: "Distributed Systems",
+    highlights: [
+      "Decentralized P2P architecture with causal ordering",
+      "Leader election using Bully Algorithm",
+      "Reliable multicast and fault detection",
+      "Vector clocks for message synchronization",
+      "Team Project (Group 6)"
+    ],
+  },
+  {
+    id: "new-3",
+    title: "Cloud-Native Architecture for an Emerging Online Retail Business",
+    description: "Designed a robust cloud-native architecture tailored for an emerging online retail platform. The solution leverages a 3-tier AWS infrastructure to ensure high availability and scalability for e-commerce workloads. Key components include a VPC with isolated subnets for security, Application Load Balancers to manage customer traffic, and Auto Scaling Groups to handle retail demand spikes. Integrated RDS for secure transaction management and NAT Gateways for protected backend connectivity.",
+    image: "",
+    tech: ["Cloud Computing", "AWS", "VPC", "EC2", "Auto Scaling", "Load Balancer", "NAT Gateway", "RDS"],
+    github: "",
+    video: undefined,
+    pdf: "/documents/cloud-computing-report.pdf",
+    status: "completed" as const,
+    startDate: "2025-02",
+    endDate: "2025-02",
+    course: "Cloud Computing",
+    highlights: [
+      "3-Tier Architecture with Public/Private Subnets",
+      "High Availability via Auto Scaling & Load Balancing",
+      "Secure Network Design with NAT Gateways"
+    ],
+  },
+  {
     id: "new-1",
     title: "Foundation Knowledge Graph Models for Universal Database Learning",
     description: "Extending cutting-edge Knowledge Graph Foundation Models (ULTRA) to create a unified framework for universal database reasoning. Developing schema-agnostic models that can perform complex reasoning tasks across unseen databases without task-specific fine-tuning, enabling transferable intelligence across domains (e.g., finance to healthcare) with minimal adaptation.",

@@ -13,6 +13,7 @@ export interface Project {
   tech: string[];
   github?: string;
   video?: string;
+  pdf?: string;
   report?: string;
   status: Exclude<ProjectStatus, 'all'>;
   startDate: string;

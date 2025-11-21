@@ -180,6 +180,20 @@ export default function Projects() {
                         {t('buttons.report')}
                       </ActionButton>
                     )}
+                    {project.pdf && (
+                      <ActionButton
+                        onClick={() => setPdfPreview({
+                          isOpen: true,
+                          url: project.pdf!,
+                          title: `${project.title} - Report`
+                        })}
+                        icon={FileText}
+                        variant="primary"
+                        ariaLabel={`View Report for ${project.title}`}
+                      >
+                        {t('buttons.report')}
+                      </ActionButton>
+                    )}
                     {(project.report === undefined && project.title.includes(PROJECT_TITLES.MANGO_VISION)) && (
                       <div className="relative group">
                         <button
