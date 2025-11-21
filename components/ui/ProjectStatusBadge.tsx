@@ -24,7 +24,7 @@ export default function ProjectStatusBadge({ status, className }: ProjectStatusB
           'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100':
             status === 'completed',
           'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100':
-            status === 'ongoing',
+            status === 'ongoing' || status === 'in-progress',
         },
         className
       )}
