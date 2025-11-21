@@ -3,13 +3,14 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Github, ExternalLink, Calendar, Play } from 'lucide-react';
+import { GithubIcon, Calendar, Play, FileText } from 'lucide-react';
 import { projects } from '@/lib/data';
 import Image from 'next/image';
 import { TECH_ICONS } from '@/lib/constants';
 import ProjectStatusBadge from '@/components/ui/ProjectStatusBadge';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import dynamic from 'next/dynamic';
+import ActionButton from '@/components/ui/ActionButton';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
@@ -127,27 +128,34 @@ export default function Projects() {
                   </div>
 
                   <div className="flex flex-wrap gap-3">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
-                      >
-                        <Github size={16} />
-                        {t('buttons.code')}
-                      </a>
-                    )}
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-                      >
-                        <ExternalLink size={16} />
-                        {t('buttons.demo')}
-                      </a>
+                    {/* GitHub Button - Only show if specific repo URL exists */}
+                    {project.github && !project.github.endsWith('/MarawanEldeib') && (
+                      <>
+                        {project.id === 'new-1' ? (
+                          <div className="relative group">
+                            <button
+                              disabled
+                              className="flex items-center gap-2 px-4 py-2 bg-zinc-400 dark:bg-zinc-600 text-white rounded-lg cursor-not-allowed opacity-70"
+                            >
+                              <GithubIcon size={16} />
+                              {t('buttons.code')}
+                            </button>
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                              Repository is currently private
+                            </div>
+                          </div>
+                        ) : (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+                          >
+                            <GithubIcon size={16} />
+                            {t('buttons.code')}
+                          </a>
+                        )}
+                      </>
                     )}
                     {project.video && (
                       <button
@@ -163,33 +171,18 @@ export default function Projects() {
                       </button>
                     )}
                     {project.report && (
-                      <button
+                      <ActionButton
                         onClick={() => setPdfPreview({
                           isOpen: true,
                           url: project.report!,
                           title: `${project.title} - ${t('buttons.report')}`
                         })}
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors"
+                        icon={FileText}
+                        variant="primary"
+                        ariaLabel={`View report for ${project.title}`}
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                          <polyline points="14 2 14 8 20 8"></polyline>
-                          <line x1="16" y1="13" x2="8" y2="13"></line>
-                          <line x1="16" y1="17" x2="8" y2="17"></line>
-                          <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
                         {t('buttons.report')}
-                      </button>
+                      </ActionButton>
                     )}
                     {(project.report === undefined && project.title.includes("MangoVision")) && (
                       <div className="relative group">

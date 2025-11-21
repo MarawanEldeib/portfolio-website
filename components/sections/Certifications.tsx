@@ -39,6 +39,8 @@ const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'),
   loading: () => null, // Optional: add loading component
 });
 
+import ActionButton from '@/components/ui/ActionButton';
+
 /**
  * Main Certifications Component
  * Implements separation of concerns with sub-components
@@ -223,14 +225,15 @@ function CertificationCard({ certification, onViewCertificate }: CertificationCa
           {formatMonthYear(certification.date)}
         </time>
         {certification.credentialUrl && (
-          <button
+          <ActionButton
             onClick={handleViewCertificate}
-            className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-yellow-600 dark:bg-yellow-700 text-white rounded-lg hover:bg-yellow-700 dark:hover:bg-yellow-800 transition-colors text-sm font-medium w-full justify-center"
-            aria-label={`View certificate for ${certification.title}`}
+            icon={FileText}
+            variant="warning"
+            fullWidth
+            ariaLabel={`View certificate for ${certification.title}`}
           >
-            <FileText size={16} aria-hidden="true" />
             {t('viewCertificate')}
-          </button>
+          </ActionButton>
         )}
       </div>
     </article>
@@ -247,6 +250,7 @@ interface AwardCardProps {
 }
 
 function AwardCard({ award, onViewCertificate }: AwardCardProps) {
+  const t = useTranslations('certifications');
   const { formatMonthYear } = useLocaleDate();
 
   const handleViewCertificate = (e: React.MouseEvent) => {
@@ -304,24 +308,26 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
         </p>
         <div className="flex flex-wrap gap-2 mt-auto">
           {award.certificateUrl && (
-            <button
+            <ActionButton
               onClick={handleViewCertificate}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 dark:bg-yellow-700 text-white rounded-lg hover:bg-yellow-700 dark:hover:bg-yellow-800 transition-colors text-sm font-medium flex-1 justify-center"
-              aria-label={`View certificate for ${award.title}`}
+              icon={FileText}
+              variant="warning"
+              fullWidth
+              ariaLabel={`View certificate for ${award.title}`}
             >
-              <FileText size={16} aria-hidden="true" />
-              View Certificate
-            </button>
+              {t('viewCertificate')}
+            </ActionButton>
           )}
           {(award as any).projectUrl && (
-            <button
+            <ActionButton
               onClick={handleViewProject}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors text-sm font-medium flex-1 justify-center"
-              aria-label={`View project report for ${award.title}`}
+              icon={FileText}
+              variant="primary"
+              fullWidth
+              ariaLabel={`View project report for ${award.title}`}
             >
-              <FileText size={16} aria-hidden="true" />
               View Project
-            </button>
+            </ActionButton>
           )}
         </div>
       </div>

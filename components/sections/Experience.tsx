@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
+import ActionButton from '@/components/ui/ActionButton';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
@@ -125,17 +126,18 @@ export default function Experience() {
                   )}
 
                   {item.certificateUrl && (
-                    <button
+                    <ActionButton
                       onClick={() => setPdfPreview({
                         isOpen: true,
                         url: item.certificateUrl!,
                         title: `${item.title} - ${t('buttons.viewCertificate')}`
                       })}
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors text-sm font-medium"
+                      icon={FileText}
+                      variant="primary"
+                      ariaLabel={`View certificate for ${item.title}`}
                     >
-                      <FileText size={16} />
                       {t('buttons.viewCertificate')}
-                    </button>
+                    </ActionButton>
                   )}
                 </div>
               </motion.div>

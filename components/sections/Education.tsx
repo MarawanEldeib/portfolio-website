@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
+import ActionButton from '@/components/ui/ActionButton';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
@@ -126,30 +127,32 @@ export default function Education() {
 
                   <div className="flex flex-wrap gap-3">
                     {item.certificateUrl && (
-                      <button
+                      <ActionButton
                         onClick={() => setPdfPreview({
                           isOpen: true,
                           url: item.certificateUrl!,
                           title: `${item.title} - ${item.title.includes('Master') ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}`
                         })}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 dark:bg-green-700 text-white rounded-lg hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-sm font-medium"
+                        icon={FileText}
+                        variant="success"
+                        ariaLabel={`View ${item.title.includes('Master') ? 'enrollment' : 'certificate'} for ${item.title}`}
                       >
-                        <FileText size={16} />
                         {item.title.includes('Master') ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}
-                      </button>
+                      </ActionButton>
                     )}
                     {item.transcriptUrl && (
-                      <button
+                      <ActionButton
                         onClick={() => setPdfPreview({
                           isOpen: true,
                           url: item.transcriptUrl!,
                           title: `${item.title} - ${t('buttons.viewTranscript')}`
                         })}
-                        className="inline-flex items-center gap-2 px-4 py-2 border-2 border-green-600 dark:border-green-700 text-green-600 dark:text-green-400 rounded-lg hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors text-sm font-medium"
+                        icon={FileText}
+                        variant="success"
+                        ariaLabel={`View transcript for ${item.title}`}
                       >
-                        <FileText size={16} />
                         {t('buttons.viewTranscript')}
-                      </button>
+                      </ActionButton>
                     )}
                   </div>
                 </div>

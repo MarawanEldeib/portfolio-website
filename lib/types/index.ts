@@ -12,7 +12,6 @@ export interface Project {
   image?: string;
   tech: string[];
   github?: string;
-  live?: string;
   video?: string;
   report?: string;
   status: Exclude<ProjectStatus, 'all'>;

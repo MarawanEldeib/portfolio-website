@@ -22,17 +22,28 @@ export default function VideoPreviewModal({ isOpen, onClose, videoUrl, title }: 
 
     if (!isOpen) return null;
 
-    // Extract YouTube ID
+    // Extract YouTube ID from various YouTube URL formats
     const getYoutubeId = (url: string) => {
-        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-        const match = url.match(regExp);
-        return (match && match[2].length === 11) ? match[2] : null;
+        // Handle youtu.be short URLs
+        const shortUrlMatch = url.match(/youtu\.be\/([^?&]+)/);
+        if (shortUrlMatch) return shortUrlMatch[1];
+
+        // Handle youtube.com URLs
+        const longUrlMatch = url.match(/youtube\.com\/.*[?&]v=([^&]+)/);
+        if (longUrlMatch) return longUrlMatch[1];
+
+        // Handle embed URLs
+        const embedMatch = url.match(/youtube\.com\/embed\/([^?&]+)/);
+        if (embedMatch) return embedMatch[1];
+
+        return null;
     };
 
     const videoId = getYoutubeId(videoUrl);
-    // Add parameters to allow embedding and autoplay
+    // Use youtube-nocookie.com domain for better embedding compatibility
+    // Add parameters to allow embedding
     const embedUrl = videoId
-        ? `https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=${typeof window !== 'undefined' ? window.location.origin : ''}&rel=0`
+        ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1`
         : '';
 
     return createPortal(
@@ -79,11 +90,20 @@ export default function VideoPreviewModal({ isOpen, onClose, videoUrl, title }: 
                                 allowFullScreen
                                 title={title}
                                 style={{ border: 'none' }}
+                                loading="lazy"
                             />
                             {/* Fallback message overlay for blocked content */}
-                            <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-zinc-400 bg-black/90 pointer-events-none opacity-0 hover:opacity-100 transition-opacity">
-                                <p className="text-sm text-center px-4">
-                                    If video doesn't load, click "Open in YouTube" above
+                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-zinc-900/95 text-white text-xs px-4 py-2 rounded-lg shadow-lg max-w-[90%] z-10">
+                                <p className="text-center whitespace-nowrap">
+                                    Video not loading?{' '}
+                                    <a
+                                        href={videoUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="underline hover:text-red-400 font-semibold"
+                                    >
+                                        Open in YouTube
+                                    </a>
                                 </p>
                             </div>
                         </>
