@@ -2,13 +2,21 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { GraduationCap, MapPin, Calendar, FileText } from 'lucide-react';
+import { GraduationCap, MapPin, FileText } from 'lucide-react';
 import { timeline } from '@/lib/data';
 import Image from 'next/image';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import ActionButton from '@/components/ui/ActionButton';
+import StatusBadge from '@/components/ui/StatusBadge';
+import DateRange from '@/components/ui/DateRange';
+import InfoItem from '@/components/ui/InfoItem';
+import SectionHeader from '@/components/ui/SectionHeader';
+import TimelineItem from '@/components/ui/TimelineItem';
+import Card from '@/components/ui/Card';
+import TechTag from '@/components/ui/TechTag';
+import { TIMELINE_KEYWORDS } from '@/lib/constants';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
@@ -35,26 +43,20 @@ export default function Education() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-center">{t('title')}</h2>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-12 text-center">
-            {t('subtitle')}
-          </p>
+          <SectionHeader
+            title={t('title')}
+            subtitle={t('subtitle')}
+          />
 
           <div className="space-y-8">
             {educationItems.map((item, index) => (
-              <motion.div
+              <TimelineItem
                 key={item.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative pl-8 border-l-2 border-green-300 dark:border-green-700"
+                icon={GraduationCap}
+                variant="education"
+                index={index}
               >
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-white dark:bg-zinc-800 border-2 border-green-500 dark:border-green-600 flex items-center justify-center">
-                  <GraduationCap size={14} className="text-green-600 dark:text-green-400" />
-                </div>
-
-                <div className="relative bg-white dark:bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-950/30 dark:hover:to-green-900/30 hover:border-2 hover:border-green-500 dark:hover:border-green-600 transition-all duration-300 cursor-pointer">
+                <Card variant="education">
                   <div className="flex items-start gap-4 mb-4">
                     {item.organizationLogo && (
                       <div className="flex-shrink-0 w-16 h-16 relative rounded-lg overflow-hidden bg-white border border-zinc-200 dark:border-zinc-600 flex items-center justify-center shadow-sm">
@@ -70,13 +72,11 @@ export default function Education() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <h3 className="text-lg sm:text-xl font-semibold flex-1 min-w-0">{item.title}</h3>
-                        {/* Status Badge */}
-                        <span className={`flex-shrink-0 px-3 py-1 rounded-full text-xs font-medium ${item.endDate === null
-                          ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100'
-                          : 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
-                          }`}>
-                          {item.endDate === null ? t('status.ongoing') : t('status.completed')}
-                        </span>
+                        <StatusBadge
+                          status={item.endDate === null ? 'ongoing' : 'completed'}
+                          ongoingText={t('status.ongoing')}
+                          completedText={t('status.completed')}
+                        />
                       </div>
                       <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400">
                         {item.organization}
@@ -85,14 +85,15 @@ export default function Education() {
                   </div>
 
                   <div className="flex flex-wrap gap-4 text-sm text-zinc-500 dark:text-zinc-500 mb-4">
-                    <span className="flex items-center gap-1">
-                      <MapPin size={14} />
+                    <InfoItem icon={MapPin}>
                       {item.location}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      {formatShortDate(item.startDate)} - {item.endDate ? formatShortDate(item.endDate) : t('present')}
-                    </span>
+                    </InfoItem>
+                    <DateRange
+                      startDate={item.startDate}
+                      endDate={item.endDate}
+                      presentText={t('present')}
+                      formatDate={formatShortDate}
+                    />
                   </div>
 
                   <p className="text-zinc-700 dark:text-zinc-300 mb-4 text-left leading-relaxed">
@@ -115,12 +116,11 @@ export default function Education() {
                   {item.skills && (
                     <div className="flex flex-wrap gap-2 mb-4">
                       {item.skills.map((skill) => (
-                        <span
+                        <TechTag
                           key={skill}
-                          className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs rounded"
-                        >
-                          {skill}
-                        </span>
+                          tech={skill}
+                          variant="education"
+                        />
                       ))}
                     </div>
                   )}
@@ -131,13 +131,13 @@ export default function Education() {
                         onClick={() => setPdfPreview({
                           isOpen: true,
                           url: item.certificateUrl!,
-                          title: `${item.title} - ${item.title.includes('Master') ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}`
+                          title: `${item.title} - ${item.title.includes(TIMELINE_KEYWORDS.MASTER_DEGREE) ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}`
                         })}
                         icon={FileText}
                         variant="success"
-                        ariaLabel={`View ${item.title.includes('Master') ? 'enrollment' : 'certificate'} for ${item.title}`}
+                        ariaLabel={`View ${item.title.includes(TIMELINE_KEYWORDS.MASTER_DEGREE) ? 'enrollment' : 'certificate'} for ${item.title}`}
                       >
-                        {item.title.includes('Master') ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}
+                        {item.title.includes(TIMELINE_KEYWORDS.MASTER_DEGREE) ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}
                       </ActionButton>
                     )}
                     {item.transcriptUrl && (
@@ -155,8 +155,8 @@ export default function Education() {
                       </ActionButton>
                     )}
                   </div>
-                </div>
-              </motion.div>
+                </Card>
+              </TimelineItem>
             ))}
           </div>
         </motion.div>
