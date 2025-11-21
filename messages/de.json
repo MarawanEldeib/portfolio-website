@@ -6,7 +6,7 @@
     "experience": "Berufserfahrung",
     "education": "Ausbildung",
     "skills": "Fähigkeiten",
-    "certifications": "Kurszertifikate",
+    "certifications": "Zertifikate & Auszeichnungen",
     "volunteering": "Freiwilligenarbeit",
     "recommendations": "Empfehlungen",
     "contact": "Kontakt"
@@ -68,7 +68,7 @@
     "systems": "Betriebssysteme"
   },
   "certifications": {
-    "title": "Kurszertifikate",
+    "title": "Zertifikate & Auszeichnungen",
     "viewCertificate": "Zertifikat ansehen",
     "awards": "Auszeichnungen & Stipendien"
   },

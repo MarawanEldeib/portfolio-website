@@ -6,7 +6,7 @@
     "experience": "Experience",
     "education": "Education",
     "skills": "Skills",
-    "certifications": "Course Certifications",
+    "certifications": "Certifications & Awards",
     "volunteering": "Volunteering",
     "recommendations": "Recommendations",
     "contact": "Contact"
@@ -68,7 +68,7 @@
     "systems": "Operating Systems"
   },
   "certifications": {
-    "title": "Course Certifications",
+    "title": "Certifications & Awards",
     "viewCertificate": "View Certificate",
     "awards": "Awards & Scholarships"
   },

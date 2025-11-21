@@ -1,4 +1,6 @@
 // Portfolio Data - Marawan Eldeib's Professional Profile
+import type { Project } from './types';
+
 export const personalInfo = {
   name: "Marawan Eldeib",
   title: "Software Engineering Student & Developer",
@@ -28,7 +30,7 @@ export const languages = {
   intermediate: ["German (B1)"],
 };
 
-const projectsData = [
+const projectsData: Project[] = [
   {
     id: "new-1",
     title: "Foundation Knowledge Graph Models for Universal Database Learning",

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { Resend } from 'resend';
 import { validateEmail, validateUrl, validateFiles } from '@/lib/validation';
+import type { EmailData } from '@/lib/types';
 
 // Lazy initialization of Resend client to avoid build-time errors
 let resendClient: Resend | null = null;
@@ -122,15 +123,6 @@ export async function POST(request: NextRequest) {
         ${url ? `<p><strong>Attached URL:</strong> <a href="${url}" target="_blank">${url}</a></p>` : ''}
         ${files.length > 0 ? `<p><strong>Attached Files:</strong> ${files.map(f => `${f.name} (${(f.size / 1024).toFixed(2)} KB)`).join(', ')}</p>` : ''}
       `;
-
-      interface EmailData {
-        from: string;
-        to: string;
-        subject: string;
-        html: string;
-        reply_to: string;
-        attachments?: Array<{ filename: string; content: Buffer }>;
-      }
 
       const emailData: EmailData = {
         from: 'Contact Form <onboarding@resend.dev>', // Use your verified domain in production

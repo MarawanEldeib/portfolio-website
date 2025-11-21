@@ -159,3 +159,18 @@ export const LAYOUT_CONSTANTS = {
   HEADER_HEIGHT: 80, // px - Height of fixed header for scroll offset calculations
   SCROLL_OFFSET: 100, // px - Additional offset for active section detection
 } as const;
+
+// Carousel Configuration
+export const CAROUSEL_CONFIG = {
+  LOOP_MULTIPLIER: 3, // Number of times to duplicate items for infinite loop effect
+  CERTIFICATIONS_AUTOPLAY_DELAY: 3000, // ms
+  AWARDS_AUTOPLAY_DELAY: 4000, // ms
+  CARDS_PER_SLIDE_OFFSET: 8,
+  CARDS_PER_SLIDE_ROTATE: 2,
+} as const;
+
+// Modal Configuration
+export const MODAL_CONFIG = {
+  PDF_VIEWER_HEIGHT: '90vh',
+  VIDEO_PLAYER_ASPECT_RATIO: '16:9',
+} as const;

@@ -3,7 +3,7 @@
  */
 
 // Project Types
-export type ProjectStatus = 'all' | 'completed' | 'ongoing';
+export type ProjectStatus = 'all' | 'completed' | 'in-progress';
 
 export interface Project {
   id: string;
@@ -14,10 +14,12 @@ export interface Project {
   github?: string;
   live?: string;
   video?: string;
+  report?: string;
   status: Exclude<ProjectStatus, 'all'>;
   startDate: string;
   endDate: string | null;
   course?: string;
+  highlights?: string[];
 }
 
 // Timeline Types
