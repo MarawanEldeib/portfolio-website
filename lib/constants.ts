@@ -138,6 +138,23 @@ export const EXTERNAL_LINKS = {
   REPO_URL: 'https://github.com/MarawanEldeib/portfolio-website',
 } as const;
 
+// Project-specific constants
+export const PROJECT_IDS = {
+  KGFM_UNIVERSAL_DB: 'new-1',
+  MANGO_VISION: '1',
+  FITNESS_CENTER: '2',
+  RAIN_ROOT: '3',
+} as const;
+
+export const PROJECT_TITLES = {
+  MANGO_VISION: 'MangoVision',
+} as const;
+
+// Timeline item constants
+export const TIMELINE_KEYWORDS = {
+  MASTER_DEGREE: 'Master',
+} as const;
+
 // Viewport Configuration
 export const VIEWPORT_CONFIG = {
   width: 'device-width',
