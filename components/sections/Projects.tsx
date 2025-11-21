@@ -8,6 +8,7 @@ import { projects } from '@/lib/data';
 import Image from 'next/image';
 import { TECH_ICONS } from '@/lib/constants';
 import ProjectStatusBadge from '@/components/ui/ProjectStatusBadge';
+import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import dynamic from 'next/dynamic';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
@@ -20,6 +21,7 @@ const VideoPreviewModal = dynamic(() => import('@/components/ui/VideoPreviewModa
 
 export default function Projects() {
   const t = useTranslations('projects');
+  const { formatShortDate } = useLocaleDate();
   const [filter, setFilter] = useState<'all' | 'completed' | 'in-progress'>('all');
   const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
     isOpen: false,
@@ -101,8 +103,8 @@ export default function Projects() {
 
                   <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-3">
                     <Calendar size={14} />
-                    {new Date(project.startDate).toLocaleDateString('en', { month: 'short', year: 'numeric' })} -{' '}
-                    {project.endDate ? new Date(project.endDate).toLocaleDateString('en', { month: 'short', year: 'numeric' }) : t('present')}
+                    {formatShortDate(project.startDate)} -{' '}
+                    {project.endDate ? formatShortDate(project.endDate) : t('present')}
                   </div>
 
                   <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-left leading-relaxed">

@@ -30,6 +30,7 @@ import 'swiper/css/pagination';
 import dynamic from 'next/dynamic';
 import { useModal, type PDFModalState } from '@/lib/hooks/useModal';
 import { createLoopedArray, generateCarouselKey, SWIPER_PRESETS } from '@/lib/utils/carousel';
+import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import type { Certification, Award as AwardType } from '@/lib/types';
 
 // Dynamic import for better code splitting and performance
@@ -195,6 +196,7 @@ interface CertificationCardProps {
 
 function CertificationCard({ certification, onViewCertificate }: CertificationCardProps) {
   const t = useTranslations('certifications');
+  const { formatMonthYear } = useLocaleDate();
 
   const handleViewCertificate = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -232,7 +234,7 @@ function CertificationCard({ certification, onViewCertificate }: CertificationCa
           className="text-sm text-zinc-500 dark:text-zinc-500 mb-4 block"
           dateTime={certification.date}
         >
-          {new Date(certification.date).toLocaleDateString('en', { month: 'long', year: 'numeric' })}
+          {formatMonthYear(certification.date)}
         </time>
         {certification.credentialUrl && (
           <button
@@ -259,6 +261,8 @@ interface AwardCardProps {
 }
 
 function AwardCard({ award, onViewCertificate }: AwardCardProps) {
+  const { formatMonthYear } = useLocaleDate();
+
   const handleViewCertificate = (e: React.MouseEvent) => {
     e.stopPropagation();
     onViewCertificate({
@@ -303,7 +307,7 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
           className="text-sm text-zinc-500 dark:text-zinc-500 mb-3 block"
           dateTime={award.date}
         >
-          {new Date(award.date).toLocaleDateString('en', { month: 'long', year: 'numeric' })}
+          {formatMonthYear(award.date)}
         </time>
         <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-4 line-clamp-3 leading-relaxed">
           {award.description}

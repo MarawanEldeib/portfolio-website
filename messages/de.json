@@ -102,6 +102,8 @@
   },
   "footer": {
     "downloadCV": "Lebenslauf herunterladen",
-    "viewCV": "Lebenslauf online ansehen"
+    "viewCV": "Lebenslauf online ansehen",
+    "message": "Ich bin immer offen für Gespräche über neue Projekte, kreative Ideen oder Möglichkeiten, Teil Ihrer Visionen zu sein.",
+    "copyright": "Alle Rechte vorbehalten"
   }
 }

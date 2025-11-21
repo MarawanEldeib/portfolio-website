@@ -7,6 +7,7 @@ import { timeline } from '@/lib/data';
 import Image from 'next/image';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
@@ -14,6 +15,7 @@ const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'),
 
 export default function Experience() {
   const t = useTranslations('experience');
+  const { formatShortDate } = useLocaleDate();
   const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
     isOpen: false,
     url: '',
@@ -88,8 +90,7 @@ export default function Experience() {
                     </span>
                     <span className="flex items-center gap-1">
                       <Calendar size={14} />
-                      {new Date(item.startDate).toLocaleDateString('en', { month: 'short', year: 'numeric' })} -{' '}
-                      {item.endDate ? new Date(item.endDate).toLocaleDateString('en', { month: 'short', year: 'numeric' }) : t('present')}
+                      {formatShortDate(item.startDate)} - {item.endDate ? formatShortDate(item.endDate) : t('present')}
                     </span>
                   </div>
 

@@ -57,10 +57,10 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800 text-center">
           <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-3 max-w-2xl mx-auto">
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            {t('message')}
           </p>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            &copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+            &copy; {new Date().getFullYear()} {personalInfo.name}. {t('copyright')}.
           </p>
         </div>
       </div>

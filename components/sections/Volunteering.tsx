@@ -6,19 +6,15 @@ import { Heart, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { volunteering } from '@/lib/data';
 import { TECH_ICONS, fadeInUp } from '@/lib/constants';
 import Image from 'next/image';
+import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 
 export default function Volunteering() {
   const t = useTranslations('volunteering');
+  const { formatShortDate } = useLocaleDate();
 
   if (volunteering.length === 0) {
     return null; // Don't render if no volunteer experience
   }
-
-  const formatDate = (dateString: string) => {
-    const [year, month] = dateString.split('-');
-    const date = new Date(parseInt(year), parseInt(month) - 1);
-    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-  };
 
   return (
     <section id="volunteering" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-950 dark:to-zinc-900">
@@ -90,7 +86,7 @@ export default function Volunteering() {
                     <div className="flex items-center gap-2">
                       <Calendar size={16} />
                       <span>
-                        {formatDate(volunteer.startDate)} - {volunteer.endDate ? formatDate(volunteer.endDate) : 'Present'}
+                        {formatShortDate(volunteer.startDate)} - {volunteer.endDate ? formatShortDate(volunteer.endDate) : t('present')}
                       </span>
                     </div>
                     {volunteer.location && (
