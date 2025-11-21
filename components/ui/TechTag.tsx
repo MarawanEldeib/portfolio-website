@@ -1,8 +1,17 @@
 /**
  * Reusable Tech Tag Component
+ * Displays technology/skill tags with consistent styling and optional icons
  * Used in Projects, Experience, Education, and Volunteering sections
- * 
+ *
  * @component
+ * @example
+ * ```tsx
+ * <TechTag
+ *   tech="Python"
+ *   icon={SiPython}
+ *   variant="experience"
+ * />
+ * ```
  */
 
 import { LucideIcon } from 'lucide-react';
@@ -10,9 +19,13 @@ import { LucideIcon } from 'lucide-react';
 export type TechTagVariant = 'default' | 'project' | 'experience' | 'education' | 'volunteering';
 
 interface TechTagProps {
+    /** Technology or skill name */
     tech: string;
+    /** Optional icon component */
     icon?: LucideIcon;
+    /** Color-coded variant matching section context */
     variant?: TechTagVariant;
+    /** Optional click handler */
     onClick?: () => void;
 }
 

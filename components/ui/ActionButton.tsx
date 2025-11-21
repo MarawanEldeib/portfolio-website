@@ -1,8 +1,20 @@
 /**
  * Reusable Action Button Component
- * Used across multiple sections for consistent button styling
- * 
+ * Provides consistent button styling with color variants and optional icons
+ * Used across multiple sections for actions like viewing certificates, reports, etc.
+ *
  * @component
+ * @example
+ * ```tsx
+ * <ActionButton
+ *   onClick={() => handleClick()}
+ *   icon={FileText}
+ *   variant="primary"
+ *   ariaLabel="View certificate"
+ * >
+ *   View Certificate
+ * </ActionButton>
+ * ```
  */
 
 import { LucideIcon } from 'lucide-react';
@@ -10,12 +22,19 @@ import { LucideIcon } from 'lucide-react';
 export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 
 interface ActionButtonProps {
+    /** Click handler function */
     onClick: (e: React.MouseEvent) => void;
+    /** Optional Lucide icon component */
     icon?: LucideIcon;
+    /** Button label text */
     children: React.ReactNode;
+    /** Color variant of the button */
     variant?: ButtonVariant;
+    /** Whether button should take full width */
     fullWidth?: boolean;
+    /** Accessible label for screen readers */
     ariaLabel?: string;
+    /** Additional CSS classes */
     className?: string;
 }
 

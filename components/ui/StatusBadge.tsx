@@ -1,16 +1,30 @@
 /**
  * Reusable Status Badge Component
+ * Displays status indicators for timeline items and projects
  * Used in Experience, Education, and Projects sections
- * 
+ *
  * @component
+ * @example
+ * ```tsx
+ * <StatusBadge
+ *   status="ongoing"
+ *   ongoingText="In Progress"
+ *   completedText="Completed"
+ *   variant="default"
+ * />
+ * ```
  */
 
 export type StatusType = 'ongoing' | 'completed';
 
 interface StatusBadgeProps {
+    /** Current status of the item */
     status: StatusType;
+    /** Text to display when status is 'ongoing' */
     ongoingText: string;
+    /** Text to display when status is 'completed' */
     completedText: string;
+    /** Visual variant of the badge */
     variant?: 'default' | 'project';
 }
 
