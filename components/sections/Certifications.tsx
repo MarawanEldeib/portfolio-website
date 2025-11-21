@@ -1,6 +1,6 @@
 /**
  * Certifications Section Component
- * Displays certifications and awards in side-by-side carousels
+ * Displays certifications in carousel and awards in grid layout
  *
  * Architecture & Best Practices:
  * - Follows Single Responsibility Principle (SRP)
@@ -74,21 +74,18 @@ export default function Certifications() {
             {t('title')}
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
-            {/* Certifications Carousel */}
-            <CertificationsCarousel
-              mounted={mounted}
+          {/* Certifications Carousel */}
+          <CertificationsCarousel
+            mounted={mounted}
+            onViewCertificate={pdfModal.open}
+          />
+
+          {/* Awards Grid - Separate Section */}
+          {awards.length > 0 && (
+            <AwardsGrid
               onViewCertificate={pdfModal.open}
             />
-
-            {/* Awards Carousel */}
-            {awards.length > 0 && (
-              <AwardsCarousel
-                mounted={mounted}
-                onViewCertificate={pdfModal.open}
-              />
-            )}
-          </div>
+          )}
         </motion.div>
       </div>
 
@@ -115,14 +112,13 @@ interface CertificationsCarouselProps {
 }
 
 function CertificationsCarousel({ mounted, onViewCertificate }: CertificationsCarouselProps) {
-  const t = useTranslations('certifications');
   const loopedCertifications = createLoopedArray(certifications);
 
   if (!mounted) return null;
 
   return (
-    <div className="w-full max-w-md mx-auto lg:ml-auto lg:mr-8">
-      <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 justify-center lg:justify-start">
+    <div className="w-full max-w-md mx-auto mb-16">
+      <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 justify-center">
         <Award className="text-green-600 dark:text-green-400" aria-hidden="true" />
         <span>Course Certifications</span>
       </h3>
@@ -146,41 +142,31 @@ function CertificationsCarousel({ mounted, onViewCertificate }: CertificationsCa
 }
 
 /**
- * Awards Carousel Sub-Component
- * Follows Single Responsibility Principle
+ * Awards Grid Sub-Component
+ * Displays awards in a responsive grid layout
  */
-interface AwardsCarouselProps {
-  mounted: boolean;
+interface AwardsGridProps {
   onViewCertificate: (data: Omit<PDFModalState, 'isOpen'>) => void;
 }
 
-function AwardsCarousel({ mounted, onViewCertificate }: AwardsCarouselProps) {
+function AwardsGrid({ onViewCertificate }: AwardsGridProps) {
   const t = useTranslations('certifications');
-  const loopedAwards = createLoopedArray(awards);
-
-  if (!mounted) return null;
 
   return (
-    <div className="w-full max-w-md mx-auto lg:ml-8 lg:mr-auto">
-      <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 justify-center lg:justify-start">
+    <div className="w-full">
+      <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 justify-center">
         <Award className="text-yellow-600 dark:text-yellow-400" aria-hidden="true" />
         <span>{t('awards')}</span>
       </h3>
-      <Swiper
-        {...SWIPER_PRESETS.awards}
-        modules={[Navigation, Pagination, Autoplay, EffectCards]}
-        className="pb-12"
-        aria-label="Awards carousel"
-      >
-        {loopedAwards.map((award, index) => (
-          <SwiperSlide key={generateCarouselKey(award.id, index)}>
-            <AwardCard
-              award={award}
-              onViewCertificate={onViewCertificate}
-            />
-          </SwiperSlide>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {awards.map((award) => (
+          <AwardCard
+            key={award.id}
+            award={award}
+            onViewCertificate={onViewCertificate}
+          />
         ))}
-      </Swiper>
+      </div>
     </div>
   );
 }
@@ -280,8 +266,12 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
   };
 
   return (
-    <article
-      className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer h-full"
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer h-full flex flex-col"
       aria-label={`${award.title} from ${award.issuer}`}
     >
       {award.image ? (
@@ -298,8 +288,8 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
           <Award className="text-white opacity-30" size={48} aria-hidden="true" />
         </div>
       )}
-      <div className="p-6">
-        <h4 className="text-lg font-semibold mb-2 line-clamp-2">{award.title}</h4>
+      <div className="p-6 flex flex-col flex-grow">
+        <h4 className="text-lg font-semibold mb-2">{award.title}</h4>
         <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-1">
           {award.issuer}
         </p>
@@ -309,14 +299,14 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
         >
           {formatMonthYear(award.date)}
         </time>
-        <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-4 line-clamp-3 leading-relaxed">
+        <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-4 leading-relaxed flex-grow">
           {award.description}
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mt-auto">
           {award.certificateUrl && (
             <button
               onClick={handleViewCertificate}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 dark:bg-yellow-700 text-white rounded-lg hover:bg-yellow-700 dark:hover:bg-yellow-800 transition-colors text-sm font-medium w-full justify-center"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 dark:bg-yellow-700 text-white rounded-lg hover:bg-yellow-700 dark:hover:bg-yellow-800 transition-colors text-sm font-medium flex-1 justify-center"
               aria-label={`View certificate for ${award.title}`}
             >
               <FileText size={16} aria-hidden="true" />
@@ -326,7 +316,7 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
           {(award as any).projectUrl && (
             <button
               onClick={handleViewProject}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors text-sm font-medium w-full justify-center"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors text-sm font-medium flex-1 justify-center"
               aria-label={`View project report for ${award.title}`}
             >
               <FileText size={16} aria-hidden="true" />
@@ -335,6 +325,6 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
           )}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
