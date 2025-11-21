@@ -54,6 +54,17 @@ export default function Volunteering() {
                         className="object-contain p-2"
                       />
                     </div>
+                    {/* IEEE PES Badge - Only for IEEE entry */}
+                    {volunteer.organization.includes("IEEE") && (
+                      <div className="mt-2 w-24 h-24 relative rounded-lg overflow-hidden bg-white dark:bg-white border border-zinc-200 dark:border-zinc-600">
+                        <Image
+                          src="/images/logos/ieee_pes_mmu.jpg"
+                          alt="IEEE PES Chapter"
+                          fill
+                          className="object-contain p-2"
+                        />
+                      </div>
+                    )}
                   </div>
                 )}
 
