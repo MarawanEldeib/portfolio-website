@@ -54,6 +54,12 @@ import {
   SiDocker, SiKubernetes, SiGit, SiGithub, SiGitlab, SiJira,
   SiLinux, SiAmazon, SiGooglecloud, SiDart
 } from 'react-icons/si';
+import {
+  FaBrain, FaRobot, FaChalkboardTeacher, FaMicrophone, FaUsers,
+  FaHandshake, FaUserTie, FaCalendarAlt, FaLightbulb, FaAward,
+  FaShoppingCart, FaHeadset
+} from 'react-icons/fa';
+import { MdAgriculture } from 'react-icons/md';
 
 import { IconType } from 'react-icons';
 
@@ -105,6 +111,25 @@ export const TECH_ICONS: Record<string, IconType> = {
   'API Development': SiGraphql,
   'Agile': SiJira,
   'Confluence': SiJira,
+  // Volunteering and soft skills icons
+  'AI': FaBrain,
+  'Machine Learning': SiPytorch,
+  'Smart Farming': MdAgriculture,
+  'Precision Agriculture': MdAgriculture,
+  'Public Speaking': FaMicrophone,
+  'International Collaboration': FaHandshake,
+  'Technical Training': FaChalkboardTeacher,
+  'Leadership': FaUserTie,
+  'Event Management': FaCalendarAlt,
+  'Student Engagement': FaUsers,
+  'Robotics': FaRobot,
+  'Mentoring': FaChalkboardTeacher,
+  'Chapter Founding': FaAward,
+  'Entrepreneurship': FaLightbulb,
+  'Business Management': FaUserTie,
+  'Social Responsibility': FaHandshake,
+  'Sales': FaShoppingCart,
+  'Customer Service': FaHeadset,
 };
 
 // External Links

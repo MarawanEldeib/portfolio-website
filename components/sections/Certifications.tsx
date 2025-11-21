@@ -44,10 +44,16 @@ export default function Certifications() {
         >
           <h2 className="text-4xl font-bold mb-12 text-center">{t('title')}</h2>
 
-          {/* Certifications Carousel */}
-          <div className="mb-12 max-w-md mx-auto">
-            {mounted && (
-              <Swiper
+          {/* Grid container for side-by-side layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
+            {/* Certifications Carousel */}
+            <div className="w-full max-w-md mx-auto lg:mx-0">
+              <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 justify-center lg:justify-start">
+                <Award className="text-green-600 dark:text-green-400" />
+                Course Certifications
+              </h3>
+              {mounted && (
+                <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectCards]}
                 effect="cards"
                 grabCursor={true}
@@ -118,17 +124,17 @@ export default function Certifications() {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            )}
-          </div>
+              )}
+            </div>
 
-          {/* Awards */}
-          {awards.length > 0 && mounted && (
-            <div className="max-w-md mx-auto">
-              <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Award className="text-yellow-600 dark:text-yellow-400" />
-                {t('awards')}
-              </h3>
-              <Swiper
+            {/* Awards */}
+            {awards.length > 0 && mounted && (
+              <div className="w-full max-w-md mx-auto lg:mx-0">
+                <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 justify-center lg:justify-start">
+                  <Award className="text-yellow-600 dark:text-yellow-400" />
+                  {t('awards')}
+                </h3>
+                <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectCards]}
                 effect="cards"
                 grabCursor={true}
@@ -220,8 +226,9 @@ export default function Certifications() {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </motion.div>
       </div>
 
