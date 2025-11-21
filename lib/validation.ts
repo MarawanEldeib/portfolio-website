@@ -140,7 +140,8 @@ export function validateFileSize(file: File): ValidationResult {
  * Validate file MIME type
  */
 export function validateFileMimeType(file: File): ValidationResult {
-  if (!FILE_VALIDATION.ALLOWED_MIME_TYPES.includes(file.type as any)) {
+  const allowedTypes = FILE_VALIDATION.ALLOWED_MIME_TYPES as readonly string[];
+  if (!allowedTypes.includes(file.type)) {
     return {
       valid: false,
       error: `Invalid file type for "${file.name}". Only PDF and Word documents are allowed`,
