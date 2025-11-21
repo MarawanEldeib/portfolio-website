@@ -9,14 +9,14 @@ import { useState, useEffect, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import DownloadButton from '@/components/ui/DownloadButton';
 
-// Lazy load CV modal (only when needed)
-const CVPreviewModal = dynamic(() => import('@/components/ui/CVPreviewModal'), {
+// Lazy load PDF modal (only when needed)
+const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
 });
 
 export default function Hero() {
   const t = useTranslations('hero');
-  
+
   const roles = useMemo(() => [
     "Software Engineering Student",
     "AI/ML Enthusiast",
@@ -25,7 +25,7 @@ export default function Hero() {
     "Research Developer",
     "Tech Innovator",
   ], []);
-  
+
   const [currentRole, setCurrentRole] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -98,7 +98,7 @@ export default function Hero() {
               />
             </div>
           </motion.div>
-          
+
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white px-2">
             {t('greeting')}{' '}
             <span
@@ -122,7 +122,7 @@ export default function Hero() {
           <p className="text-sm sm:text-base md:text-lg text-zinc-500 dark:text-zinc-500 mb-6 sm:mb-8 max-w-2xl mx-auto text-center px-4 sm:px-6">
             {t('tagline')}
           </p>
-          
+
           <div className="flex flex-col gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full max-w-md sm:max-w-none mx-auto px-4 sm:px-0">
             <div className="flex gap-2 sm:gap-3 justify-center">
               <button
@@ -169,9 +169,8 @@ export default function Hero() {
               </span>
 
               {/* Tooltip */}
-              <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs font-medium rounded-lg shadow-lg whitespace-nowrap pointer-events-none transition-all duration-200 ${
-                showTooltip ? 'opacity-100 visible' : 'opacity-0 invisible'
-              }`}>
+              <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs font-medium rounded-lg shadow-lg whitespace-nowrap pointer-events-none transition-all duration-200 ${showTooltip ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}>
                 Working Student
                 <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-zinc-900 dark:border-t-zinc-100"></div>
               </div>
@@ -181,10 +180,11 @@ export default function Hero() {
       </div>
 
       {showCVPreview && (
-        <CVPreviewModal
+        <PDFPreviewModal
           isOpen={showCVPreview}
           onClose={() => setShowCVPreview(false)}
-          cvUrl="/cv/Marawan_Eldeib_Resume.pdf"
+          pdfUrl="/cv/Marawan_Eldeib_Resume.pdf"
+          title="CV - Marawan Eldeib"
         />
       )}
     </section>

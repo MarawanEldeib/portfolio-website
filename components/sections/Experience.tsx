@@ -2,13 +2,24 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, Calendar, ExternalLink } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, FileText } from 'lucide-react';
 import { timeline } from '@/lib/data';
 import Image from 'next/image';
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
+  ssr: false,
+});
 
 export default function Experience() {
   const t = useTranslations('experience');
-  
+  const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
+    isOpen: false,
+    url: '',
+    title: ''
+  });
+
   // Filter only work experience items
   const workItems = timeline.filter(item => item.type === 'work');
 
@@ -43,7 +54,7 @@ export default function Experience() {
                 <div className="relative bg-white dark:bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-950/30 dark:hover:to-blue-900/30 hover:border-2 hover:border-blue-500 dark:hover:border-blue-600 transition-all duration-300 cursor-pointer">
                   <div className="flex items-start gap-4 mb-4">
                     {item.organizationLogo && (
-                      <div className="flex-shrink-0 w-16 h-16 relative rounded-lg overflow-hidden bg-white dark:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 flex items-center justify-center">
+                      <div className="flex-shrink-0 w-16 h-16 relative rounded-lg overflow-hidden bg-white border border-zinc-200 dark:border-zinc-600 flex items-center justify-center shadow-sm">
                         <Image
                           src={item.organizationLogo}
                           alt={`${item.organization} logo`}
@@ -57,11 +68,10 @@ export default function Experience() {
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <h3 className="text-lg sm:text-xl font-semibold flex-1 min-w-0">{item.title}</h3>
                         {/* Status Badge */}
-                        <span className={`flex-shrink-0 px-3 py-1 rounded-full text-xs font-medium ${
-                          item.endDate === null
-                            ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
-                            : 'bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100'
-                        }`}>
+                        <span className={`flex-shrink-0 px-3 py-1 rounded-full text-xs font-medium ${item.endDate === null
+                          ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100'
+                          : 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
+                          }`}>
                           {item.endDate === null ? 'Ongoing' : 'Completed'}
                         </span>
                       </div>
@@ -114,15 +124,17 @@ export default function Experience() {
                   )}
 
                   {item.certificateUrl && (
-                    <a
-                      href={item.certificateUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => setPdfPreview({
+                        isOpen: true,
+                        url: item.certificateUrl!,
+                        title: `${item.title} - Certificate`
+                      })}
                       className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors text-sm font-medium"
                     >
-                      <ExternalLink size={16} />
+                      <FileText size={16} />
                       View Certificate
-                    </a>
+                    </button>
                   )}
                 </div>
               </motion.div>
@@ -130,6 +142,15 @@ export default function Experience() {
           </div>
         </motion.div>
       </div>
+
+      {pdfPreview.isOpen && (
+        <PDFPreviewModal
+          isOpen={pdfPreview.isOpen}
+          onClose={() => setPdfPreview({ isOpen: false, url: '', title: '' })}
+          pdfUrl={pdfPreview.url}
+          title={pdfPreview.title}
+        />
+      )}
     </section>
   );
 }

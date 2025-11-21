@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { ExternalLink, Award } from 'lucide-react';
+import { ExternalLink, Award, FileText } from 'lucide-react';
 import { certifications, awards } from '@/lib/data';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
@@ -12,10 +12,20 @@ import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import dynamic from 'next/dynamic';
+
+const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
+  ssr: false,
+});
 
 export default function Certifications() {
   const t = useTranslations('certifications');
   const [mounted, setMounted] = useState(false);
+  const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
+    isOpen: false,
+    url: '',
+    title: ''
+  });
 
   useEffect(() => {
     // Defer mounting to ensure client-side hydration
@@ -62,8 +72,8 @@ export default function Certifications() {
                 }}
                 className="pb-12"
               >
-                {certifications.map((cert) => (
-                  <SwiperSlide key={cert.id}>
+                {[...certifications, ...certifications, ...certifications].map((cert, index) => (
+                  <SwiperSlide key={`${cert.id}-${index}`}>
                     <div className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
                       {cert.image ? (
                         <div className="relative h-40 bg-zinc-200 dark:bg-zinc-700">
@@ -88,15 +98,20 @@ export default function Certifications() {
                           {new Date(cert.date).toLocaleDateString('en', { month: 'long', year: 'numeric' })}
                         </p>
                         {cert.credentialUrl && (
-                          <a
-                            href={cert.credentialUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setPdfPreview({
+                                isOpen: true,
+                                url: cert.credentialUrl!,
+                                title: cert.title
+                              });
+                            }}
+                            className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-yellow-600 dark:bg-yellow-700 text-white rounded-lg hover:bg-yellow-700 dark:hover:bg-yellow-800 transition-colors text-sm font-medium w-full justify-center"
                           >
-                            <ExternalLink size={14} />
+                            <FileText size={16} />
                             {t('viewCertificate')}
-                          </a>
+                          </button>
                         )}
                       </div>
                     </div>
@@ -107,57 +122,117 @@ export default function Certifications() {
           </div>
 
           {/* Awards */}
-          {awards.length > 0 && (
+          {awards.length > 0 && mounted && (
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
                 <Award className="text-yellow-600 dark:text-yellow-400" />
                 {t('awards')}
               </h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {awards.map((award, index) => (
-                  <motion.div
-                    key={award.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-yellow-50 hover:to-orange-50 dark:hover:from-yellow-950/30 dark:hover:to-orange-950/30 hover:border-2 hover:border-yellow-500 dark:hover:border-yellow-600 transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center">
-                        <Award className="text-white" size={24} />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-lg font-semibold mb-2">{award.title}</h4>
+              <Swiper
+                modules={[Navigation, Pagination, Autoplay, EffectCards]}
+                effect="cards"
+                grabCursor={true}
+                loop={true}
+                navigation={{
+                  enabled: true,
+                }}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: true,
+                }}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true
+                }}
+                cardsEffect={{
+                  perSlideOffset: 8,
+                  perSlideRotate: 2,
+                  rotate: true,
+                  slideShadows: true,
+                }}
+                className="pb-12"
+              >
+                {[...awards, ...awards, ...awards].map((award, index) => (
+                  <SwiperSlide key={`${award.id}-${index}`}>
+                    <div className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
+                      {award.image ? (
+                        <div className="relative h-40 bg-zinc-200 dark:bg-zinc-700">
+                          <Image
+                            src={award.image}
+                            alt={award.title}
+                            fill
+                            className="object-contain p-4"
+                          />
+                        </div>
+                      ) : (
+                        <div className="relative h-40 bg-gradient-to-br from-yellow-500 to-orange-600 dark:from-yellow-600 dark:to-orange-700 flex items-center justify-center">
+                          <Award className="text-white opacity-30" size={48} />
+                        </div>
+                      )}
+                      <div className="p-6">
+                        <h3 className="text-lg font-semibold mb-2 line-clamp-2">{award.title}</h3>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-1">
                           {award.issuer}
                         </p>
                         <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-3">
                           {new Date(award.date).toLocaleDateString('en', { month: 'long', year: 'numeric' })}
                         </p>
-                        <p className="text-zinc-700 dark:text-zinc-300 mb-3 text-left leading-relaxed">
+                        <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-4 line-clamp-3 leading-relaxed">
                           {award.description}
                         </p>
-                        {award.certificateUrl && (
-                          <a
-                            href={award.certificateUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-yellow-600 dark:bg-yellow-700 text-white rounded-lg hover:bg-yellow-700 dark:hover:bg-yellow-800 transition-colors text-sm font-medium"
-                          >
-                            <ExternalLink size={16} />
-                            View Certificate
-                          </a>
-                        )}
+                        <div className="flex flex-wrap gap-2">
+                          {award.certificateUrl && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setPdfPreview({
+                                  isOpen: true,
+                                  url: award.certificateUrl!,
+                                  title: `${award.title} - Certificate`
+                                });
+                              }}
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 dark:bg-yellow-700 text-white rounded-lg hover:bg-yellow-700 dark:hover:bg-yellow-800 transition-colors text-sm font-medium w-full justify-center"
+                            >
+                              <FileText size={16} />
+                              View Certificate
+                            </button>
+                          )}
+                          {(award as any).projectUrl && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setPdfPreview({
+                                  isOpen: true,
+                                  url: (award as any).projectUrl!,
+                                  title: `${award.title} - Project Report`
+                                });
+                              }}
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors text-sm font-medium w-full justify-center"
+                            >
+                              <FileText size={16} />
+                              View Project
+                            </button>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </SwiperSlide>
                 ))}
-              </div>
+              </Swiper>
             </div>
           )}
         </motion.div>
       </div>
+
+      {pdfPreview.isOpen && (
+        <PDFPreviewModal
+          isOpen={pdfPreview.isOpen}
+          onClose={() => setPdfPreview({ isOpen: false, url: '', title: '' })}
+          pdfUrl={pdfPreview.url}
+          title={pdfPreview.title}
+        />
+      )}
     </section>
   );
 }

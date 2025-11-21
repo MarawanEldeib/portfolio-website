@@ -2,13 +2,24 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { GraduationCap, MapPin, Calendar, ExternalLink } from 'lucide-react';
+import { GraduationCap, MapPin, Calendar, FileText } from 'lucide-react';
 import { timeline } from '@/lib/data';
 import Image from 'next/image';
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
+  ssr: false,
+});
 
 export default function Education() {
   const t = useTranslations('education');
-  
+  const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
+    isOpen: false,
+    url: '',
+    title: ''
+  });
+
   // Filter only education items
   const educationItems = timeline.filter(item => item.type === 'education');
 
@@ -43,7 +54,7 @@ export default function Education() {
                 <div className="relative bg-white dark:bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-950/30 dark:hover:to-green-900/30 hover:border-2 hover:border-green-500 dark:hover:border-green-600 transition-all duration-300 cursor-pointer">
                   <div className="flex items-start gap-4 mb-4">
                     {item.organizationLogo && (
-                      <div className="flex-shrink-0 w-16 h-16 relative rounded-lg overflow-hidden bg-white dark:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 flex items-center justify-center">
+                      <div className="flex-shrink-0 w-16 h-16 relative rounded-lg overflow-hidden bg-white border border-zinc-200 dark:border-zinc-600 flex items-center justify-center shadow-sm">
                         <Image
                           src={item.organizationLogo}
                           alt={`${item.organization} logo`}
@@ -57,11 +68,10 @@ export default function Education() {
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <h3 className="text-lg sm:text-xl font-semibold flex-1 min-w-0">{item.title}</h3>
                         {/* Status Badge */}
-                        <span className={`flex-shrink-0 px-3 py-1 rounded-full text-xs font-medium ${
-                          item.endDate === null
-                            ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
-                            : 'bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100'
-                        }`}>
+                        <span className={`flex-shrink-0 px-3 py-1 rounded-full text-xs font-medium ${item.endDate === null
+                          ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100'
+                          : 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
+                          }`}>
                           {item.endDate === null ? 'Ongoing' : 'Completed'}
                         </span>
                       </div>
@@ -113,23 +123,49 @@ export default function Education() {
                     </div>
                   )}
 
-                  {item.certificateUrl && (
-                    <a
-                      href={item.certificateUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 dark:bg-green-700 text-white rounded-lg hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-sm font-medium"
-                    >
-                      <ExternalLink size={16} />
-                      View Certificate
-                    </a>
-                  )}
+                  <div className="flex flex-wrap gap-3">
+                    {item.certificateUrl && (
+                      <button
+                        onClick={() => setPdfPreview({
+                          isOpen: true,
+                          url: item.certificateUrl!,
+                          title: `${item.title} - ${item.title.includes('Master') ? 'Enrollment Letter' : 'Certificate'}`
+                        })}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 dark:bg-green-700 text-white rounded-lg hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-sm font-medium"
+                      >
+                        <FileText size={16} />
+                        {item.title.includes('Master') ? 'View Enrollment Letter' : 'View Certificate'}
+                      </button>
+                    )}
+                    {item.transcriptUrl && (
+                      <button
+                        onClick={() => setPdfPreview({
+                          isOpen: true,
+                          url: item.transcriptUrl!,
+                          title: `${item.title} - Transcript`
+                        })}
+                        className="inline-flex items-center gap-2 px-4 py-2 border-2 border-green-600 dark:border-green-700 text-green-600 dark:text-green-400 rounded-lg hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors text-sm font-medium"
+                      >
+                        <FileText size={16} />
+                        View Transcript
+                      </button>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
+
+      {pdfPreview.isOpen && (
+        <PDFPreviewModal
+          isOpen={pdfPreview.isOpen}
+          onClose={() => setPdfPreview({ isOpen: false, url: '', title: '' })}
+          pdfUrl={pdfPreview.url}
+          title={pdfPreview.title}
+        />
+      )}
     </section>
   );
 }
