@@ -9,11 +9,11 @@ import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
 export default function About() {
   const t = useTranslations('about');
   const sectionRef = useRef<HTMLElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, { 
+  const isVisible = useIntersectionObserver(sectionRef, {
     threshold: 0.2,
-    freezeOnceVisible: true 
+    freezeOnceVisible: true
   });
-  
+
   const [showWelcome, setShowWelcome] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showStrengths, setShowStrengths] = useState(false);
@@ -48,7 +48,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-12 text-center">{t('title')}</h2>
-          
+
           {/* Terminal-style container */}
           <div className="bg-[#1e1e2e] dark:bg-[#1a1b26] rounded-lg overflow-hidden shadow-2xl border border-zinc-700/50">
             {/* Terminal header */}
@@ -64,7 +64,7 @@ export default function About() {
             {/* Terminal content */}
             <div className="p-4 sm:p-6 md:p-8 font-mono text-base space-y-6">
               {/* Welcome message */}
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showWelcome ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -74,7 +74,7 @@ export default function About() {
               </motion.p>
 
               {/* About me section */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showAboutMe ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -83,7 +83,7 @@ export default function About() {
                 <p className="text-green-400">
                   <span className="text-purple-400">$</span> {personalInfo.name.toLowerCase().replace(' ', '@')}:~$ about_me
                 </p>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: showAboutMe ? 1 : 0, x: showAboutMe ? 0 : -10 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -101,7 +101,7 @@ export default function About() {
                     animate={{ opacity: showAboutMe ? 1 : 0, x: showAboutMe ? 0 : -10 }}
                     transition={{ duration: 0.3, delay: 0.4 }}
                   >
-                    • I&apos;m a <span className="text-white font-semibold">Software Engineering Student</span> at <span className="text-white font-semibold">Stuttgart University</span>.
+                    • I&apos;m a <span className="text-white font-semibold">Software Engineering Student</span> at <span className="text-white font-semibold">University of Stuttgart, Baden-Württemberg</span>.
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0, x: -10 }}
@@ -121,7 +121,7 @@ export default function About() {
               </motion.div>
 
               {/* Current strengths section */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showStrengths ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -130,7 +130,7 @@ export default function About() {
                 <p className="text-green-400">
                   <span className="text-purple-400">$</span> {personalInfo.name.toLowerCase().replace(' ', '@')}:~$ current_strengths
                 </p>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: showStrengths ? 1 : 0, x: showStrengths ? 0 : -10 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -168,7 +168,7 @@ export default function About() {
               </motion.div>
 
               {/* Contact info */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showContact ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -177,7 +177,7 @@ export default function About() {
                 <p className="text-green-400">
                   <span className="text-purple-400">$</span> {personalInfo.name.toLowerCase().replace(' ', '@')}:~$ contact_info
                 </p>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: showContact ? 1 : 0, x: showContact ? 0 : -10 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -217,7 +217,7 @@ export default function About() {
               </motion.div>
 
               {/* Closing message */}
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showClosing ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -227,7 +227,7 @@ export default function About() {
               </motion.p>
 
               {/* Cursor */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showClosing ? 1 : 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}

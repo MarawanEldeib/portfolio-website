@@ -4,16 +4,27 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { skills, languages } from '@/lib/data';
 import { TECH_ICONS, fadeInUp } from '@/lib/constants';
-import { Languages as LanguagesIcon } from 'lucide-react';
+import { Languages as LanguagesIcon, FileText } from 'lucide-react';
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
+  ssr: false,
+});
 
 export default function Skills() {
   const t = useTranslations('skills');
+  const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
+    isOpen: false,
+    url: '',
+    title: ''
+  });
 
   const skillCategories = [
-    { key: 'languages', data: skills.languages },
-    { key: 'frameworks', data: skills.frameworks },
-    { key: 'tools', data: skills.tools },
-    { key: 'systems', data: skills.systems },
+    { key: 'languages', data: skills?.languages || [] },
+    { key: 'frameworks', data: skills?.frameworks || [] },
+    { key: 'tools', data: skills?.tools || [] },
+    { key: 'systems', data: skills?.systems || [] },
   ];
 
   return (
@@ -70,12 +81,12 @@ export default function Skills() {
               <LanguagesIcon className="text-purple-600 dark:text-purple-400" size={28} />
               <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">Languages</h3>
             </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Native</h4>
+                <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Fluent</h4>
                 <div className="flex flex-wrap gap-2">
-                  {languages.native.map((lang) => (
+                  {[...(languages?.native || []), ...(languages?.proficient || [])].map((lang) => (
                     <span
                       key={lang}
                       className="px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-medium shadow-md hover:bg-purple-700 dark:hover:bg-purple-600 hover:scale-110 transition-all duration-200 cursor-pointer"
@@ -87,36 +98,45 @@ export default function Skills() {
               </div>
 
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Proficient</h4>
-                <div className="flex flex-wrap gap-2">
-                  {languages.proficient.map((lang) => (
-                    <span
-                      key={lang}
-                      className="px-4 py-2 bg-purple-500 dark:bg-purple-600 text-white rounded-lg font-medium shadow-md hover:bg-purple-600 dark:hover:bg-purple-700 hover:scale-110 transition-all duration-200 cursor-pointer"
-                    >
-                      {lang}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                 <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Intermediate</h4>
                 <div className="flex flex-wrap gap-2">
-                  {languages.intermediate.map((lang) => (
-                    <span
-                      key={lang}
-                      className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg font-medium border-2 border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/50 hover:scale-110 transition-all duration-200 cursor-pointer"
-                    >
-                      {lang}
-                    </span>
-                  ))}
+                  {(languages?.intermediate || []).map((lang) => {
+                    const isGerman = lang.includes('German');
+                    return (
+                      <span
+                        key={lang}
+                        onClick={() => isGerman ? setPdfPreview({
+                          isOpen: true,
+                          url: "/certificates/German B1 Certificate.pdf",
+                          title: "German B1 Certificate"
+                        }) : null}
+                        className={`px-4 py-2 rounded-lg font-medium border-2 transition-all duration-200 cursor-pointer flex items-center gap-2
+                          ${isGerman
+                            ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/50 hover:scale-105 hover:shadow-md'
+                            : 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/50 hover:scale-110'
+                          }`}
+                        title={isGerman ? "View Certificate" : undefined}
+                      >
+                        {lang}
+                        {isGerman && <FileText size={14} className="opacity-70" />}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
           </motion.div>
         </motion.div>
       </div>
+
+      {pdfPreview.isOpen && (
+        <PDFPreviewModal
+          isOpen={pdfPreview.isOpen}
+          onClose={() => setPdfPreview({ isOpen: false, url: '', title: '' })}
+          pdfUrl={pdfPreview.url}
+          title={pdfPreview.title}
+        />
+      )}
     </section>
   );
 }

@@ -36,6 +36,7 @@
     "filter": {
       "all": "Alle Projekte",
       "ongoing": "In Bearbeitung",
+      "in-progress": "In Bearbeitung",
       "completed": "Abgeschlossen"
     },
     "viewCode": "Quellcode ansehen",

@@ -36,6 +36,7 @@
     "filter": {
       "all": "All Projects",
       "ongoing": "In Progress",
+      "in-progress": "In Progress",
       "completed": "Completed"
     },
     "viewCode": "View Source Code",

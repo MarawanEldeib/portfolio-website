@@ -44,13 +44,13 @@ export default function Volunteering() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow p-6 border border-zinc-200"
+              className="bg-white dark:bg-zinc-800 rounded-xl shadow-md hover:shadow-xl transition-shadow p-6 border border-zinc-200 dark:border-zinc-700"
             >
               <div className="flex flex-col md:flex-row gap-6">
                 {/* Organization Logo */}
                 {volunteer.organizationLogo && (
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 relative rounded-lg overflow-hidden bg-zinc-100">
+                    <div className="w-24 h-24 relative rounded-lg overflow-hidden bg-white dark:bg-white border-2 border-zinc-200 dark:border-zinc-600">
                       <Image
                         src={volunteer.organizationLogo}
                         alt={volunteer.organization}
