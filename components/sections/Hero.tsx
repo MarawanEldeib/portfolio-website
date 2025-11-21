@@ -128,8 +128,8 @@ export default function Hero() {
               <button
                 onClick={() => setShowCVPreview(true)}
                 className="inline-flex items-center justify-center px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] border border-zinc-300 dark:border-zinc-700 flex-shrink-0"
-                title="View CV"
-                aria-label="View CV"
+                title={t('cta.viewCV')}
+                aria-label={t('cta.viewCV')}
               >
                 <Eye size={18} className="sm:w-5 sm:h-5" />
               </button>
@@ -145,7 +145,7 @@ export default function Hero() {
             {/* Work Permit Badge */}
             <div
               className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 rounded-full shadow-lg justify-center cursor-help transition-all hover:scale-105 hover:shadow-xl active:scale-95 relative group w-auto mx-auto"
-              title="Working Student"
+              title={t('workPermitTooltip')}
               onClick={() => setShowTooltip(!showTooltip)}
               onMouseEnter={() => setShowTooltip(true)}
               onMouseLeave={() => setShowTooltip(false)}
@@ -171,7 +171,7 @@ export default function Hero() {
               {/* Tooltip */}
               <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs font-medium rounded-lg shadow-lg whitespace-nowrap pointer-events-none transition-all duration-200 ${showTooltip ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}>
-                Working Student
+                {t('workPermitTooltip')}
                 <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-zinc-900 dark:border-t-zinc-100"></div>
               </div>
             </div>
@@ -184,7 +184,7 @@ export default function Hero() {
           isOpen={showCVPreview}
           onClose={() => setShowCVPreview(false)}
           pdfUrl="/cv/Marawan_Eldeib_Resume.pdf"
-          title="CV - Marawan Eldeib"
+          title={`${t('cta.viewCV')} - ${personalInfo.name}`}
         />
       )}
     </section>

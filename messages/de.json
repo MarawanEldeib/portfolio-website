@@ -15,6 +15,7 @@
     "greeting": "Hallo, ich bin",
     "tagline": "Entwicklung innovativer Lösungen mit modernen Technologien",
     "workPermit": "Arbeitserlaubnis",
+    "workPermitTooltip": "Werkstudent",
     "cta": {
       "contact": "Kontakt aufnehmen",
       "viewCV": "Lebenslauf ansehen",
@@ -43,21 +44,45 @@
     "liveDemo": "Live Demo",
     "viewMore": "Alle Details anzeigen",
     "highlights": "Wichtige Highlights",
-    "present": "Heute"
+    "present": "Heute",
+    "buttons": {
+      "code": "Code",
+      "demo": "Demo",
+      "video": "Video",
+      "report": "Projektbericht",
+      "researchPaper": "Forschungsarbeit",
+      "publishingSoon": "Bald verfügbar"
+    }
   },
   "experience": {
     "title": "Berufserfahrung",
     "subtitle": "Professionelle Beiträge und Branchenwirkung",
     "viewMore": "Details anzeigen",
     "present": "Heute",
-    "achievements": "Wichtige Erfolge"
+    "achievements": "Wichtige Erfolge",
+    "status": {
+      "ongoing": "Laufend",
+      "completed": "Abgeschlossen"
+    },
+    "buttons": {
+      "viewCertificate": "Zertifikat ansehen"
+    }
   },
   "education": {
     "title": "Ausbildung",
     "subtitle": "Akademische Exzellenz und Forschungserfolge",
     "viewMore": "Details anzeigen",
     "present": "Heute",
-    "achievements": "Wichtige Erfolge"
+    "achievements": "Wichtige Erfolge",
+    "status": {
+      "ongoing": "Laufend",
+      "completed": "Abgeschlossen"
+    },
+    "buttons": {
+      "viewEnrollment": "Immatrikulationsbescheinigung ansehen",
+      "viewCertificate": "Zertifikat ansehen",
+      "viewTranscript": "Transcript ansehen"
+    }
   },
   "skills": {
     "title": "Technische Expertise",
@@ -77,7 +102,12 @@
   },
   "volunteering": {
     "title": "Freiwilligenarbeit",
-    "subtitle": "Einen Beitrag für wichtige Anliegen durch Technologie und Service leisten"
+    "subtitle": "Einen Beitrag für wichtige Anliegen durch Technologie und Service leisten",
+    "present": "Heute",
+    "cta": {
+      "title": "Leidenschaft für soziales Engagement",
+      "message": "Ich glaube daran, Technologie zu nutzen, um einen positiven Einfluss auf die Gesellschaft zu haben. Wenn Sie eine Freiwilligenmöglichkeit haben oder eine Sache kennen, die von meinen Fähigkeiten profitieren könnte, würde ich gerne davon hören!"
+    }
   },
   "contact": {
     "title": "Lassen Sie uns zusammenarbeiten",

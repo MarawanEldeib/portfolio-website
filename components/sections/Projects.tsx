@@ -135,7 +135,7 @@ export default function Projects() {
                         className="flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
                       >
                         <Github size={16} />
-                        Code
+                        {t('buttons.code')}
                       </a>
                     )}
                     {project.live && (
@@ -146,7 +146,7 @@ export default function Projects() {
                         className="flex items-center gap-2 px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                       >
                         <ExternalLink size={16} />
-                        Demo
+                        {t('buttons.demo')}
                       </a>
                     )}
                     {project.video && (
@@ -159,7 +159,7 @@ export default function Projects() {
                         className="flex items-center gap-2 px-4 py-2 bg-red-600 dark:bg-red-700 text-white rounded-lg hover:bg-red-700 dark:hover:bg-red-800 transition-colors"
                       >
                         <Play size={16} fill="currentColor" />
-                        Video
+                        {t('buttons.video')}
                       </button>
                     )}
                     {project.report && (
@@ -167,7 +167,7 @@ export default function Projects() {
                         onClick={() => setPdfPreview({
                           isOpen: true,
                           url: project.report!,
-                          title: `${project.title} - Project Report`
+                          title: `${project.title} - ${t('buttons.report')}`
                         })}
                         className="flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors"
                       >
@@ -188,7 +188,7 @@ export default function Projects() {
                           <line x1="16" y1="17" x2="8" y2="17"></line>
                           <polyline points="10 9 9 9 8 9"></polyline>
                         </svg>
-                        Project Report
+                        {t('buttons.report')}
                       </button>
                     )}
                     {(project.report === undefined && project.title.includes("MangoVision")) && (
@@ -214,10 +214,10 @@ export default function Projects() {
                             <line x1="16" y1="17" x2="8" y2="17"></line>
                             <polyline points="10 9 9 9 8 9"></polyline>
                           </svg>
-                          Research Paper
+                          {t('buttons.researchPaper')}
                         </button>
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                          Publishing Soon
+                          {t('buttons.publishingSoon')}
                         </div>
                       </div>
                     )}

@@ -15,9 +15,10 @@
     "greeting": "Hi, I'm",
     "tagline": "Building innovative solutions with modern technologies",
     "workPermit": "Work Permit",
+    "workPermitTooltip": "Working Student",
     "cta": {
       "contact": "Contact Me",
-      "viewCV": "Preview CV",
+      "viewCV": "View CV",
       "downloadCV": "Download CV"
     }
   },
@@ -43,21 +44,45 @@
     "liveDemo": "Live Demo",
     "viewMore": "View Full Details",
     "highlights": "Key Highlights",
-    "present": "Present"
+    "present": "Present",
+    "buttons": {
+      "code": "Code",
+      "demo": "Demo",
+      "video": "Video",
+      "report": "Project Report",
+      "researchPaper": "Research Paper",
+      "publishingSoon": "Publishing Soon"
+    }
   },
   "experience": {
     "title": "Work Experience",
     "subtitle": "Professional contributions and industry impact",
     "viewMore": "View Details",
     "present": "Present",
-    "achievements": "Key Achievements"
+    "achievements": "Key Achievements",
+    "status": {
+      "ongoing": "Ongoing",
+      "completed": "Completed"
+    },
+    "buttons": {
+      "viewCertificate": "View Certificate"
+    }
   },
   "education": {
     "title": "Education",
     "subtitle": "Academic excellence and research achievements",
     "viewMore": "View Details",
     "present": "Present",
-    "achievements": "Key Achievements"
+    "achievements": "Key Achievements",
+    "status": {
+      "ongoing": "Ongoing",
+      "completed": "Completed"
+    },
+    "buttons": {
+      "viewEnrollment": "View Enrollment Letter",
+      "viewCertificate": "View Certificate",
+      "viewTranscript": "View Transcript"
+    }
   },
   "skills": {
     "title": "Technical Expertise",
@@ -77,7 +102,12 @@
   },
   "volunteering": {
     "title": "Volunteer Experience",
-    "subtitle": "Contributing to causes I care about through technology and service"
+    "subtitle": "Contributing to causes I care about through technology and service",
+    "present": "Present",
+    "cta": {
+      "title": "Passionate About Giving Back",
+      "message": "I believe in using technology to make a positive impact on society. If you have a volunteer opportunity or know of a cause that could benefit from my skills, I'd love to hear about it!"
+    }
   },
   "contact": {
     "title": "Let's Work Together",

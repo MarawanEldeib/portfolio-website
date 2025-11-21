@@ -74,7 +74,7 @@ export default function Education() {
                           ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100'
                           : 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100'
                           }`}>
-                          {item.endDate === null ? 'Ongoing' : 'Completed'}
+                          {item.endDate === null ? t('status.ongoing') : t('status.completed')}
                         </span>
                       </div>
                       <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400">
@@ -130,12 +130,12 @@ export default function Education() {
                         onClick={() => setPdfPreview({
                           isOpen: true,
                           url: item.certificateUrl!,
-                          title: `${item.title} - ${item.title.includes('Master') ? 'Enrollment Letter' : 'Certificate'}`
+                          title: `${item.title} - ${item.title.includes('Master') ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}`
                         })}
                         className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 dark:bg-green-700 text-white rounded-lg hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-sm font-medium"
                       >
                         <FileText size={16} />
-                        {item.title.includes('Master') ? 'View Enrollment Letter' : 'View Certificate'}
+                        {item.title.includes('Master') ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}
                       </button>
                     )}
                     {item.transcriptUrl && (
@@ -143,12 +143,12 @@ export default function Education() {
                         onClick={() => setPdfPreview({
                           isOpen: true,
                           url: item.transcriptUrl!,
-                          title: `${item.title} - Transcript`
+                          title: `${item.title} - ${t('buttons.viewTranscript')}`
                         })}
                         className="inline-flex items-center gap-2 px-4 py-2 border-2 border-green-600 dark:border-green-700 text-green-600 dark:text-green-400 rounded-lg hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors text-sm font-medium"
                       >
                         <FileText size={16} />
-                        View Transcript
+                        {t('buttons.viewTranscript')}
                       </button>
                     )}
                   </div>

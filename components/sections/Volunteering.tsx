@@ -135,12 +135,10 @@ export default function Volunteering() {
         >
           <Heart className="text-purple-500 dark:text-purple-400 mx-auto mb-4" size={48} />
           <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">
-            Passionate About Giving Back
+            {t('cta.title')}
           </h3>
           <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-            I believe in using technology to make a positive impact on society.
-            If you have a volunteer opportunity or know of a cause that could benefit from my skills,
-            I&apos;d love to hear about it!
+            {t('cta.message')}
           </p>
         </motion.div>
       </div>
