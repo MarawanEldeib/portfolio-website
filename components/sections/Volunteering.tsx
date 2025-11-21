@@ -65,28 +65,28 @@ export default function Volunteering() {
                   {/* Header */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
-                      <h3 className="text-xl font-bold text-zinc-900 flex items-center gap-2">
+                      <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
                         {volunteer.role}
                         {volunteer.websiteUrl && (
                           <a
                             href={volunteer.websiteUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-600 hover:text-blue-700"
+                            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
                             aria-label={`Visit ${volunteer.organization} website`}
                           >
                             <ExternalLink size={18} />
                           </a>
                         )}
                       </h3>
-                      <p className="text-lg text-purple-600 font-medium">
+                      <p className="text-lg text-purple-600 dark:text-purple-400 font-medium">
                         {volunteer.organization}
                       </p>
                     </div>
                   </div>
 
                   {/* Meta Information */}
-                  <div className="flex flex-wrap gap-4 text-sm text-zinc-600 mb-4">
+                  <div className="flex flex-wrap gap-4 text-sm text-zinc-600 dark:text-zinc-400 mb-4">
                     <div className="flex items-center gap-2">
                       <Calendar size={16} />
                       <span>
@@ -102,7 +102,7 @@ export default function Volunteering() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-zinc-700 mb-4 leading-relaxed text-left">
+                  <p className="text-zinc-700 dark:text-zinc-300 mb-4 leading-relaxed text-left">
                     {volunteer.description}
                   </p>
 
@@ -114,7 +114,7 @@ export default function Volunteering() {
                         return (
                           <span
                             key={skill}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-50 text-purple-700 text-xs font-medium rounded-md border border-purple-200"
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-medium rounded-md border border-purple-200 dark:border-purple-700"
                           >
                             {IconComponent && <IconComponent className="w-3.5 h-3.5" />}
                             {skill}
@@ -135,13 +135,13 @@ export default function Volunteering() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-12 text-center bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-8 border border-purple-200"
+          className="mt-12 text-center bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl p-8 border border-purple-200 dark:border-purple-700"
         >
-          <Heart className="text-purple-500 mx-auto mb-4" size={48} />
-          <h3 className="text-2xl font-bold text-zinc-900 mb-2">
+          <Heart className="text-purple-500 dark:text-purple-400 mx-auto mb-4" size={48} />
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">
             Passionate About Giving Back
           </h3>
-          <p className="text-zinc-600 max-w-2xl mx-auto">
+          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
             I believe in using technology to make a positive impact on society.
             If you have a volunteer opportunity or know of a cause that could benefit from my skills,
             I&apos;d love to hear about it!
