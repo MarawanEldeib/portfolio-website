@@ -123,7 +123,7 @@ export default function Certifications() {
 
           {/* Awards */}
           {awards.length > 0 && mounted && (
-            <div>
+            <div className="max-w-md mx-auto">
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
                 <Award className="text-yellow-600 dark:text-yellow-400" />
                 {t('awards')}
