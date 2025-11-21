@@ -108,24 +108,23 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-3 py-4">
         <div className="flex items-center justify-between">
           <Link href={`/${locale}`} className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
             {personalInfo.name}
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-6">
+          <ul className="hidden md:flex items-center gap-5">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  className={`text-sm font-medium transition-all relative ${
-                    activeSection === item.id
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
-                  }`}
+                  className={`text-sm font-medium transition-all relative ${activeSection === item.id
+                    ? 'text-blue-600 dark:text-blue-400'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
+                    }`}
                 >
                   {item.label}
                   {activeSection === item.id && (
@@ -143,21 +142,19 @@ export default function Header() {
             <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1">
               <button
                 onClick={() => handleLanguageChange('en')}
-                className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${
-                  locale === 'en'
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                }`}
+                className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${locale === 'en'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                  }`}
               >
                 EN
               </button>
               <button
                 onClick={() => handleLanguageChange('de')}
-                className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${
-                  locale === 'de'
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                }`}
+                className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${locale === 'de'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                  }`}
               >
                 DE
               </button>
@@ -265,21 +262,19 @@ export default function Header() {
                       <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1">
                         <button
                           onClick={() => handleLanguageChange('en')}
-                          className={`px-4 py-2 text-sm font-medium rounded-md transition-all min-w-[60px] min-h-[44px] flex items-center justify-center ${
-                            locale === 'en'
-                              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
-                              : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                          }`}
+                          className={`px-4 py-2 text-sm font-medium rounded-md transition-all min-w-[60px] min-h-[44px] flex items-center justify-center ${locale === 'en'
+                            ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                            : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                            }`}
                         >
                           EN
                         </button>
                         <button
                           onClick={() => handleLanguageChange('de')}
-                          className={`px-4 py-2 text-sm font-medium rounded-md transition-all min-w-[60px] min-h-[44px] flex items-center justify-center ${
-                            locale === 'de'
-                              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
-                              : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                          }`}
+                          className={`px-4 py-2 text-sm font-medium rounded-md transition-all min-w-[60px] min-h-[44px] flex items-center justify-center ${locale === 'de'
+                            ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                            : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                            }`}
                         >
                           DE
                         </button>
