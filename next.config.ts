@@ -67,7 +67,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' data: https://r2cdn.perplexity.ai",
               "connect-src 'self' https://vercel.live https://va.vercel-scripts.com https://*.linkedin.com",
               "media-src 'self' data:",
-              "frame-src 'self' https://vercel.live",
+              "frame-src 'self' https://vercel.live https://www.youtube.com https://www.youtube-nocookie.com",
               "object-src 'none'",
               "frame-ancestors 'self'",
               "base-uri 'self'",
