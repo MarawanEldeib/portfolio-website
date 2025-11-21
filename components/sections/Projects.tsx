@@ -3,14 +3,16 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { GithubIcon, Calendar, Play, FileText } from 'lucide-react';
+import { Github, Calendar, Play, FileText } from 'lucide-react';
 import { projects } from '@/lib/data';
 import Image from 'next/image';
-import { TECH_ICONS } from '@/lib/constants';
+import { TECH_ICONS, PROJECT_IDS, PROJECT_TITLES } from '@/lib/constants';
 import ProjectStatusBadge from '@/components/ui/ProjectStatusBadge';
+import ActionButton from '@/components/ui/ActionButton';
+import FilterButtons from '@/components/ui/FilterButtons';
+import SectionHeader from '@/components/ui/SectionHeader';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import dynamic from 'next/dynamic';
-import ActionButton from '@/components/ui/ActionButton';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
@@ -51,23 +53,16 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-8 text-center">{t('title')}</h2>
+          <SectionHeader title={t('title')} />
 
           {/* Filter Buttons */}
-          <div className="flex justify-center gap-4 mb-12">
-            {(['all', 'completed', 'in-progress'] as const).map((status) => (
-              <button
-                key={status}
-                onClick={() => setFilter(status)}
-                className={`px-4 py-2 rounded-lg transition-colors ${filter === status
-                  ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900'
-                  : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                  }`}
-              >
-                {t(`filter.${status}`)}
-              </button>
-            ))}
-          </div>
+          <FilterButtons
+            options={['all', 'completed', 'in-progress'] as const}
+            activeFilter={filter}
+            onChange={setFilter}
+            getLabel={(option: 'all' | 'completed' | 'in-progress') => t(`filter.${option}`)}
+            className="mb-12"
+          />
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 gap-8">
@@ -131,16 +126,17 @@ export default function Projects() {
                     {/* GitHub Button - Only show if specific repo URL exists */}
                     {project.github && !project.github.endsWith('/MarawanEldeib') && (
                       <>
-                        {project.id === 'new-1' ? (
+                        {project.id === PROJECT_IDS.KGFM_UNIVERSAL_DB ? (
                           <div className="relative group">
                             <button
                               disabled
                               className="flex items-center gap-2 px-4 py-2 bg-zinc-400 dark:bg-zinc-600 text-white rounded-lg cursor-not-allowed opacity-70"
+                              aria-label="GitHub repository (private)"
                             >
-                              <GithubIcon size={16} />
+                              <Github size={16} />
                               {t('buttons.code')}
                             </button>
-                            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10" role="tooltip">
                               Repository is currently private
                             </div>
                           </div>
@@ -151,7 +147,7 @@ export default function Projects() {
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
                           >
-                            <GithubIcon size={16} />
+                            <Github size={16} />
                             {t('buttons.code')}
                           </a>
                         )}
@@ -184,11 +180,12 @@ export default function Projects() {
                         {t('buttons.report')}
                       </ActionButton>
                     )}
-                    {(project.report === undefined && project.title.includes("MangoVision")) && (
+                    {(project.report === undefined && project.title.includes(PROJECT_TITLES.MANGO_VISION)) && (
                       <div className="relative group">
                         <button
                           disabled
                           className="flex items-center gap-2 px-4 py-2 bg-amber-600/50 dark:bg-amber-700/50 text-white rounded-lg cursor-not-allowed opacity-70"
+                          aria-label="Research paper (coming soon)"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -200,6 +197,7 @@ export default function Projects() {
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            aria-hidden="true"
                           >
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                             <polyline points="14 2 14 8 20 8"></polyline>
@@ -209,7 +207,7 @@ export default function Projects() {
                           </svg>
                           {t('buttons.researchPaper')}
                         </button>
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none" role="tooltip">
                           {t('buttons.publishingSoon')}
                         </div>
                       </div>
