@@ -186,13 +186,23 @@ function CertificationCard({ certification, onViewCertificate }: CertificationCa
   const t = useTranslations('certifications');
   const { formatMonthYear } = useLocaleDate();
 
-  const handleViewCertificate = (e: React.MouseEvent) => {
+  const handleViewPDF = (e: React.MouseEvent) => {
     e.stopPropagation();
+    const pdfUrl = (certification as any).pdfUrl || certification.credentialUrl;
     onViewCertificate({
-      url: certification.credentialUrl!,
+      url: pdfUrl!,
       title: certification.title,
     });
   };
+
+  const handleViewOnline = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.open(certification.credentialUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  const hasPdfUrl = !!(certification as any).pdfUrl;
+  const hasCredentialUrl = !!certification.credentialUrl;
+  const isExternalUrl = certification.credentialUrl?.startsWith('http');
 
   return (
     <article
@@ -224,9 +234,30 @@ function CertificationCard({ certification, onViewCertificate }: CertificationCa
         >
           {formatMonthYear(certification.date)}
         </time>
-        {certification.credentialUrl && (
+        {(hasPdfUrl && isExternalUrl) ? (
+          <div className="flex flex-col gap-2">
+            <ActionButton
+              onClick={handleViewOnline}
+              icon={FileText}
+              variant="primary"
+              fullWidth
+              ariaLabel={`View online verification for ${certification.title}`}
+            >
+              View Online
+            </ActionButton>
+            <ActionButton
+              onClick={handleViewPDF}
+              icon={FileText}
+              variant="warning"
+              fullWidth
+              ariaLabel={`Download certificate for ${certification.title}`}
+            >
+              Download PDF
+            </ActionButton>
+          </div>
+        ) : hasCredentialUrl ? (
           <ActionButton
-            onClick={handleViewCertificate}
+            onClick={isExternalUrl ? handleViewOnline : handleViewPDF}
             icon={FileText}
             variant="warning"
             fullWidth
@@ -234,7 +265,7 @@ function CertificationCard({ certification, onViewCertificate }: CertificationCa
           >
             {t('viewCertificate')}
           </ActionButton>
-        )}
+        ) : null}
       </div>
     </article>
   );

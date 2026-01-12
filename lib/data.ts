@@ -393,6 +393,7 @@ const certificationsData: Array<{
   date: string;
   image?: string;
   credentialUrl?: string;
+  pdfUrl?: string;
 }> = [
     {
       id: "1",
@@ -400,7 +401,8 @@ const certificationsData: Array<{
       issuer: "IBM",
       date: "2023-02",
       image: "",
-      credentialUrl: "/certificates/Coursera python.pdf",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ZPJ8H9X976RB",
+      pdfUrl: "/certificates/Coursera python.pdf",
     },
     {
       id: "2",
