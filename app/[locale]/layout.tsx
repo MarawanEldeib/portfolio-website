@@ -30,7 +30,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.com'),
   title: {
     default: "Marawan Eldeib - Software Engineering Student & AI Developer",
     template: "%s | Marawan Eldeib"
@@ -55,10 +55,10 @@ export const metadata: Metadata = {
   creator: 'Marawan Eldeib',
   publisher: 'Marawan Eldeib',
   alternates: {
-    canonical: 'https://marawaneldeib.vercel.app',
+    canonical: 'https://marawaneldeib.com',
     languages: {
-      'en': 'https://marawaneldeib.vercel.app/en',
-      'de': 'https://marawaneldeib.vercel.app/de',
+      'en': 'https://marawaneldeib.com/en',
+      'de': 'https://marawaneldeib.com/de',
     },
   },
   verification: {
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://marawaneldeib.vercel.app',
+    url: 'https://marawaneldeib.com',
     title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
     description: 'Master\'s student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB.',
     siteName: 'Marawan Eldeib Portfolio',

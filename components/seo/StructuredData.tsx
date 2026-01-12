@@ -3,7 +3,7 @@
 import { personalInfo } from '@/lib/data';
 
 export default function StructuredData() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.com';
 
   const structuredData = {
     '@context': 'https://schema.org',

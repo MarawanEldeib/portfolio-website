@@ -2,7 +2,7 @@
 
 Modern portfolio website built with Next.js 16.
 
-🔗 **Live Site:** [marawaneldeib.vercel.app](https://marawaneldeib.vercel.app/en)
+🔗 **Live Site:** [marawaneldeib.com](https://marawaneldeib.com/en)
 
 ## Tech Stack
 
@@ -34,7 +34,7 @@ Modern portfolio website built with Next.js 16.
 
 **Marawan Eldeib**
 
-- Portfolio: [marawaneldeib.vercel.app](https://marawaneldeib.vercel.app/en)
+- Portfolio: [marawaneldeib.com](https://marawaneldeib.com/en)
 - Email: marawandeep13@gmail.com
 - LinkedIn: [linkedin.com/in/marawan-el-deib](https://www.linkedin.com/in/marawan-el-deib/)
 - GitHub: [github.com/MarawanEldeib](https://github.com/MarawanEldeib)
