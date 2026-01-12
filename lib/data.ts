@@ -442,7 +442,7 @@ const awardsData = [
     issuer: "Multimedia University",
     date: "2024-10",
     description: "Awarded for MangoVision - deep learning model achieving 98.5% accuracy in mango fruit detection from aerial images",
-    image: "", // No image yet
+    image: "/images/awards/best-research-project.jpg",
     certificateUrl: "/certificates/Best project for final year project.pdf",
   },
   {
