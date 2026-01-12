@@ -8,7 +8,6 @@ import { Toaster } from 'react-hot-toast';
 import "../globals.css";
 import ClientBackground from '@/components/ui/ClientBackground';
 import StructuredData from '@/components/seo/StructuredData';
-import VisitTracker from '@/components/analytics/VisitTracker';
 import LoadingIndicator from '@/components/ui/LoadingIndicator';
 import { VIEWPORT_CONFIG } from '@/lib/constants';
 import { THEME_CONFIG, DARK_MODE_SCRIPT } from '@/lib/theme.config';
@@ -159,7 +158,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
-        <VisitTracker />
         <Analytics />
         <SpeedInsights />
       </body>
