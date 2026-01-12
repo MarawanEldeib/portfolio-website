@@ -399,7 +399,7 @@ const certificationsData: Array<{
       issuer: "IBM",
       date: "2023-02",
       image: "",
-      credentialUrl: "/certificates/Coursera python.pdf",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ZPJ8H9X976RB",
     },
     {
       id: "2",
