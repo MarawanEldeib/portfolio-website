@@ -11,7 +11,11 @@
       "Bash(git checkout:*)",
       "Bash(git filter-branch:*)",
       "Read(//f/Cybersecurity/kali_files/**)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh pr:*)",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []
