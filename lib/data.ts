@@ -279,7 +279,7 @@ const timelineData: Array<{
       organizationLogo: "/images/logos/Logo_fraunhofer_IOSB.webp",
       location: "Karlsruhe, Germany (Hybrid)",
       startDate: "2025-04",
-      endDate: null,
+      endDate: "2025-12",
       description: "• Developed comprehensive test suites for LLM-based AI data extraction system, ensuring ≥90% accuracy threshold across evaluation metrics\n• Implemented automated testing frameworks in Java to validate AI model performance and reliability\n• Refactored backend workflows and enhanced frontend design to improve system performance and user experience of the Digital Product Passport demonstrator",
       skills: ["Java", "Testing", "LLM", "AI Evaluation", "Backend Development", "Frontend Design"],
       achievements: [],
