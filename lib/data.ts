@@ -451,7 +451,7 @@ const awardsData = [
     issuer: "Intel Corporation",
     date: "2024-01",
     description: "Won 2nd place in the University VLSI Virtual Bootcamp - Introduction to VLSI Design Challenge",
-    image: "", // No image yet
+    image: "/images/awards/intel-vlsi-challenge.png",
     certificateUrl: "/certificates/intel win.pdf",
   },
   {
