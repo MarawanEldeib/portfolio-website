@@ -424,7 +424,7 @@ const awardsData = [
     issuer: "Multimedia University",
     date: "2024-11",
     description: "Graduated with First Class Honors, CGPA: 3.7/4.0",
-    image: "", // No image yet
+    image: "/images/awards/first-class-honors.jpg",
     certificateUrl: "/certificates/Bachelor Certificate.pdf",
   },
   {
