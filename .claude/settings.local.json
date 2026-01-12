@@ -15,7 +15,9 @@
       "Bash(gh pr diff:*)",
       "Bash(gh pr merge:*)",
       "Bash(gh pr:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
