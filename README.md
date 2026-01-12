@@ -13,16 +13,22 @@ Modern portfolio website built with Next.js 16.
 **i18n:** next-intl
 **UI:** Lucide React, React Hook Form
 
-## Content Updates Needed
+## Content Status
 
-- [ ] Add organization logos to `/public/images/logos/`
-  - Fraunhofer IOSB logo
-  - AirAsia logo
-  - University of Stuttgart logo
-  - Multimedia University logo
-- [ ] Add project screenshots
-- [ ] Add certificate images
-- [ ] Update certificate URLs
+### Completed ✓
+- [x] Organization logos added to `/public/images/logos/`
+  - Fraunhofer IOSB logo ✓
+  - AirAsia logo ✓
+  - University of Stuttgart logo ✓
+  - Multimedia University logo ✓
+- [x] Certificate PDFs added to `/public/certificates/`
+
+### Optional Future Enhancements
+- [ ] Add project screenshots (optional - UI handles missing images gracefully)
+- [ ] Add certificate URLs for remaining awards:
+  - iNVENTX 2024 Gold Medal
+  - Merit International Scholarship (50%)
+  - Merit International Scholarship (25%)
 
 ## Contact
 
