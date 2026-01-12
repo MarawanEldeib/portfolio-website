@@ -124,6 +124,20 @@ export default function Skills() {
                   })}
                 </div>
               </div>
+
+              <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+                <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Beginner</h4>
+                <div className="flex flex-wrap gap-2">
+                  {(languages?.beginner || []).map((lang) => (
+                    <span
+                      key={lang}
+                      className="px-4 py-2 bg-zinc-100 dark:bg-zinc-700/50 text-zinc-700 dark:text-zinc-300 border-2 border-zinc-300 dark:border-zinc-600 rounded-lg font-medium hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    >
+                      {lang}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </motion.div>

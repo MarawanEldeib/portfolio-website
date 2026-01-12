@@ -28,6 +28,7 @@ export const languages = {
   native: ["Arabic"],
   proficient: ["English"],
   intermediate: ["German (B1)"],
+  beginner: ["Turkish", "Malay", "French"],
 };
 
 const projectsData: Project[] = [
