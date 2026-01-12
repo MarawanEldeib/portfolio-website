@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
 
-export default function sitemap({ params }: { params: { locale: string } }): MetadataRoute.Sitemap {
+export default async function sitemap({ params }: { params: Promise<{ locale: string }> }): Promise<MetadataRoute.Sitemap> {
+  const { locale } = await params
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.com'
-  const locale = params.locale
 
   return [
     {
