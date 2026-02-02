@@ -67,9 +67,9 @@ export default function AttachmentUpload({ onFilesChange, error, onError }: Atta
       {/* File Upload */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-zinc-600 dark:text-zinc-400">
-            {files.length > 0 && `${files.length}/${MAX_FILES} files`}
-          </span>
+          <label htmlFor="files" className="text-sm text-zinc-600 dark:text-zinc-400">
+            {files.length > 0 ? `${files.length}/${MAX_FILES} files` : 'Attachments (optional)'}
+          </label>
           {files.length > 0 && (
             <span className="text-xs text-zinc-500 dark:text-zinc-400">
               Total: {(totalSize / 1024 / 1024).toFixed(2)} MB
@@ -79,22 +79,24 @@ export default function AttachmentUpload({ onFilesChange, error, onError }: Atta
         
         <label
           htmlFor="files"
+          aria-label="Upload files"
           className={`w-full flex flex-col items-center justify-center px-4 py-4 rounded-lg border-2 border-dashed transition-all ${
             files.length >= MAX_FILES
               ? 'border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 cursor-not-allowed opacity-50'
               : 'border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer'
           }`}
         >
-          <Upload className="text-zinc-400 dark:text-zinc-500 mb-1.5" size={24} />
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-0.5">
+          <Upload className="text-zinc-400 dark:text-zinc-500 mb-1.5" size={24} aria-hidden="true" />
+          <span className="text-sm text-zinc-600 dark:text-zinc-400 mb-0.5">
             {files.length >= MAX_FILES ? 'Maximum files reached' : 'Click to upload or drag and drop'}
-          </p>
-          <p className="text-xs text-zinc-500">
+          </span>
+          <span className="text-xs text-zinc-500">
             PDF, DOC, DOCX up to 10MB each • Max {MAX_FILES} files
-          </p>
+          </span>
           <input
             type="file"
             id="files"
+            name="files"
             onChange={handleFileChange}
             accept=".pdf,.doc,.docx"
             multiple
