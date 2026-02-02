@@ -14,6 +14,9 @@ import 'swiper/css/pagination';
 
 export default function Recommendations() {
   const [mounted, setMounted] = useState(false);
+  
+  // Only enable loop if we have more slides than the max slidesPerView (2)
+  const enableLoop = recommendations.length > 2;
 
   useEffect(() => {
     // Defer mounting to ensure client-side hydration
@@ -47,7 +50,7 @@ export default function Recommendations() {
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={32}
               slidesPerView={1}
-              loop={true}
+              loop={enableLoop}
               navigation={{
                 enabled: true,
               }}
