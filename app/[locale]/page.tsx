@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import Hero from '@/components/sections/Hero';
-import Summary from '@/components/sections/Summary';
 import Skills from '@/components/sections/Skills';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -24,7 +23,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Summary />
         <Experience />
         <Education />
         <Projects />
