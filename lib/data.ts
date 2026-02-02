@@ -28,7 +28,7 @@ export const languages = {
   native: ["Arabic"],
   proficient: ["English"],
   intermediate: ["German (B1)"],
-  beginner: ["French", "Malay", "Turkish"],
+  beginner: ["Malay", "Turkish"],
 };
 
 const projectsData: Project[] = [
@@ -423,14 +423,14 @@ const awardsData = [
     title: "First Class Honors",
     issuer: "Multimedia University",
     date: "2024-11",
-    description: "Graduated with First Class Honors, CGPA: 3.7/4.0",
+    description: "Graduated top class with CGPA: 3.7/4.0",
     image: "/images/awards/first-class-honors.jpg",
     certificateUrl: "/certificates/Bachelor Certificate.pdf",
   },
   {
     id: "3",
     title: "Gold Medal - iNVENTX Invention Exhibition",
-    issuer: "iNVENTX 2024",
+    issuer: "iNVENTX 2024, Multimedia University",
     date: "2024-10",
     description: "Awarded Gold Medal at iNVENTX Invention, Innovation & Technology Exhibition for innovative technology solution",
     image: "",
@@ -441,27 +441,27 @@ const awardsData = [
     title: "Best Research Project",
     issuer: "Multimedia University",
     date: "2024-10",
-    description: "Awarded for MangoVision - deep learning model achieving 98.5% accuracy in mango fruit detection from aerial images",
+    description: "MangoVision bachelor thesis project awarded as best project in the Engineering category",
     image: "/images/awards/best-research-project.jpg",
-    certificateUrl: "/certificates/Best project for final year project.pdf",
+    certificateUrl: "/certificates/Best Research Project Certificate.pdf",
   },
   {
     id: "4",
     title: "2nd Place - VLSI Design Challenge",
     issuer: "Intel Corporation",
     date: "2024-01",
-    description: "Won 2nd place in the University VLSI Virtual Bootcamp - Introduction to VLSI Design Challenge",
+    description: "Won 2nd place in the University VLSI Virtual Bootcamp",
     image: "/images/awards/intel-vlsi-challenge.png",
-    certificateUrl: "/certificates/intel win.pdf",
+    certificateUrl: "/certificates/Intel VLSI Challenge Certificate.pdf",
   },
   {
     id: "5",
     title: "Dean's List Award",
     issuer: "Multimedia University",
     date: "2024-10",
-    description: "Consistently achieved Dean's List recognition for academic excellence throughout Bachelor's degree (July 2020 - Oct 2024)",
+    description: "Achieved Dean's List recognition for academic excellence throughout Bachelor's degree (July 2020 - Oct 2024)",
     image: "",
-    certificateUrl: "/certificates/dean award certificates.pdf",
+    certificateUrl: "/certificates/Dean List Certificates.pdf",
   },
   {
     id: "6",
@@ -527,7 +527,7 @@ const volunteeringData: Array<{
   location?: string;
   startDate: string;
   endDate: string | null;
-  description: string;
+  description: string[];
   skills?: string[];
   organizationLogo?: string;
   websiteUrl?: string;
@@ -539,7 +539,12 @@ const volunteeringData: Array<{
       location: "Multimedia University, Cyberjaya, Malaysia",
       startDate: "2024-06-24",
       endDate: "2024-06-28",
-      description: "Facilitated AI and machine learning workshops for the Malaysia Technical Cooperation Programme (MTCP) Smart Farming & Precision Agriculture Program, organized by the Ministry of Foreign Affairs Malaysia and Multimedia University. Supported in delivering technical sessions on AI applications in smart farming to 20+ international participants from developing countries. Received positive feedback for clear communication, technical expertise, and effective networking with participants.",
+      description: [
+        "Facilitated AI and machine learning workshops for the Malaysia Technical Cooperation Programme (MTCP) Smart Farming & Precision Agriculture Program",
+        "Organized by the Ministry of Foreign Affairs Malaysia and Multimedia University",
+        "Delivered technical sessions on AI applications in smart farming to 20+ international participants from developing countries",
+        "Received positive feedback for clear communication, technical expertise, and effective networking"
+      ],
       skills: ["AI", "Machine Learning", "Smart Farming", "Precision Agriculture", "Public Speaking", "International Collaboration", "Technical Training"],
       organizationLogo: "/images/logos/logo-mmu.png",
       websiteUrl: "https://drive.google.com/drive/folders/1-DDlWCXV9CBZuhQ2tYiuPf0l091TBUqI?usp=drive_link",
@@ -551,7 +556,13 @@ const volunteeringData: Array<{
       location: "Cyberjaya, Malaysia",
       startDate: "2022-12",
       endDate: "2023-12",
-      description: "Founded the IEEE Power & Energy Society (PES) MMU Student Branch, establishing the first PES chapter at the university. Launched campaigns that increased IEEE club membership by over 30 and enhanced student engagement in professional growth and networking. Coordinated a workshop for 30 primary school students on building and controlling robot cars and coached a team of 6 children.",
+      description: [
+        "Founded the IEEE Power & Energy Society (PES) MMU Student Branch, establishing the first PES chapter at the university",
+        "Launched campaigns that increased IEEE club membership by over 30 members",
+        "Enhanced student engagement in professional growth and networking opportunities",
+        "Coordinated a workshop for 30 primary school students on building and controlling robot cars",
+        "Coached a team of 6 children in robotics"
+      ],
       skills: ["Leadership", "Event Management", "Student Engagement", "Robotics", "Mentoring", "Chapter Founding"],
       organizationLogo: "/images/logos/ieee_mmu.jpg",
       websiteUrl: "",
@@ -563,7 +574,10 @@ const volunteeringData: Array<{
       location: "Cyberjaya, Malaysia",
       startDate: "2019-11",
       endDate: "2020-06",
-      description: "Founded and operated Skippy Snacks, a food and drinks business for Business Management course. Donated part of profits to dog shelter, combining entrepreneurship with animal welfare support.",
+      description: [
+        "Founded and operated Skippy Snacks, a food and drinks business for Business Management course",
+        "Donated part of profits to dog shelter, combining entrepreneurship with animal welfare support"
+      ],
       skills: ["Entrepreneurship", "Business Management", "Social Responsibility", "Sales", "Customer Service"],
       organizationLogo: "/images/logos/skippy_snacks.jpg",
       websiteUrl: "https://www.instagram.com/skippy_snacks_mmu?igsh=YmM0MXA4b2tzaWE3",

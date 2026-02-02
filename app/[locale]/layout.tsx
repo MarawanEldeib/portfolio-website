@@ -35,8 +35,11 @@ export const metadata: Metadata = {
     default: "Marawan Eldeib - Software Engineering Student & AI Developer",
     template: "%s | Marawan Eldeib"
   },
-  description: "Master's student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB specializing in computer vision and deep learning. Expert in Python, Java, Flutter, and modern web technologies.",
+  description: "Marawan Eldeib - Master's student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB specializing in computer vision and deep learning. Expert in Python, Java, Flutter, and modern web technologies.",
   keywords: [
+    'Marawan Eldeib',
+    'Marawan',
+    'Eldeib',
     'Software Engineer',
     'Full-Stack Developer',
     'AI/ML Engineer',
@@ -69,7 +72,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://marawaneldeib.com',
     title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
-    description: 'Master\'s student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB.',
+    description: 'Marawan Eldeib - Master\'s student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB.',
     siteName: 'Marawan Eldeib Portfolio',
     images: [
       {
@@ -83,7 +86,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
-    description: 'Master\'s student in Software Engineering with 3+ years of AI/ML expertise at Fraunhofer IOSB and AirAsia',
+    description: 'Marawan Eldeib - Master\'s student in Software Engineering with 3+ years of AI/ML expertise at Fraunhofer IOSB and AirAsia',
     images: ['/images/Marawan.jpeg'],
   },
   robots: {
@@ -117,8 +120,12 @@ export default async function LocaleLayout({
         {/* SEO: Meta Description - Ensures Lighthouse detects it */}
         <meta
           name="description"
-          content="Master's student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB specializing in computer vision and deep learning. Expert in Python, Java, Flutter, and modern web technologies."
+          content="Marawan Eldeib - Master's student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB specializing in computer vision and deep learning. Expert in Python, Java, Flutter, and modern web technologies."
         />
+
+        {/* SEO: Additional meta tags for name visibility */}
+        <meta name="author" content="Marawan Eldeib" />
+        <link rel="canonical" href="https://marawaneldeib.com" />
 
         {/* Performance: Preconnect to critical domains */}
         <link rel="preconnect" href="https://vercel.live" />

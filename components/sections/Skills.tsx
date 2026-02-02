@@ -82,18 +82,28 @@ export default function Skills() {
               <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">Languages</h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                 <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Fluent</h4>
                 <div className="flex flex-wrap gap-2">
-                  {[...(languages?.native || []), ...(languages?.proficient || [])].map((lang) => (
-                    <span
-                      key={lang}
-                      className="px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-medium shadow-md hover:bg-purple-700 dark:hover:bg-purple-600 hover:scale-110 transition-all duration-200 cursor-pointer"
-                    >
-                      {lang}
-                    </span>
-                  ))}
+                  {[...(languages?.native || []), ...(languages?.proficient || [])].map((lang) => {
+                    const isEnglish = lang === 'English';
+                    return (
+                      <span
+                        key={lang}
+                        onClick={() => isEnglish ? setPdfPreview({
+                          isOpen: true,
+                          url: "/certificates/English C1 Certificate.pdf",
+                          title: "English C1 Certificate (2024)"
+                        }) : null}
+                        className={`px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-medium shadow-md hover:bg-purple-700 dark:hover:bg-purple-600 hover:scale-110 transition-all duration-200 cursor-pointer flex items-center gap-2`}
+                        title={isEnglish ? "View Certificate" : undefined}
+                      >
+                        {lang}
+                        {isEnglish && <FileText size={14} className="opacity-70" />}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
 

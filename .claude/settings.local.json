@@ -18,7 +18,12 @@
       "Bash(git pull:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(ls:*)",
+      "Bash(git diff:*)",
+      "Bash(curl -s https://marawaneldeib.com/sitemap.xml)",
+      "Bash(git rm:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

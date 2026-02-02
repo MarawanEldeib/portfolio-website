@@ -15,20 +15,6 @@ export const FILE_VALIDATION = {
   ],
 } as const;
 
-// Blocked URL domains (phishing, malware, URL shorteners)
-export const BLOCKED_URL_DOMAINS = [
-  'bit.ly',
-  'tinyurl.com',
-  'goo.gl',
-  't.co',
-  'ow.ly',
-  'buff.ly',
-  'adf.ly',
-  'bc.vc',
-  'shorte.st',
-  'sh.st',
-] as const;
-
 // Email validation regex (RFC 5322 simplified)
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -77,50 +63,6 @@ export async function validateFileMagicBytes(file: File): Promise<boolean> {
   }
 
   return false;
-}
-
-/**
- * Validate URL for security (prevents phishing, malware, etc.)
- * @param urlString - URL to validate
- * @returns Validation result with error message if invalid
- */
-export function validateUrl(urlString: string): ValidationResult {
-  try {
-    const url = new URL(urlString);
-
-    // Only allow HTTPS for security
-    if (url.protocol !== 'https:') {
-      return { valid: false, error: 'Only HTTPS URLs are allowed for security' };
-    }
-
-    // Check for blocked domains (URL shorteners, known malicious sites)
-    const hostname = url.hostname.toLowerCase();
-    for (const blocked of BLOCKED_URL_DOMAINS) {
-      if (hostname.includes(blocked)) {
-        return { valid: false, error: 'URL shorteners and blocked domains are not allowed' };
-      }
-    }
-
-    // Check for suspicious patterns (path traversal, embedded auth)
-    if (hostname.includes('..') || hostname.includes('@')) {
-      return { valid: false, error: 'Suspicious URL pattern detected' };
-    }
-
-    // Must have a valid TLD
-    if (!hostname.includes('.')) {
-      return { valid: false, error: 'Invalid URL format' };
-    }
-
-    // Check for IP addresses (often used in phishing)
-    const ipRegex = /^(\d{1,3}\.){3}\d{1,3}$/;
-    if (ipRegex.test(hostname)) {
-      return { valid: false, error: 'IP addresses are not allowed. Please use domain names.' };
-    }
-
-    return { valid: true };
-  } catch (e) {
-    return { valid: false, error: 'Invalid URL format' };
-  }
 }
 
 /**

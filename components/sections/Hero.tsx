@@ -18,12 +18,13 @@ export default function Hero() {
   const t = useTranslations('hero');
 
   const roles = useMemo(() => [
-    "Software Engineering Student",
-    "AI/ML Enthusiast",
-    "Full-Stack Developer",
-    "Cybersecurity Enthusiast",
-    "Research Developer",
-    "Tech Innovator",
+    "Computer Software Engineer",
+    "Cybersecurity Engineer",
+    "Computer Network Architect",
+    "Big Data and Cloud-based Computing Engineer",
+    "Internet of Things (IoT) Expert",
+    "Systems Architecture Designer",
+    "Robotics and Automation Engineer",
   ], []);
 
   const [currentRole, setCurrentRole] = useState(0);

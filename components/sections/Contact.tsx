@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useTranslations } from 'next-intl';
@@ -14,212 +13,90 @@ import { toastConfig } from '@/lib/toast-config';
 
 export default function Contact() {
   const t = useTranslations('contact');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState({ email: '', message: '' });
   const [files, setFiles] = useState<File[]>([]);
-  const [url, setUrl] = useState('');
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    message: '',
-    attachment: '',
-    general: '',
-  });
-  const [touched, setTouched] = useState({
-    name: false,
-    email: false,
-    message: false,
-  });
+  const [errors, setErrors] = useState({ email: '', message: '', attachment: '', general: '' });
+  const [touched, setTouched] = useState({ email: false, message: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Validate individual field
   const validateField = (name: string, value: string): string => {
-    switch (name) {
-      case 'name':
-        if (!value.trim()) {
-          return 'Name is required';
-        }
-        if (value.trim().length < 2) {
-          return 'Name must be at least 2 characters';
-        }
-        if (value.trim().length > 100) {
-          return 'Name is too long (max 100 characters)';
-        }
-        if (!/^[a-zA-Z\s'-]+$/.test(value)) {
-          return 'Name can only contain letters, spaces, hyphens, and apostrophes';
-        }
-        return '';
-      
-      case 'email':
-        if (!value.trim()) {
-          return 'Email is required';
-        }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-          return 'Please enter a valid email address';
-        }
-        return '';
-      
-      case 'message':
-        if (!value.trim()) {
-          return 'Message is required';
-        }
-        if (value.trim().length < 10) {
-          return 'Message must be at least 10 characters';
-        }
-        if (value.trim().length > 2000) {
-          return 'Message is too long (max 2000 characters)';
-        }
-        return '';
-      
-      default:
-        return '';
+    if (name === 'email') {
+      if (!value.trim()) return 'Email is required';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Please enter a valid email address';
     }
+    if (name === 'message') {
+      if (!value.trim()) return 'Message is required';
+      if (value.trim().length < 10) return 'Message must be at least 10 characters';
+      if (value.trim().length > 2000) return 'Message is too long (max 2000 characters)';
+    }
+    return '';
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    // Clear error when user starts typing
+    setFormData({ ...formData, [name]: value });
     if (errors[name as keyof typeof errors]) {
-      setErrors({
-        ...errors,
-        [name]: '',
-      });
+      setErrors({ ...errors, [name]: '' });
     }
-
-    // Validate if field has been touched
     if (touched[name as keyof typeof touched]) {
-      const error = validateField(name, value);
-      setErrors({
-        ...errors,
-        [name]: error,
-      });
+      setErrors({ ...errors, [name]: validateField(name, value) });
     }
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    
-    setTouched({
-      ...touched,
-      [name]: true,
-    });
-
-    const error = validateField(name, value);
-    setErrors({
-      ...errors,
-      [name]: error,
-    });
-  };
-
-  const validateForm = (): boolean => {
-    const nameError = validateField('name', formData.name);
-    const emailError = validateField('email', formData.email);
-    const messageError = validateField('message', formData.message);
-
-    setErrors({
-      name: nameError,
-      email: emailError,
-      message: messageError,
-      attachment: '',
-      general: '',
-    });
-
-    setTouched({
-      name: true,
-      email: true,
-      message: true,
-    });
-
-    return !nameError && !emailError && !messageError;
+    setTouched({ ...touched, [name]: true });
+    setErrors({ ...errors, [name]: validateField(name, value) });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate all fields
-    if (!validateForm()) {
-      return;
-    }
+    const emailError = validateField('email', formData.email);
+    const messageError = validateField('message', formData.message);
+    setErrors({ email: emailError, message: messageError, attachment: '', general: '' });
+    setTouched({ email: true, message: true });
+    
+    if (emailError || messageError) return;
 
     setIsSubmitting(true);
-    setErrors({ name: '', email: '', message: '', attachment: '', general: '' });
     
     try {
-      // Track analytics
       trackFormSubmit();
       
-      // Create FormData for file upload
       const data = new FormData();
-      data.append('name', formData.name.trim());
       data.append('email', formData.email.trim());
       data.append('message', formData.message.trim());
+      files.forEach(file => data.append('files', file));
       
-      // Add multiple files
-      files.forEach(file => {
-        data.append('files', file);
-      });
-      
-      // Add URL if provided
-      if (url) {
-        data.append('url', url);
-      }
-      
-      // Send to API endpoint
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        body: data,
-      });
-      
+      const response = await fetch('/api/contact', { method: 'POST', body: data });
       const result = await response.json();
       
       if (!response.ok) {
-        // Handle specific error types
         if (result.error.includes('file') || result.error.includes('File')) {
-          setErrors({ ...errors, attachment: result.error });
-          toast.error(result.error, toastConfig.error);
+          setErrors(prev => ({ ...prev, attachment: result.error }));
         } else if (result.error.includes('email')) {
-          setErrors({ ...errors, email: result.error });
-          toast.error(result.error, toastConfig.error);
-        } else if (result.error.includes('rate') || result.error.includes('many')) {
-          setErrors({ ...errors, general: result.error });
-          toast.error(result.error, toastConfig.error);
+          setErrors(prev => ({ ...prev, email: result.error }));
         } else {
-          setErrors({ ...errors, general: result.error });
-          toast.error(result.error, toastConfig.error);
+          setErrors(prev => ({ ...prev, general: result.error }));
         }
+        toast.error(result.error, toastConfig.error);
         return;
       }
       
-      // Reset form
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ email: '', message: '' });
       setFiles([]);
-      setUrl('');
-      setErrors({ name: '', email: '', message: '', attachment: '', general: '' });
-      setTouched({ name: false, email: false, message: false });
+      setErrors({ email: '', message: '', attachment: '', general: '' });
+      setTouched({ email: false, message: false });
       
-      // Show success toast
       toast.success(
-        "Thank you for reaching out! I've received your message and will get back to you as soon as possible. Usually within 24 hours.",
+        "Thank you for reaching out! I've received your message and will get back to you soon.",
         toastConfig.success
       );
     } catch (error) {
       console.error('Form submission error:', error);
-      const errorMessage = 'Network error. Please check your connection and try again.';
-      setErrors({
-        ...errors,
-        general: errorMessage,
-      });
-      toast.error(errorMessage, toastConfig.error);
+      setErrors(prev => ({ ...prev, general: 'Network error. Please check your connection and try again.' }));
+      toast.error('Network error. Please try again.', toastConfig.error);
     } finally {
       setIsSubmitting(false);
     }
@@ -264,42 +141,7 @@ export default function Contact() {
                   )}
                 </AnimatePresence>
 
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-zinc-700 dark:text-zinc-300">
-                    {t('form.name')} <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.name && touched.name
-                        ? 'border-red-500 dark:border-red-500 focus:ring-red-500'
-                        : 'border-zinc-300 dark:border-zinc-700 focus:ring-blue-500'
-                    } bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:border-transparent transition-all`}
-                    placeholder="Your full name"
-                    aria-invalid={errors.name && touched.name ? 'true' : 'false'}
-                    aria-describedby={errors.name ? 'name-error' : undefined}
-                  />
-                  <AnimatePresence>
-                    {errors.name && touched.name && (
-                      <motion.p
-                        id="name-error"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="flex items-center gap-1.5 text-red-600 dark:text-red-400 text-sm mt-1.5"
-                      >
-                        <AlertCircle size={14} />
-                        <span>{errors.name}</span>
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </div>
-
+                {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2 text-zinc-700 dark:text-zinc-300">
                     {t('form.email')} <span className="text-red-500">*</span>
@@ -317,13 +159,10 @@ export default function Contact() {
                         : 'border-zinc-300 dark:border-zinc-700 focus:ring-blue-500'
                     } bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:border-transparent transition-all`}
                     placeholder="your.email@example.com"
-                    aria-invalid={errors.email && touched.email ? 'true' : 'false'}
-                    aria-describedby={errors.email ? 'email-error' : undefined}
                   />
                   <AnimatePresence>
                     {errors.email && touched.email && (
                       <motion.p
-                        id="email-error"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
@@ -336,6 +175,7 @@ export default function Contact() {
                   </AnimatePresence>
                 </div>
 
+                {/* Message Field */}
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
@@ -363,14 +203,11 @@ export default function Contact() {
                         ? 'border-red-500 dark:border-red-500 focus:ring-red-500'
                         : 'border-zinc-300 dark:border-zinc-700 focus:ring-blue-500'
                     } bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:border-transparent resize-none transition-all`}
-                    placeholder="Tell me about your project or inquiry..."
-                    aria-invalid={errors.message && touched.message ? 'true' : 'false'}
-                    aria-describedby={errors.message ? 'message-error' : undefined}
+                    placeholder="Tell me about your project or inquiry... (You can include URLs here)"
                   />
                   <AnimatePresence>
                     {errors.message && touched.message && (
                       <motion.p
-                        id="message-error"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
@@ -390,37 +227,26 @@ export default function Contact() {
                   </label>
                   <AttachmentUpload
                     onFilesChange={setFiles}
-                    onUrlChange={setUrl}
                     error={errors.attachment}
-                    onError={(error) => setErrors({ ...errors, attachment: error })}
+                    onError={(error: string) => setErrors(prev => ({ ...prev, attachment: error }))}
                   />
                 </div>
 
+                {/* Submit Button */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 dark:hover:from-blue-600 dark:hover:to-blue-700 active:from-blue-800 active:to-blue-900 dark:active:from-blue-700 dark:active:to-blue-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl relative overflow-hidden group"
+                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 dark:hover:from-blue-600 dark:hover:to-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl"
                 >
-                  {/* Animated background shimmer */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    initial={{ x: '-100%' }}
-                    animate={{ x: isSubmitting ? '100%' : '-100%' }}
-                    transition={{ duration: 1.5, repeat: isSubmitting ? Infinity : 0, ease: 'linear' }}
-                  />
-                  
                   <motion.div
                     animate={isSubmitting ? { rotate: 360 } : { rotate: 0 }}
                     transition={{ duration: 1, repeat: isSubmitting ? Infinity : 0, ease: 'linear' }}
                   >
                     <Send size={20} />
                   </motion.div>
-                  
-                  <span className="relative">
-                    {isSubmitting ? 'Sending...' : t('form.send')}
-                  </span>
+                  <span>{isSubmitting ? 'Sending...' : t('form.send')}</span>
                 </motion.button>
               </form>
             </motion.div>

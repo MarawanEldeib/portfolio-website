@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { Resend } from 'resend';
-import { validateEmail, validateUrl, validateFiles } from '@/lib/validation';
+import { validateEmail, validateFiles } from '@/lib/validation';
 import type { EmailData } from '@/lib/types';
 
 // Lazy initialization of Resend client to avoid build-time errors
@@ -63,16 +63,14 @@ export async function POST(request: NextRequest) {
 
     // Parse form data
     const formData = await request.formData();
-    const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
     const files = formData.getAll('files') as File[];
-    const url = formData.get('url') as string | null;
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!email || !message) {
       return NextResponse.json(
-        { error: 'Name, email, and message are required' },
+        { error: 'Email and message are required' },
         { status: 400 }
       );
     }
@@ -101,33 +99,20 @@ export async function POST(request: NextRequest) {
       // See FILE_UPLOAD.md for implementation details
     }
 
-    // Validate URL if provided
-    if (url) {
-      const urlValidation = validateUrl(url);
-      if (!urlValidation.valid) {
-        return NextResponse.json(
-          { error: urlValidation.error || 'Invalid URL' },
-          { status: 400 }
-        );
-      }
-    }
-
     // Send email using Resend
     try {
       const emailContent = `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>From:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
         <p style="white-space: pre-wrap;">${message}</p>
-        ${url ? `<p><strong>Attached URL:</strong> <a href="${url}" target="_blank">${url}</a></p>` : ''}
         ${files.length > 0 ? `<p><strong>Attached Files:</strong> ${files.map(f => `${f.name} (${(f.size / 1024).toFixed(2)} KB)`).join(', ')}</p>` : ''}
       `;
 
       const emailData: EmailData = {
         from: 'Contact Form <onboarding@resend.dev>', // Use your verified domain in production
         to: process.env.CONTACT_EMAIL || 'marawandeep13@gmail.com',
-        subject: `Portfolio Contact: ${name}`,
+        subject: `Portfolio Contact: ${email}`,
         html: emailContent,
         reply_to: email,
       };
@@ -148,10 +133,8 @@ export async function POST(request: NextRequest) {
 
       // Log successful submission
       console.log('Contact form submission sent:', {
-        name,
         email,
         filesCount: files.length,
-        hasUrl: !!url,
       });
 
       return NextResponse.json({

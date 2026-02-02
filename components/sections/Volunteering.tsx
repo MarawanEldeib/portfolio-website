@@ -109,9 +109,11 @@ export default function Volunteering() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-zinc-700 dark:text-zinc-300 mb-4 leading-relaxed text-left">
-                    {volunteer.description}
-                  </p>
+                  <ul className="list-disc list-inside text-zinc-700 dark:text-zinc-300 mb-4 space-y-1 text-left">
+                    {volunteer.description.map((point, i) => (
+                      <li key={i} className="leading-relaxed">{point}</li>
+                    ))}
+                  </ul>
 
                   {/* Skills/Technologies */}
                   {volunteer.skills && volunteer.skills.length > 0 && (
