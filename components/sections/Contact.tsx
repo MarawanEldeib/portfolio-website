@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Mail, Phone, Linkedin, Send, MapPin, AlertCircle } from 'lucide-react';
+import { Mail, Phone, Linkedin, Send, MapPin, AlertCircle, GraduationCap } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import CopyButton from '@/components/ui/CopyButton';
 import AttachmentUpload from '@/components/ui/AttachmentUpload';
@@ -314,6 +314,19 @@ export default function Contact() {
                     <div>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('info.linkedin')}</p>
                       <p className="font-medium text-zinc-900 dark:text-zinc-100">LinkedIn Profile</p>
+                    </div>
+                  </a>
+
+                  <a
+                    href={personalInfo.orcid}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                  >
+                    <GraduationCap className="text-green-600 dark:text-green-400 mt-1" size={24} />
+                    <div>
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('info.orcid')}</p>
+                      <p className="font-medium text-zinc-900 dark:text-zinc-100">ORCID iD</p>
                     </div>
                   </a>
                 </div>

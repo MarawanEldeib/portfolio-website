@@ -8,6 +8,7 @@ export const personalInfo = {
   phone: "+49 178 2374198",
   linkedin: "https://www.linkedin.com/in/marawan-el-deib/",
   github: "https://github.com/MarawanEldeib",
+  orcid: "https://orcid.org/0009-0008-5285-424X",
   location: "Baden-Württemberg, Germany | Kuwait",
   image: "/images/Marawan.jpeg",
   summary: "Sedulous Computer Engineer with hands-on experience in software development and AI, gained through practical roles at AirAsia, a leading Malaysian multinational and academic projects. Eager to solve real-world problems using cutting-edge technology solutions.",

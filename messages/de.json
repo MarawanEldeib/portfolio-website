@@ -127,7 +127,8 @@
       "phone": "Anrufen",
       "linkedin": "Auf LinkedIn verbinden",
       "github": "GitHub-Profil ansehen",
-      "location": "Standort"
+      "location": "Standort",
+      "orcid": "Akademisches Profil"
     }
   },
   "footer": {
