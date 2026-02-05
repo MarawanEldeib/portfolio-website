@@ -23,7 +23,7 @@ const geistSans = Geist({
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono", 
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: 'swap',
   preload: false,
@@ -31,78 +31,102 @@ const geistMono = Geist_Mono({
   adjustFontFallback: false,
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.com'),
-  title: {
-    default: "Marawan Eldeib - Software Engineering Student & AI Developer",
-    template: "%s | Marawan Eldeib"
+// Locale-specific metadata content
+const seoContent = {
+  en: {
+    title: "Marawan Eldeib - Software Engineer & AI Developer",
+    description: "Software Engineering Master's student at University of Stuttgart with experience at Fraunhofer IOSB and AirAsia. Specialized in AI, Machine Learning, and Full-Stack Development. Open to working student positions.",
+    ogDescription: "Software Engineering Master's student with expertise in AI, Machine Learning, and Full-Stack Development. Currently at University of Stuttgart.",
   },
-  description: "Software Engineering master's student with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity. Seeking working student positions or research opportunities.",
-  keywords: [
-    'Marawan Eldeib',
-    'Marawan',
-    'Eldeib',
-    'Software Engineer',
-    'Full-Stack Developer',
-    'AI/ML Engineer',
-    'Python Developer',
-    'Java Developer',
-    'Flutter Developer',
-    'Machine Learning',
-    'Deep Learning',
-    'Computer Vision',
-    'Stuttgart',
-    'Germany',
-    'Fraunhofer IOSB',
-    'University of Stuttgart',
-  ],
-  authors: [{ name: 'Marawan Eldeib' }],
-  creator: 'Marawan Eldeib',
-  publisher: 'Marawan Eldeib',
-  alternates: {
-    canonical: 'https://marawaneldeib.com',
-    languages: {
-      'en': 'https://marawaneldeib.com/en',
-      'de': 'https://marawaneldeib.com/de',
-    },
-  },
-  verification: {
-    google: 'google-site-verification-placeholder',
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://marawaneldeib.com',
-    title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
-    description: 'Software Engineering master\'s student with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity. Seeking working student positions or research opportunities.',
-    siteName: 'Marawan Eldeib Portfolio',
-    images: [
-      {
-        url: '/images/Marawan.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'Marawan Eldeib',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
-    description: 'Software Engineering master\'s student with experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity.',
-    images: ['/images/Marawan.jpeg'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+  de: {
+    title: "Marawan Eldeib - Software Engineer & AI-Entwickler",
+    description: "Masterstudent der Softwaretechnik an der Universität Stuttgart mit Erfahrung bei Fraunhofer IOSB und AirAsia. Spezialisiert auf KI, Machine Learning und Full-Stack-Entwicklung. Offen für Werkstudentenstellen.",
+    ogDescription: "Masterstudent der Softwaretechnik mit Expertise in KI, Machine Learning und Full-Stack-Entwicklung. Derzeit an der Universität Stuttgart.",
   },
 };
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isGerman = locale === 'de';
+  const content = isGerman ? seoContent.de : seoContent.en;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.com';
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: content.title,
+      template: "%s | Marawan Eldeib"
+    },
+    description: content.description,
+    keywords: [
+      'Marawan Eldeib',
+      'Software Engineer',
+      'Full-Stack Developer',
+      'AI/ML Engineer',
+      'Python',
+      'Java',
+      'Flutter',
+      'Machine Learning',
+      'Deep Learning',
+      'Computer Vision',
+      'Stuttgart',
+      'Germany',
+      'Fraunhofer IOSB',
+      'University of Stuttgart',
+      ...(isGerman ? ['Werkstudent', 'Softwaretechnik', 'Künstliche Intelligenz'] : ['Working Student', 'Software Engineering', 'Artificial Intelligence']),
+    ],
+    authors: [{ name: 'Marawan Eldeib' }],
+    creator: 'Marawan Eldeib',
+    publisher: 'Marawan Eldeib',
+    alternates: {
+      canonical: `${siteUrl}/${locale}`,
+      languages: {
+        'en': `${siteUrl}/en`,
+        'de': `${siteUrl}/de`,
+      },
+    },
+    verification: {
+      google: 'google-site-verification-placeholder',
+    },
+    openGraph: {
+      type: 'website',
+      locale: isGerman ? 'de_DE' : 'en_US',
+      url: `${siteUrl}/${locale}`,
+      title: content.title,
+      description: content.ogDescription,
+      siteName: 'Marawan Eldeib Portfolio',
+      images: [
+        {
+          url: '/images/Marawan.jpeg',
+          width: 1200,
+          height: 630,
+          alt: 'Marawan Eldeib',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: content.title,
+      description: content.ogDescription,
+      images: ['/images/Marawan.jpeg'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 export const viewport = VIEWPORT_CONFIG;
 
@@ -134,7 +158,7 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://vercel.live" />
 
         {/* SEO: Structured Data for ATS */}
-        <StructuredData />
+        <StructuredData locale={locale as 'en' | 'de'} />
 
         {/* Performance: Inline critical theme script to force dark mode */}
         <script

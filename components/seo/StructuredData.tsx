@@ -1,13 +1,13 @@
-'use client';
-
-import { useLocale } from 'next-intl';
 import { personalInfo } from '@/lib/data';
 import { getPersonalInfo } from '@/lib/data-localized';
 
-export default function StructuredData() {
-  const locale = useLocale() as 'en' | 'de';
+interface StructuredDataProps {
+  locale: 'en' | 'de';
+}
+
+export default function StructuredData({ locale }: StructuredDataProps) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.com';
-  
+
   // Get localized personal info
   const localizedPersonalInfo = getPersonalInfo(locale);
 

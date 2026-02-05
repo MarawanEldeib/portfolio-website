@@ -49,7 +49,7 @@ export const SWIPER_PRESETS = {
   certifications: {
     effect: 'cards' as const,
     grabCursor: true,
-    loop: true,
+    loop: false, // Disabled - createLoopedArray handles duplication
     autoplay: {
       delay: CAROUSEL_CONFIG.CERTIFICATIONS_AUTOPLAY_DELAY,
       disableOnInteraction: false,
@@ -72,7 +72,7 @@ export const SWIPER_PRESETS = {
   awards: {
     effect: 'cards' as const,
     grabCursor: true,
-    loop: true,
+    loop: false, // Disabled - createLoopedArray handles duplication
     autoplay: {
       delay: CAROUSEL_CONFIG.AWARDS_AUTOPLAY_DELAY,
       disableOnInteraction: false,
