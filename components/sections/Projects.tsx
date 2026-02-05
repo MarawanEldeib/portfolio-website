@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Github, Calendar, Play, FileText } from 'lucide-react';
 import { projects } from '@/lib/data';
-import Image from 'next/image';
 import { TECH_ICONS, PROJECT_IDS, PROJECT_TITLES } from '@/lib/constants';
 import ProjectStatusBadge from '@/components/ui/ProjectStatusBadge';
 import ActionButton from '@/components/ui/ActionButton';
@@ -75,26 +74,10 @@ export default function Projects() {
                 viewport={{ once: true }}
                 className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.03] hover:border-2 hover:border-purple-500 dark:hover:border-purple-600 transition-all duration-300 cursor-pointer"
               >
-                {project.image && (
-                  <div className="relative h-48 bg-zinc-200 dark:bg-zinc-700">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute top-4 right-4">
-                      <ProjectStatusBadge status={project.status} />
-                    </div>
-                  </div>
-                )}
-
                 <div className="p-6">
-                  {!project.image && (
-                    <div className="flex justify-end mb-2">
-                      <ProjectStatusBadge status={project.status} />
-                    </div>
-                  )}
+                  <div className="flex justify-end mb-2">
+                    <ProjectStatusBadge status={project.status} />
+                  </div>
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
 
                   <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-3">
