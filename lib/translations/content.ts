@@ -565,6 +565,7 @@ export const contentTranslations = {
 
 export type Locale = 'en' | 'de';
 
-export function getLocalizedContent<T>(content: { en: T; de: T }, locale: Locale): T {
-  return content[locale] || content.en;
+export function getLocalizedContent<T>(content: { en: T; de: T }, locale?: Locale): T {
+  const safeLocale = locale || 'en';
+  return content[safeLocale] || content.en;
 }

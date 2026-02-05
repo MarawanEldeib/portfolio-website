@@ -8,22 +8,24 @@ import { contentTranslations, getLocalizedContent, type Locale } from './transla
 import * as originalData from './data';
 
 // Get localized personal info
-export function getPersonalInfo(locale: Locale) {
+export function getPersonalInfo(locale?: Locale) {
+  const safeLocale = (locale || 'en') as Locale;
   const translations = contentTranslations.personalInfo;
   
   return {
     ...originalData.personalInfo,
-    title: getLocalizedContent(translations.title, locale),
-    summary: getLocalizedContent(translations.summary, locale),
+    title: getLocalizedContent(translations.title, safeLocale),
+    summary: getLocalizedContent(translations.summary, safeLocale),
     workPermit: {
       hasPermit: originalData.personalInfo.workPermit.hasPermit,
-      details: getLocalizedContent(translations.workPermitDetails, locale),
+      details: getLocalizedContent(translations.workPermitDetails, safeLocale),
     },
   };
 }
 
 // Get localized projects
-export function getProjects(locale: Locale): Project[] {
+export function getProjects(locale?: Locale): Project[] {
+  const safeLocale = (locale || 'en') as Locale;
   const projects = originalData.projects;
   const translations = contentTranslations.projects;
   
@@ -37,16 +39,17 @@ export function getProjects(locale: Locale): Project[] {
     
     return {
       ...project,
-      title: getLocalizedContent(translation.title, locale),
-      description: getLocalizedContent(translation.description, locale),
-      course: translation.course ? getLocalizedContent(translation.course, locale) : project.course,
-      highlights: translation.highlights ? getLocalizedContent(translation.highlights, locale) : project.highlights,
+      title: getLocalizedContent(translation.title, safeLocale),
+      description: getLocalizedContent(translation.description, safeLocale),
+      course: translation.course ? getLocalizedContent(translation.course, safeLocale) : project.course,
+      highlights: translation.highlights ? getLocalizedContent(translation.highlights, safeLocale) : project.highlights,
     };
   });
 }
 
 // Get localized timeline (experience + education combined and sorted)
-export function getTimeline(locale: Locale) {
+export function getTimeline(locale?: Locale) {
+  const safeLocale = (locale || 'en') as Locale;
   const timeline = originalData.timeline;
   const translations = contentTranslations.timeline;
   
@@ -60,13 +63,13 @@ export function getTimeline(locale: Locale) {
     // Create base localized item
     const localizedItem: any = {
       ...item,
-      title: getLocalizedContent(translation.title, locale),
-      description: getLocalizedContent(translation.description, locale),
+      title: getLocalizedContent(translation.title, safeLocale),
+      description: getLocalizedContent(translation.description, safeLocale),
     };
     
     // Add achievements if they exist in translation
     if ('achievements' in translation && translation.achievements) {
-      localizedItem.achievements = getLocalizedContent(translation.achievements, locale);
+      localizedItem.achievements = getLocalizedContent(translation.achievements, safeLocale);
     }
     
     return localizedItem;
@@ -74,16 +77,17 @@ export function getTimeline(locale: Locale) {
 }
 
 // Convenence functions if needed
-export function getExperience(locale: Locale) {
+export function getExperience(locale?: Locale) {
   return getTimeline(locale).filter(item => item.type === 'work');
 }
 
-export function getEducation(locale: Locale) {
+export function getEducation(locale?: Locale) {
   return getTimeline(locale).filter(item => item.type === 'education');
 }
 
 // Get localized awards
-export function getAwards(locale: Locale) {
+export function getAwards(locale?: Locale) {
+  const safeLocale = (locale || 'en') as Locale;
   const awards = originalData.awards;
   const translations = contentTranslations.awards;
   
@@ -96,13 +100,14 @@ export function getAwards(locale: Locale) {
     
     return {
       ...award,
-      description: getLocalizedContent(translation.description, locale),
+      description: getLocalizedContent(translation.description, safeLocale),
     };
   });
 }
 
 // Get localized recommendations
-export function getRecommendations(locale: Locale) {
+export function getRecommendations(locale?: Locale) {
+  const safeLocale = (locale || 'en') as Locale;
   const recommendations = originalData.recommendations;
   const translations = contentTranslations.recommendations;
   
@@ -115,13 +120,14 @@ export function getRecommendations(locale: Locale) {
     
     return {
       ...rec,
-      text: getLocalizedContent(translation.text, locale),
+      text: getLocalizedContent(translation.text, safeLocale),
     };
   });
 }
 
 // Get localized volunteering
-export function getVolunteering(locale: Locale) {
+export function getVolunteering(locale?: Locale) {
+  const safeLocale = (locale || 'en') as Locale;
   const volunteering = originalData.volunteering;
   const translations = contentTranslations.volunteering;
   
@@ -134,8 +140,8 @@ export function getVolunteering(locale: Locale) {
     
     return {
       ...item,
-      role: getLocalizedContent(translation.role, locale),
-      description: getLocalizedContent(translation.description, locale),
+      role: getLocalizedContent(translation.role, safeLocale),
+      description: getLocalizedContent(translation.description, safeLocale),
     };
   });
 }
