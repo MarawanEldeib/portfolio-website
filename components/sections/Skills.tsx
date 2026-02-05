@@ -23,6 +23,7 @@ export default function Skills() {
   const skillCategories = [
     { key: 'languages', data: skills?.languages || [] },
     { key: 'frameworks', data: skills?.frameworks || [] },
+    { key: 'cloudDevOps', data: skills?.cloudDevOps || [] },
     { key: 'tools', data: skills?.tools || [] },
     { key: 'cybersecurity', data: skills?.cybersecurity || [] },
     { key: 'systems', data: skills?.systems || [] },
