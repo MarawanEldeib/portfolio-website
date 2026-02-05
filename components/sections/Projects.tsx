@@ -1,10 +1,10 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Github, Calendar, Play, FileText } from 'lucide-react';
-import { projects } from '@/lib/data';
+import { getProjects } from '@/lib/data-localized';
 import { TECH_ICONS, PROJECT_IDS, PROJECT_TITLES } from '@/lib/constants';
 import ProjectStatusBadge from '@/components/ui/ProjectStatusBadge';
 import ActionButton from '@/components/ui/ActionButton';
@@ -23,7 +23,9 @@ const VideoPreviewModal = dynamic(() => import('@/components/ui/VideoPreviewModa
 
 export default function Projects() {
   const t = useTranslations('projects');
+  const locale = useLocale() as 'en' | 'de';
   const { formatShortDate } = useLocaleDate();
+  const projects = getProjects(locale);
   const [filter, setFilter] = useState<'all' | 'completed' | 'in-progress'>('all');
   const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
     isOpen: false,

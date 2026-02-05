@@ -1,16 +1,20 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Heart, Calendar, MapPin, ExternalLink } from 'lucide-react';
-import { volunteering } from '@/lib/data';
+import { getVolunteering } from '@/lib/data-localized';
 import { TECH_ICONS, fadeInUp } from '@/lib/constants';
 import Image from 'next/image';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 
 export default function Volunteering() {
   const t = useTranslations('volunteering');
+  const locale = useLocale() as 'en' | 'de';
   const { formatShortDate } = useLocaleDate();
+  
+  // Get localized volunteering data
+  const volunteering = getVolunteering(locale);
 
   if (volunteering.length === 0) {
     return null; // Don't render if no volunteer experience

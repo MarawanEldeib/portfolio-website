@@ -1,12 +1,17 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
+import { getPersonalInfo } from '@/lib/data-localized';
 import DownloadButton from '@/components/ui/DownloadButton';
 
 export default function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale() as 'en' | 'de';
+  
+  // Get localized personal info
+  const localizedPersonalInfo = getPersonalInfo(locale);
 
   return (
     <footer className="bg-gradient-to-t from-zinc-100 to-zinc-50 dark:from-zinc-950 dark:to-zinc-900 border-t border-zinc-200 dark:border-zinc-800 py-12">
@@ -14,7 +19,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-2">{personalInfo.name}</h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">{personalInfo.title}</p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">{localizedPersonalInfo.title}</p>
           </div>
 
           <div className="flex gap-4">

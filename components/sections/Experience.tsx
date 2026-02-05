@@ -1,9 +1,9 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Briefcase, MapPin, FileText } from 'lucide-react';
-import { timeline } from '@/lib/data';
+import { getTimeline } from '@/lib/data-localized';
 import Image from 'next/image';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
@@ -23,6 +23,7 @@ const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'),
 
 export default function Experience() {
   const t = useTranslations('experience');
+  const locale = useLocale() as 'en' | 'de';
   const { formatShortDate } = useLocaleDate();
   const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
     isOpen: false,
@@ -30,7 +31,8 @@ export default function Experience() {
     title: ''
   });
 
-  // Filter only work experience items
+  // Get localized timeline and filter only work experience items
+  const timeline = getTimeline(locale);
   const workItems = timeline.filter(item => item.type === 'work');
 
   return (
@@ -105,7 +107,7 @@ export default function Experience() {
                         {t('achievements')}
                       </h4>
                       <ul className="list-disc list-inside space-y-1 text-sm text-zinc-600 dark:text-zinc-400">
-                        {item.achievements.map((achievement, i) => (
+                        {item.achievements.map((achievement: string, i: number) => (
                           <li key={i}>{achievement}</li>
                         ))}
                       </ul>
@@ -114,7 +116,7 @@ export default function Experience() {
 
                   {item.skills && (
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {item.skills.map((skill) => (
+                      {item.skills.map((skill: string) => (
                         <TechTag
                           key={skill}
                           tech={skill}

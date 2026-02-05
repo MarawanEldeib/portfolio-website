@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     default: "Marawan Eldeib - Software Engineering Student & AI Developer",
     template: "%s | Marawan Eldeib"
   },
-  description: "Marawan Eldeib - Master's student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB specializing in computer vision and deep learning. Expert in Python, Java, Flutter, and modern web technologies.",
+  description: "Software Engineering master's student with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity. Seeking working student positions or research opportunities.",
   keywords: [
     'Marawan Eldeib',
     'Marawan',
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://marawaneldeib.com',
     title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
-    description: 'Marawan Eldeib - Master\'s student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB.',
+    description: 'Software Engineering master\'s student with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity. Seeking working student positions or research opportunities.',
     siteName: 'Marawan Eldeib Portfolio',
     images: [
       {
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Marawan Eldeib - Software Engineering Student & AI Developer',
-    description: 'Marawan Eldeib - Master\'s student in Software Engineering with 3+ years of AI/ML expertise at Fraunhofer IOSB and AirAsia',
+    description: 'Software Engineering master\'s student with experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity.',
     images: ['/images/Marawan.jpeg'],
   },
   robots: {

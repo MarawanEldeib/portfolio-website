@@ -1,9 +1,9 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Quote, Linkedin, User, ExternalLink } from 'lucide-react';
-import { recommendations } from '@/lib/data';
+import { getRecommendations } from '@/lib/data-localized';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,7 +13,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default function Recommendations() {
+  const locale = useLocale() as 'en' | 'de';
   const [mounted, setMounted] = useState(false);
+  
+  // Get localized recommendations
+  const recommendations = getRecommendations(locale);
   
   // Only enable loop if we have more slides than the max slidesPerView (2)
   const enableLoop = recommendations.length > 2;

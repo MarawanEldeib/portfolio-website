@@ -15,10 +15,11 @@
 
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Award, FileText } from 'lucide-react';
-import { certifications, awards } from '@/lib/data';
+import { certifications } from '@/lib/data';
+import { getAwards } from '@/lib/data-localized';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -47,7 +48,11 @@ import ActionButton from '@/components/ui/ActionButton';
  */
 export default function Certifications() {
   const t = useTranslations('certifications');
+  const locale = useLocale() as 'en' | 'de';
   const [mounted, setMounted] = useState(false);
+  
+  // Get localized awards
+  const awards = getAwards(locale);
   const pdfModal = useModal<PDFModalState>();
 
   // Client-side only mounting to prevent hydration issues
@@ -85,6 +90,7 @@ export default function Certifications() {
           {/* Awards Grid - Separate Section */}
           {awards.length > 0 && (
             <AwardsGrid
+              awards={awards}
               onViewCertificate={pdfModal.open}
             />
           )}
@@ -148,10 +154,11 @@ function CertificationsCarousel({ mounted, onViewCertificate }: CertificationsCa
  * Displays awards in a responsive grid layout
  */
 interface AwardsGridProps {
+  awards: AwardType[];
   onViewCertificate: (data: Omit<PDFModalState, 'isOpen'>) => void;
 }
 
-function AwardsGrid({ onViewCertificate }: AwardsGridProps) {
+function AwardsGrid({ awards, onViewCertificate }: AwardsGridProps) {
   const t = useTranslations('certifications');
 
   return (

@@ -1,15 +1,21 @@
 'use client';
 
+import { useLocale } from 'next-intl';
 import { personalInfo } from '@/lib/data';
+import { getPersonalInfo } from '@/lib/data-localized';
 
 export default function StructuredData() {
+  const locale = useLocale() as 'en' | 'de';
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marawaneldeib.com';
+  
+  // Get localized personal info
+  const localizedPersonalInfo = getPersonalInfo(locale);
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: personalInfo.name,
-    jobTitle: personalInfo.title,
+    jobTitle: localizedPersonalInfo.title,
     email: personalInfo.email,
     telephone: personalInfo.phone,
     url: siteUrl,
