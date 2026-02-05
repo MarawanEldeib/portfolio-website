@@ -21,7 +21,7 @@ import { Award, FileText } from 'lucide-react';
 import { certifications } from '@/lib/data';
 import { getAwards } from '@/lib/data-localized';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectCards } from 'swiper/modules';
 import 'swiper/css';
@@ -52,7 +52,7 @@ export default function Certifications() {
   const [mounted, setMounted] = useState(false);
   
   // Get localized awards
-  const awards = getAwards(locale);
+  const awards = useMemo(() => getAwards(locale), [locale]);
   const pdfModal = useModal<PDFModalState>();
 
   // Client-side only mounting to prevent hydration issues

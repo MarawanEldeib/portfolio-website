@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, FileText } from 'lucide-react';
 import { getTimeline } from '@/lib/data-localized';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import ActionButton from '@/components/ui/ActionButton';
@@ -32,8 +32,8 @@ export default function Experience() {
   });
 
   // Get localized timeline and filter only work experience items
-  const timeline = getTimeline(locale);
-  const workItems = timeline.filter(item => item.type === 'work');
+  const timeline = useMemo(() => getTimeline(locale), [locale]);
+  const workItems = useMemo(() => timeline.filter(item => item.type === 'work'), [timeline]);
 
   return (
     <section id="experience" className="py-20 px-4 bg-zinc-50 dark:bg-zinc-900">

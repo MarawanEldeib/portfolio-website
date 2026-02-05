@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, FileText } from 'lucide-react';
 import { getTimeline } from '@/lib/data-localized';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import ActionButton from '@/components/ui/ActionButton';
@@ -33,8 +33,8 @@ export default function Education() {
   });
 
   // Get localized timeline and filter only education items
-  const timeline = getTimeline(locale);
-  const educationItems = timeline.filter(item => item.type === 'education');
+  const timeline = useMemo(() => getTimeline(locale), [locale]);
+  const educationItems = useMemo(() => timeline.filter(item => item.type === 'education'), [timeline]);
 
   return (
     <section id="education" className="py-20 px-4 bg-white dark:bg-zinc-950">

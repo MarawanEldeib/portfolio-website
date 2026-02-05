@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Quote, Linkedin, User, ExternalLink } from 'lucide-react';
 import { getRecommendations } from '@/lib/data-localized';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -17,7 +17,7 @@ export default function Recommendations() {
   const [mounted, setMounted] = useState(false);
   
   // Get localized recommendations
-  const recommendations = getRecommendations(locale);
+  const recommendations = useMemo(() => getRecommendations(locale), [locale]);
   
   // Only enable loop if we have more slides than the max slidesPerView (2)
   const enableLoop = recommendations.length > 2;

@@ -10,7 +10,7 @@ const intlMiddleware = createMiddleware({
   defaultLocale: 'en'
 });
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   // Security: Block suspicious user agents
   const userAgent = request.headers.get('user-agent') || '';
   const suspiciousPatterns = [
