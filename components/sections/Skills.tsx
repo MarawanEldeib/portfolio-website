@@ -24,6 +24,7 @@ export default function Skills() {
     { key: 'languages', data: skills?.languages || [] },
     { key: 'frameworks', data: skills?.frameworks || [] },
     { key: 'tools', data: skills?.tools || [] },
+    { key: 'cybersecurity', data: skills?.cybersecurity || [] },
     { key: 'systems', data: skills?.systems || [] },
   ];
 
