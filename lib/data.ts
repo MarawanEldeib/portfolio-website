@@ -20,7 +20,7 @@ export const personalInfo = {
 export const skills = {
   languages: ["Python", "Java", "C/C++", "SQL", "Assembly"],
   frameworks: ["Spring Boot", "Flutter", "PyTorch", "Detectron2", "scikit-learn"],
-  tools: ["AWS", "Docker", "Git", "GraphQL", "REST APIs", "Firebase", "Jira", "Confluence", "Insomnia", "MCP Server"],
+  tools: ["AWS", "Docker", "Git", "GraphQL", "REST APIs", "Firebase", "Jira", "Confluence", "Insomnia", "GitHub Copilot", "Claude", "MCP Server"],
   cybersecurity: ["Burp Suite", "Nmap", "SQLmap", "OWASP"],
   systems: ["Linux", "Windows"],
 };
