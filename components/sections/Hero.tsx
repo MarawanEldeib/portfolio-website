@@ -85,12 +85,12 @@ export default function Hero() {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="mb-6"
           >
-            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-2xl overflow-hidden ring-4 ring-blue-900">
+            <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-2xl overflow-hidden ring-4 ring-blue-900">
               <Image
                 src="/images/Marawan.jpeg"
                 alt={personalInfo.name}
-                width={128}
-                height={128}
+                width={160}
+                height={160}
                 priority
                 quality={85}
                 placeholder="blur"
