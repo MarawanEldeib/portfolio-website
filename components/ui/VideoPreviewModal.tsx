@@ -29,18 +29,27 @@ export default function VideoPreviewModal({ isOpen, onClose, videoUrl, title }: 
         if (!isOpen) return;
 
         // Lock body scroll when modal is open
-        const originalOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
+        let originalOverflow = '';
+        if (typeof document !== 'undefined') {
+            originalOverflow = document.body.style.overflow;
+            document.body.style.overflow = 'hidden';
+        }
 
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
         };
 
-        window.addEventListener('keydown', handleEsc);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('keydown', handleEsc);
+        }
 
         return () => {
-            window.removeEventListener('keydown', handleEsc);
-            document.body.style.overflow = originalOverflow;
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('keydown', handleEsc);
+            }
+            if (typeof document !== 'undefined') {
+                document.body.style.overflow = originalOverflow;
+            }
         };
     }, [isOpen, onClose]);
 

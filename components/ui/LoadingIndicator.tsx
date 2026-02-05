@@ -19,19 +19,33 @@ export default function LoadingIndicator() {
       }, 300); // Reduced from 500ms
     };
 
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
+    if (typeof document !== 'undefined') {
+      if (document.readyState === 'complete') {
+        handleLoad();
+      } else {
+        window.addEventListener('load', handleLoad);
+      }
     }
 
     return () => {
       clearTimeout(mountTimer);
-      window.removeEventListener('load', handleLoad);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('load', handleLoad);
+      }
     };
   }, []);
 
-  if (!isMounted) return null;
+  // Always render the same structure to prevent hydration mismatch
+  if (!isMounted) {
+    return (
+      <div className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-zinc-950">
+        <div className="text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          ME
+        </div>
+        <div className="relative w-48 h-2 bg-zinc-800 rounded-full" />
+      </div>
+    );
+  }
 
   return (
     <AnimatePresence mode="wait">

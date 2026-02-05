@@ -117,9 +117,15 @@ export const THEME_CONFIG = {
 export const DARK_MODE_SCRIPT = `
   try {
     // Force dark mode always
-    document.documentElement.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  } catch (e) {}
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.add('dark');
+    }
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('theme', 'dark');
+    }
+  } catch (e) {
+    // Silently fail if storage is unavailable
+  }
 `;
 
 /**

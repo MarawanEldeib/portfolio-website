@@ -14,36 +14,47 @@ interface PDFPreviewModalProps {
 
 export default function PDFPreviewModal({ isOpen, onClose, pdfUrl, title }: PDFPreviewModalProps) {
     const [isMobile, setIsMobile] = useState(false);
+    const [isClient, setIsClient] = useState(false);
 
     // Detect mobile devices
     useEffect(() => {
+        setIsClient(true);
+        
         const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768 || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+            if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+                setIsMobile(window.innerWidth < 768 || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+            }
         };
 
         checkMobile();
-        window.addEventListener('resize', checkMobile);
-
-        return () => window.removeEventListener('resize', checkMobile);
+        
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', checkMobile);
+            return () => window.removeEventListener('resize', checkMobile);
+        }
     }, []);
 
     // Auto-open in new tab for mobile devices
     useEffect(() => {
-        if (isOpen && isMobile) {
+        if (isClient && isOpen && isMobile && typeof window !== 'undefined') {
             window.open(pdfUrl, '_blank', 'noopener,noreferrer');
             onClose();
         }
-    }, [isOpen, isMobile, pdfUrl, onClose]);
+    }, [isClient, isOpen, isMobile, pdfUrl, onClose]);
 
     useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
+        if (typeof document !== 'undefined') {
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'unset';
+            }
         }
 
         return () => {
-            document.body.style.overflow = 'unset';
+            if (typeof document !== 'undefined') {
+                document.body.style.overflow = 'unset';
+            }
         };
     }, [isOpen]);
 
