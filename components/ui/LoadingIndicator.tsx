@@ -8,8 +8,8 @@ export default function LoadingIndicator() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Defer mounting check
-    const mountTimer = setTimeout(() => setIsMounted(true), 0);
+    // Mark as mounted
+    setIsMounted(true);
 
     // Check if page is fully loaded
     const handleLoad = () => {
@@ -22,30 +22,20 @@ export default function LoadingIndicator() {
     if (typeof document !== 'undefined') {
       if (document.readyState === 'complete') {
         handleLoad();
-      } else {
+      } else if (typeof window !== 'undefined') {
         window.addEventListener('load', handleLoad);
       }
     }
 
     return () => {
-      clearTimeout(mountTimer);
       if (typeof window !== 'undefined') {
         window.removeEventListener('load', handleLoad);
       }
     };
   }, []);
 
-  // Always render the same structure to prevent hydration mismatch
-  if (!isMounted) {
-    return (
-      <div className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-zinc-950">
-        <div className="text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-          ME
-        </div>
-        <div className="relative w-48 h-2 bg-zinc-800 rounded-full" />
-      </div>
-    );
-  }
+  // Don't render anything during SSR to avoid hydration mismatch
+  if (!isMounted) return null;
 
   return (
     <AnimatePresence mode="wait">

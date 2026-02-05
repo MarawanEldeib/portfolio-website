@@ -39,6 +39,8 @@ export default function Header() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    if (typeof document === 'undefined' || typeof window === 'undefined') return;
+    
     const element = document.getElementById(id);
     if (element) {
       const elementPosition = element.getBoundingClientRect().top;
@@ -54,17 +56,23 @@ export default function Header() {
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
+    if (typeof document === 'undefined') return;
+    
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = 'unset';
+      }
     };
   }, [isMenuOpen]);
 
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    
     let ticking = false;
     let lastScrollY = window.scrollY;
 

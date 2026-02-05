@@ -6,11 +6,16 @@ export default function CursorGlow() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+    
     // Check if device supports touch (deferred to avoid hydration mismatch)
     const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+        setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      }
     };
 
     checkTouchDevice();
@@ -24,17 +29,21 @@ export default function CursorGlow() {
       setIsVisible(false);
     };
 
-    window.addEventListener('mousemove', updatePosition);
-    document.addEventListener('mouseleave', handleMouseLeave);
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      window.addEventListener('mousemove', updatePosition);
+      document.addEventListener('mouseleave', handleMouseLeave);
+    }
 
     return () => {
-      window.removeEventListener('mousemove', updatePosition);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+        window.removeEventListener('mousemove', updatePosition);
+        document.removeEventListener('mouseleave', handleMouseLeave);
+      }
     };
   }, []);
 
-  // Don't render cursor glow on touch devices or mobile (performance optimization)
-  if (isTouchDevice) {
+  // Don't render during SSR or on touch devices
+  if (!isMounted || isTouchDevice) {
     return null;
   }
 

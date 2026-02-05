@@ -18,15 +18,17 @@ const geistSans = Geist({
   subsets: ["latin"],
   display: 'swap',
   preload: true,
-  fallback: ['system-ui', 'arial'],
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'arial'],
+  adjustFontFallback: false,
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-geist-mono", 
   subsets: ["latin"],
   display: 'swap',
   preload: false,
-  fallback: ['ui-monospace', 'monospace'],
+  fallback: ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'monospace'],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {

@@ -5,8 +5,13 @@ import { useEffect, useState } from 'react';
 export default function AnimatedBackground() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+    
+    if (typeof window === 'undefined') return;
+    
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const updateMotionPreference = () => setPrefersReducedMotion(mediaQuery.matches);
@@ -24,6 +29,9 @@ export default function AnimatedBackground() {
       mediaQuery.removeEventListener('change', updateMotionPreference);
     };
   }, []);
+
+  // Don't render during SSR
+  if (!isMounted) return null;
 
   // Don't render animations if user prefers reduced motion
   if (prefersReducedMotion) {

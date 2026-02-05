@@ -59,6 +59,8 @@ export default function PDFPreviewModal({ isOpen, onClose, pdfUrl, title }: PDFP
     }, [isOpen]);
 
     useEffect(() => {
+        if (typeof document === 'undefined') return;
+        
         const handleEscape = (e: KeyboardEvent) => {
             if (e.key === 'Escape' && isOpen) {
                 onClose();
