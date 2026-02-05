@@ -80,6 +80,7 @@ const projectsData: Project[] = [
     tech: ["Knowledge Graphs", "Machine Learning", "KGFM", "Graph Neural Networks", "Python", "RelBench"],
     github: "https://github.com/MarawanEldeib/kgfm-universal-db-learning",
     video: undefined,
+    report: "/documents/KGFM-Report.pdf",
     status: "completed" as const,
     startDate: "2025-11",
     endDate: "2026-02",
