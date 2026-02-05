@@ -23,7 +23,7 @@ export const skills = {
   frameworks: ["Spring Boot", "Flutter", "PyTorch", "Detectron2", "scikit-learn"],
   tools: ["AWS", "Docker", "Git", "GraphQL", "REST APIs", "Firebase", "Jira", "Confluence", "Insomnia", "GitHub Copilot", "Claude", "MCP Server"],
   cybersecurity: ["Burp Suite", "Nmap", "SQLmap", "OWASP"],
-  systems: ["Linux", "Windows"],
+  systems: ["Kali Linux", "Ubuntu", "Windows"],
 };
 
 export const languages = {

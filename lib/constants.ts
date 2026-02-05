@@ -52,12 +52,14 @@ import {
   SiPytorch, SiTensorflow, SiOpencv, SiNumpy, SiScikitlearn,
   SiMysql, SiPostgresql, SiMongodb, SiRedis, SiFirebase,
   SiDocker, SiKubernetes, SiGit, SiGithub, SiGitlab, SiJira,
-  SiLinux, SiAmazon, SiGooglecloud, SiDart
+  SiLinux, SiAmazon, SiGooglecloud, SiDart, SiInsomnia,
+  SiKalilinux, SiUbuntu, SiClaude, SiOwasp
 } from 'react-icons/si';
 import {
   FaBrain, FaRobot, FaChalkboardTeacher, FaMicrophone, FaUsers,
   FaHandshake, FaUserTie, FaCalendarAlt, FaLightbulb, FaAward,
-  FaShoppingCart, FaHeadset
+  FaShoppingCart, FaHeadset, FaCode, FaShieldAlt, FaTerminal,
+  FaNetworkWired, FaTools, FaJava, FaWindows
 } from 'react-icons/fa';
 import { MdAgriculture } from 'react-icons/md';
 
@@ -69,6 +71,8 @@ export const TECH_ICONS: Record<string, IconType> = {
   'TypeScript': SiTypescript,
   'C++': SiCplusplus,
   'C/C++': SiC,
+  'Java': FaJava,
+  'Assembly': FaCode,
   'React': SiReact,
   'Next.js': SiNextdotjs,
   'Flutter': SiFlutter,
@@ -79,6 +83,7 @@ export const TECH_ICONS: Record<string, IconType> = {
   'OpenCV': SiOpencv,
   'NumPy': SiNumpy,
   'Scikit-learn': SiScikitlearn,
+  'scikit-learn': SiScikitlearn,
   'MySQL': SiMysql,
   'PostgreSQL': SiPostgresql,
   'MongoDB': SiMongodb,
@@ -91,9 +96,20 @@ export const TECH_ICONS: Record<string, IconType> = {
   'GitLab': SiGitlab,
   'Jira': SiJira,
   'Linux': SiLinux,
+  'Kali Linux': SiKalilinux,
+  'Ubuntu': SiUbuntu,
+  'Windows': FaWindows,
   'AWS': SiAmazon,
   'GCP': SiGooglecloud,
   'Dart': SiDart,
+  'Insomnia': SiInsomnia,
+  'GitHub Copilot': SiGithub,
+  'Claude': SiClaude,
+  'MCP Server': FaNetworkWired,
+  'Burp Suite': FaShieldAlt,
+  'Nmap': FaNetworkWired,
+  'SQLmap': FaTerminal,
+  'OWASP': SiOwasp,
   // Additional mappings for skills/projects
   'REST APIs': SiGraphql,
   'Unit Testing': SiGithub,
