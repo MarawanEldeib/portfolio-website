@@ -9,11 +9,11 @@
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  border: 1px solid #4285F4;
+  border: 1px solid #00ac47;
   border-radius: 25px;
   outline: none;
   overflow: hidden;
-  color: #4285F4;
+  color: #00ac47;
   transition: color 0.3s 0.1s ease-out;
   text-align: center;
 }
@@ -42,11 +42,11 @@
 
 .google-drive-btn:hover {
   color: #fff;
-  border: 1px solid #4285F4;
+  border: 1px solid #00ac47;
 }
 
 .google-drive-btn:hover::before {
-  box-shadow: inset 0 0 0 10em #4285F4;
+  box-shadow: inset 0 0 0 10em #00ac47;
 }
 
 /* Make the colored icon white on hover */
