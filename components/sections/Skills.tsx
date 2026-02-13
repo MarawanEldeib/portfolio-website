@@ -48,7 +48,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: catIndex * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-blue-50 hover:to-purple-50 dark:hover:from-blue-950/30 dark:hover:to-purple-950/30 hover:border-2 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 cursor-pointer"
+                className="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-blue-50 hover:to-sky-50 dark:hover:from-blue-950/30 dark:hover:to-sky-950/30 hover:border-2 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer"
               >
                 <h3 className="text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-50">{t(category.key)}</h3>
                 <div className="flex flex-wrap gap-2">
@@ -77,16 +77,16 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 rounded-xl p-8 shadow-lg border-2 border-purple-200 dark:border-purple-800 hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+            className="bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 rounded-xl p-8 shadow-lg border-2 border-blue-200 dark:border-blue-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-2xl transition-all duration-300 cursor-pointer"
           >
             <div className="flex items-center gap-3 mb-6">
-              <LanguagesIcon className="text-purple-600 dark:text-purple-400" size={28} />
-              <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">Languages</h3>
+              <LanguagesIcon className="text-blue-600 dark:text-blue-400" size={28} />
+              <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">{t('spokenLanguages')}</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Fluent</h4>
+                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide">{t('fluent')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {[...(languages?.native || []), ...(languages?.proficient || [])].map((lang) => {
                     const isEnglish = lang === 'English';
@@ -98,11 +98,16 @@ export default function Skills() {
                           url: "/certificates/English C1 Certificate.pdf",
                           title: "English C1 Certificate (2024)"
                         }) : null}
-                        className={`px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-medium shadow-md hover:bg-purple-700 dark:hover:bg-purple-600 hover:scale-110 transition-all duration-200 cursor-pointer flex items-center gap-2`}
-                        title={isEnglish ? "View Certificate" : undefined}
+                        className={`px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg font-medium shadow-md hover:bg-blue-700 dark:hover:bg-blue-600 hover:scale-110 transition-all duration-200 cursor-pointer flex items-center gap-2 ${isEnglish ? 'ring-2 ring-yellow-400 ring-offset-2 dark:ring-offset-zinc-900' : ''}`}
+                        title={isEnglish ? "Click to view certificate" : undefined}
                       >
                         {lang}
-                        {isEnglish && <FileText size={14} className="opacity-70" />}
+                        {isEnglish && (
+                          <span className="flex items-center gap-1 bg-yellow-400 text-blue-900 px-2 py-0.5 rounded text-xs font-bold">
+                            <FileText size={12} />
+                            PDF
+                          </span>
+                        )}
                       </span>
                     );
                   })}
@@ -110,7 +115,7 @@ export default function Skills() {
               </div>
 
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Intermediate</h4>
+                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide">{t('intermediate')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {(languages?.intermediate || []).map((lang) => {
                     const isGerman = lang.includes('German');
@@ -124,13 +129,18 @@ export default function Skills() {
                         }) : null}
                         className={`px-4 py-2 rounded-lg font-medium border-2 transition-all duration-200 cursor-pointer flex items-center gap-2
                           ${isGerman
-                            ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/50 hover:scale-105 hover:shadow-md'
-                            : 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/50 hover:scale-110'
+                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-900/50 hover:scale-105 hover:shadow-md ring-2 ring-yellow-400 ring-offset-2 dark:ring-offset-zinc-800'
+                            : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-900/50 hover:scale-110'
                           }`}
-                        title={isGerman ? "View Certificate" : undefined}
+                        title={isGerman ? "Click to view certificate" : undefined}
                       >
                         {lang}
-                        {isGerman && <FileText size={14} className="opacity-70" />}
+                        {isGerman && (
+                          <span className="flex items-center gap-1 bg-yellow-400 text-blue-900 px-2 py-0.5 rounded text-xs font-bold">
+                            <FileText size={12} />
+                            PDF
+                          </span>
+                        )}
                       </span>
                     );
                   })}
@@ -138,7 +148,7 @@ export default function Skills() {
               </div>
 
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3 uppercase tracking-wide">Beginner</h4>
+                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide">{t('beginner')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {(languages?.beginner || []).map((lang) => (
                     <span
