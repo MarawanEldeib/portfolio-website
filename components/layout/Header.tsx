@@ -1,9 +1,11 @@
 'use client';
 
+import React from 'react';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import ThemeToggle from '@/components/ui/ThemeToggle';
@@ -16,14 +18,30 @@ export default function Header() {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isLanguageChanging, setIsLanguageChanging] = useState(false);
+  const [isLanguageLoading, setIsLanguageLoading] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Ensure client-side mounting for portal
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const locale = pathname.split('/')[1];
 
   const handleLanguageChange = (newLocale: string) => {
-    setIsLanguageChanging(true);
-    router.push(`/${newLocale}`);
+    if (newLocale === locale) return;
+    setIsLanguageLoading(true);
+    setIsMenuOpen(false);
+    // Small delay to show the loader before navigation
+    setTimeout(() => {
+      router.push(`/${newLocale}`);
+    }, 100);
   };
+
+  // Hide loader when locale changes (navigation complete)
+  useEffect(() => {
+    setIsLanguageLoading(false);
+  }, [locale]);
 
   const navItems = useMemo(() => [
     { href: `/${locale}#about`, label: t('about'), id: 'about' },
@@ -116,42 +134,48 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-      <nav className="container mx-auto px-10 py-4">
-        <div className="flex items-center justify-between">
-          <Link href={`/${locale}`} className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+      <nav className="container mx-auto px-4 sm:px-6 py-4 max-w-none">
+        <div className="flex items-center justify-between gap-6">
+          <Link href={`/${locale}`} className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-sky-400 dark:from-blue-400 dark:to-sky-400 bg-clip-text text-transparent flex-shrink-0">
             {personalInfo.name}
           </Link>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-5">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.id)}
-                  className={`text-sm font-medium transition-all relative ${activeSection === item.id
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
-                    }`}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full" />
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop Navigation - Uiverse Sliding Bar */}
+          <div className="hidden lg:flex items-center gap-4">
+            <div className="nav-wrap">
+              {navItems.map((item) => (
+                <React.Fragment key={item.id}>
+                  <input
+                    hidden
+                    className={`nav-rd-${item.id}`}
+                    name="nav-radio"
+                    id={`nav-${item.id}`}
+                    type="radio"
+                    checked={activeSection === item.id}
+                    readOnly
+                  />
+                  <label
+                    className="nav-label"
+                    htmlFor={`nav-${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, item.id);
+                    }}
+                  >
+                    <span>{item.label}</span>
+                  </label>
+                </React.Fragment>
+              ))}
+              <div className="nav-bar"></div>
+              <div className="nav-slidebar"></div>
+            </div>
 
-          {/* Language Switcher & Theme Toggle */}
-          <div className="hidden md:flex items-center gap-2">
-            <ThemeToggle />
-            <div className="w-px h-6 bg-zinc-300 dark:bg-zinc-700 mx-2" />
-            <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1">
+            {/* Language Switcher */}
+            <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1 border border-zinc-300 dark:border-zinc-700 ml-auto">
               <button
                 onClick={() => handleLanguageChange('en')}
                 className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${locale === 'en'
-                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                  ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md'
                   : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                   }`}
               >
@@ -160,7 +184,7 @@ export default function Header() {
               <button
                 onClick={() => handleLanguageChange('de')}
                 className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${locale === 'de'
-                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                  ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md'
                   : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                   }`}
               >
@@ -232,7 +256,7 @@ export default function Header() {
                           block py-3 px-4 rounded-lg text-base font-medium transition-all
                           ${activeSection === item.id
                             ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 border-l-4 border-blue-600 dark:border-blue-400'
-                            : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 border-l-4 border-transparent'
+                            : 'text-zinc-700 dark:text-zinc-300 border-l-4 border-transparent'
                           }
                         `}
                       >
@@ -271,7 +295,7 @@ export default function Header() {
                         <button
                           onClick={() => handleLanguageChange('en')}
                           className={`px-4 py-2 text-sm font-medium rounded-md transition-all min-w-[60px] min-h-[44px] flex items-center justify-center ${locale === 'en'
-                            ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                            ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md'
                             : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                             }`}
                         >
@@ -280,7 +304,7 @@ export default function Header() {
                         <button
                           onClick={() => handleLanguageChange('de')}
                           className={`px-4 py-2 text-sm font-medium rounded-md transition-all min-w-[60px] min-h-[44px] flex items-center justify-center ${locale === 'de'
-                            ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                            ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md'
                             : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                             }`}
                         >
@@ -295,6 +319,12 @@ export default function Header() {
           )}
         </AnimatePresence>
       </nav>
+
+      {/* Language Change Loader - Use portal to render at document body level */}
+      {isMounted && isLanguageLoading && createPortal(
+        <></>,
+        document.body
+      )}
     </header>
   );
 }

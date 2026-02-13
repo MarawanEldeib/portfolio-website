@@ -1,3 +1,267 @@
+/* ===== Animated Download Button (Uiverse.io by Na3ar-17) ===== */
+.download-animated-container {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-animated-label {
+  background-color: #101c2a;
+  border: 2px solid #3b82f6;
+  display: flex;
+  align-items: center;
+  border-radius: 40px;
+  width: 140px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 0 0 0 3px;
+  position: relative;
+  min-height: 38px;
+}
+.download-animated-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  width: 8px;
+  height: 8px;
+  transition: all 0.4s ease;
+  border-radius: 100%;
+  margin: auto;
+  opacity: 0;
+  visibility: hidden;
+}
+.download-animated-label .download-animated-input {
+  display: none;
+}
+.download-animated-label .download-animated-title {
+  font-size: 12px;
+  color: #fff;
+  transition: all 0.4s ease;
+  position: absolute;
+  left: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+  margin-left: 0;
+}
+.download-animated-label .download-animated-title:last-child {
+  opacity: 0;
+  visibility: hidden;
+}
+.download-animated-label .download-animated-circle {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  position: relative;
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+  overflow: hidden;
+}
+.download-animated-label .download-animated-circle .download-animated-icon {
+  color: #fff;
+  width: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+.download-animated-label .download-animated-circle .download-animated-square {
+  aspect-ratio: 1;
+  width: 15px;
+  border-radius: 2px;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+.download-animated-label .download-animated-circle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #3333a8;
+  width: 100%;
+  height: 0;
+  transition: all 0.4s ease;
+}
+.download-animated-label:has(.download-animated-input:checked) {
+  width: 57px;
+  animation: download-animated-installed 0.4s ease 3.5s forwards;
+}
+.download-animated-label:has(.download-animated-input:checked)::before {
+  animation: download-animated-rotate 3s ease-in-out 0.4s forwards;
+}
+.download-animated-label .download-animated-input:checked + .download-animated-circle {
+  animation:
+    download-animated-pulse 1s forwards,
+    download-animated-circleDelete 0.2s ease 3.5s forwards;
+  rotate: 180deg;
+}
+.download-animated-label .download-animated-input:checked + .download-animated-circle::before {
+  animation: download-animated-installing 3s ease-in-out forwards;
+}
+.download-animated-label .download-animated-input:checked + .download-animated-circle .download-animated-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+.download-animated-label .download-animated-input:checked ~ .download-animated-circle .download-animated-square {
+  opacity: 1;
+  visibility: visible;
+}
+.download-animated-label .download-animated-input:checked ~ .download-animated-title {
+  opacity: 0;
+  visibility: hidden;
+}
+.download-animated-label .download-animated-input:checked ~ .download-animated-title:last-child {
+  animation: download-animated-showInstalledMessage 0.4s ease 3.5s forwards;
+}
+@keyframes download-animated-pulse {
+  0% {
+    scale: 0.95;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    scale: 1;
+    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+  }
+  100% {
+    scale: 0.95;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+@keyframes download-animated-installing {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+@keyframes download-animated-rotate {
+  0% {
+    transform: rotate(-90deg) translate(27px) rotate(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    transform: rotate(270deg) translate(27px) rotate(270deg);
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes download-animated-installed {
+  100% {
+    width: 150px;
+    border-color: rgb(35, 174, 35);
+  }
+}
+@keyframes download-animated-circleDelete {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes download-animated-showInstalledMessage {
+  100% {
+    opacity: 1;
+    visibility: visible;
+    right: 56px;
+  }
+}
+/* ===== LinkedIn Animated Button (Uiverse.io by Gaurang7717) ===== */
+
+.linkedin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #0a66c2;
+}
+
+.linkedin-sign {
+  width: 100%;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+}
+
+.linkedin-sign svg {
+  width: 19px;
+  min-width: 19px;
+  height: 19px;
+}
+
+.linkedin-sign svg path {
+  fill: white;
+}
+
+.linkedin-text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  transition-duration: 0.3s;
+  margin-left: 0.3em;
+}
+
+.linkedin-btn:hover {
+  width: 110px;
+  border-radius: 32px;
+  transition-duration: 0.3s;
+}
+
+.linkedin-btn:hover .linkedin-sign {
+  width: 32%;
+  transition-duration: 0.3s;
+  padding-left: 16px;
+  gap: 0.8em;
+}
+
+.linkedin-btn:hover .linkedin-text {
+  opacity: 1;
+  width: 68%;
+  transition-duration: 0.3s;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+.linkedin-btn:active {
+  transform: translate(2px, 2px);
+}
 @import "tailwindcss";
 
 @variant dark (.dark &);
@@ -104,11 +368,23 @@ a:active, button:active {
   transform: translateY(0);
 }
 
-/* Smooth card transitions */
-.card, [class*="card"], [class*="Card"] {
+/* Smooth card transitions (except Awards section) */
+.project-card, .other-specific-card-class {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.awards-card {
+  /* No animation or transition for Awards section cards */
+  background: var(--card-background, #18181b);
+  border: 1px solid var(--card-border, #3f3f46);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem 1.25rem;
+  min-width: 220px;
+  max-width: 320px;
+  margin: 0.5rem;
 }
 
 /* Swiper Carousel Styling */
@@ -273,3 +549,664 @@ body.loading {
 html.loading {
   overflow: hidden !important;
 }
+
+/* ===== Sliding Navigation Bar Styles ===== */
+.nav-wrap {
+  --round: 10px;
+  --p-x: 8px;
+  --p-y: 4px;
+  --w-label: 95px;
+  display: flex;
+  align-items: center;
+  padding: var(--p-y) var(--p-x);
+  position: relative;
+  background: var(--background-secondary);
+  border-radius: var(--round);
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+  border: 1px solid var(--border-color);
+}
+
+/* Responsive nav-wrap adjustments for different aspect ratios */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .nav-wrap {
+    --w-label: 105px;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .nav-wrap {
+    --w-label: 115px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .nav-wrap {
+    --w-label: 125px;
+  }
+}
+
+.nav-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-wrap input {
+  height: 0;
+  width: 0;
+  position: absolute;
+  overflow: hidden;
+  display: none;
+  visibility: hidden;
+}
+
+.nav-label {
+  cursor: pointer;
+  outline: none;
+  font-size: 0.875rem;
+  letter-spacing: initial;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  padding: 12px 10px;
+  width: var(--w-label);
+  min-width: var(--w-label);
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: color 0.25s ease;
+  outline-offset: -6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-label span {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-align: center;
+}
+
+/* Active label style - when checked */
+.nav-wrap input[class*="nav-rd-"]:checked + .nav-label {
+  color: #fff;
+}
+
+/* Navigation bar - top/bottom accent lines */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: absolute;
+  transform-origin: 0 0 0;
+  height: 100%;
+  width: var(--w-label);
+  z-index: 0;
+  left: var(--p-x);
+  transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
+}
+
+.nav-bar::before,
+.nav-bar::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #0ea5e9);
+}
+
+.nav-bar::before {
+  top: 0;
+  border-radius: 0 0 9999px 9999px;
+}
+
+.nav-bar::after {
+  bottom: 0;
+  border-radius: 9999px 9999px 0 0;
+}
+
+/* Navigation slidebar - background highlight */
+.nav-slidebar {
+  position: absolute;
+  height: calc(100% - (var(--p-y) * 4));
+  width: var(--w-label);
+  border-radius: calc(var(--round) - var(--p-y));
+  background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+  transform-origin: 0 0 0;
+  z-index: 1;
+  left: var(--p-x);
+  transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
+}
+
+/* Position transforms for each nav item (9 items total) */
+/* about = index 0 */
+.nav-rd-about:checked ~ .nav-bar,
+.nav-rd-about:checked ~ .nav-slidebar {
+  transform: translateX(0) scaleX(1);
+}
+
+/* experience = index 1 */
+.nav-rd-experience:checked ~ .nav-bar,
+.nav-rd-experience:checked ~ .nav-slidebar {
+  transform: translateX(calc(var(--w-label) * 1)) scaleX(1);
+}
+
+/* education = index 2 */
+.nav-rd-education:checked ~ .nav-bar,
+.nav-rd-education:checked ~ .nav-slidebar {
+  transform: translateX(calc(var(--w-label) * 2)) scaleX(1);
+}
+
+/* projects = index 3 */
+.nav-rd-projects:checked ~ .nav-bar,
+.nav-rd-projects:checked ~ .nav-slidebar {
+  transform: translateX(calc(var(--w-label) * 3)) scaleX(1);
+}
+
+/* skills = index 4 */
+.nav-rd-skills:checked ~ .nav-bar,
+.nav-rd-skills:checked ~ .nav-slidebar {
+  transform: translateX(calc(var(--w-label) * 4)) scaleX(1);
+}
+
+/* certifications = index 5 */
+.nav-rd-certifications:checked ~ .nav-bar,
+.nav-rd-certifications:checked ~ .nav-slidebar {
+  transform: translateX(calc(var(--w-label) * 5)) scaleX(1);
+}
+
+/* volunteering = index 6 */
+.nav-rd-volunteering:checked ~ .nav-bar,
+.nav-rd-volunteering:checked ~ .nav-slidebar {
+  transform: translateX(calc(var(--w-label) * 6)) scaleX(1);
+}
+
+/* recommendations = index 7 */
+.nav-rd-recommendations:checked ~ .nav-bar,
+.nav-rd-recommendations:checked ~ .nav-slidebar {
+  transform: translateX(calc(var(--w-label) * 7)) scaleX(1);
+}
+
+/* contact = index 8 */
+.nav-rd-contact:checked ~ .nav-bar,
+.nav-rd-contact:checked ~ .nav-slidebar {
+  transform: translateX(calc(var(--w-label) * 8)) scaleX(1);
+}
+
+/* ===== Video Loader - Jumping Cube Animation ===== */
+.video-loader {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  position: relative;
+}
+
+.video-loader:before {
+  content: '';
+  width: 48px;
+  height: 5px;
+  background: #f48b8b50;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  border-radius: 50%;
+  animation: video-shadow 0.5s linear infinite;
+}
+
+.video-loader:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #f48b8b;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: video-jump 0.5s linear infinite;
+}
+
+@keyframes video-jump {
+  15% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    transform: translateY(18px) scale(1, .9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes video-shadow {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+/* ===== Ripple Grid Loader (Code Button) ===== */
+.ripple-grid-loader {
+  --cell-size: 32px;
+  --cell-spacing: 1px;
+  --cells: 3;
+  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+  display: flex;
+  flex-wrap: wrap;
+  width: var(--total-size);
+  height: var(--total-size);
+}
+
+.ripple-cell {
+  flex: 0 0 var(--cell-size);
+  margin: var(--cell-spacing);
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 4px;
+  animation: 1.5s ripple ease infinite;
+}
+
+.ripple-cell.d-1 {
+  animation-delay: 100ms;
+}
+
+.ripple-cell.d-2 {
+  animation-delay: 200ms;
+}
+
+.ripple-cell.d-3 {
+  animation-delay: 300ms;
+}
+
+.ripple-cell.d-4 {
+  animation-delay: 400ms;
+}
+
+.ripple-cell:nth-child(1) {
+  --cell-color: #00FF87;
+}
+
+.ripple-cell:nth-child(2) {
+  --cell-color: #0CFD95;
+}
+
+.ripple-cell:nth-child(3) {
+  --cell-color: #17FBA2;
+}
+
+.ripple-cell:nth-child(4) {
+  --cell-color: #23F9B2;
+}
+
+.ripple-cell:nth-child(5) {
+  --cell-color: #30F7C3;
+}
+
+.ripple-cell:nth-child(6) {
+  --cell-color: #3DF5D4;
+}
+
+.ripple-cell:nth-child(7) {
+  --cell-color: #45F4DE;
+}
+
+.ripple-cell:nth-child(8) {
+  --cell-color: #53F1F0;
+}
+
+.ripple-cell:nth-child(9) {
+  --cell-color: #60EFFF;
+}
+
+@keyframes ripple {
+  0% {
+    background-color: transparent;
+  }
+
+  30% {
+    background-color: var(--cell-color);
+  }
+
+  60% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* ===== 3D Spinner (Main Loader & Language Switch) ===== */
+.spinner-3d {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.spinner-leaf {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  perspective-origin: center center;
+  perspective: 340px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI2NnB4IiBoZWlnaHQ9IjI5N3B4IiB2aWV3Qm94PSIwIDAgMjY2IDI5NyIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyI+CiAgICA8dGl0bGU+c3Bpbm5lcjwvdGl0bGU+CiAgICA8ZGVzY3JpcHRpb24+Q3JlYXRlZCB3aXRoIFNrZXRjaCAoaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoKTwvZGVzY3JpcHRpb24+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4KICAgICAgICA8cGF0aCBkPSJNMTcxLjUwNzgxMywzLjI1MDAwMDM4IEMyMjYuMjA4MTgzLDEyLjg1NzcxMTEgMjk3LjExMjcyMiw3MS40OTEyODIzIDI1MC44OTU1OTksMTA4LjQxMDE1NSBDMjE2LjU4MjAyNCwxMzUuODIwMzEgMTg2LjUyODQwNSw5Ny4wNjI0OTY0IDE1Ni44MDA3NzQsODUuNzczNDM0NiBDMTI3LjA3MzE0Myw3NC40ODQzNzIxIDc2Ljg4ODQ2MzIsODQuMjE2MTQ2MiA2MC4xMjg5MDY1LDEwOC40MTAxNTMgQy0xNS45ODA0Njg1LDIxOC4yODEyNDcgMTQ1LjI3NzM0NCwyOTYuNjY3OTY4IDE0NS4yNzczNDQsMjk2LjY2Nzk2OCBDMTQ1LjI3NzM0NCwyOTYuNjY3OTY4IC0yNS40NDkyMTg3LDI1Ny4yNDIxOTggMy4zOTg0Mzc1LDEwOC40MTAxNTUgQzE2LjMwNzA2NjEsNDEuODExNDE3NCA4NC43Mjc1ODI5LC0xMS45OTIyOTg1IDE3MS41MDc4MTMsMy4yNTAwMDAzOCBaIiBpZD0iUGF0aC0xIiBmaWxsPSIjM2I4MmY2IiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+CiAgICA8L2c+Cjwvc3ZnPg==);
+}
+
+.spinner-leaf-before {
+  animation: rotateBefore 750ms infinite linear reverse;
+}
+
+.spinner-leaf-after {
+  animation: rotateAfter 750ms infinite linear;
+}
+
+@keyframes rotateBefore {
+  0% {
+    transform: rotateX(60deg) rotateY(45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(45deg) rotateZ(-360deg);
+  }
+}
+
+@keyframes rotateAfter {
+  0% {
+    transform: rotateX(240deg) rotateY(45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(240deg) rotateY(45deg) rotateZ(360deg);
+  }
+}
+
+/* ===== Snow Loader (PDF Viewer) ===== */
+.snow-loader {
+  position: relative;
+  width: 110px;
+  height: 30px;
+  background: #fff;
+  border-radius: 100px;
+}
+
+.snow-loader::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 40px 0 0 20px #fff;
+}
+
+.snow-loader .snow {
+  position: relative;
+  display: flex;
+  z-index: 1;
+}
+
+.snow-loader .snow span {
+  position: relative;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  margin: 0 2px;
+  border-radius: 50%;
+  animation: snowing 5s linear infinite;
+  animation-duration: calc(15s / var(--i));
+  transform-origin: bottom;
+}
+
+@keyframes snowing {
+  0% {
+    transform: translateY(0px);
+  }
+
+  70% {
+    transform: translateY(100px) scale(1);
+  }
+
+  100% {
+    transform: translateY(100px) scale(0);
+  }
+}
+
+/* ===== Instagram Animated Button ===== */
+.instagram-btn {
+  background: transparent;
+  position: relative;
+  padding: 5px 15px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #E1306C;
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: #E1306C;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+
+.instagram-btn span {
+  margin-left: 8px;
+}
+
+.instagram-btn::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: '';
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  left: -5em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+
+.instagram-btn:hover {
+  color: #fff;
+  border: 1px solid #E1306C;
+}
+
+.instagram-btn:hover::before {
+  box-shadow: inset 0 0 0 10em #E1306C;
+}
+
+.instagram-btn svg {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Uiverse.io Card Animation (by alexruix) for AwardsCard */
+.card {
+  width: 190px;
+  height: 254px;
+  border-radius: 20px;
+  background: #f5f5f5;
+  position: relative;
+  padding: 1.8rem;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;
+  overflow: visible;
+}
+.card-details {
+  color: black;
+  height: 100%;
+  gap: .5em;
+  display: grid;
+  place-content: center;
+}
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #008bf8;
+  color: #fff;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+}
+.text-body {
+  color: rgb(134, 134, 134);
+}
+.text-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.card:hover {
+  border-color: #008bf8;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+.card:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+
+/* ===== Contact Grid Animation (Uiverse.io by Praashoo7) ===== */
+.contact-grid-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.contact-grid-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.contact-card {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* For <a> tags */
+}
+
+/* Ensure Lucide icons inherit color correctly */
+.contact-card .contact-icon {
+  transition: .2s ease-in-out;
+  width: 30px;
+  height: 30px;
+}
+
+/* Card 1: Email (Top-Left) */
+.contact-card-1 {
+  border-radius: 90px 5px 5px 5px;
+}
+.contact-card-1 .contact-icon {
+  color: #cc39a4; /* Instagram-like pink for email/contact */
+}
+.contact-card-1:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #cc39a4;
+}
+.contact-card-1:hover .contact-icon {
+  color: white;
+}
+
+/* Card 2: LinkedIn (Top-Right) */
+.contact-card-2 {
+  border-radius: 5px 90px 5px 5px;
+}
+.contact-card-2 .contact-icon {
+  color: #0077b5; /* LinkedIn Blue */
+}
+.contact-card-2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #0077b5;
+}
+.contact-card-2:hover .contact-icon {
+  color: white;
+}
+
+/* Card 3: GitHub (Bottom-Left) */
+.contact-card-3 {
+  border-radius: 5px 5px 5px 90px;
+}
+.contact-card-3 .contact-icon {
+  color: #333; /* GitHub Black */
+}
+.contact-card-3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #333;
+}
+.contact-card-3:hover .contact-icon {
+  color: white;
+}
+
+/* Card 4: ORCID (Bottom-Right) */
+.contact-card-4 {
+  border-radius: 5px 5px 90px 5px;
+}
+.contact-card-4 .contact-icon {
+  color: #A6CE39; /* ORCID Green */
+}
+.contact-card-4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #A6CE39;
+}
+.contact-card-4:hover .contact-icon {
+  color: white;
+}
+
+
+
