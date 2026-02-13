@@ -532,9 +532,10 @@ export const recommendations: Array<{
       name: "Maximilian Kühn",
       title: "Supervisor",
       company: "Fraunhofer IOSB",
-      image: "", // Add profile image URL here
+      image: "/images/recommendations/maximilian.jpg",
       text: "Marawan demonstrated exemplary initiative and identified fully with his tasks and our institute, showing great dedication. Even under difficult working conditions and increased pressure, he reliably completed all tasks. He worked consistently fast, prudent, careful, and precise. Trustworthiness and great reliability always characterized his work style. He possesses solid technical knowledge, which he applied confidently and purposefully in practice. His quick comprehension enabled him to overview difficult situations and recognize what is essential. We were always very satisfied with his performance.",
       profileUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",
+      linkedin: "https://www.linkedin.com/in/maximilian-kühn-6668b6269",
     },
   ];
 
