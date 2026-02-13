@@ -1,26 +1,17 @@
 'use client';
 
 import ExpandingSocialButton from './ExpandingSocialButton';
-import toast from 'react-hot-toast';
 
 interface EmailButtonProps {
   email: string;
 }
 
 export default function EmailButton({ email }: EmailButtonProps) {
-  const handleClick = async () => {
-    // Copy email to clipboard
-    try {
-      await navigator.clipboard.writeText(email);
-      toast.success('Email copied to clipboard!');
-    } catch (err) {
-      toast.error('Failed to copy email');
-    }
-
-    // Open mailto link
-    const mailtoLink = document.createElement('a');
-    mailtoLink.href = `mailto:${email}`;
-    mailtoLink.click();
+  const handleClick = () => {
+    // Open default email client with mailto
+    const link = document.createElement('a');
+    link.href = `mailto:${email}`;
+    link.click();
   };
 
   const icon = (
