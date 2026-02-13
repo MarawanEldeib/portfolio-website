@@ -33,7 +33,7 @@ export default function EmailButton({ email }: EmailButtonProps) {
   return (
     <ExpandingSocialButton
       icon={icon}
-      label={email}
+      label={`mailto:${email}`}
       onClick={handleClick}
       ariaLabel={`Send email to ${email}`}
       variant="email"
