@@ -27,7 +27,7 @@ export default function YouTubeButton({ name, youtubeUrl }: YouTubeButtonProps) 
   return (
     <ExpandingSocialButton
       icon={icon}
-      label="YouTube"
+      label={name}
       onClick={handleClick}
       ariaLabel={`Visit ${name}'s YouTube channel`}
       variant="youtube"

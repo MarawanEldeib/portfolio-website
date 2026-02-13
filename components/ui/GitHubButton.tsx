@@ -27,7 +27,7 @@ export default function GitHubButton({ name, githubUrl }: GitHubButtonProps) {
   return (
     <ExpandingSocialButton
       icon={icon}
-      label="GitHub"
+      label={name}
       onClick={handleClick}
       ariaLabel={`Visit ${name}'s GitHub profile`}
       variant="github"

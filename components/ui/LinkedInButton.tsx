@@ -27,7 +27,7 @@ export default function LinkedInButton({ name, linkedInUrl }: LinkedInButtonProp
   return (
     <ExpandingSocialButton
       icon={icon}
-      label="LinkedIn"
+      label={name}
       onClick={handleClick}
       ariaLabel={`Connect with ${name} on LinkedIn`}
       variant="linkedin"
