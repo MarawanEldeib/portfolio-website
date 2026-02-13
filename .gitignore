@@ -42,3 +42,12 @@ next-env.d.ts
 
 # visitor tracking data
 /data
+
+# claude local settings
+.claude/settings.local.json
+
+# Windows device file (Git Bash artifact)
+nul
+
+# Git Bash crash dumps
+*.stackdump
