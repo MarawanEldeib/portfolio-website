@@ -167,7 +167,7 @@ function AwardsGrid({ awards, onViewCertificate }: AwardsGridProps) {
         <Award className="text-yellow-600 dark:text-yellow-400" aria-hidden="true" />
         <span>{t('awards')}</span>
       </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {awards.map((award) => (
           <AwardCard
             key={award.id}
@@ -313,7 +313,7 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="group relative w-full min-h-[320px] md:h-[280px] rounded-2xl bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700 p-6 md:p-8 pb-28 md:pb-8 transition-all duration-500 ease-out overflow-hidden hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-start md:justify-center text-center"
+      className="group relative w-full min-h-[280px] md:h-[280px] rounded-2xl bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700 p-6 md:p-8 pb-24 md:pb-8 transition-all duration-500 ease-out overflow-hidden hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-start md:justify-center text-center"
       aria-label={`${award.title} from ${award.issuer}`}
     >
       {/* Decorative Watermark */}
@@ -337,7 +337,7 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
       </div>
 
       {/* Buttons - Always visible on mobile, slide up on desktop hover */}
-      <div className="absolute left-0 right-0 bottom-0 p-4 md:p-6 translate-y-0 md:translate-y-full transition-transform duration-500 ease-out md:group-hover:translate-y-0 flex flex-col gap-2 z-20 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-zinc-900 dark:via-zinc-900/95 pt-4 md:pt-12">
+      <div className="absolute left-0 right-0 bottom-0 p-4 md:p-6 translate-y-0 md:translate-y-full transition-transform duration-500 ease-out md:group-hover:translate-y-0 flex flex-col gap-2 z-20 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-zinc-900 dark:via-zinc-900/95 pt-6 md:pt-12">
         {award.certificateUrl && (
           <button
             onClick={handleViewCertificate}
