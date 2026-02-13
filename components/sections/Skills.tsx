@@ -98,14 +98,13 @@ export default function Skills() {
                           url: "/certificates/English C1 Certificate.pdf",
                           title: "English C1 Certificate (2024)"
                         }) : null}
-                        className={`px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg font-medium shadow-md hover:bg-blue-700 dark:hover:bg-blue-600 hover:scale-110 transition-all duration-200 cursor-pointer flex items-center gap-2 ${isEnglish ? 'ring-2 ring-yellow-400 ring-offset-2 dark:ring-offset-zinc-900' : ''}`}
+                        className={`px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg font-medium shadow-md hover:bg-blue-700 dark:hover:bg-blue-600 hover:scale-110 transition-all duration-200 cursor-pointer flex items-center gap-2`}
                         title={isEnglish ? "Click to view certificate" : undefined}
                       >
                         {lang}
                         {isEnglish && (
-                          <span className="flex items-center gap-1 bg-yellow-400 text-blue-900 px-2 py-0.5 rounded text-xs font-bold">
-                            <FileText size={12} />
-                            PDF
+                          <span className="flex items-center justify-center bg-yellow-400 text-blue-900 p-1 rounded">
+                            <FileText size={14} />
                           </span>
                         )}
                       </span>
@@ -129,16 +128,15 @@ export default function Skills() {
                         }) : null}
                         className={`px-4 py-2 rounded-lg font-medium border-2 transition-all duration-200 cursor-pointer flex items-center gap-2
                           ${isGerman
-                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-900/50 hover:scale-105 hover:shadow-md ring-2 ring-yellow-400 ring-offset-2 dark:ring-offset-zinc-800'
+                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-900/50 hover:scale-105 hover:shadow-md'
                             : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-900/50 hover:scale-110'
                           }`}
                         title={isGerman ? "Click to view certificate" : undefined}
                       >
                         {lang}
                         {isGerman && (
-                          <span className="flex items-center gap-1 bg-yellow-400 text-blue-900 px-2 py-0.5 rounded text-xs font-bold">
-                            <FileText size={12} />
-                            PDF
+                          <span className="flex items-center justify-center bg-yellow-400 text-blue-900 p-1 rounded">
+                            <FileText size={14} />
                           </span>
                         )}
                       </span>
