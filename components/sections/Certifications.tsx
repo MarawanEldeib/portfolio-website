@@ -313,14 +313,14 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="group relative w-full h-[280px] rounded-2xl bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700 p-8 transition-all duration-500 ease-out overflow-hidden hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-center text-center"
+      className="group relative w-full min-h-[320px] md:h-[280px] rounded-2xl bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700 p-6 md:p-8 pb-28 md:pb-8 transition-all duration-500 ease-out overflow-hidden hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-start md:justify-center text-center"
       aria-label={`${award.title} from ${award.issuer}`}
     >
       {/* Decorative Watermark */}
-      <Award className="absolute -right-6 -bottom-6 w-40 h-40 text-zinc-100 dark:text-zinc-950 rotate-12 transition-transform duration-700 ease-out group-hover:rotate-0 group-hover:scale-110 opacity-60 dark:opacity-40" />
-      
-      <div className="relative z-10 flex flex-col items-center gap-3 h-full justify-center md:group-hover:-translate-y-4 transition-transform duration-500">
-        <h4 className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight">
+      <Award className="absolute -right-6 -bottom-6 w-32 h-32 md:w-40 md:h-40 text-zinc-100 dark:text-zinc-950 rotate-12 transition-transform duration-700 ease-out group-hover:rotate-0 group-hover:scale-110 opacity-60 dark:opacity-40" />
+
+      <div className="relative z-10 flex flex-col items-center gap-2 md:gap-3 h-full justify-start md:justify-center md:group-hover:-translate-y-4 transition-transform duration-500 pt-2">
+        <h4 className="text-lg md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight px-2">
           {award.title}
         </h4>
 
@@ -331,17 +331,17 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
           </time>
         </div>
 
-        <p className="text-zinc-600 dark:text-zinc-400 text-sm line-clamp-3 max-w-[90%]">
+        <p className="text-zinc-600 dark:text-zinc-400 text-xs md:text-sm line-clamp-2 md:line-clamp-3 px-4">
           {award.description}
         </p>
       </div>
 
       {/* Buttons - Always visible on mobile, slide up on desktop hover */}
-      <div className="absolute left-0 right-0 bottom-0 p-6 translate-y-0 md:translate-y-full transition-transform duration-500 ease-out md:group-hover:translate-y-0 flex flex-col gap-2 z-20 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-zinc-900 dark:via-zinc-900/95 pt-12">
+      <div className="absolute left-0 right-0 bottom-0 p-4 md:p-6 translate-y-0 md:translate-y-full transition-transform duration-500 ease-out md:group-hover:translate-y-0 flex flex-col gap-2 z-20 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-zinc-900 dark:via-zinc-900/95 pt-8 md:pt-12">
         {award.certificateUrl && (
           <button
             onClick={handleViewCertificate}
-            className="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors shadow-lg shadow-blue-500/20"
+            className="w-full py-2 md:py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors shadow-lg shadow-blue-500/20"
           >
             {t('viewCertificate')}
           </button>
@@ -349,7 +349,7 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
         {(award as any).projectUrl && (
           <button
             onClick={handleViewProject}
-            className="w-full py-2.5 px-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 font-medium text-sm transition-colors border border-zinc-200 dark:border-zinc-700"
+            className="w-full py-2 md:py-2.5 px-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 font-medium text-sm transition-colors border border-zinc-200 dark:border-zinc-700"
           >
             View Project
           </button>
