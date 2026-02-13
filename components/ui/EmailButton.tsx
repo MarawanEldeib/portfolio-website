@@ -36,9 +36,7 @@ export default function EmailButton({ email }: EmailButtonProps) {
       label={email}
       onClick={handleClick}
       ariaLabel={`Send email to ${email}`}
-      bgColor="bg-blue-600"
-      hoverBgColor="bg-blue-700"
-      expandedWidth="w-64"
+      variant="email"
     />
   );
 }

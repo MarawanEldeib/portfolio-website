@@ -30,8 +30,7 @@ export default function LinkedInButton({ name, linkedInUrl }: LinkedInButtonProp
       label="LinkedIn"
       onClick={handleClick}
       ariaLabel={`Connect with ${name} on LinkedIn`}
-      bgColor="bg-sky-700"
-      hoverBgColor="bg-sky-600"
+      variant="linkedin"
     />
   );
 }

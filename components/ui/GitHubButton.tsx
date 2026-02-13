@@ -30,8 +30,7 @@ export default function GitHubButton({ name, githubUrl }: GitHubButtonProps) {
       label="GitHub"
       onClick={handleClick}
       ariaLabel={`Visit ${name}'s GitHub profile`}
-      bgColor="bg-zinc-800"
-      hoverBgColor="bg-zinc-700"
+      variant="github"
     />
   );
 }

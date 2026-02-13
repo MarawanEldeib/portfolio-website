@@ -30,8 +30,7 @@ export default function YouTubeButton({ name, youtubeUrl }: YouTubeButtonProps) 
       label="YouTube"
       onClick={handleClick}
       ariaLabel={`Visit ${name}'s YouTube channel`}
-      bgColor="bg-red-600"
-      hoverBgColor="bg-red-700"
+      variant="youtube"
     />
   );
 }
