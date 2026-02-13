@@ -1,13 +1,23 @@
 'use client';
 
 import ExpandingSocialButton from './ExpandingSocialButton';
+import toast from 'react-hot-toast';
 
 interface EmailButtonProps {
   email: string;
 }
 
 export default function EmailButton({ email }: EmailButtonProps) {
-  const handleClick = () => {
+  const handleClick = async () => {
+    // Copy email to clipboard
+    try {
+      await navigator.clipboard.writeText(email);
+      toast.success('Email copied to clipboard!');
+    } catch (err) {
+      toast.error('Failed to copy email');
+    }
+
+    // Open mailto link
     const mailtoLink = document.createElement('a');
     mailtoLink.href = `mailto:${email}`;
     mailtoLink.click();
@@ -33,7 +43,7 @@ export default function EmailButton({ email }: EmailButtonProps) {
   return (
     <ExpandingSocialButton
       icon={icon}
-      label={`mailto:${email}`}
+      label={email}
       onClick={handleClick}
       ariaLabel={`Send email to ${email}`}
       variant="email"
