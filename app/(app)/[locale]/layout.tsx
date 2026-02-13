@@ -5,7 +5,7 @@ import { getMessages } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from 'react-hot-toast';
-import "../globals.css";
+import "../../globals.css";
 import ClientBackground from '@/components/ui/ClientBackground';
 import StructuredData from '@/components/seo/StructuredData';
 import LoadingIndicator from '@/components/ui/LoadingIndicator';
