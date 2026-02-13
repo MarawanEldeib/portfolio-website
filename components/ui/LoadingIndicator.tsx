@@ -1,22 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const subscribe = () => () => { };
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 export default function LoadingIndicator() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
+  const isMounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
-    // Mark as mounted
-    setIsMounted(true);
-
-    // Check if page is fully loaded
     const handleLoad = () => {
-      // Small delay to ensure everything is ready
       setTimeout(() => {
         setIsLoading(false);
-      }, 300); // Reduced from 500ms
+      }, 300);
     };
 
     if (typeof document !== 'undefined') {
@@ -34,7 +33,6 @@ export default function LoadingIndicator() {
     };
   }, []);
 
-  // Don't render anything during SSR to avoid hydration mismatch
   if (!isMounted) return null;
 
   return (
@@ -43,23 +41,34 @@ export default function LoadingIndicator() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }} // Reduced from 0.5s
+          transition={{ duration: 0.3 }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-zinc-950"
         >
-          {/* Simple Logo/Initials with optimized gradient */}
+          {/* 3D Spinner */}
+          <motion.div 
+            className="spinner-3d mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.15, ease: 'easeOut' }}
+          >
+            <div className="spinner-leaf spinner-leaf-before" />
+            <div className="spinner-leaf spinner-leaf-after" />
+          </motion.div>
+
+          {/* Logo text */}
           <motion.div
-            className="text-6xl md:text-7xl font-black mb-8"
+            className="text-4xl md:text-5xl font-black"
             animate={{
               backgroundImage: [
-                'linear-gradient(45deg, #3b82f6, #8b5cf6)',
-                'linear-gradient(45deg, #8b5cf6, #ec4899)',
-                'linear-gradient(45deg, #ec4899, #f59e0b)',
-                'linear-gradient(45deg, #f59e0b, #10b981)',
-                'linear-gradient(45deg, #10b981, #3b82f6)',
+                'linear-gradient(45deg, #3b82f6, #0ea5e9)',
+                'linear-gradient(45deg, #0ea5e9, #38bdf8)',
+                'linear-gradient(45deg, #38bdf8, #1d4ed8)',
+                'linear-gradient(45deg, #1d4ed8, #2563eb)',
+                'linear-gradient(45deg, #2563eb, #3b82f6)',
               ],
             }}
             transition={{
-              duration: 2, // Reduced from 3s
+              duration: 2,
               repeat: Infinity,
               ease: 'linear',
             }}
@@ -72,38 +81,6 @@ export default function LoadingIndicator() {
           >
             ME
           </motion.div>
-
-          {/* Animated loading bar */}
-          <div className="relative w-48 h-2 bg-zinc-800 rounded-full overflow-hidden">
-            <motion.div
-              className="absolute inset-0 rounded-full"
-              animate={{
-                backgroundImage: [
-                  'linear-gradient(90deg, #3b82f6, #8b5cf6)',
-                  'linear-gradient(90deg, #8b5cf6, #ec4899)',
-                  'linear-gradient(90deg, #ec4899, #f59e0b)',
-                  'linear-gradient(90deg, #f59e0b, #10b981)',
-                  'linear-gradient(90deg, #10b981, #3b82f6)',
-                ],
-                x: ['-100%', '100%'],
-              }}
-              transition={{
-                x: {
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                },
-                backgroundImage: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'linear',
-                },
-              }}
-              style={{
-                width: '50%',
-              }}
-            />
-          </div>
         </motion.div>
       )}
     </AnimatePresence>
