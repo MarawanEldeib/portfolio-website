@@ -91,7 +91,11 @@
     "cloudDevOps": "Cloud & DevOps",
     "tools": "Entwicklungstools",
     "cybersecurity": "Cybersicherheit & Penetrationstests",
-    "systems": "Betriebssysteme"
+    "systems": "Betriebssysteme",
+    "spokenLanguages": "Sprachen",
+    "fluent": "Fließend",
+    "intermediate": "Mittelstufe",
+    "beginner": "Anfänger"
   },
   "certifications": {
     "title": "Zertifikate & Auszeichnungen",

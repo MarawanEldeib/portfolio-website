@@ -21,9 +21,9 @@ export function initPassiveEventsPolyfill() {
         return true;
       },
     });
-    window.addEventListener('test' as any, null as any, opts);
-    window.removeEventListener('test' as any, null as any, opts);
-  } catch (e) {
+    window.addEventListener('test' as keyof WindowEventMap, null as unknown as EventListener, opts);
+    window.removeEventListener('test' as keyof WindowEventMap, null as unknown as EventListener, opts);
+  } catch {
     // Passive not supported
   }
 

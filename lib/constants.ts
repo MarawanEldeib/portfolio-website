@@ -25,7 +25,7 @@ export const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-50px' },
-  transition: { 
+  transition: {
     duration: ANIMATION_DURATIONS.FAST,
   },
 };
@@ -34,7 +34,7 @@ export const fadeIn = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
   viewport: { once: true },
-  transition: { 
+  transition: {
     duration: ANIMATION_DURATIONS.FAST,
   },
 };
@@ -59,7 +59,7 @@ import {
   FaBrain, FaRobot, FaChalkboardTeacher, FaMicrophone, FaUsers,
   FaHandshake, FaUserTie, FaCalendarAlt, FaLightbulb, FaAward,
   FaShoppingCart, FaHeadset, FaCode, FaShieldAlt, FaTerminal,
-  FaNetworkWired, FaTools, FaJava, FaWindows
+  FaNetworkWired, FaJava, FaWindows
 } from 'react-icons/fa';
 import { MdAgriculture } from 'react-icons/md';
 

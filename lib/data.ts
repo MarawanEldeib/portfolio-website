@@ -3,11 +3,13 @@ import type { Project } from './types';
 
 export const personalInfo = {
   name: "Marawan Eldeib",
-  title: "Software Engineering Student & Developer",
+  title: "M.Sc. Software Engineering Student",
   email: "marawandeep13@gmail.com",
   phone: "+49 178 2374198",
   linkedin: "https://www.linkedin.com/in/marawan-el-deib/",
   github: "https://github.com/MarawanEldeib",
+  youtube: "https://www.youtube.com/@marawaneldeib",
+  instagram: "https://www.instagram.com/marawan.eldeib/",
   orcid: "https://orcid.org/0009-0008-5285-424X",
   location: "Baden-Württemberg, Germany | Kuwait",
   image: "/images/Marawan.jpeg",
@@ -523,7 +525,6 @@ export const recommendations: Array<{
       image: "/images/recommendations/haris.jpg", // Add profile image URL here
       text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
       linkedin: "https://www.linkedin.com/in/harislye/",
-      profileUrl: "https://mmuexpert.mmu.edu.my/harislye",
       email: "haris.lye@mmu.edu.my",
     },
   ];

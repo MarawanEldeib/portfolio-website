@@ -13,7 +13,7 @@
  * ```
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 
 /**
  * Base modal state interface
@@ -42,12 +42,12 @@ export interface ModalHookReturn<T extends BaseModalState> {
 export function useModal<T extends BaseModalState>(
   initialState?: Partial<T>
 ): ModalHookReturn<T> {
-  const defaultState: BaseModalState = {
+  const defaultState = useMemo<BaseModalState>(() => ({
     isOpen: false,
     url: '',
     title: '',
     ...initialState,
-  };
+  }), [initialState]);
 
   const [state, setState] = useState<T>(defaultState as T);
 
@@ -90,6 +90,6 @@ export function useModal<T extends BaseModalState>(
 /**
  * Specific modal state types for type safety
  */
-export interface PDFModalState extends BaseModalState {}
+export type PDFModalState = BaseModalState;
 
-export interface VideoModalState extends BaseModalState {}
+export type VideoModalState = BaseModalState;

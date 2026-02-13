@@ -43,6 +43,7 @@ export interface Certification {
   issuer: string;
   date: string;
   credentialUrl?: string;
+  pdfUrl?: string;
   image?: string;
 }
 
@@ -53,6 +54,7 @@ export interface Award {
   date: string;
   description: string;
   certificateUrl?: string;
+  projectUrl?: string;
   image?: string;
 }
 

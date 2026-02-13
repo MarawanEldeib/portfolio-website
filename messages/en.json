@@ -19,7 +19,8 @@
     "cta": {
       "contact": "Contact Me",
       "viewCV": "View CV",
-      "downloadCV": "Download CV"
+      "downloadCV": "Download CV",
+      "openCV": "Open"
     }
   },
   "about": {
@@ -91,7 +92,11 @@
     "cloudDevOps": "Cloud & DevOps",
     "tools": "Development Tools",
     "cybersecurity": "Cybersecurity & Penetration Testing",
-    "systems": "Operating Systems"
+    "systems": "Operating Systems",
+    "spokenLanguages": "Languages",
+    "fluent": "Fluent",
+    "intermediate": "Intermediate",
+    "beginner": "Beginner"
   },
   "certifications": {
     "title": "Certifications & Awards",
