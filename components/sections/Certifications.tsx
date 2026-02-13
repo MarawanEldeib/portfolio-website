@@ -337,7 +337,7 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
       </div>
 
       {/* Buttons - Always visible on mobile, slide up on desktop hover */}
-      <div className="absolute left-0 right-0 bottom-0 p-4 md:p-6 translate-y-0 md:translate-y-full transition-transform duration-500 ease-out md:group-hover:translate-y-0 flex flex-col gap-2 z-20 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-zinc-900 dark:via-zinc-900/95 pt-8 md:pt-12">
+      <div className="absolute left-0 right-0 bottom-0 p-4 md:p-6 translate-y-0 md:translate-y-full transition-transform duration-500 ease-out md:group-hover:translate-y-0 flex flex-col gap-2 z-20 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-zinc-900 dark:via-zinc-900/95 pt-4 md:pt-12">
         {award.certificateUrl && (
           <button
             onClick={handleViewCertificate}
