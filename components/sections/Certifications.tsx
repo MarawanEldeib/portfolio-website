@@ -259,7 +259,7 @@ function CertificationCard({ certification, onViewCertificate }: CertificationCa
               fullWidth
               ariaLabel={`Download certificate for ${certification.title}`}
             >
-              Download PDF
+              {t('viewCertificate')}
             </ActionButton>
           </div>
         ) : hasCredentialUrl ? (
@@ -313,61 +313,47 @@ function AwardCard({ award, onViewCertificate }: AwardCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer h-full flex flex-col"
+      className="group relative w-full h-[280px] rounded-2xl bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700 p-8 transition-all duration-500 ease-out overflow-hidden hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-center text-center"
       aria-label={`${award.title} from ${award.issuer}`}
     >
-      {award.image ? (
-        <div className="relative h-40 bg-zinc-200 dark:bg-zinc-700">
-          <Image
-            src={award.image}
-            alt={`${award.title} logo`}
-            fill
-            className="object-contain p-4"
-          />
+      {/* Decorative Watermark */}
+      <Award className="absolute -right-6 -bottom-6 w-40 h-40 text-zinc-100 dark:text-zinc-950 rotate-12 transition-transform duration-700 ease-out group-hover:rotate-0 group-hover:scale-110 opacity-60 dark:opacity-40" />
+      
+      <div className="relative z-10 flex flex-col items-center gap-3 h-full justify-center md:group-hover:-translate-y-4 transition-transform duration-500">
+        <h4 className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight">
+          {award.title}
+        </h4>
+
+        <div className="flex flex-col items-center text-sm">
+          <span className="font-semibold text-blue-600 dark:text-blue-400">{award.issuer}</span>
+          <time className="text-zinc-500 dark:text-zinc-500 font-medium" dateTime={award.date}>
+            {formatMonthYear(award.date)}
+          </time>
         </div>
-      ) : (
-        <div className="relative h-40 bg-gradient-to-br from-yellow-500 to-orange-600 dark:from-yellow-600 dark:to-orange-700 flex items-center justify-center">
-          <Award className="text-white opacity-30" size={48} aria-hidden="true" />
-        </div>
-      )}
-      <div className="p-6 flex flex-col flex-grow">
-        <h4 className="text-lg font-semibold mb-2">{award.title}</h4>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-1">
-          {award.issuer}
-        </p>
-        <time
-          className="text-sm text-zinc-500 dark:text-zinc-500 mb-3 block"
-          dateTime={award.date}
-        >
-          {formatMonthYear(award.date)}
-        </time>
-        <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-4 leading-relaxed flex-grow">
+
+        <p className="text-zinc-600 dark:text-zinc-400 text-sm line-clamp-3 max-w-[90%]">
           {award.description}
         </p>
-        <div className="flex flex-wrap gap-2 mt-auto">
-          {award.certificateUrl && (
-            <ActionButton
-              onClick={handleViewCertificate}
-              icon={FileText}
-              variant="warning"
-              fullWidth
-              ariaLabel={`View certificate for ${award.title}`}
-            >
-              {t('viewCertificate')}
-            </ActionButton>
-          )}
-          {(award as any).projectUrl && (
-            <ActionButton
-              onClick={handleViewProject}
-              icon={FileText}
-              variant="primary"
-              fullWidth
-              ariaLabel={`View project report for ${award.title}`}
-            >
-              View Project
-            </ActionButton>
-          )}
-        </div>
+      </div>
+
+      {/* Buttons - Always visible on mobile, slide up on desktop hover */}
+      <div className="absolute left-0 right-0 bottom-0 p-6 translate-y-0 md:translate-y-full transition-transform duration-500 ease-out md:group-hover:translate-y-0 flex flex-col gap-2 z-20 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-zinc-900 dark:via-zinc-900/95 pt-12">
+        {award.certificateUrl && (
+          <button
+            onClick={handleViewCertificate}
+            className="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors shadow-lg shadow-blue-500/20"
+          >
+            {t('viewCertificate')}
+          </button>
+        )}
+        {(award as any).projectUrl && (
+          <button
+            onClick={handleViewProject}
+            className="w-full py-2.5 px-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 font-medium text-sm transition-colors border border-zinc-200 dark:border-zinc-700"
+          >
+            View Project
+          </button>
+        )}
       </div>
     </motion.article>
   );

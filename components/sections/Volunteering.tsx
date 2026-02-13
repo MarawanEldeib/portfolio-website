@@ -7,6 +7,10 @@ import { getVolunteering } from '@/lib/data-localized';
 import { TECH_ICONS, fadeInUp } from '@/lib/constants';
 import Image from 'next/image';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
+import InstagramButton from '@/components/ui/InstagramButton';
+import GoogleDriveButton from '@/components/ui/GoogleDriveButton';
+import GoogleDriveIcon from '@/components/ui/GoogleDriveIcon';
+import { personalInfo } from '@/lib/data';
 
 export default function Volunteering() {
   const t = useTranslations('volunteering');
@@ -49,7 +53,7 @@ export default function Volunteering() {
               <div className="flex flex-col md:flex-row gap-6">
                 {/* Organization Logo */}
                 {volunteer.organizationLogo && (
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 flex flex-row md:flex-col gap-3">
                     <div className="w-24 h-24 relative rounded-lg overflow-hidden bg-white dark:bg-white border-2 border-zinc-200 dark:border-zinc-600">
                       <Image
                         src={volunteer.organizationLogo}
@@ -60,7 +64,7 @@ export default function Volunteering() {
                     </div>
                     {/* IEEE PES Badge - Only for IEEE entry */}
                     {volunteer.organization.includes("IEEE") && (
-                      <div className="mt-2 w-24 h-24 relative rounded-lg overflow-hidden bg-white dark:bg-white border border-zinc-200 dark:border-zinc-600">
+                      <div className="w-24 h-24 relative rounded-lg overflow-hidden bg-white dark:bg-white border border-zinc-200 dark:border-zinc-600">
                         <Image
                           src="/images/logos/ieee_pes_mmu.jpg"
                           alt="IEEE PES Chapter"
@@ -76,19 +80,8 @@ export default function Volunteering() {
                   {/* Header */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
-                      <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
+                      <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">
                         {volunteer.role}
-                        {volunteer.websiteUrl && (
-                          <a
-                            href={volunteer.websiteUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-                            aria-label={`Visit ${volunteer.organization} website`}
-                          >
-                            <ExternalLink size={18} />
-                          </a>
-                        )}
                       </h3>
                       <p className="text-lg text-purple-600 dark:text-purple-400 font-medium">
                         {volunteer.organization}
@@ -137,6 +130,27 @@ export default function Volunteering() {
                     </div>
                   )}
                 </div>
+
+                {/* Right Side Icons */}
+                {volunteer.websiteUrl && (
+                  <div className="flex-shrink-0 flex items-start justify-end">
+                    {volunteer.organization === "Skippy Snacks" ? (
+                      <InstagramButton href={volunteer.websiteUrl} />
+                    ) : volunteer.websiteUrl.includes('drive.google.com') ? (
+                      <GoogleDriveButton href={volunteer.websiteUrl} />
+                    ) : (
+                      <a
+                        href={volunteer.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                        aria-label={`Visit ${volunteer.organization} website`}
+                      >
+                        <ExternalLink size={24} />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
