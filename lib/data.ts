@@ -33,7 +33,7 @@ export const languages = {
   native: ["Arabic"],
   proficient: ["English"],
   intermediate: ["German (B1)"],
-  beginner: ["Malay", "Turkish"],
+  beginner: ["Turkish"],
 };
 
 const projectsData: Project[] = [
