@@ -1,3 +1,4 @@
+
 import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
 
@@ -6,11 +7,11 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts');
 const nextConfig: NextConfig = {
   /* Performance Optimizations */
   reactCompiler: true,
-  
+
   /* Security Headers */
   async headers() {
     const isDev = process.env.NODE_ENV === 'development';
-    
+
     return [
       {
         source: '/:path*',
@@ -119,7 +120,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  
+
   /* Image Optimization */
   images: {
     remotePatterns: [
@@ -136,18 +137,18 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: false,
   },
-  
+
   /* Compression */
   compress: true,
-  
+
   /* Production optimizations */
   productionBrowserSourceMaps: false,
-  
+
   /* Performance: Remove console logs in production */
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  
+
   /* Experimental features for performance */
   experimental: {
     optimizePackageImports: [
@@ -202,13 +203,13 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
-  
+
   /* Performance: Optimize font loading */
   poweredByHeader: false,
-  
+
   /* Better caching */
   onDemandEntries: {
     maxInactiveAge: 60 * 1000,
     pagesBufferLength: 5,
   },
-};export default withNextIntl(nextConfig);
+}; export default withNextIntl(nextConfig);
