@@ -285,16 +285,16 @@ const timelineData: Array<{
     {
       id: "1",
       type: "work",
-      title: "Software Engineer (Working Student)",
+      title: "Research Assistant (Working Student)",
       organization: "Fraunhofer IOSB",
       organizationLogo: "/images/logos/Logo_fraunhofer_IOSB.webp",
       location: "Karlsruhe, Germany (Hybrid)",
       startDate: "2025-04",
       endDate: "2025-12",
-      description: "• Developed Java testing framework using Spring Boot to evaluate 6 LLM models for Digital Product Passport digital twins\n• Created 30+ ground truth datasets (CSV/JSON) for model performance analysis",
-      skills: ["Java", "Spring Boot", "Testing", "LLM", "AI Evaluation", "Digital Twins", "CSV", "JSON"],
+      description: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",
+      skills: ["Java", "Spring Boot", "Testing", "LLM", "AI Evaluation", "Digital Twins", "AAS", "End-to-End Testing"],
       achievements: [],
-      certificateUrl: "",
+      certificateUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",
     },
     {
       id: "2",
@@ -526,6 +526,15 @@ export const recommendations: Array<{
       text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
       linkedin: "https://www.linkedin.com/in/harislye/",
       email: "haris.lye@mmu.edu.my",
+    },
+    {
+      id: "3",
+      name: "Maximilian Kühn",
+      title: "Supervisor",
+      company: "Fraunhofer IOSB",
+      image: "", // Add profile image URL here
+      text: "Marawan demonstrated exemplary initiative and identified fully with his tasks and our institute, showing great dedication. Even under difficult working conditions and increased pressure, he reliably completed all tasks. He worked consistently fast, prudent, careful, and precise. Trustworthiness and great reliability always characterized his work style. He possesses solid technical knowledge, which he applied confidently and purposefully in practice. His quick comprehension enabled him to overview difficult situations and recognize what is essential. We were always very satisfied with his performance.",
+      profileUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",
     },
   ];
 

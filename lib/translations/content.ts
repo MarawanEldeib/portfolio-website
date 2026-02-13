@@ -336,12 +336,12 @@ export const contentTranslations = {
   timeline: {
     "1": {
       title: {
-        en: "Software Engineer (Working Student)",
-        de: "Software Engineer (Werkstudent)"
+        en: "Research Assistant (Working Student)",
+        de: "Wissenschaftliche Hilfskraft (Werkstudent)"
       },
       description: {
-        en: "• Developed Java testing framework using Spring Boot to evaluate 6 LLM models for Digital Product Passport digital twins\n• Created 30+ ground truth datasets (CSV/JSON) for model performance analysis",
-        de: "• Entwickelte Java-Testing-Framework mit Spring Boot zur Evaluierung von 6 LLM-Modellen für Digital Product Passport Digital Twins\n• Erstellte über 30 Ground-Truth-Datensätze (CSV/JSON) für Modell-Leistungsanalyse"
+        en: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",
+        de: "• Entwickelte Java- und Spring Boot-Backend für LLM-basierte Datenextraktion zur Evaluierung von 6 Modellen in Asset Administration Shell (AAS) Digital-Twin-Anwendungen\n• Implementierte automatisierte End-to-End-Tests und erstellte über 30 Testdatensätze für Modellevaluierung"
       }
     },
     "2": {
@@ -558,6 +558,12 @@ export const contentTranslations = {
       text: {
         en: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
         de: "Marawan gehört zu den fleißigsten, unabhängigsten und proaktivsten Studenten, denen ich begegnet bin. Während seines Abschlussprojekts zur Mangoerkennung mittels Objekterkennungsmethoden unter meiner Betreuung erwies er sich als intelligent, wissbegierig und gewissenhaft und erhielt die Note A (ausgezeichnet). Seine Zusammenarbeitsfähigkeiten sind beeindruckend, und er zeigte konsequent Initiative zur Verbesserung seiner akademischen Arbeit. Über das Akademische hinaus zeigte seine aktive Teilnahme als Facilitator für den KI & Machine Learning Workshop im Smart Farming Program seine klare Kommunikation und Networking-Fähigkeiten, wofür er positives Feedback von über 20 internationalen Teilnehmern erhielt."
+      }
+    },
+    "3": {
+      text: {
+        en: "Marawan demonstrated exemplary initiative and identified fully with his tasks and our institute, showing great dedication. Even under difficult working conditions and increased pressure, he reliably completed all tasks. He worked consistently fast, prudent, careful, and precise. Trustworthiness and great reliability always characterized his work style. He possesses solid technical knowledge, which he applied confidently and purposefully in practice. His quick comprehension enabled him to overview difficult situations and recognize what is essential. We were always very satisfied with his performance.",
+        de: "Herr Eldeib zeigte jederzeit vorbildliche Eigeninitiative und identifizierte sich immer voll mit seinen Aufgaben und unserem Institut, wobei er auch durch große Einsatzfreude überzeugte. Auch unter schwierigen Arbeitsbedingungen und erhöhter Belastung bewältigte er alle Aufgaben stets zuverlässig. Er arbeitete durchweg zügig, umsichtig, sorgfältig und genau. Vertrauenswürdigkeit und große Zuverlässigkeit zeichneten stets den Arbeitsstil von Herrn Eldeib aus. Er besitzt solide Fachkenntnisse, die er jederzeit sicher und zielgerichtet in der Praxis einsetzte. Seine schnelle Auffassungsgabe ermöglichte es ihm, auch schwierige Situationen zu überblicken und dabei stets das Wesentliche zu erkennen. Wir waren mit den Leistungen von Herrn Eldeib stets sehr zufrieden."
       }
     }
   }
