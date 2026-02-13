@@ -1,5 +1,5 @@
 import React from 'react';
-import './GoogleDriveButton.css';
+import './SocialFillButton.css';
 import GoogleDriveIcon from './GoogleDriveIcon';
 
 interface GoogleDriveButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -17,7 +17,7 @@ export default function GoogleDriveButton({ href, ...props }: GoogleDriveButtonP
   if (href) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className="google-drive-btn-link" style={{ textDecoration: 'none' }}>
-        <button className="google-drive-btn" {...props}>
+        <button className="social-fill-btn google-drive" {...props}>
           {ButtonContent}
         </button>
       </a>
@@ -25,7 +25,7 @@ export default function GoogleDriveButton({ href, ...props }: GoogleDriveButtonP
   }
 
   return (
-    <button className="google-drive-btn" {...props}>
+    <button className="social-fill-btn google-drive" {...props}>
       {ButtonContent}
     </button>
   );

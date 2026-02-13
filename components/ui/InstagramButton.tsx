@@ -1,5 +1,5 @@
 import React from 'react';
-import './InstagramButton.css';
+import './SocialFillButton.css';
 
 interface InstagramButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
@@ -25,7 +25,7 @@ export default function InstagramButton({ href, ...props }: InstagramButtonProps
   if (href) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className="instagram-btn-link" style={{ textDecoration: 'none' }}>
-        <button className="instagram-btn" {...props}>
+        <button className="social-fill-btn instagram" {...props}>
           {ButtonContent}
         </button>
       </a>
@@ -33,7 +33,7 @@ export default function InstagramButton({ href, ...props }: InstagramButtonProps
   }
 
   return (
-    <button className="instagram-btn" {...props}>
+    <button className="social-fill-btn instagram" {...props}>
       {ButtonContent}
     </button>
   );
