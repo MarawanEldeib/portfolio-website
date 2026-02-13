@@ -1,10 +1,13 @@
 'use client';
 
 import { useTranslations, useLocale } from 'next-intl';
-import { Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import { getPersonalInfo } from '@/lib/data-localized';
 import DownloadButton from '@/components/ui/DownloadButton';
+import LinkedInButton from '@/components/ui/LinkedInButton';
+import YouTubeButton from '@/components/ui/YouTubeButton';
+import GitHubButton from '@/components/ui/GitHubButton';
+import EmailButton from '@/components/ui/EmailButton';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -22,32 +25,22 @@ export default function Footer() {
             <p className="text-sm text-zinc-600 dark:text-zinc-400">{localizedPersonalInfo.title}</p>
           </div>
 
-          <div className="flex gap-4">
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label="Email"
-            >
-              <Mail size={20} />
-            </a>
+          <div className="flex gap-4 items-center">
+            <GitHubButton
+              name="MarawanEldeib"
+              githubUrl={personalInfo.github}
+            />
+            <LinkedInButton
+              name="marawaneldeib"
+              linkedInUrl={personalInfo.linkedin}
+            />
+            <YouTubeButton
+              name="@marawaneldeib"
+              youtubeUrl={personalInfo.youtube}
+            />
+            <EmailButton
+              email={personalInfo.email}
+            />
           </div>
 
           <div className="flex gap-4">

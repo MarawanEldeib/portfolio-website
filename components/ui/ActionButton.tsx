@@ -1,49 +1,31 @@
-/**
- * Reusable Action Button Component
- * Provides consistent button styling with color variants and optional icons
- * Used across multiple sections for actions like viewing certificates, reports, etc.
- *
- * @component
- * @example
- * ```tsx
- * <ActionButton
- *   onClick={() => handleClick()}
- *   icon={FileText}
- *   variant="primary"
- *   ariaLabel="View certificate"
- * >
- *   View Certificate
- * </ActionButton>
- * ```
- */
-
 import { LucideIcon } from 'lucide-react';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 
 interface ActionButtonProps {
-    /** Click handler function */
     onClick: (e: React.MouseEvent) => void;
-    /** Optional Lucide icon component */
     icon?: LucideIcon;
-    /** Button label text */
     children: React.ReactNode;
-    /** Color variant of the button */
     variant?: ButtonVariant;
-    /** Whether button should take full width */
     fullWidth?: boolean;
-    /** Accessible label for screen readers */
     ariaLabel?: string;
-    /** Additional CSS classes */
     className?: string;
 }
 
-const variantStyles: Record<ButtonVariant, string> = {
-    primary: 'bg-blue-600 dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-800',
-    secondary: 'bg-zinc-600 dark:bg-zinc-700 hover:bg-zinc-700 dark:hover:bg-zinc-800',
-    success: 'bg-green-600 dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-800',
-    warning: 'bg-yellow-600 dark:bg-yellow-700 hover:bg-yellow-700 dark:hover:bg-yellow-800',
-    danger: 'bg-red-600 dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-800',
+const edgeColors: Record<ButtonVariant, string> = {
+    primary: 'hsl(221deg 83% 40%)',
+    secondary: 'hsl(240deg 4% 36%)',
+    success: 'hsl(142deg 71% 30%)',
+    warning: 'hsl(32deg 95% 34%)',
+    danger: 'hsl(340deg 100% 32%)',
+};
+
+const frontColors: Record<ButtonVariant, string> = {
+    primary: 'hsl(221deg 83% 53%)',
+    secondary: 'hsl(240deg 4% 46%)',
+    success: 'hsl(142deg 71% 45%)',
+    warning: 'hsl(32deg 95% 44%)',
+    danger: 'hsl(345deg 100% 47%)',
 };
 
 export default function ActionButton({
@@ -58,12 +40,32 @@ export default function ActionButton({
     return (
         <button
             onClick={onClick}
-            className={`inline-flex items-center gap-2 px-4 py-2 text-white rounded-lg transition-colors text-sm font-medium ${variantStyles[variant]
-                } ${fullWidth ? 'w-full justify-center' : ''} ${className}`}
+            className={`relative border-none bg-transparent p-0 cursor-pointer outline-offset-4 select-none group/btn ${fullWidth ? 'w-full' : ''} ${className}`}
             aria-label={ariaLabel}
+            style={{ filter: 'brightness(1)', transition: 'filter 250ms' }}
+            onMouseEnter={(e) => { e.currentTarget.style.filter = 'brightness(110%)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.filter = 'brightness(100%)'; }}
         >
-            {Icon && <Icon size={16} aria-hidden="true" />}
-            {children}
+            {/* Shadow */}
+            <span
+                className="absolute top-0 left-0 w-full h-full rounded-xl will-change-transform translate-y-[2px] transition-transform duration-[600ms] group-hover/btn:translate-y-[4px] group-active/btn:translate-y-[1px]"
+                style={{ background: 'hsl(0deg 0% 0% / 0.25)', transitionTimingFunction: 'cubic-bezier(.3,.7,.4,1)' }}
+            />
+            {/* Edge */}
+            <span
+                className="absolute top-0 left-0 w-full h-full rounded-xl"
+                style={{ background: `linear-gradient(to left, ${edgeColors[variant]} 0%, ${frontColors[variant]} 8%, ${frontColors[variant]} 92%, ${edgeColors[variant]} 100%)` }}
+            />
+            {/* Front face */}
+            <span
+                className={`relative block rounded-xl text-white text-sm font-medium px-5 py-2 will-change-transform -translate-y-[4px] transition-transform duration-[600ms] group-hover/btn:-translate-y-[6px] group-active/btn:-translate-y-[2px] ${fullWidth ? 'w-full text-center' : ''}`}
+                style={{ background: frontColors[variant], transitionTimingFunction: 'cubic-bezier(.3,.7,.4,1)' }}
+            >
+                <span className="inline-flex items-center gap-2">
+                    {Icon && <Icon size={16} aria-hidden="true" />}
+                    {children}
+                </span>
+            </span>
         </button>
     );
 }

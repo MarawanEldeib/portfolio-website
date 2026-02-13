@@ -9,8 +9,9 @@
 'use client';
 
 import { X, ExternalLink } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import JumpingCubeLoader from './JumpingCubeLoader';
 
 interface VideoPreviewModalProps {
     /** Controls modal visibility */
@@ -24,6 +25,15 @@ interface VideoPreviewModalProps {
 }
 
 export default function VideoPreviewModal({ isOpen, onClose, videoUrl, title }: VideoPreviewModalProps) {
+    const [isLoading, setIsLoading] = useState(true);
+    const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+
+    // Reset loading state when modal opens/closes (state-in-render pattern)
+    if (prevIsOpen !== isOpen) {
+        setPrevIsOpen(isOpen);
+        setIsLoading(true);
+    }
+
     // Handle keyboard events and body scroll lock
     useEffect(() => {
         if (!isOpen) return;
@@ -119,6 +129,15 @@ export default function VideoPreviewModal({ isOpen, onClose, videoUrl, title }: 
 
                 {/* Video Container - Using padding-top technique for 16:9 ratio */}
                 <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+                    {/* Jumping Cube Loader inside video viewer - event-based loading */}
+                    {isLoading && embedUrl && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
+                            <div className="flex flex-col items-center gap-4">
+                                <JumpingCubeLoader isOpen={true} fullscreen={false} />
+                                <p className="text-zinc-400 text-sm mt-4">Loading video...</p>
+                            </div>
+                        </div>
+                    )}
                     {embedUrl ? (
                         <iframe
                             src={embedUrl}
@@ -128,6 +147,7 @@ export default function VideoPreviewModal({ isOpen, onClose, videoUrl, title }: 
                             title={title}
                             style={{ border: 'none' }}
                             loading="lazy"
+                            onLoad={() => setIsLoading(false)}
                         />
                     ) : (
                         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-zinc-500 bg-black">

@@ -44,9 +44,9 @@ const variantStyles: Record<TimelineVariant, { border: string; dot: string; icon
         icon: 'text-green-600 dark:text-green-400',
     },
     volunteering: {
-        border: 'border-purple-300 dark:border-purple-700',
-        dot: 'bg-white dark:bg-zinc-800 border-2 border-purple-500 dark:border-purple-600',
-        icon: 'text-purple-600 dark:text-purple-400',
+        border: 'border-sky-300 dark:border-sky-700',
+        dot: 'bg-white dark:bg-zinc-800 border-2 border-sky-500 dark:border-sky-500',
+        icon: 'text-sky-600 dark:text-sky-400',
     },
 };
 

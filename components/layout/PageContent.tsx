@@ -7,6 +7,7 @@ import Skills from '@/components/sections/Skills';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import BackToTop from '@/components/ui/BackToTop';
 
 // Lazy load below-the-fold components for better performance
 const Projects = dynamic(() => import('@/components/sections/Projects'), {
@@ -68,6 +69,7 @@ export default function PageContent() {
         </Suspense>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

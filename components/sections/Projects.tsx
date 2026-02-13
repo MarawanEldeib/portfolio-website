@@ -21,6 +21,10 @@ const VideoPreviewModal = dynamic(() => import('@/components/ui/VideoPreviewModa
   ssr: false,
 });
 
+const RippleLoader = dynamic(() => import('@/components/ui/RippleLoader'), {
+  ssr: false,
+});
+
 export default function Projects() {
   const t = useTranslations('projects');
   const locale = useLocale() as 'en' | 'de';
@@ -37,6 +41,10 @@ export default function Projects() {
     url: '',
     title: ''
   });
+  const [githubLoader, setGithubLoader] = useState<{ isOpen: boolean; url: string }>({
+    isOpen: false,
+    url: ''
+  });
 
   const filteredProjects = projects
     .filter((project) => filter === 'all' || project.status === filter)
@@ -44,6 +52,23 @@ export default function Projects() {
       // Sort by date descending (most recent first)
       return b.startDate.localeCompare(a.startDate);
     });
+
+  const handleGithubClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    e.preventDefault();
+    setGithubLoader({ isOpen: true, url });
+  };
+
+  const handleGithubLoaderComplete = () => {
+    if (githubLoader.url) {
+      window.open(githubLoader.url, '_blank', 'noopener,noreferrer');
+    }
+    setGithubLoader({ isOpen: false, url: '' });
+  };
+
+  const handlePdfClick = (url: string, title: string) => {
+    // Directly open PDF preview modal - loading animation is now integrated inside the modal
+    setPdfPreview({ isOpen: true, url, title });
+  };
 
   return (
     <section id="projects" className="py-20 px-4 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950">
@@ -74,7 +99,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.03] hover:border-2 hover:border-purple-500 dark:hover:border-purple-600 transition-all duration-300 cursor-pointer"
+                className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.03] hover:border-2 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer"
               >
                 <div className="p-6">
                   <div className="flex justify-end mb-2">
@@ -128,9 +153,8 @@ export default function Projects() {
                         ) : (
                           <a
                             href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+                            onClick={(e) => handleGithubClick(e, project.github!)}
+                            className="flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors cursor-pointer"
                           >
                             <Github size={16} />
                             {t('buttons.code')}
@@ -153,11 +177,7 @@ export default function Projects() {
                     )}
                     {project.report && (
                       <ActionButton
-                        onClick={() => setPdfPreview({
-                          isOpen: true,
-                          url: project.report!,
-                          title: `${project.title} - ${t('buttons.report')}`
-                        })}
+                        onClick={() => handlePdfClick(project.report!, `${project.title} - ${t('buttons.report')}`)}
                         icon={FileText}
                         variant="primary"
                         ariaLabel={`View report for ${project.title}`}
@@ -167,11 +187,7 @@ export default function Projects() {
                     )}
                     {project.pdf && (
                       <ActionButton
-                        onClick={() => setPdfPreview({
-                          isOpen: true,
-                          url: project.pdf!,
-                          title: `${project.title} - Report`
-                        })}
+                        onClick={() => handlePdfClick(project.pdf!, `${project.title} - ${t('buttons.report')}`)}
                         icon={FileText}
                         variant="primary"
                         ariaLabel={`View Report for ${project.title}`}
@@ -236,6 +252,11 @@ export default function Projects() {
           title={videoPreview.title}
         />
       )}
+
+      <RippleLoader
+        isOpen={githubLoader.isOpen}
+        onComplete={handleGithubLoaderComplete}
+      />
     </section>
   );
 }
