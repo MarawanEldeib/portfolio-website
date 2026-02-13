@@ -28,8 +28,44 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 bg-white dark:bg-zinc-950">
-      <div className="container mx-auto max-w-5xl px-0 sm:px-4">
+    <section id="contact" className="relative py-20 px-4 sm:px-6 bg-white dark:bg-zinc-950 overflow-hidden">
+      {/* Animated Cube Pattern Background */}
+      <div className="contact-pattern-bg">
+        <svg
+          preserveAspectRatio="xMidYMid slice"
+          height="100%"
+          width="100%"
+          className="contact-cube-svg"
+          viewBox="0 0 120 104"
+        >
+          <defs>
+            <linearGradient y2="100%" x2="100%" y1="0%" x1="0%" id="cube-dark">
+              <stop stopColor="#232526" offset="0%"></stop>
+              <stop stopColor="#414345" offset="100%"></stop>
+            </linearGradient>
+            <linearGradient y2="0%" x2="100%" y1="100%" x1="0%" id="cube-mid">
+              <stop stopColor="#4b6cb7" offset="0%"></stop>
+              <stop stopColor="#182848" offset="100%"></stop>
+            </linearGradient>
+            <linearGradient y2="100%" x2="0%" y1="0%" x1="100%" id="cube-light">
+              <stop stopColor="#a8edea" offset="0%"></stop>
+              <stop stopColor="#fed6e3" offset="100%"></stop>
+            </linearGradient>
+          </defs>
+          {/* Cube Pattern */}
+          <g className="cube-pattern">
+            {Array.from({ length: 20 }).map((_, i) => (
+              <g key={i} transform={`translate(${(i % 4) * 30}, ${Math.floor(i / 4) * 26})`}>
+                <polygon points="30,0 60,15 30,30 0,15" fill="url(#cube-light)" />
+                <polygon points="30,30 60,15 60,41 30,56" fill="url(#cube-mid)" />
+                <polygon points="0,15 30,30 30,56 0,41" fill="url(#cube-dark)" />
+              </g>
+            ))}
+          </g>
+        </svg>
+      </div>
+
+      <div className="container mx-auto max-w-5xl px-0 sm:px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
