@@ -339,7 +339,7 @@ const timelineData: Array<{
         "Expected graduation: March 2027",
         "Specializing in Security & Cloud Infrastructure, Software Engineering, Service Management"
       ],
-      certificateUrl: "/certificates/Enrollment.pdf",
+      certificateUrl: "/certificates/Enrollment s26.pdf",
     },
     {
       id: "5",
