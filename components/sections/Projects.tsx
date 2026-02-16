@@ -96,22 +96,110 @@ export default function Projects() {
                 className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.03] hover:border-2 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer"
               >
                 <div className="p-6">
-                  <div className="flex justify-end mb-2">
+                  {/* Top row: Action buttons (left) + Status badge (right) */}
+                  <div className="flex justify-between items-start mb-4">
+                    {/* Action buttons - emoji only */}
+                    <div className="flex gap-2">
+                      {/* GitHub Button */}
+                      {project.github && !project.github.endsWith('/MarawanEldeib') && (
+                        <>
+                          {project.id === PROJECT_IDS.KGFM_UNIVERSAL_DB ? (
+                            <div className="relative group">
+                              <button
+                                disabled
+                                className="w-10 h-10 rounded-full bg-zinc-400 dark:bg-zinc-600 flex items-center justify-center text-lg cursor-not-allowed opacity-70 hover:scale-110 transition-transform"
+                                aria-label="GitHub repository (private)"
+                              >
+                                <Github size={18} className="text-white" />
+                              </button>
+
+                            </div>
+                          ) : (
+                            <a
+                              href={project.github}
+                              onClick={(e) => handleGithubClick(e, project.github!)}
+                              className="w-10 h-10 rounded-full bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-lg hover:scale-110 transition-transform group relative"
+                              aria-label={`View source code for ${project.title}`}
+                            >
+                              <Github size={18} className="text-white dark:text-zinc-900" />
+
+                            </a>
+                          )}
+                        </>
+                      )}
+                      {/* Video Button */}
+                      {project.video && (
+                        <button
+                          onClick={() => videoModal.open({
+                            url: project.video!,
+                            title: project.title
+                          })}
+                          className="w-10 h-10 rounded-full bg-red-600 dark:bg-red-700 flex items-center justify-center text-lg hover:scale-110 transition-transform group relative"
+                          aria-label={`Watch demo video for ${project.title}`}
+                        >
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                          </svg>
+
+                        </button>
+                      )}
+                      {/* Report/PDF Button */}
+                      {project.report && (
+                        <button
+                          onClick={() => handlePdfClick(project.report!, `${project.title} - ${t('buttons.report')}`)}
+                          className="w-10 h-10 rounded-full bg-blue-600 dark:bg-blue-700 flex items-center justify-center text-lg hover:scale-110 transition-transform group relative"
+                          aria-label={`View report for ${project.title}`}
+                        >
+                          📄
+
+                        </button>
+                      )}
+                      {project.pdf && (
+                        <button
+                          onClick={() => handlePdfClick(project.pdf!, `${project.title} - ${t('buttons.report')}`)}
+                          className="w-10 h-10 rounded-full bg-blue-600 dark:bg-blue-700 flex items-center justify-center text-lg hover:scale-110 transition-transform group relative"
+                          aria-label={`View report for ${project.title}`}
+                        >
+                          📄
+
+                        </button>
+                      )}
+                      {/* Research Paper (disabled) */}
+                      {(project.report === undefined && project.title.includes(PROJECT_TITLES.MANGO_VISION)) && (
+                        <div className="relative group">
+                          <button
+                            disabled
+                            className="w-10 h-10 rounded-full bg-amber-600/50 dark:bg-amber-700/50 flex items-center justify-center text-lg cursor-not-allowed opacity-70"
+                            aria-label="Research paper (coming soon)"
+                          >
+                            📝
+                          </button>
+
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Status badge */}
                     <ProjectStatusBadge status={project.status} />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
 
-                  <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-3">
+                  {/* Title */}
+                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+
+                  {/* Date */}
+                  <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-4">
                     <Calendar size={14} />
                     {formatShortDate(project.startDate)} -{' '}
                     {project.endDate ? formatShortDate(project.endDate) : t('present')}
                   </div>
 
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-left leading-relaxed">
+                  {/* Description */}
+                  <p className="text-zinc-600 dark:text-zinc-400 mb-5 text-left leading-relaxed">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  {/* Tech chips */}
+                  <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => {
                       const IconComponent = TECH_ICONS[tech];
                       return (
@@ -124,102 +212,6 @@ export default function Projects() {
                         </span>
                       );
                     })}
-                  </div>
-
-                  <div className="flex flex-wrap gap-3">
-                    {/* GitHub Button - Only show if specific repo URL exists */}
-                    {project.github && !project.github.endsWith('/MarawanEldeib') && (
-                      <>
-                        {project.id === PROJECT_IDS.KGFM_UNIVERSAL_DB ? (
-                          <div className="relative group">
-                            <button
-                              disabled
-                              className="flex items-center gap-2 px-4 py-2 bg-zinc-400 dark:bg-zinc-600 text-white rounded-lg cursor-not-allowed opacity-70"
-                              aria-label="GitHub repository (private)"
-                            >
-                              <Github size={16} />
-                              {t('buttons.code')}
-                            </button>
-                            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10" role="tooltip">
-                              Repository is currently private
-                            </div>
-                          </div>
-                        ) : (
-                          <a
-                            href={project.github}
-                            onClick={(e) => handleGithubClick(e, project.github!)}
-                            className="flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors cursor-pointer"
-                          >
-                            <Github size={16} />
-                            {t('buttons.code')}
-                          </a>
-                        )}
-                      </>
-                    )}
-                    {project.video && (
-                      <button
-                        onClick={() => videoModal.open({
-                          url: project.video!,
-                          title: project.title
-                        })}
-                        className="flex items-center gap-2 px-4 py-2 bg-red-600 dark:bg-red-700 text-white rounded-lg hover:bg-red-700 dark:hover:bg-red-800 transition-colors"
-                      >
-                        <Play size={16} fill="currentColor" />
-                        {t('buttons.video')}
-                      </button>
-                    )}
-                    {project.report && (
-                      <ActionButton
-                        onClick={() => handlePdfClick(project.report!, `${project.title} - ${t('buttons.report')}`)}
-                        icon={FileText}
-                        variant="primary"
-                        ariaLabel={`View report for ${project.title}`}
-                      >
-                        {t('buttons.report')}
-                      </ActionButton>
-                    )}
-                    {project.pdf && (
-                      <ActionButton
-                        onClick={() => handlePdfClick(project.pdf!, `${project.title} - ${t('buttons.report')}`)}
-                        icon={FileText}
-                        variant="primary"
-                        ariaLabel={`View Report for ${project.title}`}
-                      >
-                        {t('buttons.report')}
-                      </ActionButton>
-                    )}
-                    {(project.report === undefined && project.title.includes(PROJECT_TITLES.MANGO_VISION)) && (
-                      <div className="relative group">
-                        <button
-                          disabled
-                          className="flex items-center gap-2 px-4 py-2 bg-amber-600/50 dark:bg-amber-700/50 text-white rounded-lg cursor-not-allowed opacity-70"
-                          aria-label="Research paper (coming soon)"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                          </svg>
-                          {t('buttons.researchPaper')}
-                        </button>
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none" role="tooltip">
-                          {t('buttons.publishingSoon')}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               </motion.div>
