@@ -18,13 +18,10 @@ export default function Hero() {
   const t = useTranslations('hero');
 
   const roles = useMemo(() => [
-    "Computer Software Engineer",
+    "Computer Engineer",
+    "Software Engineer",
     "Cybersecurity Engineer",
-    "Computer Network Architect",
-    "Big Data and Cloud-based Computing Engineer",
-    "Internet of Things (IoT) Expert",
-    "Systems Architecture Designer",
-    "Robotics and Automation Engineer",
+    "Full Stack Developer",
   ], []);
 
   const [currentRole, setCurrentRole] = useState(0);
@@ -79,7 +76,7 @@ export default function Hero() {
   }, [displayText, isDeleting, currentRole, roles]);
 
   return (
-    <section id="about" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-20 pb-10 overflow-hidden bg-zinc-950">
+    <section id="about" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 pb-10 overflow-hidden bg-zinc-950">
       {/* Background — liquid wave blobs + grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Liquid wave blob 1 */}

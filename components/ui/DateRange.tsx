@@ -14,6 +14,7 @@ interface DateRangeProps {
     formatDate: (date: string) => string;
     showIcon?: boolean;
     className?: string;
+    dateString?: string;
 }
 
 export default function DateRange({
@@ -23,16 +24,23 @@ export default function DateRange({
     formatDate,
     showIcon = true,
     className = '',
+    dateString,
 }: DateRangeProps) {
     return (
         <span className={`flex items-center gap-1 ${className}`}>
             {showIcon && <Calendar size={14} aria-hidden="true" />}
-            <time dateTime={startDate}>{formatDate(startDate)}</time>
-            {' - '}
-            {endDate ? (
-                <time dateTime={endDate}>{formatDate(endDate)}</time>
+            {dateString ? (
+                <span>{dateString}</span>
             ) : (
-                <span>{presentText}</span>
+                <>
+                    <time dateTime={startDate}>{formatDate(startDate)}</time>
+                    {' - '}
+                    {endDate ? (
+                        <time dateTime={endDate}>{formatDate(endDate)}</time>
+                    ) : (
+                        <span>{presentText}</span>
+                    )}
+                </>
             )}
         </span>
     );

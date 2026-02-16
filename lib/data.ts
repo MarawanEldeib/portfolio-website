@@ -28,7 +28,7 @@ export const skills = {
   cloudDevOps: ["AWS", "Firebase", "Docker", "Git"],
   projectManagement: ["Jira", "Confluence", "Agile/Scrum"],
   tools: ["REST APIs", "Insomnia", "GitHub Copilot", "Claude", "MCP Server"],
-  cybersecurity: ["Burp Suite", "Nmap", "SQLmap", "OWASP"],
+  cybersecurity: ["Burp Suite", "Nmap", "SQLmap", "OWASP", "picoCTF"],
   systems: ["Kali Linux", "Ubuntu", "Windows"],
 };
 
@@ -41,11 +41,50 @@ export const languages = {
 
 const projectsData: Project[] = [
   {
-    id: "new-2",
-    title: "Decentralized Public Chat Room",
-    description: "Engineered a resilient, decentralized P2P chat ecosystem. Implements Causal and Total Ordering via Vector Clocks to guarantee message consistency across concurrent events. Features robust fault-tolerance utilizing the Bully Algorithm for dynamic leader election and reliable multicast to ensure delivery during node failures. Architected to handle asynchronous communication and crash failures in distributed environments.",
+    id: "new-1",
+    title: "Knowledge Graph Models for Universal Database Reasoning",
+    description: "Extended ULTRA foundation models to create schema-agnostic knowledge graphs capable of complex reasoning across unseen databases. Evaluated performance on F1 Formula 1 data using RelBench framework.",
     image: "",
-    tech: ["Distributed Systems", "Python", "Socket Programming", "Multithreading", "Vector Clocks", "Bully Algorithm", "Reliable Multicast"],
+    tech: ["Knowledge Graphs", "Machine Learning", "Python", "Graph Neural Networks"],
+    github: "https://github.com/MarawanEldeib/kgfm-universal-db-learning",
+    video: undefined,
+    report: "/documents/KGFM-Report.pdf",
+    status: "completed" as const,
+    startDate: "2025-11",
+    endDate: "2026-02",
+    course: "Research Project",
+    highlights: [
+      "Converting RelBench datasets to knowledge graphs",
+      "Zero-shot and fine-tuned link prediction using KGFMs",
+      "Extending KGFMs for entity classification/regression tasks",
+      "Building plug-and-play database intelligence framework"
+    ],
+  },
+  {
+    id: "new-3",
+    title: "Cloud-Native Architecture for an Emerging Online Retail Business",
+    description: "Designed scalable 3-tier AWS infrastructure for e-commerce platform with VPC security, load balancing, auto-scaling, and RDS transaction management for high-availability retail workloads.",
+    image: "",
+    tech: ["AWS", "Cloud Architecture", "VPC", "Auto Scaling", "Load Balancer"],
+    github: "",
+    video: undefined,
+    pdf: "/documents/cloud-computing-report.pdf",
+    status: "completed" as const,
+    startDate: "2025-02",
+    endDate: "2025-02",
+    course: "Cloud Computing",
+    highlights: [
+      "3-Tier Architecture with Public/Private Subnets",
+      "High Availability via Auto Scaling & Load Balancing",
+      "Secure Network Design with NAT Gateways"
+    ],
+  },
+  {
+    id: "new-2",
+    title: "Decentralized P2P Chat System",
+    description: "Implemented fault-tolerant P2P messaging using Causal and Total Ordering via Vector Clocks. Built Bully Algorithm for dynamic leader election and reliable multicast delivery. Designed to handle asynchronous communication and node crash failures.",
+    image: "",
+    tech: ["Distributed Systems", "Python", "P2P", "Fault Tolerance"],
     github: "https://github.com/ayushmittalde/chat_app_DS",
     video: undefined,
     pdf: "/documents/distributed-systems-chat-report.pdf",
@@ -62,50 +101,11 @@ const projectsData: Project[] = [
     ],
   },
   {
-    id: "new-3",
-    title: "Cloud-Native Architecture for an Emerging Online Retail Business",
-    description: "Designed a robust cloud-native architecture tailored for an emerging online retail platform. The solution leverages a 3-tier AWS infrastructure to ensure high availability and scalability for e-commerce workloads. Key components include a VPC with isolated subnets for security, Application Load Balancers to manage customer traffic, and Auto Scaling Groups to handle retail demand spikes. Integrated RDS for secure transaction management and NAT Gateways for protected backend connectivity.",
-    image: "",
-    tech: ["Cloud Computing", "AWS", "VPC", "EC2", "Auto Scaling", "Load Balancer", "NAT Gateway", "RDS"],
-    github: "",
-    video: undefined,
-    pdf: "/documents/cloud-computing-report.pdf",
-    status: "completed" as const,
-    startDate: "2025-02",
-    endDate: "2025-02",
-    course: "Cloud Computing",
-    highlights: [
-      "3-Tier Architecture with Public/Private Subnets",
-      "High Availability via Auto Scaling & Load Balancing",
-      "Secure Network Design with NAT Gateways"
-    ],
-  },
-  {
-    id: "new-1",
-    title: "Foundation Knowledge Graph Models for Universal Database Learning",
-    description: "Extending cutting-edge Knowledge Graph Foundation Models (ULTRA) to create a unified framework for universal database reasoning. Developing schema-agnostic models that can perform complex reasoning tasks across unseen databases without task-specific fine-tuning, enabling transferable intelligence across domains (e.g., finance to healthcare) with minimal adaptation.",
-    image: "",
-    tech: ["Knowledge Graphs", "Machine Learning", "KGFM", "Graph Neural Networks", "Python", "RelBench"],
-    github: "https://github.com/MarawanEldeib/kgfm-universal-db-learning",
-    video: undefined,
-    report: "/documents/KGFM-Report.pdf",
-    status: "completed" as const,
-    startDate: "2025-11",
-    endDate: "2026-02",
-    course: "Research Project",
-    highlights: [
-      "Converting RelBench datasets to knowledge graphs",
-      "Zero-shot and fine-tuned link prediction using KGFMs",
-      "Extending KGFMs for entity classification/regression tasks",
-      "Building plug-and-play database intelligence framework"
-    ],
-  },
-  {
     id: "1",
-    title: "MangoVision - Mango Fruit Detection from Aerial Images",
-    description: "Award-winning deep learning computer vision system for precision agriculture. Developed and trained YOLO and Faster R-CNN models using PyTorch on drone images, achieving 98.5% accuracy with YOLO, outperforming Detectron2. Created MangoVision, a bilingual GUI with image/video processing and GPS-integrated map, enhancing smart farming by reducing labour and improving detection accuracy.",
-    image: "", // No image yet
-    tech: ["Python", "PyTorch", "YOLO", "Faster R-CNN", "Detectron2", "Computer Vision", "Deep Learning", "GUI Development"],
+    title: "MangoVision: AI-Powered Mango Detection System",
+    description: "Award-winning deep learning system achieving 98.5% accuracy in mango fruit detection from aerial drone imagery. Trained YOLO and Faster R-CNN models on 5,500+ curated images, built bilingual GUI with GPS-integrated mapping for precision agriculture applications.",
+    image: "",
+    tech: ["PyTorch", "Computer Vision", "YOLO", "Deep Learning", "Python"],
     github: "https://github.com/MarawanEldeib/MangoVision",
     video: "https://youtu.be/zmQG7ATSuj8",
     report: "/documents/mango-vision-report.pdf",
@@ -121,31 +121,11 @@ const projectsData: Project[] = [
     ],
   },
   {
-    id: "2",
-    title: "Good-Shape-Fitness-Center App",
-    description: "Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
-    image: "/images/projects/good-shape-fitness-center.png",
-    tech: ["Assembly Language", "EMU8086", "Microprocessors", "System Programming"],
-    github: "https://github.com/MarawanEldeib/EMU8086-Good-Shape-Fitness-Center",
-    video: undefined,
-    report: "/documents/good-shape-fitness-report.pdf",
-    status: "completed" as const,
-    startDate: "2023-05",
-    endDate: "2023-06",
-    course: "Advanced Microprocessors",
-    highlights: [
-      "Assembly language programming with EMU8086",
-      "Interactive user-friendly class enrollment system",
-      "Automated pricing calculations",
-      "Enhanced operational efficiency"
-    ],
-  },
-  {
     id: "3",
-    title: "RainRoot IoT Watering System",
-    description: "Automated an IoT-based plant watering system, incorporating advanced technology for efficient irrigation management. Integrated ThingsBoard for system monitoring, utilising three distinct sensors for precise soil moisture and water level monitoring.",
+    title: "Automated IoT Plant Watering System",
+    description: "Built IoT irrigation system using ThingsBoard and three sensors for real-time soil moisture and water level monitoring, automating efficient plant watering.",
     image: "/images/projects/rainroot-iot-watering-system.jpg",
-    tech: ["IoT", "ThingsBoard", "Arduino", "Sensors", "Embedded Systems", "Automation"],
+    tech: ["IoT", "Arduino", "ThingsBoard", "Sensors", "Automation"],
     github: "https://github.com/MarawanEldeib/Plant_IOT",
     video: "https://youtu.be/vtknLIb3L0c",
     status: "completed" as const,
@@ -161,10 +141,10 @@ const projectsData: Project[] = [
   },
   {
     id: "4",
-    title: "Cypher IoT-Based Smart Door Lock System",
-    description: "Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
+    title: "Smart Door Lock: IoT Security System",
+    description: "Led 3-member team to build Arduino-based smart lock with motion detection and emergency alerts. Developed Flutter mobile app for remote control, fingerprint management, and real-time monitoring using Firebase backend.",
     image: "",
-    tech: ["Arduino", "Flutter", "Firebase", "IoT", "PCB Design", "Mobile Development"],
+    tech: ["IoT", "Arduino", "Flutter", "Firebase", "Mobile Development"],
     github: "https://github.com/MarawanEldeib/Cypher",
     video: undefined,
     report: "/documents/cypher-smart-lock-report.pdf",
@@ -181,8 +161,8 @@ const projectsData: Project[] = [
   },
   {
     id: "5",
-    title: "BodyMath App",
-    description: "Coded a Flutter-based fitness app integrating four calculators: BMI, calorie intake, body fat, and ideal weight, using Firebase for backend support and designed a user-friendly admin mode for adding or removing users. Illustrated two user engagement elements health advice and GIF images, increased user satisfaction and interactivity within the app.",
+    title: "BodyMath: Health & Fitness Tracker",
+    description: "Flutter mobile app with BMI, calorie, body fat, and ideal weight calculators using Firebase backend. Includes admin mode for user management and health advice with GIF demonstrations.",
     image: "/images/projects/bodymath-app.jpg",
     tech: ["Flutter", "Firebase", "Mobile Development", "UI/UX Design"],
     github: "https://github.com/yys-yss/bmi-calculator-software",
@@ -197,63 +177,6 @@ const projectsData: Project[] = [
       "Firebase backend with admin management",
       "Enhanced user engagement with health advice and GIF images",
       "User-friendly interface design"
-    ],
-  },
-  {
-    id: "6",
-    title: "Bookstore Database",
-    description: "Created a MySQL bookstore database using PhpMyAdmin, streamlined inventory management with real-time visibility into book quantities. Implemented advanced filtering capabilities to search by author, publisher using SQL coding and PhpMyAdmin's UI, enhanced data accessibility.",
-    image: "",
-    tech: ["MySQL", "PhpMyAdmin", "SQL", "Database Design", "Inventory Management"],
-    github: "https://github.com/MarawanEldeib",
-    video: undefined,
-    status: "completed" as const,
-    startDate: "2022-01",
-    endDate: "2022-03",
-    course: "Database Systems",
-    highlights: [
-      "MySQL database for bookstore inventory",
-      "Real-time book quantity tracking",
-      "Advanced filtering by author and publisher",
-      "Enhanced data accessibility with SQL queries"
-    ],
-  },
-  {
-    id: "7",
-    title: "Smart Parking System",
-    description: "Visualized a keypad for secure password entry and four sensors, represented by switches in the simulation, at each of the two entrances and exits. Systemized a 7-segment display to show available parking spaces in Zones A and B, enhancing the system's user interface and parking efficiency.",
-    image: "/images/projects/smart-parking-system.png",
-    tech: ["Microcontrollers", "Embedded Systems", "Sensors", "7-Segment Display", "System Simulation"],
-    github: "https://github.com/MarawanEldeib",
-    video: "https://youtu.be/K1Q2PVHnv50",
-    status: "completed" as const,
-    startDate: "2021-08",
-    endDate: "2021-11",
-    course: "Microcontroller and Microprocessor Systems",
-    highlights: [
-      "Keypad-based secure password entry system",
-      "Four-sensor parking detection system",
-      "7-segment display for real-time space availability",
-      "Two-zone parking management (Zone A & B)"
-    ],
-  },
-  {
-    id: "8",
-    title: "Plagiarism Checker",
-    description: "Software that assists lecturers in identifying source code that has been copied or cloned from another student's source code.",
-    image: "",
-    tech: ["C++", "Object-Oriented Programming", "Algorithm Design", "Code Analysis"],
-    github: "https://github.com/MarawanEldeib",
-    video: undefined,
-    status: "completed" as const,
-    startDate: "2022-02",
-    endDate: "2022-03",
-    course: "Object-Oriented C++",
-    highlights: [
-      "Source code plagiarism detection system",
-      "Object-oriented design in C++",
-      "Assists lecturers in academic integrity",
-      "Clone detection algorithms"
     ],
   },
 ];
@@ -271,23 +194,9 @@ const timelineData: TimelineItem[] = [
     startDate: "2025-04",
     endDate: "2025-12",
     description: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",
-    skills: ["Java", "Spring Boot", "Testing", "LLM", "AI Evaluation", "Digital Twins", "AAS", "End-to-End Testing"],
+    skills: ["Java", "Spring Boot", "LLM", "Digital Twins", "End-to-End Testing"],
     achievements: [],
     certificateUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",
-  },
-  {
-    id: "2",
-    type: "work",
-    title: "Teaching Assistant",
-    organization: "Faculty of Engineering, Multimedia University",
-    organizationLogo: "/images/logos/logo-mmu.png",
-    location: "Cyberjaya, Malaysia (Hybrid)",
-    startDate: "2024-08",
-    endDate: "2024-10",
-    description: "• Organized targeted revision sessions on digital logic concepts, resulting in improved exam performance for attendees\n• Assisted professor in providing academic support to students\n• Ensured students effectively applied theoretical knowledge to practical circuit design tasks",
-    skills: ["Digital Logic", "Circuit Design", "Teaching", "Academic Support", "Communication"],
-    achievements: [],
-    certificateUrl: "",
   },
   {
     id: "3",
@@ -299,104 +208,58 @@ const timelineData: TimelineItem[] = [
     startDate: "2023-07",
     endDate: "2023-10",
     description: "• Debugged 14 software bugs and implemented 5 checkout calculation features, enhancing app stability for 10,000+ users\n• Refactored 2 app pages and integrated GraphQL APIs for bilingual content management in Agile sprints",
-    skills: ["GraphQL", "Bug Fixing", "Feature Development", "Code Refactoring", "API Integration", "Agile", "Bilingual Support", "Checkout Systems"],
+    skills: ["Flutter", "GraphQL", "Firebase", "API Integration", "Agile"],
     achievements: [],
     certificateUrl: "/certificates/EPD_Intern_Certificate_Marawan.pdf",
   },
   {
     id: "4",
     type: "education",
-    title: "Master of Science",
+    title: "Master of Science - Software Engineering",
     organization: "Stuttgart University",
     organizationLogo: "/images/logos/logo_stuttgart.png",
     location: "Stuttgart, Germany",
     startDate: "2024-10",
     endDate: null,
-    description: "Major in Software Engineering/Computer Hardware; Minor in Information Technology. Expected graduation: March 2027. Relevant Coursework: Distributed Systems (TCP/IP), Operating Systems (Linux), Cloud Computing (AWS), Real-Time Systems.",
-    skills: ["Software Engineering", "Computer Hardware", "Information Technology", "Distributed Systems", "Operating Systems", "Cloud Computing"],
-    achievements: [
-      "Expected graduation: March 2027",
-      "Specializing in Security & Cloud Infrastructure, Software Engineering, Service Management"
-    ],
+    dateString: "Oct 2024 - March 2027 (Expected)",
+    description: "Minor: Information Technology",
+    skills: ["Distributed Systems", "Cloud Computing", "Operating Systems", "Security"],
+    achievements: [],
     certificateUrl: "/certificates/Enrollment s26.pdf",
   },
   {
     id: "5",
     type: "education",
-    title: "Bachelor of Engineering (Hons.)",
+    title: "Bachelor of Engineering (Hons.) - Computer Engineering",
     organization: "Multimedia University",
     organizationLogo: "/images/logos/logo-mmu.png",
     location: "Cyberjaya, Malaysia",
     startDate: "2020-07",
     endDate: "2024-10",
-    description: "Major in Computer; Minors in Electronics. First Class Honors. Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project). Relevant Coursework: Software Engineering; Operating Systems; Artificial Intelligence; Embedded IoT; Networking Protocols; Database Systems; Cybersecurity.",
-    skills: ["Computer Engineering", "Electronics", "Machine Learning", "PyTorch", "Computer Vision", "Software Engineering", "Operating Systems", "Artificial Intelligence", "Embedded IoT"],
+    description: "CGPA: 3.7/4.0 (First Class Honors 🎖️)",
+    skills: [],
     achievements: [
-      "First Class Honors (CGPA: 3.7/4.0)",
-      "Gold Medal at iNVENTX Invention Exhibition 2024",
-      "Best Project at MMU Career Fair 2024",
-      "Best Research Project Award",
-      "Book Award",
-      "Merit International Scholarship (50%)",
-      "Dean's List"
+      "Best Research Project Award (MangoVision, 98.5% accuracy)",
+      "Gold Medal - INVENTX Invention Exhibition 2024",
+      "2nd Place - Intel VLSI Design Challenge",
+      "Merit International Scholarship (50%)"
     ],
     certificateUrl: "/certificates/Bachelor Certificate.pdf",
     transcriptUrl: "/certificates/Bachelor Transcript.pdf",
   },
-  {
-    id: "6",
-    type: "education",
-    title: "Foundation in Engineering",
-    organization: "Multimedia University",
-    organizationLogo: "/images/logos/logo-mmu.png",
-    location: "Cyberjaya, Malaysia",
-    startDate: "2018-11",
-    endDate: "2020-06",
-    description: "Foundation program providing essential engineering fundamentals and preparing students for degree-level engineering studies.",
-    skills: ["Engineering Fundamentals", "Mathematics", "Physics", "Chemistry", "C Programming", "Business Management"],
-    achievements: [
-      "CGPA: 3.31/4.0",
-      "Dean's List",
-      "Merit International Scholarship (25%)"
-    ],
-    certificateUrl: "/certificates/Foundation Certificate.pdf",
-  },
+
 ];
 
 export const timeline = sortByDateDescending(timelineData);
 
 const certificationsData: Certification[] = [
-  {
-    id: "1",
-    title: "Python for Data Science and AI",
-    issuer: "IBM",
-    date: "2023-02",
-    image: "",
-    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ZPJ8H9X976RB",
-    pdfUrl: "/certificates/Coursera python.pdf",
-  },
-  {
-    id: "2",
-    title: "ACE Summer Programme 2022",
-    issuer: "Multimedia University - Alumni, Career & Entrepreneurship (ACE)",
-    date: "2022-06",
-    image: "",
-    credentialUrl: "/certificates/ACE Summer Programme 2022.pdf",
-  },
+
 ];
 
 export const certifications = sortBySimpleDateDescending(certificationsData);
 
 const awardsData: Award[] = [
-  {
-    id: "1",
-    title: "First Class Honors",
-    issuer: "Multimedia University",
-    date: "2024-11",
-    description: "Graduated top class with CGPA: 3.7/4.0",
-    image: "/images/awards/first-class-honors.jpg",
-    certificateUrl: "/certificates/Bachelor Certificate.pdf",
-  },
+
   {
     id: "3",
     title: "Gold Medal - iNVENTX Invention Exhibition",
@@ -424,15 +287,7 @@ const awardsData: Award[] = [
     image: "/images/awards/intel-vlsi-challenge.png",
     certificateUrl: "/certificates/Intel VLSI Challenge Certificate.pdf",
   },
-  {
-    id: "5",
-    title: "Dean's List Award",
-    issuer: "Multimedia University",
-    date: "2024-10",
-    description: "Achieved Dean's List recognition for academic excellence throughout Bachelor's degree (July 2020 - Oct 2024)",
-    image: "",
-    certificateUrl: "/certificates/Dean List Certificates.pdf",
-  },
+
   {
     id: "6",
     title: "Merit International Scholarship",
@@ -442,15 +297,7 @@ const awardsData: Award[] = [
     image: "",
     certificateUrl: "", // Add certificate URL if available
   },
-  {
-    id: "7",
-    title: "Merit International Scholarship",
-    issuer: "Multimedia University",
-    date: "2019-03",
-    description: "Awarded Merit International Scholarship (25%) for Foundation studies (2018 - 2019)",
-    image: "",
-    certificateUrl: "", // Add certificate URL if available
-  },
+
 ];
 
 export const awards = sortBySimpleDateDescending(awardsData);
@@ -504,18 +351,16 @@ interface VolunteeringItem {
 const volunteeringData: VolunteeringItem[] = [
   {
     id: "1",
-    organization: "MTCP Smart Farming & Precision Agriculture Program",
-    role: "Facilitator for AI & Machine Learning Workshop",
+    organization: "Ministry of Foreign Affairs Malaysia - MTCP Programme",
+    role: "AI Workshop Facilitator (Contract)",
     location: "Cyberjaya, Malaysia",
     startDate: "2024-06-24",
     endDate: "2024-06-28",
     description: [
-      "Facilitated AI and machine learning workshops for the Malaysia Technical Cooperation Programme (MTCP) Smart Farming & Precision Agriculture Program",
-      "Organized by the Ministry of Foreign Affairs Malaysia and Multimedia University",
-      "Delivered technical sessions on AI applications in smart farming to 20+ international participants from developing countries",
-      "Received positive feedback for clear communication, technical expertise, and effective networking"
+      "Facilitated AI and machine learning workshops for 20+ international participants from developing countries",
+      "Delivered technical sessions on AI applications in smart farming, receiving positive feedback for clear communication"
     ],
-    skills: ["AI", "Machine Learning", "Smart Farming", "Precision Agriculture", "Public Speaking", "International Collaboration", "Technical Training"],
+    skills: ["Machine Learning", "Public Speaking", "International Collaboration"],
     organizationLogo: "/images/logos/logo-mmu.png",
     websiteUrl: "https://drive.google.com/drive/folders/1-DDlWCXV9CBZuhQ2tYiuPf0l091TBUqI?usp=drive_link",
   },
@@ -527,31 +372,14 @@ const volunteeringData: VolunteeringItem[] = [
     startDate: "2022-12",
     endDate: "2023-12",
     description: [
-      "Founded the IEEE Power & Energy Society (PES) MMU Student Branch, establishing the first PES chapter at the university",
-      "Launched campaigns that increased IEEE club membership by over 30 members",
-      "Enhanced student engagement in professional growth and networking opportunities",
-      "Coordinated a workshop for 30 primary school students on building and controlling robot cars",
-      "Coached a team of 6 children in robotics"
+      "Founded IEEE Power & Energy Society chapter and increased membership by 30+ students",
+      "Coordinated robotics workshop for 30 primary school students and coached team of 6 children"
     ],
-    skills: ["Leadership", "Event Management", "Student Engagement", "Robotics", "Mentoring", "Chapter Founding"],
+    skills: ["Leadership", "Event Management", "Mentoring"],
     organizationLogo: "/images/logos/ieee_mmu.jpg",
     websiteUrl: "",
   },
-  {
-    id: "3",
-    organization: "Skippy Snacks",
-    role: "Founder & Operator",
-    location: "Cyberjaya, Malaysia",
-    startDate: "2019-11",
-    endDate: "2020-06",
-    description: [
-      "Founded and operated Skippy Snacks, a food and drinks business for Business Management course",
-      "Donated part of profits to dog shelter, combining entrepreneurship with animal welfare support"
-    ],
-    skills: ["Entrepreneurship", "Business Management", "Social Responsibility", "Sales", "Customer Service"],
-    organizationLogo: "/images/logos/skippy_snacks.jpg",
-    websiteUrl: "https://www.instagram.com/skippy_snacks_mmu?igsh=YmM0MXA4b2tzaWE3",
-  },
+
 ];
 
 export const volunteering = sortByDateDescending(volunteeringData);

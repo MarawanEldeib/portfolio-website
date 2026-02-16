@@ -53,13 +53,14 @@ import {
   SiMysql, SiPostgresql, SiMongodb, SiRedis, SiFirebase,
   SiDocker, SiKubernetes, SiGit, SiGithub, SiGitlab, SiJira,
   SiLinux, SiAmazon, SiGooglecloud, SiDart, SiInsomnia,
-  SiKalilinux, SiUbuntu, SiClaude, SiOwasp
+  SiKalilinux, SiUbuntu, SiClaude, SiOwasp,
+  SiPhp, SiHtml5, SiCss3, SiPandas
 } from 'react-icons/si';
 import {
   FaBrain, FaRobot, FaChalkboardTeacher, FaMicrophone, FaUsers,
   FaHandshake, FaUserTie, FaCalendarAlt, FaLightbulb, FaAward,
   FaShoppingCart, FaHeadset, FaCode, FaShieldAlt, FaTerminal,
-  FaNetworkWired, FaJava, FaWindows
+  FaNetworkWired, FaJava, FaWindows, FaFlag
 } from 'react-icons/fa';
 import { MdAgriculture } from 'react-icons/md';
 
@@ -110,6 +111,12 @@ export const TECH_ICONS: Record<string, IconType> = {
   'Nmap': FaNetworkWired,
   'SQLmap': FaTerminal,
   'OWASP': SiOwasp,
+  'picoCTF': FaFlag,
+  'PHP': SiPhp,
+  'HTML': SiHtml5,
+  'CSS': SiCss3,
+  'pandas': SiPandas,
+  'Agile/Scrum': SiJira,
   // Additional mappings for skills/projects
   'REST APIs': SiGraphql,
   'Unit Testing': SiGithub,
@@ -189,8 +196,8 @@ export const BREAKPOINTS = {
 
 // Layout Constants
 export const LAYOUT_CONSTANTS = {
-  HEADER_HEIGHT: 80, // px - Height of fixed header for scroll offset calculations
-  SCROLL_OFFSET: 100, // px - Additional offset for active section detection
+  HEADER_HEIGHT: 100, // px - Increased to ensure section titles clear the header
+  SCROLL_OFFSET: 120, // px - Increased to trigger active state slightly earlier
 } as const;
 
 // Carousel Configuration

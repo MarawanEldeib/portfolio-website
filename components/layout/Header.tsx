@@ -39,10 +39,9 @@ export default function Header() {
   const navItems = useMemo(() => [
     { href: `/${locale}#about`, label: t('about'), id: 'about' },
     { href: `/${locale}#experience`, label: t('experience'), id: 'experience' },
-    { href: `/${locale}#education`, label: t('education'), id: 'education' },
     { href: `/${locale}#projects`, label: t('projects'), id: 'projects' },
     { href: `/${locale}#skills`, label: t('skills'), id: 'skills' },
-    { href: `/${locale}#certifications`, label: t('certifications'), id: 'certifications' },
+    { href: `/${locale}#education`, label: t('education'), id: 'education' },
     { href: `/${locale}#volunteering`, label: t('volunteering'), id: 'volunteering' },
     { href: `/${locale}#recommendations`, label: t('recommendations'), id: 'recommendations' },
     { href: `/${locale}#contact`, label: t('contact'), id: 'contact' },
@@ -98,17 +97,23 @@ export default function Header() {
           const sections = navItems.map(item => item.id);
           const scrollPosition = currentScrollY + LAYOUT_CONSTANTS.SCROLL_OFFSET;
 
+          // Iterate backwards to find the current active section
           for (let i = sections.length - 1; i >= 0; i--) {
             const section = document.getElementById(sections[i]);
             if (section) {
               const sectionTop = section.offsetTop;
-              const sectionHeight = section.offsetHeight;
-
-              if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              // Simple threshold check: if our scroll trigger point is past the section top,
+              // this is the active section (since we're checking bottom-up)
+              if (scrollPosition >= sectionTop - 10) { // Small buffer for precision
                 setActiveSection(sections[i]);
                 break;
               }
             }
+          }
+
+          // Special case: If scrolled to potential bottom (contact might be short), force last item
+          if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+            setActiveSection(sections[sections.length - 1]);
           }
 
           lastScrollY = currentScrollY;
@@ -209,7 +214,8 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-lg max-h-[calc(100vh-73px)] overflow-y-auto"
+              className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-lg overflow-y-auto"
+              style={{ maxHeight: `calc(100vh - ${LAYOUT_CONSTANTS.HEADER_HEIGHT}px)` }}
             >
               <div className="container mx-auto px-10 py-4">
                 <motion.ul

@@ -270,6 +270,7 @@
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset for fixed header */
   overflow-x: hidden;
   background: #0a0a0a;
 }

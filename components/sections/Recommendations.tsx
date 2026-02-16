@@ -96,7 +96,7 @@ export default function Recommendations() {
                     </div>
 
                     {/* Recommendation Text */}
-                    <p className="text-zinc-700 dark:text-zinc-300 text-lg mb-6 italic leading-relaxed text-left">
+                    <p className="text-zinc-700 dark:text-zinc-300 text-lg mb-6 italic leading-relaxed text-justify">
                       &quot;{recommendation.text}&quot;
                     </p>
 

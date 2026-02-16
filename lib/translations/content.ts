@@ -58,8 +58,8 @@ export const contentTranslations = {
         de: "Cloud-Native-Architektur für ein aufstrebendes Online-Einzelhandelsgeschäft"
       },
       description: {
-        en: "Designed a robust cloud-native architecture tailored for an emerging online retail platform. The solution leverages a 3-tier AWS infrastructure to ensure high availability and scalability for e-commerce workloads. Key components include a VPC with isolated subnets for security, Application Load Balancers to manage customer traffic, and Auto Scaling Groups to handle retail demand spikes. Integrated RDS for secure transaction management and NAT Gateways for protected backend connectivity.",
-        de: "Entwarf eine robuste Cloud-Native-Architektur für eine aufstrebende Online-Einzelhandelsplattform. Die Lösung nutzt eine 3-Tier-AWS-Infrastruktur für hohe Verfügbarkeit und Skalierbarkeit bei E-Commerce-Workloads. Schlüsselkomponenten umfassen ein VPC mit isolierten Subnetzen für Sicherheit, Application Load Balancer zur Verwaltung des Kundenverkehrs und Auto Scaling Groups zur Bewältigung von Nachfragespitzen. Integriert RDS für sichere Transaktionsverwaltung und NAT Gateways für geschützte Backend-Konnektivität."
+        en: "Designed scalable 3-tier AWS infrastructure for e-commerce platform with VPC security, load balancing, auto-scaling, and RDS transaction management for high-availability retail workloads.",
+        de: "Entwarf skalierbare 3-Tier-AWS-Infrastruktur für E-Commerce-Plattform mit VPC-Sicherheit, Load Balancing, Auto-Scaling und RDS-Transaktionsverwaltung für hochverfügbare Retail-Workloads."
       },
       course: {
         en: "Cloud Computing",
@@ -80,12 +80,12 @@ export const contentTranslations = {
     },
     "new-1": {
       title: {
-        en: "Foundation Knowledge Graph Models for Universal Database Learning",
-        de: "Foundation Knowledge Graph Models für universelles Datenbank-Lernen"
+        en: "Knowledge Graph Models for Universal Database Reasoning",
+        de: "Knowledge Graph Models für universelles Datenbank-Reasoning"
       },
       description: {
-        en: "Extending cutting-edge Knowledge Graph Foundation Models (ULTRA) to create a unified framework for universal database reasoning. Developing schema-agnostic models that can perform complex reasoning tasks across unseen databases without task-specific fine-tuning, enabling transferable intelligence across domains (e.g., finance to healthcare) with minimal adaptation.",
-        de: "Erweiterung modernster Knowledge Graph Foundation Models (ULTRA) zur Schaffung eines einheitlichen Frameworks für universelles Datenbank-Reasoning. Entwicklung schema-agnostischer Modelle für komplexe Reasoning-Aufgaben über ungesehene Datenbanken ohne aufgabenspezifisches Fine-Tuning, wodurch übertragbare Intelligenz über Domänen (z.B. Finanzen zu Gesundheitswesen) mit minimaler Anpassung ermöglicht wird."
+        en: "Extended ULTRA foundation models to create schema-agnostic knowledge graphs capable of complex reasoning across unseen databases. Evaluated performance on F1 Formula 1 data using RelBench framework.",
+        de: "Erweiterte ULTRA-Foundation-Modelle zur Erstellung schema-agnostischer Knowledge Graphs für komplexes Reasoning über ungesehene Datenbanken. Evaluierte Leistung an F1-Formel-1-Daten mit RelBench-Framework."
       },
       course: {
         en: "Research Project",
@@ -108,12 +108,12 @@ export const contentTranslations = {
     },
     "1": {
       title: {
-        en: "MangoVision - Mango Fruit Detection from Aerial Images",
-        de: "MangoVision - Mangofruchterkennung aus Luftbildern"
+        en: "MangoVision: AI-Powered Mango Detection System",
+        de: "MangoVision: KI-gestütztes Mangoerkennungssystem"
       },
       description: {
-        en: "Award-winning deep learning computer vision system for precision agriculture. Developed and trained YOLO and Faster R-CNN models using PyTorch on drone images, achieving 98.5% accuracy with YOLO, outperforming Detectron2. Created MangoVision, a bilingual GUI with image/video processing and GPS-integrated map, enhancing smart farming by reducing labour and improving detection accuracy.",
-        de: "Preisgekröntes Deep-Learning-Computer-Vision-System für Präzisionslandwirtschaft. Entwickelte und trainierte YOLO- und Faster R-CNN-Modelle mit PyTorch auf Drohnenbildern, erzielte 98,5% Genauigkeit mit YOLO und übertraf Detectron2. Erstellte MangoVision, eine zweisprachige GUI mit Bild-/Videobearbeitung und GPS-integrierter Karte, die Smart Farming durch Reduzierung von Arbeitskräften und Verbesserung der Erkennungsgenauigkeit verbessert."
+        en: "Award-winning deep learning system achieving 98.5% accuracy in mango fruit detection from aerial drone imagery. Trained YOLO and Faster R-CNN models on 5,500+ curated images, built bilingual GUI with GPS-integrated mapping for precision agriculture applications.",
+        de: "Preisgekröntes Deep-Learning-System mit 98,5% Genauigkeit bei der Mangofruchterkennung aus Drohnenluftbildern. Trainierte YOLO- und Faster R-CNN-Modelle auf über 5.500 kuratierten Bildern, erstellte zweisprachige GUI mit GPS-integrierter Kartierung für Präzisionslandwirtschaft."
       },
       course: {
         en: "Final Year Project",
@@ -134,42 +134,15 @@ export const contentTranslations = {
         ]
       }
     },
-    "2": {
-      title: {
-        en: "Good-Shape-Fitness-Center App",
-        de: "Good-Shape-Fitness-Center-App"
-      },
-      description: {
-        en: "Engineered an EMU8086 assembly language-based interactive fitness application, focusing on user-friendly class enrollment features. Programmed automated pricing calculations within the app, strengthened operational efficiency and user experience.",
-        de: "Entwickelte eine interaktive Fitness-Anwendung basierend auf EMU8086-Assemblersprache mit benutzerfreundlichen Kursanmeldefunktionen. Programmierte automatisierte Preisberechnungen in der App, verstärkte operative Effizienz und Benutzererfahrung."
-      },
-      course: {
-        en: "Advanced Microprocessors",
-        de: "Fortgeschrittene Mikroprozessoren"
-      },
-      highlights: {
-        en: [
-          "Assembly language programming with EMU8086",
-          "Interactive user-friendly class enrollment system",
-          "Automated pricing calculations",
-          "Enhanced operational efficiency"
-        ],
-        de: [
-          "Assemblersprache-Programmierung mit EMU8086",
-          "Interaktives benutzerfreundliches Kursanmeldesystem",
-          "Automatisierte Preisberechnungen",
-          "Verbesserte operative Effizienz"
-        ]
-      }
-    },
+
     "3": {
       title: {
-        en: "RainRoot IoT Watering System",
-        de: "RainRoot IoT-Bewässerungssystem"
+        en: "Automated IoT Plant Watering System",
+        de: "Automatisiertes IoT-Pflanzenbewässerungssystem"
       },
       description: {
-        en: "Automated an IoT-based plant watering system, incorporating advanced technology for efficient irrigation management. Integrated ThingsBoard for system monitoring, utilising three distinct sensors for precise soil moisture and water level monitoring.",
-        de: "Automatisierte ein IoT-basiertes Pflanzenbewässerungssystem mit fortschrittlicher Technologie für effizientes Bewässerungsmanagement. Integrierte ThingsBoard für Systemüberwachung mit drei verschiedenen Sensoren für präzise Bodenfeuchte- und Wasserstandsüberwachung."
+        en: "Built IoT irrigation system using ThingsBoard and three sensors for real-time soil moisture and water level monitoring, automating efficient plant watering.",
+        de: "Entwickelte IoT-Bewässerungssystem mit ThingsBoard und drei Sensoren für Echtzeit-Bodenfeuchte- und Wasserstandsüberwachung zur Automatisierung effizienter Pflanzenbewässerung."
       },
       course: {
         en: "Embedded IoT Systems and Applications",
@@ -192,12 +165,12 @@ export const contentTranslations = {
     },
     "4": {
       title: {
-        en: "Cypher IoT-Based Smart Door Lock System",
-        de: "Cypher IoT-basiertes intelligentes Türschlosssystem"
+        en: "Smart Door Lock: IoT Security System",
+        de: "Smart Door Lock: IoT-Sicherheitssystem"
       },
       description: {
-        en: "Led a 3-member team to customise a PCB-based smart door lock system using Arduino, integrated motion detection notification for enhancing security and emergency call functionality. Introduced the 'Cypher', a mobile app in Flutter with Firebase backend, enabling remote door lock control and real-time motion monitoring. Focused on a user-friendly interface across four main pages, including fingerprint management, history record, and a settings guide, ensuring an optimal user experience.",
-        de: "Leitete ein 3-köpfiges Team zur Anpassung eines PCB-basierten intelligenten Türschlosssystems mit Arduino, integrierte Bewegungserkennungsbenachrichtigung für verbesserte Sicherheit und Notrufffunktionalität. Führte 'Cypher' ein, eine mobile App in Flutter mit Firebase-Backend, die Fernsteuerung des Türschlosses und Echtzeit-Bewegungsüberwachung ermöglicht. Fokussierte auf eine benutzerfreundliche Oberfläche über vier Hauptseiten, einschließlich Fingerabdruck-Management, Verlaufsdatensatz und Einstellungsanleitung."
+        en: "Led 3-member team to build Arduino-based smart lock with motion detection and emergency alerts. Developed Flutter mobile app for remote control, fingerprint management, and real-time monitoring using Firebase backend.",
+        de: "Leitete 3-köpfiges Team zum Aufbau eines Arduino-basierten Smart Locks mit Bewegungserkennung und Notfallalarmen. Entwickelte Flutter-Mobile-App für Fernsteuerung, Fingerabdruck-Verwaltung und Echtzeit-Überwachung mit Firebase-Backend."
       },
       course: {
         en: "Capstone Project",
@@ -220,12 +193,12 @@ export const contentTranslations = {
     },
     "5": {
       title: {
-        en: "BodyMath App",
-        de: "BodyMath-App"
+        en: "BodyMath: Health & Fitness Tracker",
+        de: "BodyMath: Gesundheits- & Fitness-Tracker"
       },
       description: {
-        en: "Coded a Flutter-based fitness app integrating four calculators: BMI, calorie intake, body fat, and ideal weight, using Firebase for backend support and designed a user-friendly admin mode for adding or removing users. Illustrated two user engagement elements health advice and GIF images, increased user satisfaction and interactivity within the app.",
-        de: "Programmierte eine Flutter-basierte Fitness-App mit vier Rechnern: BMI, Kalorienaufnahme, Körperfett und Idealgewicht, nutzte Firebase für Backend-Unterstützung und entwarf einen benutzerfreundlichen Admin-Modus zum Hinzufügen oder Entfernen von Benutzern. Implementierte zwei Benutzerengagement-Elemente: Gesundheitsratschläge und GIF-Bilder, erhöhte Benutzerzufriedenheit und Interaktivität in der App."
+        en: "Flutter mobile app with BMI, calorie, body fat, and ideal weight calculators using Firebase backend. Includes admin mode for user management and health advice with GIF demonstrations.",
+        de: "Flutter-Mobile-App mit BMI-, Kalorien-, Körperfett- und Idealgewicht-Rechnern mit Firebase-Backend. Enthält Admin-Modus für Benutzerverwaltung und Gesundheitsratschläge mit GIF-Demonstrationen."
       },
       course: {
         en: "Software Engineering",
@@ -246,112 +219,19 @@ export const contentTranslations = {
         ]
       }
     },
-    "6": {
-      title: {
-        en: "Bookstore Database",
-        de: "Buchhandlungs-Datenbank"
-      },
-      description: {
-        en: "Created a MySQL bookstore database using PhpMyAdmin, streamlined inventory management with real-time visibility into book quantities. Implemented advanced filtering capabilities to search by author, publisher using SQL coding and PhpMyAdmin's UI, enhanced data accessibility.",
-        de: "Erstellte eine MySQL-Buchhandlungsdatenbank mit PhpMyAdmin, optimierte Bestandsverwaltung mit Echtzeit-Sichtbarkeit der Buchmengen. Implementierte erweiterte Filterfunktionen zur Suche nach Autor und Verlag mit SQL-Programmierung und PhpMyAdmin-UI, verbesserte Datenzugänglichkeit."
-      },
-      course: {
-        en: "Database Systems",
-        de: "Datenbanksysteme"
-      },
-      highlights: {
-        en: [
-          "MySQL database for bookstore inventory",
-          "Real-time book quantity tracking",
-          "Advanced filtering by author and publisher",
-          "Enhanced data accessibility with SQL queries"
-        ],
-        de: [
-          "MySQL-Datenbank für Buchhandlungsbestand",
-          "Echtzeit-Buchmengen-Verfolgung",
-          "Erweiterte Filterung nach Autor und Verlag",
-          "Verbesserte Datenzugänglichkeit mit SQL-Abfragen"
-        ]
-      }
-    },
-    "7": {
-      title: {
-        en: "Smart Parking System",
-        de: "Intelligentes Parksystem"
-      },
-      description: {
-        en: "Visualized a keypad for secure password entry and four sensors, represented by switches in the simulation, at each of the two entrances and exits. Systemized a 7-segment display to show available parking spaces in Zones A and B, enhancing the system's user interface and parking efficiency.",
-        de: "Visualisierte ein Tastenfeld für sichere Passworteingabe und vier Sensoren, dargestellt durch Schalter in der Simulation, an jeweils zwei Ein- und Ausgängen. Systematisierte eine 7-Segment-Anzeige zur Anzeige verfügbarer Parkplätze in Zonen A und B, verbesserte Benutzeroberfläche und Parkeffizienz des Systems."
-      },
-      course: {
-        en: "Microcontroller and Microprocessor Systems",
-        de: "Mikrocontroller- und Mikroprozessorsysteme"
-      },
-      highlights: {
-        en: [
-          "Keypad-based secure password entry system",
-          "Four-sensor parking detection system",
-          "7-segment display for real-time space availability",
-          "Two-zone parking management (Zone A & B)"
-        ],
-        de: [
-          "Tastenfeld-basiertes sicheres Passworteingabesystem",
-          "Vier-Sensor-Parkerkennungssystem",
-          "7-Segment-Anzeige für Echtzeit-Platzverfügbarkeit",
-          "Zwei-Zonen-Parkverwaltung (Zone A & B)"
-        ]
-      }
-    },
-    "8": {
-      title: {
-        en: "Plagiarism Checker",
-        de: "Plagiatsprüfer"
-      },
-      description: {
-        en: "Software that assists lecturers in identifying source code that has been copied or cloned from another student's source code.",
-        de: "Software zur Unterstützung von Dozenten bei der Identifizierung von Quellcode, der von einem anderen Student kopiert oder geklont wurde."
-      },
-      course: {
-        en: "Object-Oriented C++",
-        de: "Objektorientiertes C++"
-      },
-      highlights: {
-        en: [
-          "Source code plagiarism detection system",
-          "Object-oriented design in C++",
-          "Assists lecturers in academic integrity",
-          "Clone detection algorithms"
-        ],
-        de: [
-          "Quellcode-Plagiaterkennungssystem",
-          "Objektorientiertes Design in C++",
-          "Unterstützt Dozenten bei akademischer Integrität",
-          "Klon-Erkennungsalgorithmen"
-        ]
-      }
-    }
+
   },
 
   // Experience & Education
   timeline: {
     "1": {
       title: {
-        en: "Research Assistant (Working Student)",
-        de: "Wissenschaftliche Hilfskraft (Werkstudent)"
+        en: "Research Assistant\nWorking Student",
+        de: "Wissenschaftliche Hilfskraft\nWerkstudent"
       },
       description: {
         en: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",
         de: "• Entwickelte Java- und Spring Boot-Backend für LLM-basierte Datenextraktion zur Evaluierung von 6 Modellen in Asset Administration Shell (AAS) Digital-Twin-Anwendungen\n• Implementierte automatisierte End-to-End-Tests und erstellte über 30 Testdatensätze für Modellevaluierung"
-      }
-    },
-    "2": {
-      title: {
-        en: "Teaching Assistant",
-        de: "Lehrassistent"
-      },
-      description: {
-        en: "• Organized targeted revision sessions on digital logic concepts, resulting in improved exam performance for attendees\n• Assisted professor in providing academic support to students\n• Ensured students effectively applied theoretical knowledge to practical circuit design tasks",
-        de: "• Organisierte gezielte Wiederholungssitzungen zu digitalen Logikkonzepten, was zu verbesserter Prüfungsleistung der Teilnehmer führte\n• Unterstützte Professor bei der akademischen Betreuung von Studenten\n• Stellte sicher, dass Studenten theoretisches Wissen effektiv auf praktische Schaltungsentwurfsaufgaben anwendeten"
       }
     },
     "3": {
@@ -366,86 +246,52 @@ export const contentTranslations = {
     },
     "4": {
       title: {
-        en: "Master of Science",
-        de: "Master of Science"
+        en: "Master of Science\nSoftware Engineering",
+        de: "Master of Science\nSoftware Engineering"
+      },
+      dateString: {
+        en: "Oct 2024 - March 2027 (Expected)",
+        de: "Okt 2024 - März 2027 (Erwartet)"
       },
       description: {
-        en: "Major in Software Engineering/Computer Hardware; Minor in Information Technology. Expected graduation: March 2027. Relevant Coursework: Distributed Systems (TCP/IP), Operating Systems (Linux), Cloud Computing (AWS), Real-Time Systems.",
-        de: "Hauptfach Software Engineering/Computerhardware; Nebenfach Informationstechnologie. Erwarteter Abschluss: März 2027. Relevante Kurse: Verteilte Systeme (TCP/IP), Betriebssysteme (Linux), Cloud Computing (AWS), Echtzeitsysteme."
+        en: "Minor: Information Technology",
+        de: "Nebenfach: Informationstechnologie"
       },
       achievements: {
-        en: [
-          "Expected graduation: March 2027",
-          "Specializing in Security & Cloud Infrastructure, Software Engineering, Service Management"
-        ],
-        de: [
-          "Erwarteter Abschluss: März 2027",
-          "Spezialisierung auf Sicherheit & Cloud-Infrastruktur, Software Engineering, Service Management"
-        ]
+        en: [],
+        de: []
       }
     },
     "5": {
       title: {
-        en: "Bachelor of Engineering (Hons.)",
-        de: "Bachelor of Engineering (Hons.)"
+        en: "Bachelor of Engineering (Hons.)\nComputer Engineering",
+        de: "Bachelor of Engineering (Hons.)\nComputer Engineering"
       },
       description: {
-        en: "Major in Computer; Minors in Electronics. First Class Honors. Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project). Relevant Coursework: Software Engineering; Operating Systems; Artificial Intelligence; Embedded IoT; Networking Protocols; Database Systems; Cybersecurity.",
-        de: "Hauptfach Computer; Nebenfach Elektronik. First Class Honors. Abschlussprojekt: Entwickelte MangoVision, ein Deep-Learning-Modell zur Mangofruchterkennung aus Luftbildern mit 98,5% Genauigkeit (ausgezeichnet als bestes Forschungsprojekt). Relevante Kurse: Software Engineering; Betriebssysteme; Künstliche Intelligenz; Eingebettetes IoT; Netzwerkprotokolle; Datenbanksysteme; Cybersicherheit."
+        en: "CGPA: 3.7/4.0 (First Class Honors 🎖️)",
+        de: "CGPA: 3,7/4,0 (First Class Honors 🎖️)"
       },
       achievements: {
         en: [
-          "First Class Honors (CGPA: 3.7/4.0)",
-          "Gold Medal at iNVENTX Invention Exhibition 2024",
-          "Best Project at MMU Career Fair 2024",
-          "Best Research Project Award",
-          "Book Award",
-          "Merit International Scholarship (50%)",
-          "Dean's List"
+          "Best Research Project Award (MangoVision, 98.5% accuracy)",
+          "Gold Medal - INVENTX Invention Exhibition 2024",
+          "2nd Place - Intel VLSI Design Challenge",
+          "Merit International Scholarship (50%)"
         ],
         de: [
-          "First Class Honors (CGPA: 3,7/4,0)",
-          "Goldmedaille bei iNVENTX Erfindungsausstellung 2024",
-          "Bestes Projekt bei MMU Career Fair 2024",
-          "Bestes Forschungsprojekt-Preis",
-          "Buchpreis",
-          "Merit International Scholarship (50%)",
-          "Dean's List"
+          "Best Research Project Award (MangoVision, 98.5% accuracy)",
+          "Goldmedaille - INVENTX Erfindungsausstellung 2024",
+          "2. Platz - Intel VLSI Design Challenge",
+          "Merit International Scholarship (50%)"
         ]
       }
     },
-    "6": {
-      title: {
-        en: "Foundation in Engineering",
-        de: "Foundation in Engineering"
-      },
-      description: {
-        en: "Foundation program providing essential engineering fundamentals and preparing students for degree-level engineering studies.",
-        de: "Foundation-Programm mit wesentlichen Ingenieurgrundlagen zur Vorbereitung auf ingenieurwissenschaftliche Studiengänge."
-      },
-      achievements: {
-        en: [
-          "CGPA: 3.31/4.0",
-          "Dean's List",
-          "Merit International Scholarship (25%)"
-        ],
-        de: [
-          "CGPA: 3,31/4,0",
-          "Dean's List",
-          "Merit International Scholarship (25%)"
-        ]
-      }
-    }
+
   },
 
   // Awards
   awards: {
-    "1": {
-      description: {
-        en: "Graduated top class with CGPA: 3.7/4.0",
-        de: "Abschluss mit Bestnote CGPA: 3,7/4,0"
-      }
-    },
+
     "2": {
       description: {
         en: "MangoVision bachelor thesis project awarded as best project in the Engineering category",
@@ -464,45 +310,31 @@ export const contentTranslations = {
         de: "2. Platz im University VLSI Virtual Bootcamp gewonnen"
       }
     },
-    "5": {
-      description: {
-        en: "Achieved Dean's List recognition for academic excellence throughout Bachelor's degree (July 2020 - Oct 2024)",
-        de: "Dean's List-Anerkennung für akademische Exzellenz während des Bachelorstudiums erreicht (Juli 2020 - Okt 2024)"
-      }
-    },
+
     "6": {
       description: {
         en: "Awarded Merit International Scholarship (50%) for Bachelor's degree studies (Oct 2020 - June 2021)",
         de: "Merit International Scholarship (50%) für Bachelorstudium verliehen (Okt 2020 - Juni 2021)"
       }
     },
-    "7": {
-      description: {
-        en: "Awarded Merit International Scholarship (25%) for Foundation studies (2018 - 2019)",
-        de: "Merit International Scholarship (25%) für Foundation-Studium verliehen (2018 - 2019)"
-      }
-    }
+
   },
 
   // Volunteering
   volunteering: {
     "1": {
       role: {
-        en: "Facilitator for AI & Machine Learning Workshop",
-        de: "Facilitator für KI & Machine Learning Workshop"
+        en: "AI Workshop Facilitator (Contract)",
+        de: "KI-Workshop-Leiter (Vertrag)"
       },
       description: {
         en: [
-          "Facilitated AI and machine learning workshops for the Malaysia Technical Cooperation Programme (MTCP) Smart Farming & Precision Agriculture Program",
-          "Organized by the Ministry of Foreign Affairs Malaysia and Multimedia University",
-          "Delivered technical sessions on AI applications in smart farming to 20+ international participants from developing countries",
-          "Received positive feedback for clear communication, technical expertise, and effective networking"
+          "Facilitated AI and machine learning workshops for 20+ international participants from developing countries",
+          "Delivered technical sessions on AI applications in smart farming, receiving positive feedback for clear communication"
         ],
         de: [
-          "Leitete KI- und Machine-Learning-Workshops für das Malaysia Technical Cooperation Programme (MTCP) Smart Farming & Precision Agriculture Program",
-          "Organisiert vom Außenministerium Malaysia und der Multimedia University",
-          "Führte technische Sitzungen zu KI-Anwendungen im Smart Farming für über 20 internationale Teilnehmer aus Entwicklungsländern durch",
-          "Erhielt positives Feedback für klare Kommunikation, technische Expertise und effektives Networking"
+          "Leitete KI- und Machine-Learning-Workshops für über 20 internationale Teilnehmer aus Entwicklungsländern",
+          "Hielt technische Sitzungen zu KI-Anwendungen im Smart Farming und erhielt positives Feedback für klare Kommunikation"
         ]
       }
     },
@@ -513,37 +345,16 @@ export const contentTranslations = {
       },
       description: {
         en: [
-          "Founded the IEEE Power & Energy Society (PES) MMU Student Branch, establishing the first PES chapter at the university",
-          "Launched campaigns that increased IEEE club membership by over 30 members",
-          "Enhanced student engagement in professional growth and networking opportunities",
-          "Coordinated a workshop for 30 primary school students on building and controlling robot cars",
-          "Coached a team of 6 children in robotics"
+          "Founded IEEE Power & Energy Society chapter and increased membership by 30+ students",
+          "Coordinated robotics workshop for 30 primary school students and coached team of 6 children"
         ],
         de: [
-          "Gründete die IEEE Power & Energy Society (PES) MMU Student Branch und etablierte das erste PES-Kapitel an der Universität",
-          "Startete Kampagnen, die die IEEE-Club-Mitgliedschaft um über 30 Mitglieder erhöhten",
-          "Verbesserte das Engagement der Studenten in beruflicher Entwicklung und Networking-Möglichkeiten",
-          "Koordinierte einen Workshop für 30 Grundschüler zum Bau und zur Steuerung von Roboter-Autos",
-          "Coachte ein Team von 6 Kindern in Robotik"
+          "Gründete IEEE Power & Energy Society Chapter und erhöhte Mitgliederzahl um über 30 Studenten",
+          "Koordinierte Robotik-Workshop für 30 Grundschüler und coachte ein Team von 6 Kindern"
         ]
       }
     },
-    "3": {
-      role: {
-        en: "Founder & Operator",
-        de: "Gründer & Betreiber"
-      },
-      description: {
-        en: [
-          "Founded and operated Skippy Snacks, a food and drinks business for Business Management course",
-          "Donated part of profits to dog shelter, combining entrepreneurship with animal welfare support"
-        ],
-        de: [
-          "Gründete und betrieb Skippy Snacks, ein Lebensmittel- und Getränkegeschäft für den Business-Management-Kurs",
-          "Spendete Teil der Gewinne an Tierheim, verband Unternehmertum mit Tierschutz-Unterstützung"
-        ]
-      }
-    }
+
   },
 
   // Recommendations

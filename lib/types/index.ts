@@ -37,6 +37,7 @@ export interface TimelineItem {
   achievements?: string[];
   certificateUrl?: string;
   transcriptUrl?: string;
+  dateString?: string;
 }
 
 // Certification & Award Types

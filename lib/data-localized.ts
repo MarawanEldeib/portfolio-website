@@ -72,6 +72,13 @@ export function getTimeline(locale?: Locale) {
       localizedItem.achievements = getLocalizedContent(translation.achievements, safeLocale);
     }
 
+    // Add dateString if it exists in translation
+    // @ts-ignore - Dynamic property access
+    if ('dateString' in translation && translation.dateString) {
+      // @ts-ignore - Dynamic property access
+      localizedItem.dateString = getLocalizedContent(translation.dateString, safeLocale);
+    }
+
     return localizedItem;
   });
 }

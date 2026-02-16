@@ -51,7 +51,7 @@ export default function Volunteering() {
               viewport={{ once: true }}
               className="bg-white dark:bg-zinc-800 rounded-xl shadow-md hover:shadow-xl transition-shadow p-6 border border-zinc-200 dark:border-zinc-700"
             >
-              <div className="flex flex-col md:flex-row gap-6">
+              <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
                 {/* Organization Logo */}
                 {volunteer.organizationLogo && (
                   <div className="flex-shrink-0 flex flex-row md:flex-col gap-3">
@@ -77,9 +77,9 @@ export default function Volunteering() {
                   </div>
                 )}
 
-                <div className="flex-grow">
+                <div className="flex-grow text-center md:text-left">
                   {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <div className="flex flex-col items-center sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
                       <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">
                         {volunteer.role}
@@ -91,7 +91,7 @@ export default function Volunteering() {
                   </div>
 
                   {/* Meta Information */}
-                  <div className="flex flex-wrap gap-4 text-sm text-zinc-600 dark:text-zinc-400 mb-4">
+                  <div className="flex flex-wrap gap-4 text-sm text-zinc-600 dark:text-zinc-400 mb-4 justify-center md:justify-start">
                     <div className="flex items-center gap-2">
                       <Calendar size={16} />
                       <span>
@@ -107,7 +107,7 @@ export default function Volunteering() {
                   </div>
 
                   {/* Description */}
-                  <ul className="list-disc list-inside text-zinc-700 dark:text-zinc-300 mb-4 space-y-1 text-left">
+                  <ul className="list-disc list-outside pl-3 md:list-inside md:pl-0 text-zinc-700 dark:text-zinc-300 mb-4 space-y-1 text-justify">
                     {volunteer.description.map((point, i) => (
                       <li key={i} className="leading-relaxed">{point}</li>
                     ))}
@@ -115,7 +115,7 @@ export default function Volunteering() {
 
                   {/* Skills/Technologies */}
                   {volunteer.skills && volunteer.skills.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                       {volunteer.skills.map((skill) => {
                         const IconComponent = TECH_ICONS[skill];
                         return (

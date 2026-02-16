@@ -184,22 +184,22 @@ export default function Projects() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-center md:text-left">{project.title}</h3>
 
                   {/* Date */}
-                  <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-4">
+                  <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-4 justify-center md:justify-start">
                     <Calendar size={14} />
                     {formatShortDate(project.startDate)} -{' '}
                     {project.endDate ? formatShortDate(project.endDate) : t('present')}
                   </div>
 
                   {/* Description */}
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-5 text-left leading-relaxed">
+                  <p className="text-zinc-600 dark:text-zinc-400 mb-5 text-justify leading-relaxed">
                     {project.description}
                   </p>
 
                   {/* Tech chips */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {project.tech.map((tech) => {
                       const IconComponent = TECH_ICONS[tech];
                       return (

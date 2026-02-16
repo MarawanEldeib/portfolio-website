@@ -48,8 +48,8 @@ export default function Skills() {
                 viewport={{ once: true }}
                 className="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-blue-50 hover:to-sky-50 dark:hover:from-blue-950/30 dark:hover:to-sky-950/30 hover:border-2 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer"
               >
-                <h3 className="text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-50">{t(category.key)}</h3>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-50 text-center md:text-left">{t(category.key)}</h3>
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                   {category.data.map((skillName) => {
                     const IconComponent = TECH_ICONS[skillName];
                     return (
@@ -77,15 +77,15 @@ export default function Skills() {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 rounded-xl p-8 shadow-lg border-2 border-blue-200 dark:border-blue-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-2xl transition-all duration-300 cursor-pointer"
           >
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-6 justify-center md:justify-start">
               <LanguagesIcon className="text-blue-600 dark:text-blue-400" size={28} />
               <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">{t('spokenLanguages')}</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide">{t('fluent')}</h4>
-                <div className="flex flex-wrap gap-2">
+                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide text-center md:text-left">{t('fluent')}</h4>
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                   {[...(languages?.native || []), ...(languages?.proficient || [])].map((lang) => {
                     const isEnglish = lang.includes('English');
                     return (
@@ -111,8 +111,8 @@ export default function Skills() {
               </div>
 
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide">{t('intermediate')}</h4>
-                <div className="flex flex-wrap gap-2">
+                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide text-center md:text-left">{t('intermediate')}</h4>
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                   {(languages?.intermediate || []).map((lang) => {
                     const isGerman = lang.includes('German');
                     return (
@@ -142,8 +142,8 @@ export default function Skills() {
               </div>
 
               <div className="bg-white dark:bg-zinc-800/50 rounded-lg p-4 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide">{t('beginner')}</h4>
-                <div className="flex flex-wrap gap-2">
+                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide text-center md:text-left">{t('beginner')}</h4>
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                   {(languages?.beginner || []).map((lang) => (
                     <span
                       key={lang}
