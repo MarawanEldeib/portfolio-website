@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/react';
+import type { Locale } from '@/lib/types';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from 'react-hot-toast';
 import "../../globals.css";
@@ -158,7 +159,7 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://vercel.live" />
 
         {/* SEO: Structured Data for ATS */}
-        <StructuredData locale={locale as 'en' | 'de'} />
+        <StructuredData locale={locale as Locale} />
 
         {/* Performance: Inline critical theme script to force dark mode */}
         <script

@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, FileText } from 'lucide-react';
 import { getTimeline } from '@/lib/data-localized';
@@ -9,6 +9,7 @@ import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import { useModal, type PDFModalState } from '@/lib/hooks/useModal';
+import type { Locale } from '@/lib/types';
 import ActionButton from '@/components/ui/ActionButton';
 import StatusBadge from '@/components/ui/StatusBadge';
 import DateRange from '@/components/ui/DateRange';
@@ -25,7 +26,7 @@ const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'),
 
 export default function Education() {
   const t = useTranslations('education');
-  const locale = useLocale() as 'en' | 'de';
+  const locale = useLocale() as Locale;
   const { formatShortDate } = useLocaleDate();
   const pdfModal = useModal<PDFModalState>();
 

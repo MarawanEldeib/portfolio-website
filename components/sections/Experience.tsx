@@ -9,6 +9,7 @@ import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import { useModal, type PDFModalState } from '@/lib/hooks/useModal';
+import type { Locale } from '@/lib/types';
 import ActionButton from '@/components/ui/ActionButton';
 import StatusBadge from '@/components/ui/StatusBadge';
 import DateRange from '@/components/ui/DateRange';
@@ -24,7 +25,7 @@ const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'),
 
 export default function Experience() {
   const t = useTranslations('experience');
-  const locale = useLocale() as 'en' | 'de';
+  const locale = useLocale() as Locale;
   const { formatShortDate } = useLocaleDate();
   const pdfModal = useModal<PDFModalState>();
 

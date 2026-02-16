@@ -16,6 +16,7 @@
 'use client';
 
 import { useTranslations, useLocale } from 'next-intl';
+import type { Locale } from '@/lib/types';
 import { motion } from 'framer-motion';
 import { Award, FileText } from 'lucide-react';
 import { certifications } from '@/lib/data';
@@ -48,9 +49,9 @@ import ActionButton from '@/components/ui/ActionButton';
  */
 export default function Certifications() {
   const t = useTranslations('certifications');
-  const locale = useLocale() as 'en' | 'de';
+  const locale = useLocale() as Locale;
   const [mounted, setMounted] = useState(false);
-  
+
   // Get localized awards
   const awards = useMemo(() => getAwards(locale), [locale]);
   const pdfModal = useModal<PDFModalState>();

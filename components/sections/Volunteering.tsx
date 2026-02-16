@@ -7,6 +7,7 @@ import { getVolunteering } from '@/lib/data-localized';
 import { TECH_ICONS, fadeInUp } from '@/lib/constants';
 import Image from 'next/image';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
+import type { Locale } from '@/lib/types';
 import InstagramButton from '@/components/ui/InstagramButton';
 import GoogleDriveButton from '@/components/ui/GoogleDriveButton';
 import GoogleDriveIcon from '@/components/ui/GoogleDriveIcon';
@@ -14,9 +15,9 @@ import { personalInfo } from '@/lib/data';
 
 export default function Volunteering() {
   const t = useTranslations('volunteering');
-  const locale = useLocale() as 'en' | 'de';
+  const locale = useLocale() as Locale;
   const { formatShortDate } = useLocaleDate();
-  
+
   // Get localized volunteering data
   const volunteering = getVolunteering(locale);
 

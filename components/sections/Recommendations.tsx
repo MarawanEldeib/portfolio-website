@@ -6,6 +6,7 @@ import { Quote, Linkedin, User, ExternalLink } from 'lucide-react';
 import { getRecommendations } from '@/lib/data-localized';
 import Image from 'next/image';
 import { useState, useEffect, useMemo } from 'react';
+import type { Locale } from '@/lib/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -13,7 +14,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default function Recommendations() {
-  const locale = useLocale() as 'en' | 'de';
+  const locale = useLocale() as Locale;
   const t = useTranslations('recommendations');
   const [mounted, setMounted] = useState(false);
 

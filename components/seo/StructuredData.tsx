@@ -1,8 +1,9 @@
 import { personalInfo } from '@/lib/data';
 import { getPersonalInfo } from '@/lib/data-localized';
+import type { Locale } from '@/lib/types';
 
 interface StructuredDataProps {
-  locale: 'en' | 'de';
+  locale: Locale;
 }
 
 export default function StructuredData({ locale }: StructuredDataProps) {

@@ -569,7 +569,8 @@ export const contentTranslations = {
   }
 };
 
-export type Locale = 'en' | 'de';
+import type { Locale } from '@/lib/types';
+export type { Locale };
 
 export function getLocalizedContent<T>(content: { en: T; de: T }, locale?: Locale): T {
   const safeLocale = locale || 'en';

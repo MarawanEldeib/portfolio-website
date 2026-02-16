@@ -12,6 +12,7 @@ import FilterButtons from '@/components/ui/FilterButtons';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import { useModal, type PDFModalState, type VideoModalState } from '@/lib/hooks/useModal';
+import type { Locale } from '@/lib/types';
 import dynamic from 'next/dynamic';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
@@ -28,7 +29,7 @@ const RippleLoader = dynamic(() => import('@/components/ui/RippleLoader'), {
 
 export default function Projects() {
   const t = useTranslations('projects');
-  const locale = useLocale() as 'en' | 'de';
+  const locale = useLocale() as Locale;
   const { formatShortDate } = useLocaleDate();
   const projects = useMemo(() => getProjects(locale), [locale]);
   const [filter, setFilter] = useState<'all' | 'completed' | 'in-progress'>('all');

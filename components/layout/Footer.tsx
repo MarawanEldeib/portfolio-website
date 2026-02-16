@@ -10,10 +10,11 @@ import GitHubButton from '@/components/ui/GitHubButton';
 import EmailButton from '@/components/ui/EmailButton';
 
 import { EXTERNAL_LINKS } from '@/lib/constants';
+import type { Locale } from '@/lib/types';
 
 export default function Footer() {
   const t = useTranslations('footer');
-  const locale = useLocale() as 'en' | 'de';
+  const locale = useLocale() as Locale;
 
   // Get localized personal info
   const localizedPersonalInfo = getPersonalInfo(locale);
