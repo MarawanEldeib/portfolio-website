@@ -89,3 +89,38 @@ export function formatDateRange(
 export function getCurrentYear(): number {
   return new Date().getFullYear();
 }
+
+/**
+ * Sort items by startDate descending (most recent first).
+ * When startDate is the same, ongoing items (endDate = null) come first,
+ * then by endDate descending.
+ *
+ * @template T - Item type with startDate and endDate fields
+ * @param items - Array of items to sort
+ * @returns New sorted array (does not mutate the original)
+ */
+export function sortByDateDescending<T extends { startDate: string; endDate: string | null }>(
+  items: T[]
+): T[] {
+  return [...items].sort((a, b) => {
+    const startCompare = b.startDate.localeCompare(a.startDate);
+    if (startCompare !== 0) return startCompare;
+
+    if (a.endDate === null) return -1;
+    if (b.endDate === null) return 1;
+    return b.endDate.localeCompare(a.endDate);
+  });
+}
+
+/**
+ * Sort items by a single `date` field in descending order (most recent first).
+ *
+ * @template T - Item type with a date field
+ * @param items - Array of items to sort
+ * @returns New sorted array (does not mutate the original)
+ */
+export function sortBySimpleDateDescending<T extends { date: string }>(
+  items: T[]
+): T[] {
+  return [...items].sort((a, b) => b.date.localeCompare(a.date));
+}

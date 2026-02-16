@@ -11,6 +11,7 @@ import ActionButton from '@/components/ui/ActionButton';
 import FilterButtons from '@/components/ui/FilterButtons';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
+import { useModal, type PDFModalState, type VideoModalState } from '@/lib/hooks/useModal';
 import dynamic from 'next/dynamic';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
@@ -31,16 +32,8 @@ export default function Projects() {
   const { formatShortDate } = useLocaleDate();
   const projects = useMemo(() => getProjects(locale), [locale]);
   const [filter, setFilter] = useState<'all' | 'completed' | 'in-progress'>('all');
-  const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
-    isOpen: false,
-    url: '',
-    title: ''
-  });
-  const [videoPreview, setVideoPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
-    isOpen: false,
-    url: '',
-    title: ''
-  });
+  const pdfModal = useModal<PDFModalState>();
+  const videoModal = useModal<VideoModalState>();
   const [githubLoader, setGithubLoader] = useState<{ isOpen: boolean; url: string }>({
     isOpen: false,
     url: ''
@@ -67,7 +60,7 @@ export default function Projects() {
 
   const handlePdfClick = (url: string, title: string) => {
     // Directly open PDF preview modal - loading animation is now integrated inside the modal
-    setPdfPreview({ isOpen: true, url, title });
+    pdfModal.open({ url, title });
   };
 
   return (
@@ -164,8 +157,7 @@ export default function Projects() {
                     )}
                     {project.video && (
                       <button
-                        onClick={() => setVideoPreview({
-                          isOpen: true,
+                        onClick={() => videoModal.open({
                           url: project.video!,
                           title: project.title
                         })}
@@ -235,21 +227,21 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {pdfPreview.isOpen && (
+      {pdfModal.state.isOpen && (
         <PDFPreviewModal
-          isOpen={pdfPreview.isOpen}
-          onClose={() => setPdfPreview({ isOpen: false, url: '', title: '' })}
-          pdfUrl={pdfPreview.url}
-          title={pdfPreview.title}
+          isOpen={pdfModal.state.isOpen}
+          onClose={pdfModal.close}
+          pdfUrl={pdfModal.state.url}
+          title={pdfModal.state.title}
         />
       )}
 
-      {videoPreview.isOpen && (
+      {videoModal.state.isOpen && (
         <VideoPreviewModal
-          isOpen={videoPreview.isOpen}
-          onClose={() => setVideoPreview({ isOpen: false, url: '', title: '' })}
-          videoUrl={videoPreview.url}
-          title={videoPreview.title}
+          isOpen={videoModal.state.isOpen}
+          onClose={videoModal.close}
+          videoUrl={videoModal.state.url}
+          title={videoModal.state.title}
         />
       )}
 

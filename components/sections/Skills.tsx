@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { skills, languages } from '@/lib/data';
 import { TECH_ICONS, fadeInUp } from '@/lib/constants';
 import { Languages as LanguagesIcon, FileText } from 'lucide-react';
-import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { useModal, type PDFModalState } from '@/lib/hooks/useModal';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
@@ -14,11 +14,7 @@ const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'),
 
 export default function Skills() {
   const t = useTranslations('skills');
-  const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
-    isOpen: false,
-    url: '',
-    title: ''
-  });
+  const pdfModal = useModal<PDFModalState>();
 
   const skillCategories = [
     { key: 'languages', data: skills?.languages || [] },
@@ -93,8 +89,7 @@ export default function Skills() {
                     return (
                       <span
                         key={lang}
-                        onClick={() => isEnglish ? setPdfPreview({
-                          isOpen: true,
+                        onClick={() => isEnglish ? pdfModal.open({
                           url: "/certificates/English C1 Certificate.pdf",
                           title: "English C1 Certificate (2024)"
                         }) : null}
@@ -121,8 +116,7 @@ export default function Skills() {
                     return (
                       <span
                         key={lang}
-                        onClick={() => isGerman ? setPdfPreview({
-                          isOpen: true,
+                        onClick={() => isGerman ? pdfModal.open({
                           url: "/certificates/German B1 Certificate.pdf",
                           title: "German B1 Certificate"
                         }) : null}
@@ -163,12 +157,12 @@ export default function Skills() {
         </motion.div>
       </div>
 
-      {pdfPreview.isOpen && (
+      {pdfModal.state.isOpen && (
         <PDFPreviewModal
-          isOpen={pdfPreview.isOpen}
-          onClose={() => setPdfPreview({ isOpen: false, url: '', title: '' })}
-          pdfUrl={pdfPreview.url}
-          title={pdfPreview.title}
+          isOpen={pdfModal.state.isOpen}
+          onClose={pdfModal.close}
+          pdfUrl={pdfModal.state.url}
+          title={pdfModal.state.title}
         />
       )}
     </section>

@@ -160,9 +160,7 @@ const nextConfig: NextConfig = {
       '@vercel/speed-insights',
     ],
     optimizeCss: true,
-    cpus: 4,
     scrollRestoration: true,
-    workerThreads: false,
     serverActions: {
       bodySizeLimit: '2mb',
     },

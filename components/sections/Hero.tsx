@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Mail, Eye, ChevronDown, MapPin, Globe, Linkedin, Github, Phone } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
+import { EXTERNAL_LINKS } from '@/lib/constants';
 import Image from 'next/image';
 import { useState, useEffect, useMemo } from 'react';
 import dynamic from 'next/dynamic';
@@ -374,7 +375,7 @@ export default function Hero() {
                 <Eye size={18} className="sm:w-5 sm:h-5 text-zinc-300" />
               </motion.button>
               <DownloadButton
-                href="/cv/Marawan_Eldeib_Resume.pdf"
+                href={EXTERNAL_LINKS.CV_PATH}
                 className="flex-shrink-0"
               >
                 {t('cta.downloadCV')}
@@ -405,7 +406,7 @@ export default function Hero() {
         <PDFPreviewModal
           isOpen={showCVPreview}
           onClose={() => setShowCVPreview(false)}
-          pdfUrl="/cv/Marawan_Eldeib_Resume.pdf"
+          pdfUrl={EXTERNAL_LINKS.CV_PATH}
           title={`${t('cta.viewCV')} - ${personalInfo.name}`}
         />
       )}

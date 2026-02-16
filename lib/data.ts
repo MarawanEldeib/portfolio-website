@@ -1,7 +1,8 @@
 // Portfolio Data - Marawan Eldeib's Professional Profile
-import type { Project } from './types';
+import type { Project, PersonalInfo, TimelineItem, Certification, Award, Recommendation } from './types';
+import { sortByDateDescending, sortBySimpleDateDescending } from './utils/date';
 
-export const personalInfo = {
+export const personalInfo: PersonalInfo = {
   name: "Marawan Eldeib",
   title: "M.Sc. Software Engineering Student",
   email: "marawandeep13@gmail.com",
@@ -255,179 +256,136 @@ const projectsData: Project[] = [
   },
 ];
 
-// Sort projects by startDate descending (most recent first), then by endDate descending
-// Ongoing projects (endDate = null) come first when startDate is the same
-export const projects = projectsData.sort((a, b) => {
-  const startCompare = b.startDate.localeCompare(a.startDate);
-  if (startCompare !== 0) return startCompare;
+export const projects = sortByDateDescending(projectsData);
 
-  // If startDate is the same, sort by endDate (ongoing projects first)
-  if (a.endDate === null) return -1;
-  if (b.endDate === null) return 1;
-  return b.endDate.localeCompare(a.endDate);
-});
+const timelineData: TimelineItem[] = [
+  {
+    id: "1",
+    type: "work",
+    title: "Research Assistant (Working Student)",
+    organization: "Fraunhofer IOSB",
+    organizationLogo: "/images/logos/Logo_fraunhofer_IOSB.webp",
+    location: "Karlsruhe, Germany (Hybrid)",
+    startDate: "2025-04",
+    endDate: "2025-12",
+    description: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",
+    skills: ["Java", "Spring Boot", "Testing", "LLM", "AI Evaluation", "Digital Twins", "AAS", "End-to-End Testing"],
+    achievements: [],
+    certificateUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",
+  },
+  {
+    id: "2",
+    type: "work",
+    title: "Teaching Assistant",
+    organization: "Faculty of Engineering, Multimedia University",
+    organizationLogo: "/images/logos/logo-mmu.png",
+    location: "Cyberjaya, Malaysia (Hybrid)",
+    startDate: "2024-08",
+    endDate: "2024-10",
+    description: "• Organized targeted revision sessions on digital logic concepts, resulting in improved exam performance for attendees\n• Assisted professor in providing academic support to students\n• Ensured students effectively applied theoretical knowledge to practical circuit design tasks",
+    skills: ["Digital Logic", "Circuit Design", "Teaching", "Academic Support", "Communication"],
+    achievements: [],
+    certificateUrl: "",
+  },
+  {
+    id: "3",
+    type: "work",
+    title: "Software Engineer Intern",
+    organization: "AirAsia",
+    organizationLogo: "/images/logos/logo_AirAsia.png",
+    location: "Kuala Lumpur, Malaysia (Hybrid)",
+    startDate: "2023-07",
+    endDate: "2023-10",
+    description: "• Debugged 14 software bugs and implemented 5 checkout calculation features, enhancing app stability for 10,000+ users\n• Refactored 2 app pages and integrated GraphQL APIs for bilingual content management in Agile sprints",
+    skills: ["GraphQL", "Bug Fixing", "Feature Development", "Code Refactoring", "API Integration", "Agile", "Bilingual Support", "Checkout Systems"],
+    achievements: [],
+    certificateUrl: "/certificates/EPD_Intern_Certificate_Marawan.pdf",
+  },
+  {
+    id: "4",
+    type: "education",
+    title: "Master of Science",
+    organization: "Stuttgart University",
+    organizationLogo: "/images/logos/logo_stuttgart.png",
+    location: "Stuttgart, Germany",
+    startDate: "2024-10",
+    endDate: null,
+    description: "Major in Software Engineering/Computer Hardware; Minor in Information Technology. Expected graduation: March 2027. Relevant Coursework: Distributed Systems (TCP/IP), Operating Systems (Linux), Cloud Computing (AWS), Real-Time Systems.",
+    skills: ["Software Engineering", "Computer Hardware", "Information Technology", "Distributed Systems", "Operating Systems", "Cloud Computing"],
+    achievements: [
+      "Expected graduation: March 2027",
+      "Specializing in Security & Cloud Infrastructure, Software Engineering, Service Management"
+    ],
+    certificateUrl: "/certificates/Enrollment s26.pdf",
+  },
+  {
+    id: "5",
+    type: "education",
+    title: "Bachelor of Engineering (Hons.)",
+    organization: "Multimedia University",
+    organizationLogo: "/images/logos/logo-mmu.png",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2020-07",
+    endDate: "2024-10",
+    description: "Major in Computer; Minors in Electronics. First Class Honors. Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project). Relevant Coursework: Software Engineering; Operating Systems; Artificial Intelligence; Embedded IoT; Networking Protocols; Database Systems; Cybersecurity.",
+    skills: ["Computer Engineering", "Electronics", "Machine Learning", "PyTorch", "Computer Vision", "Software Engineering", "Operating Systems", "Artificial Intelligence", "Embedded IoT"],
+    achievements: [
+      "First Class Honors (CGPA: 3.7/4.0)",
+      "Gold Medal at iNVENTX Invention Exhibition 2024",
+      "Best Project at MMU Career Fair 2024",
+      "Best Research Project Award",
+      "Book Award",
+      "Merit International Scholarship (50%)",
+      "Dean's List"
+    ],
+    certificateUrl: "/certificates/Bachelor Certificate.pdf",
+    transcriptUrl: "/certificates/Bachelor Transcript.pdf",
+  },
+  {
+    id: "6",
+    type: "education",
+    title: "Foundation in Engineering",
+    organization: "Multimedia University",
+    organizationLogo: "/images/logos/logo-mmu.png",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2018-11",
+    endDate: "2020-06",
+    description: "Foundation program providing essential engineering fundamentals and preparing students for degree-level engineering studies.",
+    skills: ["Engineering Fundamentals", "Mathematics", "Physics", "Chemistry", "C Programming", "Business Management"],
+    achievements: [
+      "CGPA: 3.31/4.0",
+      "Dean's List",
+      "Merit International Scholarship (25%)"
+    ],
+    certificateUrl: "/certificates/Foundation Certificate.pdf",
+  },
+];
 
-const timelineData: Array<{
-  id: string;
-  type: string;
-  title: string;
-  organization: string;
-  organizationLogo?: string;
-  location: string;
-  startDate: string;
-  endDate: string | null;
-  description: string;
-  skills: string[];
-  achievements: string[];
-  certificateUrl: string;
-  transcriptUrl?: string;
-}> = [
-    {
-      id: "1",
-      type: "work",
-      title: "Research Assistant (Working Student)",
-      organization: "Fraunhofer IOSB",
-      organizationLogo: "/images/logos/Logo_fraunhofer_IOSB.webp",
-      location: "Karlsruhe, Germany (Hybrid)",
-      startDate: "2025-04",
-      endDate: "2025-12",
-      description: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",
-      skills: ["Java", "Spring Boot", "Testing", "LLM", "AI Evaluation", "Digital Twins", "AAS", "End-to-End Testing"],
-      achievements: [],
-      certificateUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",
-    },
-    {
-      id: "2",
-      type: "work",
-      title: "Teaching Assistant",
-      organization: "Faculty of Engineering, Multimedia University",
-      organizationLogo: "/images/logos/logo-mmu.png",
-      location: "Cyberjaya, Malaysia (Hybrid)",
-      startDate: "2024-08",
-      endDate: "2024-10",
-      description: "• Organized targeted revision sessions on digital logic concepts, resulting in improved exam performance for attendees\n• Assisted professor in providing academic support to students\n• Ensured students effectively applied theoretical knowledge to practical circuit design tasks",
-      skills: ["Digital Logic", "Circuit Design", "Teaching", "Academic Support", "Communication"],
-      achievements: [],
-      certificateUrl: "",
-    },
-    {
-      id: "3",
-      type: "work",
-      title: "Software Engineer Intern",
-      organization: "AirAsia",
-      organizationLogo: "/images/logos/logo_AirAsia.png",
-      location: "Kuala Lumpur, Malaysia (Hybrid)",
-      startDate: "2023-07",
-      endDate: "2023-10",
-      description: "• Debugged 14 software bugs and implemented 5 checkout calculation features, enhancing app stability for 10,000+ users\n• Refactored 2 app pages and integrated GraphQL APIs for bilingual content management in Agile sprints",
-      skills: ["GraphQL", "Bug Fixing", "Feature Development", "Code Refactoring", "API Integration", "Agile", "Bilingual Support", "Checkout Systems"],
-      achievements: [],
-      certificateUrl: "/certificates/EPD_Intern_Certificate_Marawan.pdf",
-    },
-    {
-      id: "4",
-      type: "education",
-      title: "Master of Science",
-      organization: "Stuttgart University",
-      organizationLogo: "/images/logos/logo_stuttgart.png",
-      location: "Stuttgart, Germany",
-      startDate: "2024-10",
-      endDate: null,
-      description: "Major in Software Engineering/Computer Hardware; Minor in Information Technology. Expected graduation: March 2027. Relevant Coursework: Distributed Systems (TCP/IP), Operating Systems (Linux), Cloud Computing (AWS), Real-Time Systems.",
-      skills: ["Software Engineering", "Computer Hardware", "Information Technology", "Distributed Systems", "Operating Systems", "Cloud Computing"],
-      achievements: [
-        "Expected graduation: March 2027",
-        "Specializing in Security & Cloud Infrastructure, Software Engineering, Service Management"
-      ],
-      certificateUrl: "/certificates/Enrollment s26.pdf",
-    },
-    {
-      id: "5",
-      type: "education",
-      title: "Bachelor of Engineering (Hons.)",
-      organization: "Multimedia University",
-      organizationLogo: "/images/logos/logo-mmu.png",
-      location: "Cyberjaya, Malaysia",
-      startDate: "2020-07",
-      endDate: "2024-10",
-      description: "Major in Computer; Minors in Electronics. First Class Honors. Final Year Project: Developed MangoVision, a deep learning model for mango fruit detection from aerial images, achieving 98.5% accuracy (Awarded Best Research Project). Relevant Coursework: Software Engineering; Operating Systems; Artificial Intelligence; Embedded IoT; Networking Protocols; Database Systems; Cybersecurity.",
-      skills: ["Computer Engineering", "Electronics", "Machine Learning", "PyTorch", "Computer Vision", "Software Engineering", "Operating Systems", "Artificial Intelligence", "Embedded IoT"],
-      achievements: [
-        "First Class Honors (CGPA: 3.7/4.0)",
-        "Gold Medal at iNVENTX Invention Exhibition 2024",
-        "Best Project at MMU Career Fair 2024",
-        "Best Research Project Award",
-        "Book Award",
-        "Merit International Scholarship (50%)",
-        "Dean's List"
-      ],
-      certificateUrl: "/certificates/Bachelor Certificate.pdf",
-      transcriptUrl: "/certificates/Bachelor Transcript.pdf",
-    },
-    {
-      id: "6",
-      type: "education",
-      title: "Foundation in Engineering",
-      organization: "Multimedia University",
-      organizationLogo: "/images/logos/logo-mmu.png",
-      location: "Cyberjaya, Malaysia",
-      startDate: "2018-11",
-      endDate: "2020-06",
-      description: "Foundation program providing essential engineering fundamentals and preparing students for degree-level engineering studies.",
-      skills: ["Engineering Fundamentals", "Mathematics", "Physics", "Chemistry", "C Programming", "Business Management"],
-      achievements: [
-        "CGPA: 3.31/4.0",
-        "Dean's List",
-        "Merit International Scholarship (25%)"
-      ],
-      certificateUrl: "/certificates/Foundation Certificate.pdf",
-    },
-  ];
+export const timeline = sortByDateDescending(timelineData);
 
-// Sort timeline by startDate descending (most recent first), then by endDate descending
-// Ongoing items (endDate = null) come first when startDate is the same
-export const timeline = timelineData.sort((a, b) => {
-  const startCompare = b.startDate.localeCompare(a.startDate);
-  if (startCompare !== 0) return startCompare;
+const certificationsData: Certification[] = [
+  {
+    id: "1",
+    title: "Python for Data Science and AI",
+    issuer: "IBM",
+    date: "2023-02",
+    image: "",
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ZPJ8H9X976RB",
+    pdfUrl: "/certificates/Coursera python.pdf",
+  },
+  {
+    id: "2",
+    title: "ACE Summer Programme 2022",
+    issuer: "Multimedia University - Alumni, Career & Entrepreneurship (ACE)",
+    date: "2022-06",
+    image: "",
+    credentialUrl: "/certificates/ACE Summer Programme 2022.pdf",
+  },
+];
 
-  // If startDate is the same, sort by endDate (ongoing items first)
-  if (a.endDate === null) return -1;
-  if (b.endDate === null) return 1;
-  return b.endDate.localeCompare(a.endDate);
-});
+export const certifications = sortBySimpleDateDescending(certificationsData);
 
-const certificationsData: Array<{
-  id: string;
-  title: string;
-  issuer: string;
-  date: string;
-  image?: string;
-  credentialUrl?: string;
-  pdfUrl?: string;
-}> = [
-    {
-      id: "1",
-      title: "Python for Data Science and AI",
-      issuer: "IBM",
-      date: "2023-02",
-      image: "",
-      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ZPJ8H9X976RB",
-      pdfUrl: "/certificates/Coursera python.pdf",
-    },
-    {
-      id: "2",
-      title: "ACE Summer Programme 2022",
-      issuer: "Multimedia University - Alumni, Career & Entrepreneurship (ACE)",
-      date: "2022-06",
-      image: "",
-      credentialUrl: "/certificates/ACE Summer Programme 2022.pdf",
-    },
-  ];
-
-// Sort certifications by date in descending order (most recent first)
-export const certifications = certificationsData.sort((a, b) => b.date.localeCompare(a.date));
-
-const awardsData = [
+const awardsData: Award[] = [
   {
     id: "1",
     title: "First Class Honors",
@@ -493,53 +451,42 @@ const awardsData = [
   },
 ];
 
-// Sort awards by date in descending order (most recent first)
-export const awards = awardsData.sort((a, b) => b.date.localeCompare(a.date));
+export const awards = sortBySimpleDateDescending(awardsData);
 
-export const recommendations: Array<{
-  id: string;
-  name: string;
-  title: string;
-  company: string;
-  image?: string;
-  text: string;
-  linkedin?: string;
-  profileUrl?: string;
-  email?: string;
-}> = [
-    {
-      id: "1",
-      name: "Muhammad Hafiz Bin Khairudin",
-      title: "Head of Technology & Product",
-      company: "Ikhlas Com Travel Sdn Bhd (AirAsia)",
-      image: "/images/recommendations/hafiz.jpeg", // Add profile image URL here
-      text: "Marawan is a sterling communicator, adept at conveying complex technical ideas clearly and persuasively. His adaptability to diverse technical challenges is impressive - he demonstrated remarkable versatility in mobile software development, adapting to new programming languages and technologies with ease. His work ethics and discipline are exemplary, consistently meeting tight deadlines while maintaining the highest quality of work. Marawan is an amazing team player whose supportive nature and ability to motivate others have been crucial in high-pressure situations.",
-      linkedin: "https://www.linkedin.com/in/hafizkhairudin/",
-      email: "hafiz@airasia.com",
-    },
-    {
-      id: "2",
-      name: "Mohd Haris Lye Abdullah",
-      title: "Lecturer, Faculty of Engineering",
-      company: "Multimedia University",
-      image: "/images/recommendations/haris.jpg", // Add profile image URL here
-      text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
-      linkedin: "https://www.linkedin.com/in/harislye/",
-      email: "haris.lye@mmu.edu.my",
-    },
-    {
-      id: "3",
-      name: "Maximilian Kühn",
-      title: "Supervisor",
-      company: "Fraunhofer IOSB",
-      image: "/images/recommendations/maximilian.jpg",
-      text: "Marawan demonstrated exemplary initiative and identified fully with his tasks and our institute, showing great dedication. Even under difficult working conditions and increased pressure, he reliably completed all tasks. He worked consistently fast, prudent, careful, and precise. Trustworthiness and great reliability always characterized his work style. He possesses solid technical knowledge, which he applied confidently and purposefully in practice. His quick comprehension enabled him to overview difficult situations and recognize what is essential. We were always very satisfied with his performance.",
-      profileUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",
-      linkedin: "https://www.linkedin.com/in/maximilian-kühn-6668b6269",
-    },
-  ];
+export const recommendations: Recommendation[] = [
+  {
+    id: "1",
+    name: "Muhammad Hafiz Bin Khairudin",
+    title: "Head of Technology & Product",
+    company: "Ikhlas Com Travel Sdn Bhd (AirAsia)",
+    image: "/images/recommendations/hafiz.jpeg", // Add profile image URL here
+    text: "Marawan is a sterling communicator, adept at conveying complex technical ideas clearly and persuasively. His adaptability to diverse technical challenges is impressive - he demonstrated remarkable versatility in mobile software development, adapting to new programming languages and technologies with ease. His work ethics and discipline are exemplary, consistently meeting tight deadlines while maintaining the highest quality of work. Marawan is an amazing team player whose supportive nature and ability to motivate others have been crucial in high-pressure situations.",
+    linkedin: "https://www.linkedin.com/in/hafizkhairudin/",
+    email: "hafiz@airasia.com",
+  },
+  {
+    id: "2",
+    name: "Mohd Haris Lye Abdullah",
+    title: "Lecturer, Faculty of Engineering",
+    company: "Multimedia University",
+    image: "/images/recommendations/haris.jpg", // Add profile image URL here
+    text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
+    linkedin: "https://www.linkedin.com/in/harislye/",
+    email: "haris.lye@mmu.edu.my",
+  },
+  {
+    id: "3",
+    name: "Maximilian Kühn",
+    title: "Supervisor",
+    company: "Fraunhofer IOSB",
+    image: "/images/recommendations/maximilian.jpg",
+    text: "Marawan demonstrated exemplary initiative and identified fully with his tasks and our institute, showing great dedication. Even under difficult working conditions and increased pressure, he reliably completed all tasks. He worked consistently fast, prudent, careful, and precise. Trustworthiness and great reliability always characterized his work style. He possesses solid technical knowledge, which he applied confidently and purposefully in practice. His quick comprehension enabled him to overview difficult situations and recognize what is essential. We were always very satisfied with his performance.",
+    profileUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",
+    linkedin: "https://www.linkedin.com/in/maximilian-kühn-6668b6269",
+  },
+];
 
-const volunteeringData: Array<{
+interface VolunteeringItem {
   id: string;
   organization: string;
   role: string;
@@ -550,67 +497,59 @@ const volunteeringData: Array<{
   skills?: string[];
   organizationLogo?: string;
   websiteUrl?: string;
-}> = [
-    {
-      id: "1",
-      organization: "MTCP Smart Farming & Precision Agriculture Program",
-      role: "Facilitator for AI & Machine Learning Workshop",
-      location: "Cyberjaya, Malaysia",
-      startDate: "2024-06-24",
-      endDate: "2024-06-28",
-      description: [
-        "Facilitated AI and machine learning workshops for the Malaysia Technical Cooperation Programme (MTCP) Smart Farming & Precision Agriculture Program",
-        "Organized by the Ministry of Foreign Affairs Malaysia and Multimedia University",
-        "Delivered technical sessions on AI applications in smart farming to 20+ international participants from developing countries",
-        "Received positive feedback for clear communication, technical expertise, and effective networking"
-      ],
-      skills: ["AI", "Machine Learning", "Smart Farming", "Precision Agriculture", "Public Speaking", "International Collaboration", "Technical Training"],
-      organizationLogo: "/images/logos/logo-mmu.png",
-      websiteUrl: "https://drive.google.com/drive/folders/1-DDlWCXV9CBZuhQ2tYiuPf0l091TBUqI?usp=drive_link",
-    },
-    {
-      id: "2",
-      organization: "IEEE Multimedia University Student Branch",
-      role: "Head of Membership & Student Affairs",
-      location: "Cyberjaya, Malaysia",
-      startDate: "2022-12",
-      endDate: "2023-12",
-      description: [
-        "Founded the IEEE Power & Energy Society (PES) MMU Student Branch, establishing the first PES chapter at the university",
-        "Launched campaigns that increased IEEE club membership by over 30 members",
-        "Enhanced student engagement in professional growth and networking opportunities",
-        "Coordinated a workshop for 30 primary school students on building and controlling robot cars",
-        "Coached a team of 6 children in robotics"
-      ],
-      skills: ["Leadership", "Event Management", "Student Engagement", "Robotics", "Mentoring", "Chapter Founding"],
-      organizationLogo: "/images/logos/ieee_mmu.jpg",
-      websiteUrl: "",
-    },
-    {
-      id: "3",
-      organization: "Skippy Snacks",
-      role: "Founder & Operator",
-      location: "Cyberjaya, Malaysia",
-      startDate: "2019-11",
-      endDate: "2020-06",
-      description: [
-        "Founded and operated Skippy Snacks, a food and drinks business for Business Management course",
-        "Donated part of profits to dog shelter, combining entrepreneurship with animal welfare support"
-      ],
-      skills: ["Entrepreneurship", "Business Management", "Social Responsibility", "Sales", "Customer Service"],
-      organizationLogo: "/images/logos/skippy_snacks.jpg",
-      websiteUrl: "https://www.instagram.com/skippy_snacks_mmu?igsh=YmM0MXA4b2tzaWE3",
-    },
-  ];
+}
 
-// Sort volunteering by startDate descending (most recent first), then by endDate descending
-// Ongoing items (endDate = null) come first when startDate is the same
-export const volunteering = volunteeringData.sort((a, b) => {
-  const startCompare = b.startDate.localeCompare(a.startDate);
-  if (startCompare !== 0) return startCompare;
+const volunteeringData: VolunteeringItem[] = [
+  {
+    id: "1",
+    organization: "MTCP Smart Farming & Precision Agriculture Program",
+    role: "Facilitator for AI & Machine Learning Workshop",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2024-06-24",
+    endDate: "2024-06-28",
+    description: [
+      "Facilitated AI and machine learning workshops for the Malaysia Technical Cooperation Programme (MTCP) Smart Farming & Precision Agriculture Program",
+      "Organized by the Ministry of Foreign Affairs Malaysia and Multimedia University",
+      "Delivered technical sessions on AI applications in smart farming to 20+ international participants from developing countries",
+      "Received positive feedback for clear communication, technical expertise, and effective networking"
+    ],
+    skills: ["AI", "Machine Learning", "Smart Farming", "Precision Agriculture", "Public Speaking", "International Collaboration", "Technical Training"],
+    organizationLogo: "/images/logos/logo-mmu.png",
+    websiteUrl: "https://drive.google.com/drive/folders/1-DDlWCXV9CBZuhQ2tYiuPf0l091TBUqI?usp=drive_link",
+  },
+  {
+    id: "2",
+    organization: "IEEE Multimedia University Student Branch",
+    role: "Head of Membership & Student Affairs",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2022-12",
+    endDate: "2023-12",
+    description: [
+      "Founded the IEEE Power & Energy Society (PES) MMU Student Branch, establishing the first PES chapter at the university",
+      "Launched campaigns that increased IEEE club membership by over 30 members",
+      "Enhanced student engagement in professional growth and networking opportunities",
+      "Coordinated a workshop for 30 primary school students on building and controlling robot cars",
+      "Coached a team of 6 children in robotics"
+    ],
+    skills: ["Leadership", "Event Management", "Student Engagement", "Robotics", "Mentoring", "Chapter Founding"],
+    organizationLogo: "/images/logos/ieee_mmu.jpg",
+    websiteUrl: "",
+  },
+  {
+    id: "3",
+    organization: "Skippy Snacks",
+    role: "Founder & Operator",
+    location: "Cyberjaya, Malaysia",
+    startDate: "2019-11",
+    endDate: "2020-06",
+    description: [
+      "Founded and operated Skippy Snacks, a food and drinks business for Business Management course",
+      "Donated part of profits to dog shelter, combining entrepreneurship with animal welfare support"
+    ],
+    skills: ["Entrepreneurship", "Business Management", "Social Responsibility", "Sales", "Customer Service"],
+    organizationLogo: "/images/logos/skippy_snacks.jpg",
+    websiteUrl: "https://www.instagram.com/skippy_snacks_mmu?igsh=YmM0MXA4b2tzaWE3",
+  },
+];
 
-  // If startDate is the same, sort by endDate (ongoing items first)
-  if (a.endDate === null) return -1;
-  if (b.endDate === null) return 1;
-  return b.endDate.localeCompare(a.endDate);
-});
+export const volunteering = sortByDateDescending(volunteeringData);

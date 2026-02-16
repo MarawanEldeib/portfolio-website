@@ -9,10 +9,12 @@ import YouTubeButton from '@/components/ui/YouTubeButton';
 import GitHubButton from '@/components/ui/GitHubButton';
 import EmailButton from '@/components/ui/EmailButton';
 
+import { EXTERNAL_LINKS } from '@/lib/constants';
+
 export default function Footer() {
   const t = useTranslations('footer');
   const locale = useLocale() as 'en' | 'de';
-  
+
   // Get localized personal info
   const localizedPersonalInfo = getPersonalInfo(locale);
 
@@ -45,7 +47,7 @@ export default function Footer() {
 
           <div className="flex gap-4">
             <DownloadButton
-              href="/cv/Marawan_Eldeib_Resume.pdf"
+              href={EXTERNAL_LINKS.CV_PATH}
               variant="solid"
             >
               {t('downloadCV')}

@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, FileText } from 'lucide-react';
 import { getTimeline } from '@/lib/data-localized';
 import Image from 'next/image';
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
+import { useModal, type PDFModalState } from '@/lib/hooks/useModal';
 import ActionButton from '@/components/ui/ActionButton';
 import StatusBadge from '@/components/ui/StatusBadge';
 import DateRange from '@/components/ui/DateRange';
@@ -26,11 +27,7 @@ export default function Education() {
   const t = useTranslations('education');
   const locale = useLocale() as 'en' | 'de';
   const { formatShortDate } = useLocaleDate();
-  const [pdfPreview, setPdfPreview] = useState<{ isOpen: boolean; url: string; title: string }>({
-    isOpen: false,
-    url: '',
-    title: ''
-  });
+  const pdfModal = useModal<PDFModalState>();
 
   // Get localized timeline and filter only education items
   const timeline = useMemo(() => getTimeline(locale), [locale]);
@@ -130,8 +127,7 @@ export default function Education() {
                   <div className="flex flex-wrap gap-3">
                     {item.certificateUrl && (
                       <ActionButton
-                        onClick={() => setPdfPreview({
-                          isOpen: true,
+                        onClick={() => pdfModal.open({
                           url: item.certificateUrl!,
                           title: `${item.title} - ${item.title.includes(TIMELINE_KEYWORDS.MASTER_DEGREE) ? t('buttons.viewEnrollment') : t('buttons.viewCertificate')}`
                         })}
@@ -144,8 +140,7 @@ export default function Education() {
                     )}
                     {item.transcriptUrl && (
                       <ActionButton
-                        onClick={() => setPdfPreview({
-                          isOpen: true,
+                        onClick={() => pdfModal.open({
                           url: item.transcriptUrl!,
                           title: `${item.title} - ${t('buttons.viewTranscript')}`
                         })}
@@ -164,12 +159,12 @@ export default function Education() {
         </motion.div>
       </div>
 
-      {pdfPreview.isOpen && (
+      {pdfModal.state.isOpen && (
         <PDFPreviewModal
-          isOpen={pdfPreview.isOpen}
-          onClose={() => setPdfPreview({ isOpen: false, url: '', title: '' })}
-          pdfUrl={pdfPreview.url}
-          title={pdfPreview.title}
+          isOpen={pdfModal.state.isOpen}
+          onClose={pdfModal.close}
+          pdfUrl={pdfModal.state.url}
+          title={pdfModal.state.title}
         />
       )}
     </section>

@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
-import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import ThemeToggle from '@/components/ui/ThemeToggle';
@@ -18,7 +17,6 @@ export default function Header() {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isLanguageLoading, setIsLanguageLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
   // Ensure client-side mounting for portal
@@ -30,7 +28,6 @@ export default function Header() {
 
   const handleLanguageChange = (newLocale: string) => {
     if (newLocale === locale) return;
-    setIsLanguageLoading(true);
     setIsMenuOpen(false);
     // Small delay to show the loader before navigation
     setTimeout(() => {
@@ -38,10 +35,6 @@ export default function Header() {
     }, 100);
   };
 
-  // Hide loader when locale changes (navigation complete)
-  useEffect(() => {
-    setIsLanguageLoading(false);
-  }, [locale]);
 
   const navItems = useMemo(() => [
     { href: `/${locale}#about`, label: t('about'), id: 'about' },
@@ -58,7 +51,7 @@ export default function Header() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     if (typeof document === 'undefined' || typeof window === 'undefined') return;
-    
+
     const element = document.getElementById(id);
     if (element) {
       const elementPosition = element.getBoundingClientRect().top;
@@ -75,7 +68,7 @@ export default function Header() {
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (typeof document === 'undefined') return;
-    
+
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -90,7 +83,7 @@ export default function Header() {
 
   useEffect(() => {
     if (typeof window === 'undefined' || typeof document === 'undefined') return;
-    
+
     let ticking = false;
     let lastScrollY = window.scrollY;
 
@@ -320,11 +313,6 @@ export default function Header() {
         </AnimatePresence>
       </nav>
 
-      {/* Language Change Loader - Use portal to render at document body level */}
-      {isMounted && isLanguageLoading && createPortal(
-        <></>,
-        document.body
-      )}
     </header>
   );
 }

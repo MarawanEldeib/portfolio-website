@@ -25,15 +25,18 @@ export interface Project {
 // Timeline Types
 export interface TimelineItem {
   id: string;
+  type: 'work' | 'education';
   title: string;
   organization: string;
+  organizationLogo?: string;
   location: string;
   startDate: string;
-  endDate: string;
+  endDate: string | null;
   description: string;
   skills?: string[];
   achievements?: string[];
   certificateUrl?: string;
+  transcriptUrl?: string;
 }
 
 // Certification & Award Types
@@ -53,9 +56,9 @@ export interface Award {
   issuer: string;
   date: string;
   description: string;
+  image?: string;
   certificateUrl?: string;
   projectUrl?: string;
-  image?: string;
 }
 
 // Recommendation Types
@@ -68,6 +71,7 @@ export interface Recommendation {
   image?: string;
   linkedin?: string;
   profileUrl?: string;
+  email?: string;
 }
 
 // Personal Info Types
@@ -79,6 +83,11 @@ export interface PersonalInfo {
   location: string;
   github: string;
   linkedin: string;
+  youtube: string;
+  instagram: string;
+  orcid: string;
+  image: string;
+  summary: string;
   workPermit: {
     hasPermit: boolean;
     details: string;

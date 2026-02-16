@@ -76,7 +76,7 @@ export function getTimeline(locale?: Locale) {
   });
 }
 
-// Convenence functions if needed
+// Convenience functions if needed
 export function getExperience(locale?: Locale) {
   return getTimeline(locale).filter(item => item.type === 'work');
 }

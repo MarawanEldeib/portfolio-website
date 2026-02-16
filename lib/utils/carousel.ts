@@ -42,54 +42,36 @@ export function generateCarouselKey(id: string, index: number): string {
 }
 
 /**
- * Swiper configuration presets
- * Centralized configuration following DRY principle
+ * Creates a cards-effect Swiper preset with the given autoplay delay.
+ * Centralizes shared configuration to avoid duplication.
  */
+function createCardsPreset(autoplayDelay: number) {
+  return {
+    effect: 'cards' as const,
+    grabCursor: true,
+    loop: false, // Disabled - createLoopedArray handles duplication
+    autoplay: {
+      delay: autoplayDelay,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    pagination: {
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      enabled: true,
+    },
+    cardsEffect: {
+      perSlideOffset: CAROUSEL_CONFIG.CARDS_PER_SLIDE_OFFSET,
+      perSlideRotate: CAROUSEL_CONFIG.CARDS_PER_SLIDE_ROTATE,
+      rotate: true,
+      slideShadows: true,
+    },
+  } as const;
+}
+
 export const SWIPER_PRESETS = {
-  certifications: {
-    effect: 'cards' as const,
-    grabCursor: true,
-    loop: false, // Disabled - createLoopedArray handles duplication
-    autoplay: {
-      delay: CAROUSEL_CONFIG.CERTIFICATIONS_AUTOPLAY_DELAY,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    },
-    pagination: {
-      clickable: true,
-      dynamicBullets: true,
-    },
-    navigation: {
-      enabled: true,
-    },
-    cardsEffect: {
-      perSlideOffset: CAROUSEL_CONFIG.CARDS_PER_SLIDE_OFFSET,
-      perSlideRotate: CAROUSEL_CONFIG.CARDS_PER_SLIDE_ROTATE,
-      rotate: true,
-      slideShadows: true,
-    },
-  },
-  awards: {
-    effect: 'cards' as const,
-    grabCursor: true,
-    loop: false, // Disabled - createLoopedArray handles duplication
-    autoplay: {
-      delay: CAROUSEL_CONFIG.AWARDS_AUTOPLAY_DELAY,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    },
-    pagination: {
-      clickable: true,
-      dynamicBullets: true,
-    },
-    navigation: {
-      enabled: true,
-    },
-    cardsEffect: {
-      perSlideOffset: CAROUSEL_CONFIG.CARDS_PER_SLIDE_OFFSET,
-      perSlideRotate: CAROUSEL_CONFIG.CARDS_PER_SLIDE_ROTATE,
-      rotate: true,
-      slideShadows: true,
-    },
-  },
+  certifications: createCardsPreset(CAROUSEL_CONFIG.CERTIFICATIONS_AUTOPLAY_DELAY),
+  awards: createCardsPreset(CAROUSEL_CONFIG.AWARDS_AUTOPLAY_DELAY),
 } as const;

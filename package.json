@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "clean": "powershell -Command \"Remove-Item -Path .next -Recurse -Force -ErrorAction SilentlyContinue; Write-Host 'Cleaned .next folder'\"",
+    "dev:clean": "npm run clean && next dev"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
