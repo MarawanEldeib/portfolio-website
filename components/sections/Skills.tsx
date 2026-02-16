@@ -18,8 +18,10 @@ export default function Skills() {
 
   const skillCategories = [
     { key: 'languages', data: skills?.languages || [] },
+    { key: 'dataScience', data: skills?.dataScience || [] },
     { key: 'frameworks', data: skills?.frameworks || [] },
     { key: 'cloudDevOps', data: skills?.cloudDevOps || [] },
+    { key: 'projectManagement', data: skills?.projectManagement || [] },
     { key: 'tools', data: skills?.tools || [] },
     { key: 'cybersecurity', data: skills?.cybersecurity || [] },
     { key: 'systems', data: skills?.systems || [] },
@@ -85,7 +87,7 @@ export default function Skills() {
                 <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3 uppercase tracking-wide">{t('fluent')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {[...(languages?.native || []), ...(languages?.proficient || [])].map((lang) => {
-                    const isEnglish = lang === 'English';
+                    const isEnglish = lang.includes('English');
                     return (
                       <span
                         key={lang}

@@ -22,17 +22,19 @@ export const personalInfo: PersonalInfo = {
 };
 
 export const skills = {
-  languages: ["Python", "Java", "C/C++", "SQL", "Assembly"],
-  frameworks: ["Spring Boot", "Flutter", "PyTorch", "Detectron2", "scikit-learn"],
-  cloudDevOps: ["AWS", "Docker", "Git"],
-  tools: ["Firebase", "GraphQL", "REST APIs", "Jira", "Confluence", "Insomnia", "GitHub Copilot", "Claude", "MCP Server"],
+  languages: ["Python", "Java", "C/C++", "SQL", "PHP", "HTML", "CSS", "Assembly"],
+  dataScience: ["PyTorch", "Detectron2", "scikit-learn", "pandas", "NumPy"],
+  frameworks: ["Spring Boot", "Flutter", "GraphQL"],
+  cloudDevOps: ["AWS", "Firebase", "Docker", "Git"],
+  projectManagement: ["Jira", "Confluence", "Agile/Scrum"],
+  tools: ["REST APIs", "Insomnia", "GitHub Copilot", "Claude", "MCP Server"],
   cybersecurity: ["Burp Suite", "Nmap", "SQLmap", "OWASP"],
   systems: ["Kali Linux", "Ubuntu", "Windows"],
 };
 
 export const languages = {
   native: ["Arabic"],
-  proficient: ["English"],
+  proficient: ["English (C1)"],
   intermediate: ["German (B1)"],
   beginner: ["Turkish"],
 };
