@@ -104,7 +104,9 @@
     "awards": "Awards & Scholarships"
   },
   "recommendations": {
-    "title": "Recommendations"
+    "title": "Recommendations",
+    "subtitle": "What colleagues and mentors say about working with me",
+    "linkedinProfile": "View {name}'s LinkedIn profile"
   },
   "volunteering": {
     "title": "Volunteer Experience",

@@ -210,4 +210,6 @@ const nextConfig: NextConfig = {
     maxInactiveAge: 60 * 1000,
     pagesBufferLength: 5,
   },
-}; export default withNextIntl(nextConfig);
+};
+
+export default withNextIntl(nextConfig);

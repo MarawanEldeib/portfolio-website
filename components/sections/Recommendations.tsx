@@ -1,6 +1,6 @@
 'use client';
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Quote, Linkedin, User, ExternalLink } from 'lucide-react';
 import { getRecommendations } from '@/lib/data-localized';
@@ -14,6 +14,7 @@ import 'swiper/css/pagination';
 
 export default function Recommendations() {
   const locale = useLocale() as 'en' | 'de';
+  const t = useTranslations('recommendations');
   const [mounted, setMounted] = useState(false);
 
   // Get localized recommendations
@@ -42,9 +43,9 @@ export default function Recommendations() {
           viewport={{ once: true }}
         >
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Recommendations</h2>
+            <h2 className="text-4xl font-bold mb-4">{t('title')}</h2>
             <p className="text-xl text-zinc-600 dark:text-zinc-400">
-              What colleagues and mentors say about working with me
+              {t('subtitle')}
             </p>
           </div>
 
@@ -140,7 +141,7 @@ export default function Recommendations() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="linkedin-btn"
-                            aria-label={`View ${recommendation.name}'s LinkedIn profile`}
+                            aria-label={t('linkedinProfile', { name: recommendation.name })}
                           >
                             <div className="linkedin-sign">
                               <svg

@@ -103,7 +103,9 @@
     "awards": "Auszeichnungen & Stipendien"
   },
   "recommendations": {
-    "title": "Empfehlungen"
+    "title": "Empfehlungen",
+    "subtitle": "Was Kollegen und Mentoren über die Zusammenarbeit mit mir sagen",
+    "linkedinProfile": "{name}s LinkedIn-Profil ansehen"
   },
   "volunteering": {
     "title": "Freiwilligenarbeit",
