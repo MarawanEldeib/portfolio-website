@@ -687,7 +687,7 @@ html.loading {
   transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
 }
 
-/* Position transforms for each nav item (9 items total) */
+/* Position transforms for each nav item (8 items total) */
 /* about = index 0 */
 .nav-rd-about:checked ~ .nav-bar,
 .nav-rd-about:checked ~ .nav-slidebar {
@@ -700,46 +700,40 @@ html.loading {
   transform: translateX(calc(var(--w-label) * 1)) scaleX(1);
 }
 
-/* education = index 2 */
-.nav-rd-education:checked ~ .nav-bar,
-.nav-rd-education:checked ~ .nav-slidebar {
+/* projects = index 2 */
+.nav-rd-projects:checked ~ .nav-bar,
+.nav-rd-projects:checked ~ .nav-slidebar {
   transform: translateX(calc(var(--w-label) * 2)) scaleX(1);
 }
 
-/* projects = index 3 */
-.nav-rd-projects:checked ~ .nav-bar,
-.nav-rd-projects:checked ~ .nav-slidebar {
+/* skills = index 3 */
+.nav-rd-skills:checked ~ .nav-bar,
+.nav-rd-skills:checked ~ .nav-slidebar {
   transform: translateX(calc(var(--w-label) * 3)) scaleX(1);
 }
 
-/* skills = index 4 */
-.nav-rd-skills:checked ~ .nav-bar,
-.nav-rd-skills:checked ~ .nav-slidebar {
+/* education = index 4 */
+.nav-rd-education:checked ~ .nav-bar,
+.nav-rd-education:checked ~ .nav-slidebar {
   transform: translateX(calc(var(--w-label) * 4)) scaleX(1);
 }
 
-/* certifications = index 5 */
-.nav-rd-certifications:checked ~ .nav-bar,
-.nav-rd-certifications:checked ~ .nav-slidebar {
+/* volunteering = index 5 */
+.nav-rd-volunteering:checked ~ .nav-bar,
+.nav-rd-volunteering:checked ~ .nav-slidebar {
   transform: translateX(calc(var(--w-label) * 5)) scaleX(1);
 }
 
-/* volunteering = index 6 */
-.nav-rd-volunteering:checked ~ .nav-bar,
-.nav-rd-volunteering:checked ~ .nav-slidebar {
+/* recommendations = index 6 */
+.nav-rd-recommendations:checked ~ .nav-bar,
+.nav-rd-recommendations:checked ~ .nav-slidebar {
   transform: translateX(calc(var(--w-label) * 6)) scaleX(1);
 }
 
-/* recommendations = index 7 */
-.nav-rd-recommendations:checked ~ .nav-bar,
-.nav-rd-recommendations:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 7)) scaleX(1);
-}
-
-/* contact = index 8 */
+/* contact = index 7 */
 .nav-rd-contact:checked ~ .nav-bar,
 .nav-rd-contact:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 8)) scaleX(1);
+  transform: translateX(calc(var(--w-label) * 7)) scaleX(1);
 }
 
 /* ===== Video Loader - Jumping Cube Animation ===== */
