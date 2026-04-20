@@ -43,7 +43,7 @@ const projectsData: Project[] = [
   {
     id: "new-4",
     title: "Privacy in AI Tools: How Much Do They See?",
-    description: "Systematic comparison of user data exposure across LLM-integrated productivity tools (browser-based, editor-based, and web interfaces) during controlled use. Outbound network traffic is captured with mitmproxy and analyzed against baseline runs to assess what user data is transmitted, to how many domains, and in what volume.",
+    description: "How much of your data do AI tools actually see? This research intercepts and analyzes outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",
     image: "",
     tech: ["Python", "mitmproxy", "Network Analysis", "Privacy", "Security"],
     github: "https://github.com/MarawanEldeib/llm-data-exposure", // private for now

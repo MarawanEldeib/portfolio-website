@@ -28,8 +28,8 @@ export const contentTranslations = {
         de: "Datenschutz in KI-Tools: Wie viel sehen sie wirklich?"
       },
       description: {
-        en: "Systematic comparison of user data exposure across LLM-integrated productivity tools (browser-based, editor-based, and web interfaces) during controlled use. Outbound network traffic is captured with mitmproxy and analyzed against baseline runs to assess what user data is transmitted, to how many domains, and in what volume.",
-        de: "Systematischer Vergleich der Benutzerdatenexposition über LLM-integrierte Produktivitätswerkzeuge (browserbasiert, editorbasiert und Web-Interfaces) unter kontrollierten Bedingungen. Ausgehender Netzwerkverkehr wird mit mitmproxy erfasst und gegen Baseline-Läufe analysiert, um zu bewerten, welche Nutzerdaten übertragen werden, an wie viele Domains und in welchem Umfang."
+        en: "How much of your data do AI tools actually see? This research intercepts and analyzes outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",
+        de: "Wie viele deiner Daten sehen KI-Tools wirklich? Diese Forschung fängt den ausgehenden Netzwerkverkehr von LLM-integrierten Produktivitätswerkzeugen — Browser-Erweiterungen, Code-Editoren und Web-Interfaces — unter identischen kontrollierten Bedingungen ab und analysiert ihn, um ihren Datenexpositions-Fußabdruck systematisch zu vergleichen."
       },
       course: {
         en: "Research Project",
