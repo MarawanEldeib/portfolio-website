@@ -36,13 +36,13 @@ const geistMono = Geist_Mono({
 const seoContent = {
   en: {
     title: "Marawan Eldeib - Software Engineer & AI Developer",
-    description: "Software Engineering Master's student at University of Stuttgart with experience at Fraunhofer IOSB and AirAsia. Specialized in AI, Machine Learning, and Full-Stack Development. Open to working student positions.",
-    ogDescription: "Software Engineering Master's student with expertise in AI, Machine Learning, and Full-Stack Development. Currently at University of Stuttgart.",
+    description: "M.Sc. INFOTECH (Software Engineering) student at University of Stuttgart with experience at Fraunhofer IOSB and AirAsia. Specialized in AI, Machine Learning, and Full-Stack Development. Open to working student positions.",
+    ogDescription: "M.Sc. INFOTECH (Software Engineering) student with expertise in AI, Machine Learning, and Full-Stack Development. Currently at University of Stuttgart.",
   },
   de: {
     title: "Marawan Eldeib - Software Engineer & AI-Entwickler",
-    description: "Masterstudent der Softwaretechnik an der Universität Stuttgart mit Erfahrung bei Fraunhofer IOSB und AirAsia. Spezialisiert auf KI, Machine Learning und Full-Stack-Entwicklung. Offen für Werkstudentenstellen.",
-    ogDescription: "Masterstudent der Softwaretechnik mit Expertise in KI, Machine Learning und Full-Stack-Entwicklung. Derzeit an der Universität Stuttgart.",
+    description: "M.Sc. INFOTECH (Software Engineering) Student an der Universität Stuttgart mit Erfahrung bei Fraunhofer IOSB und AirAsia. Spezialisiert auf KI, Machine Learning und Full-Stack-Entwicklung. Offen für Werkstudentenstellen.",
+    ogDescription: "M.Sc. INFOTECH (Software Engineering) Student mit Expertise in KI, Machine Learning und Full-Stack-Entwicklung. Derzeit an der Universität Stuttgart.",
   },
 };
 

@@ -7,12 +7,12 @@ export const contentTranslations = {
   // Personal Info
   personalInfo: {
     title: {
-      en: "Software Engineering Student & Developer",
-      de: "Student der Softwaretechnik & Entwickler"
+      en: "M.Sc. INFOTECH — Software Engineering",
+      de: "M.Sc. INFOTECH — Software Engineering"
     },
     summary: {
-      en: "Software Engineering master's student and HiWi at SOFIA Data Center (IRS/DLR–NASA), with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity.",
-      de: "Masterstudent der Softwaretechnik und HiWi am SOFIA Data Center (IRS/DLR–NASA), mit Entwicklungserfahrung bei Fraunhofer IOSB und AirAsia. Fundament in KI und Cybersicherheit."
+      en: "M.Sc. INFOTECH (Software Engineering) student and HiWi at SOFIA Data Center (IRS/DLR–NASA), with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity.",
+      de: "M.Sc. INFOTECH (Software Engineering) Student und HiWi am SOFIA Data Center (IRS/DLR–NASA), mit Entwicklungserfahrung bei Fraunhofer IOSB und AirAsia. Fundament in KI und Cybersicherheit."
     },
     workPermitDetails: {
       en: "Working Student - Available on Request",
@@ -284,16 +284,16 @@ export const contentTranslations = {
     },
     "4": {
       title: {
-        en: "Master of Science\nSoftware Engineering",
-        de: "Master of Science\nSoftware Engineering"
+        en: "Master of Science\nInformation Technology (INFOTECH)",
+        de: "Master of Science\nInformationstechnologie (INFOTECH)"
       },
       dateString: {
         en: "Oct 2024 - March 2027 (Expected)",
         de: "Okt 2024 - März 2027 (Erwartet)"
       },
       description: {
-        en: "Minor: Information Technology",
-        de: "Nebenfach: Informationstechnologie"
+        en: "Specialization: Software Engineering",
+        de: "Spezialisierung: Software Engineering"
       },
       achievements: {
         en: [],

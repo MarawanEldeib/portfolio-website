@@ -4,7 +4,7 @@ import { sortByDateDescending, sortBySimpleDateDescending } from './utils/date';
 
 export const personalInfo: PersonalInfo = {
   name: "Marawan Eldeib",
-  title: "M.Sc. Software Engineering Student",
+  title: "M.Sc. INFOTECH — Software Engineering",
   email: "marawandeep13@gmail.com",
   phone: "+49 178 2374198",
   linkedin: "https://www.linkedin.com/in/marawan-el-deib/",
@@ -264,14 +264,14 @@ const timelineData: TimelineItem[] = [
   {
     id: "4",
     type: "education",
-    title: "Master of Science - Software Engineering",
+    title: "Master of Science - Information Technology (INFOTECH)",
     organization: "Stuttgart University",
     organizationLogo: "/images/logos/logo_stuttgart.png",
     location: "Stuttgart, Germany",
     startDate: "2024-10",
     endDate: null,
     dateString: "Oct 2024 - March 2027 (Expected)",
-    description: "Minor: Information Technology",
+    description: "Specialization: Software Engineering",
     skills: ["Distributed Systems", "Cloud Computing", "Operating Systems", "Security"],
     achievements: [],
     certificateUrl: "/certificates/Enrollment s26.pdf",
