@@ -57,7 +57,7 @@ const projectsData: Project[] = [
     supervisor: {
       name: "Prof. Dr. Marco Aiello",
       image: "/images/recommendations/Aiello.png",
-      url: "https://www.uni-stuttgart.de/en/press/experts/Prof.-Dr.-Marco-Aiello/",
+      url: "https://www.linkedin.com/in/aiellom/",
     },
     highlights: [
       "Controlled experimental setup with identical tasks per tool",

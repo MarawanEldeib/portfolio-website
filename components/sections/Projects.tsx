@@ -202,13 +202,12 @@ export default function Projects() {
                   {project.supervisor && (
                     <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
                       {project.supervisor.image && (
-                        <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600">
+                        <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
                           <Image
                             src={project.supervisor.image}
                             alt={project.supervisor.name}
-                            width={28}
-                            height={28}
-                            className="object-cover w-full h-full"
+                            fill
+                            className="object-cover"
                           />
                         </div>
                       )}
