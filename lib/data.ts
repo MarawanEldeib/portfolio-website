@@ -48,7 +48,7 @@ const projectsData: Project[] = [
     tech: ["Python", "mitmproxy", "Network Analysis", "Privacy", "Security"],
     github: "",
     video: undefined,
-    status: "ongoing" as const,
+    status: "in-progress" as const,
     startDate: "2026-04",
     endDate: null,
     course: "Research Project",
