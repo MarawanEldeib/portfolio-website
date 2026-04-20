@@ -179,8 +179,31 @@ export default function Projects() {
                       )}
                     </div>
 
-                    {/* Status badge */}
-                    <ProjectStatusBadge status={project.status} />
+                    {/* Status badge + Institute logo */}
+                    <div className="flex flex-col items-end gap-2">
+                      <ProjectStatusBadge status={project.status} />
+                      {project.institute && (
+                        project.institute.url ? (
+                          <a href={project.institute.url} target="_blank" rel="noopener noreferrer">
+                            <Image
+                              src={project.institute.logo}
+                              alt={project.institute.name}
+                              width={60}
+                              height={40}
+                              className="object-contain w-14 h-auto"
+                            />
+                          </a>
+                        ) : (
+                          <Image
+                            src={project.institute.logo}
+                            alt={project.institute.name}
+                            width={60}
+                            height={40}
+                            className="object-contain w-14 h-auto"
+                          />
+                        )
+                      )}
+                    </div>
                   </div>
 
                   {/* Title */}
@@ -201,55 +224,30 @@ export default function Projects() {
                   {/* Supervisor */}
                   {project.supervisor && (
                     <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
-                      {project.supervisor.image && (
-                        <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
-                          <Image
-                            src={project.supervisor.image}
-                            alt={project.supervisor.name}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      )}
                       {project.supervisor.url ? (
                         <a
                           href={project.supervisor.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                         >
-                          {project.supervisor.name}
+                          {project.supervisor.image && (
+                            <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
+                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill className="object-cover" />
+                            </div>
+                          )}
+                          <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
                         </a>
                       ) : (
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
+                        <div className="flex items-center gap-2">
+                          {project.supervisor.image && (
+                            <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
+                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill className="object-cover" />
+                            </div>
+                          )}
+                          <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
+                        </div>
                       )}
-                    </div>
-                  )}
-
-                  {/* Institute */}
-                  {project.institute && (
-                    <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
-                      <div className="h-6 w-auto relative flex-shrink-0">
-                        {project.institute.url ? (
-                          <a href={project.institute.url} target="_blank" rel="noopener noreferrer">
-                            <Image
-                              src={project.institute.logo}
-                              alt={project.institute.name}
-                              width={80}
-                              height={24}
-                              className="object-contain h-6 w-auto"
-                            />
-                          </a>
-                        ) : (
-                          <Image
-                            src={project.institute.logo}
-                            alt={project.institute.name}
-                            width={80}
-                            height={24}
-                            className="object-contain h-6 w-auto"
-                          />
-                        )}
-                      </div>
                     </div>
                   )}
 
