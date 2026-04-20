@@ -139,6 +139,11 @@ const projectsData: Project[] = [
     startDate: "2023-11",
     endDate: "2024-07",
     course: "Final Year Project",
+    supervisor: {
+      name: "Mohd Haris Lye Abdullah",
+      image: "/images/recommendations/haris.jpg",
+      url: "https://www.linkedin.com/in/harislye/",
+    },
     highlights: [
       "98.5% detection accuracy with YOLO model",
       "Awarded Best Research Project at MMU",
@@ -358,7 +363,7 @@ export const recommendations: Recommendation[] = [
     name: "Mohd Haris Lye Abdullah",
     title: "Lecturer, Faculty of Engineering",
     company: "Multimedia University",
-    image: "",
+    image: "/images/recommendations/haris.jpg",
     text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
     linkedin: "https://www.linkedin.com/in/harislye/",
     email: "haris.lye@mmu.edu.my",
