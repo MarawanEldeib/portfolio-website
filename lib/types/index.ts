@@ -20,6 +20,7 @@ export interface Project {
   endDate: string | null;
   course?: string;
   highlights?: string[];
+  supervisor?: { name: string; image?: string; url?: string };
 }
 
 // Timeline Types

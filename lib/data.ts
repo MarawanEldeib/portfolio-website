@@ -52,6 +52,11 @@ const projectsData: Project[] = [
     startDate: "2026-04",
     endDate: null,
     course: "Research Project",
+    supervisor: {
+      name: "Prof. Dr. Marco Aiello",
+      image: "/images/recommendations/Aiello.png",
+      url: "https://www.uni-stuttgart.de/en/press/experts/Prof.-Dr.-Marco-Aiello/",
+    },
     highlights: [
       "Controlled experimental setup with identical tasks per tool",
       "Outbound traffic interception and analysis using mitmproxy",
@@ -121,7 +126,7 @@ const projectsData: Project[] = [
   },
   {
     id: "1",
-    title: "MangoVision: AI-Powered Mango Detection System",
+    title: "MangoVision",
     description: "Award-winning deep learning system achieving 98.5% accuracy in mango fruit detection from aerial drone imagery. Trained YOLO and Faster R-CNN models on 5,500+ curated images, built bilingual GUI with GPS-integrated mapping for precision agriculture applications.",
     image: "",
     tech: ["PyTorch", "Computer Vision", "YOLO", "Deep Learning", "Python"],
@@ -351,7 +356,7 @@ export const recommendations: Recommendation[] = [
     name: "Mohd Haris Lye Abdullah",
     title: "Lecturer, Faculty of Engineering",
     company: "Multimedia University",
-    image: "/images/recommendations/haris.jpg", // Add profile image URL here
+    image: "",
     text: "Marawan is among the most hardworking, independent, and proactive students I have come across. During his final year project on Mango detection using object detection methods under my supervision, he proved to be bright, inquisitive, and diligent, obtaining grade A (excellent). His collaboration skills are impressive, and he consistently demonstrated initiative to improve his academic work. Beyond academics, his active participation as a Facilitator for the AI & Machine Learning Workshop under the Smart Farming Program showcased his clear communication and networking abilities, earning positive feedback from over 20 international participants.",
     linkedin: "https://www.linkedin.com/in/harislye/",
     email: "haris.lye@mmu.edu.my",

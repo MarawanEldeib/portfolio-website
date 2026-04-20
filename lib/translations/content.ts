@@ -136,8 +136,8 @@ export const contentTranslations = {
     },
     "1": {
       title: {
-        en: "MangoVision: AI-Powered Mango Detection System",
-        de: "MangoVision: KI-gestütztes Mangoerkennungssystem"
+        en: "MangoVision",
+        de: "MangoVision"
       },
       description: {
         en: "Award-winning deep learning system achieving 98.5% accuracy in mango fruit detection from aerial drone imagery. Trained YOLO and Faster R-CNN models on 5,500+ curated images, built bilingual GUI with GPS-integrated mapping for precision agriculture applications.",

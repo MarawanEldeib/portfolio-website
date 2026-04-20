@@ -3,6 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 import { Github, Calendar, Play, FileText } from 'lucide-react';
 import { getProjects } from '@/lib/data-localized';
 import { TECH_ICONS, PROJECT_IDS, PROJECT_TITLES } from '@/lib/constants';
@@ -181,6 +182,35 @@ export default function Projects() {
                   <p className="text-zinc-600 dark:text-zinc-400 mb-5 text-justify leading-relaxed">
                     {project.description}
                   </p>
+
+                  {/* Supervisor */}
+                  {project.supervisor && (
+                    <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
+                      {project.supervisor.image && (
+                        <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600">
+                          <Image
+                            src={project.supervisor.image}
+                            alt={project.supervisor.name}
+                            width={28}
+                            height={28}
+                            className="object-cover w-full h-full"
+                          />
+                        </div>
+                      )}
+                      {project.supervisor.url ? (
+                        <a
+                          href={project.supervisor.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                        >
+                          {project.supervisor.name}
+                        </a>
+                      ) : (
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
+                      )}
+                    </div>
+                  )}
 
                   {/* Tech chips */}
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
