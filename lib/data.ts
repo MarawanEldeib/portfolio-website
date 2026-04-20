@@ -239,6 +239,7 @@ const timelineData: TimelineItem[] = [
     skills: ["Distributed Systems", "Cloud Computing", "Operating Systems", "Security"],
     achievements: [],
     certificateUrl: "/certificates/Enrollment s26.pdf",
+    // transcriptUrl: "/certificates/Master_Transcript.pdf", // Uncomment to show transcript button
   },
   {
     id: "5",
