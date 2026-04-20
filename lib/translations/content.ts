@@ -226,8 +226,8 @@ export const contentTranslations = {
   timeline: {
     "6": {
       title: {
-        en: "Student Research Assistant\n(HiWi)",
-        de: "Wissenschaftliche Hilfskraft\n(HiWi)"
+        en: "Student Research Assistant",
+        de: "Wissenschaftliche Hilfskraft"
       },
       description: {
         en: "Analyzing and optimizing a Python-based data processing pipeline for the SOFIA infrared astronomy archive (joint DLR–NASA airborne observatory, 750+ flights, 2010–2022), reviewing the scientific codebase to identify memory bottlenecks and improve resource efficiency",
@@ -236,8 +236,8 @@ export const contentTranslations = {
     },
     "1": {
       title: {
-        en: "Research Assistant\nWorking Student",
-        de: "Wissenschaftliche Hilfskraft\nWerkstudent"
+        en: "Student Research Assistant",
+        de: "Wissenschaftliche Hilfskraft"
       },
       description: {
         en: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",

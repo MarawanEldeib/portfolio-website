@@ -187,8 +187,8 @@ const timelineData: TimelineItem[] = [
   {
     id: "6",
     type: "work",
-    title: "Student Research Assistant (HiWi)",
-    organization: "SOFIA Data Center — Institute of Space Systems (IRS), University of Stuttgart",
+    title: "Student Research Assistant",
+    organization: "Institute of Space Systems (IRS), University of Stuttgart",
     organizationLogo: "/images/logos/logo_irs_stuttgart.png.png",
     location: "Stuttgart, Germany (Hybrid)",
     startDate: "2026-04",
@@ -200,7 +200,7 @@ const timelineData: TimelineItem[] = [
   {
     id: "1",
     type: "work",
-    title: "Research Assistant (Working Student)",
+    title: "Student Research Assistant",
     organization: "Fraunhofer IOSB",
     organizationLogo: "/images/logos/Logo_fraunhofer_IOSB.webp",
     location: "Karlsruhe, Germany (Hybrid)",
