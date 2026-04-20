@@ -41,6 +41,25 @@ export const languages = {
 
 const projectsData: Project[] = [
   {
+    id: "new-4",
+    title: "Measuring Data Exposure in LLM-Integrated Productivity Tools",
+    description: "Systematic comparison of user data exposure across LLM-integrated productivity tools (browser-based, editor-based, and web interfaces) during controlled use. Outbound network traffic is captured with mitmproxy and analyzed against baseline runs to assess what user data is transmitted, to how many domains, and in what volume.",
+    image: "",
+    tech: ["Python", "mitmproxy", "Network Analysis", "Privacy", "Security"],
+    github: "",
+    video: undefined,
+    status: "ongoing" as const,
+    startDate: "2026-04",
+    endDate: null,
+    course: "Research Project",
+    highlights: [
+      "Controlled experimental setup with identical tasks per tool",
+      "Outbound traffic interception and analysis using mitmproxy",
+      "Exposure indicators: data content, volume, requests, domains",
+      "Per-tool exposure assessment with confidence level"
+    ],
+  },
+  {
     id: "new-1",
     title: "Knowledge Graph Models for Universal Database Reasoning",
     description: "Extended ULTRA foundation models to create schema-agnostic knowledge graphs capable of complex reasoning across unseen databases. Evaluated performance on F1 Formula 1 data using RelBench framework.",

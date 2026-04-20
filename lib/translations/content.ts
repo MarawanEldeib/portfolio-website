@@ -22,6 +22,34 @@ export const contentTranslations = {
 
   // Projects - All project translations
   projects: {
+    "new-4": {
+      title: {
+        en: "Measuring Data Exposure in LLM-Integrated Productivity Tools",
+        de: "Datenweitergabe in LLM-integrierten Produktivitätswerkzeugen"
+      },
+      description: {
+        en: "Systematic comparison of user data exposure across LLM-integrated productivity tools (browser-based, editor-based, and web interfaces) during controlled use. Outbound network traffic is captured with mitmproxy and analyzed against baseline runs to assess what user data is transmitted, to how many domains, and in what volume.",
+        de: "Systematischer Vergleich der Benutzerdatenexposition über LLM-integrierte Produktivitätswerkzeuge (browserbasiert, editorbasiert und Web-Interfaces) unter kontrollierten Bedingungen. Ausgehender Netzwerkverkehr wird mit mitmproxy erfasst und gegen Baseline-Läufe analysiert, um zu bewerten, welche Nutzerdaten übertragen werden, an wie viele Domains und in welchem Umfang."
+      },
+      course: {
+        en: "Research Project",
+        de: "Forschungsprojekt"
+      },
+      highlights: {
+        en: [
+          "Controlled experimental setup with identical tasks per tool",
+          "Outbound traffic interception and analysis using mitmproxy",
+          "Exposure indicators: data content, volume, requests, domains",
+          "Per-tool exposure assessment with confidence level"
+        ],
+        de: [
+          "Kontrolliertes Versuchsdesign mit identischen Aufgaben pro Werkzeug",
+          "Abfangen und Analyse ausgehenden Traffics mit mitmproxy",
+          "Expositionsindikatoren: Dateninhalt, Volumen, Anfragen, Domains",
+          "Expositionsbewertung pro Werkzeug mit Konfidenzniveau"
+        ]
+      }
+    },
     "new-2": {
       title: {
         en: "Decentralized Public Chat Room",
