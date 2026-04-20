@@ -47,10 +47,10 @@ export default function AnimatedBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Light mode only - Optimized blob animations with GPU acceleration */}
-      <div className={`absolute top-0 -left-4 w-48 h-48 md:w-72 lg:w-96 md:h-72 lg:h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 transition-opacity duration-1000 ${isLoaded ? 'animate-blob' : 'opacity-0'}`} style={{ transform: 'translate3d(0, 0, 0)' }} />
-      <div className={`absolute top-0 -right-4 w-48 h-48 md:w-72 lg:w-96 md:h-72 lg:h-96 bg-sky-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 transition-opacity duration-1000 ${isLoaded ? 'animate-blob animation-delay-2000' : 'opacity-0'}`} style={{ transform: 'translate3d(0, 0, 0)' }} />
-      <div className={`absolute -bottom-8 left-10 md:left-20 w-48 h-48 md:w-72 lg:w-96 md:h-72 lg:h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 transition-opacity duration-1000 ${isLoaded ? 'animate-blob animation-delay-4000' : 'opacity-0'}`} style={{ transform: 'translate3d(0, 0, 0)' }} />
-      <div className={`absolute top-1/2 right-1/4 md:right-1/3 w-40 h-40 md:w-72 lg:w-96 md:h-72 lg:h-96 bg-sky-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 transition-opacity duration-1000 ${isLoaded ? 'animate-blob animation-delay-6000' : 'opacity-0'}`} style={{ transform: 'translate3d(0, 0, 0)' }} />
+      <div className={`absolute top-0 -left-4 w-48 h-48 md:w-72 lg:w-96 md:h-72 lg:h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 transition-opacity duration-1000 ${isLoaded ? 'animate-blob' : 'opacity-0'}`} style={{ transform: 'translate3d(0, 0, 0)' }} />
+      <div className={`absolute top-0 -right-4 w-48 h-48 md:w-72 lg:w-96 md:h-72 lg:h-96 bg-sky-200 rounded-full mix-blend-multiply filter blur-2xl opacity-30 transition-opacity duration-1000 ${isLoaded ? 'animate-blob animation-delay-2000' : 'opacity-0'}`} style={{ transform: 'translate3d(0, 0, 0)' }} />
+      <div className={`absolute -bottom-8 left-10 md:left-20 w-48 h-48 md:w-72 lg:w-96 md:h-72 lg:h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-2xl opacity-30 transition-opacity duration-1000 ${isLoaded ? 'animate-blob animation-delay-4000' : 'opacity-0'}`} style={{ transform: 'translate3d(0, 0, 0)' }} />
+      <div className={`absolute top-1/2 right-1/4 md:right-1/3 w-40 h-40 md:w-72 lg:w-96 md:h-72 lg:h-96 bg-sky-300 rounded-full mix-blend-multiply filter blur-2xl opacity-25 transition-opacity duration-1000 ${isLoaded ? 'animate-blob animation-delay-6000' : 'opacity-0'}`} style={{ transform: 'translate3d(0, 0, 0)' }} />
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />

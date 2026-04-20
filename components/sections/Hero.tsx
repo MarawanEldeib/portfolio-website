@@ -102,9 +102,9 @@ export default function Hero() {
 
           {/* ===== ID CARD WITH LANYARD ===== */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="relative flex-shrink-0 pt-24"
           >
             {/* ── Lanyard Assembly ── */}
@@ -324,9 +324,9 @@ export default function Hero() {
 
           {/* ===== RIGHT SIDE: Text Content ===== */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
             className="flex-1 text-center lg:text-left max-w-xl"
           >
             {/* Greeting + Name */}
