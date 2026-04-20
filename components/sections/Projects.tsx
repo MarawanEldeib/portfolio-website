@@ -102,30 +102,14 @@ export default function Projects() {
                     <div className="flex gap-2">
                       {/* GitHub Button */}
                       {project.github && !project.github.endsWith('/MarawanEldeib') && (
-                        <>
-                          {project.id === PROJECT_IDS.KGFM_UNIVERSAL_DB ? (
-                            <div className="relative group">
-                              <button
-                                disabled
-                                className="w-10 h-10 rounded-full bg-zinc-400 dark:bg-zinc-600 flex items-center justify-center text-lg cursor-not-allowed opacity-70 hover:scale-110 transition-transform"
-                                aria-label="GitHub repository (private)"
-                              >
-                                <Github size={18} className="text-white" />
-                              </button>
-
-                            </div>
-                          ) : (
-                            <a
-                              href={project.github}
-                              onClick={(e) => handleGithubClick(e, project.github!)}
-                              className="w-10 h-10 rounded-full bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-lg hover:scale-110 transition-transform group relative"
-                              aria-label={`View source code for ${project.title}`}
-                            >
-                              <Github size={18} className="text-white dark:text-zinc-900" />
-
-                            </a>
-                          )}
-                        </>
+                        <a
+                          href={project.github}
+                          onClick={(e) => handleGithubClick(e, project.github!)}
+                          className="w-10 h-10 rounded-full bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-lg hover:scale-110 transition-transform group relative"
+                          aria-label={`View source code for ${project.title}`}
+                        >
+                          <Github size={18} className="text-white dark:text-zinc-900" />
+                        </a>
                       )}
                       {/* Video Button */}
                       {project.video && (
