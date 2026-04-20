@@ -59,6 +59,11 @@ const projectsData: Project[] = [
       image: "/images/recommendations/Aiello.png",
       url: "https://www.linkedin.com/in/aiellom/",
     },
+    institute: {
+      name: "Institute of Architecture of Application Systems (IaaS)",
+      logo: "/images/logos/iaas_stuttgart.jpg",
+      url: "https://www.iaas.uni-stuttgart.de/en/",
+    },
     highlights: [
       "Controlled experimental setup with identical tasks per tool",
       "Outbound traffic interception and analysis using mitmproxy",

@@ -226,6 +226,33 @@ export default function Projects() {
                     </div>
                   )}
 
+                  {/* Institute */}
+                  {project.institute && (
+                    <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
+                      <div className="h-6 w-auto relative flex-shrink-0">
+                        {project.institute.url ? (
+                          <a href={project.institute.url} target="_blank" rel="noopener noreferrer">
+                            <Image
+                              src={project.institute.logo}
+                              alt={project.institute.name}
+                              width={80}
+                              height={24}
+                              className="object-contain h-6 w-auto"
+                            />
+                          </a>
+                        ) : (
+                          <Image
+                            src={project.institute.logo}
+                            alt={project.institute.name}
+                            width={80}
+                            height={24}
+                            className="object-contain h-6 w-auto"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Tech chips */}
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {project.tech.map((tech) => {

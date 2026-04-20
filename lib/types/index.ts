@@ -22,6 +22,7 @@ export interface Project {
   course?: string;
   highlights?: string[];
   supervisor?: { name: string; image?: string; url?: string };
+  institute?: { name: string; logo: string; url?: string };
 }
 
 // Timeline Types
