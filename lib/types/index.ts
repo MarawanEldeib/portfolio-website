@@ -12,6 +12,7 @@ export interface Project {
   image?: string;
   tech: string[];
   github?: string;
+  privateGithub?: boolean;
   video?: string;
   pdf?: string;
   report?: string;

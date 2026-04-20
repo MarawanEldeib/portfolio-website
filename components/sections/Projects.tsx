@@ -103,14 +103,29 @@ export default function Projects() {
                     <div className="flex gap-2">
                       {/* GitHub Button */}
                       {project.github && !project.github.endsWith('/MarawanEldeib') && (
-                        <a
-                          href={project.github}
-                          onClick={(e) => handleGithubClick(e, project.github!)}
-                          className="w-10 h-10 rounded-full bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-lg hover:scale-110 transition-transform group relative"
-                          aria-label={`View source code for ${project.title}`}
-                        >
-                          <Github size={18} className="text-white dark:text-zinc-900" />
-                        </a>
+                        project.privateGithub ? (
+                          <div className="relative group">
+                            <button
+                              disabled
+                              className="w-10 h-10 rounded-full bg-zinc-400 dark:bg-zinc-600 flex items-center justify-center cursor-not-allowed opacity-70"
+                              aria-label="Private repository"
+                            >
+                              <Github size={18} className="text-white" />
+                            </button>
+                            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                              Private Repo
+                            </span>
+                          </div>
+                        ) : (
+                          <a
+                            href={project.github}
+                            onClick={(e) => handleGithubClick(e, project.github!)}
+                            className="w-10 h-10 rounded-full bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-lg hover:scale-110 transition-transform group relative"
+                            aria-label={`View source code for ${project.title}`}
+                          >
+                            <Github size={18} className="text-white dark:text-zinc-900" />
+                          </a>
+                        )
                       )}
                       {/* Video Button */}
                       {project.video && (

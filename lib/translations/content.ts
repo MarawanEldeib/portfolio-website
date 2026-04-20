@@ -24,8 +24,8 @@ export const contentTranslations = {
   projects: {
     "new-4": {
       title: {
-        en: "Measuring Data Exposure in LLM-Integrated Productivity Tools",
-        de: "Datenweitergabe in LLM-integrierten Produktivitätswerkzeugen"
+        en: "Privacy in AI Tools: How Much Do They See?",
+        de: "Datenschutz in KI-Tools: Wie viel sehen sie wirklich?"
       },
       description: {
         en: "Systematic comparison of user data exposure across LLM-integrated productivity tools (browser-based, editor-based, and web interfaces) during controlled use. Outbound network traffic is captured with mitmproxy and analyzed against baseline runs to assess what user data is transmitted, to how many domains, and in what volume.",

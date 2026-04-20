@@ -54,13 +54,15 @@ import {
   SiDocker, SiKubernetes, SiGit, SiGithub, SiGitlab, SiJira,
   SiLinux, SiAmazon, SiGooglecloud, SiDart, SiInsomnia,
   SiKalilinux, SiUbuntu, SiClaude, SiOwasp,
-  SiPhp, SiHtml5, SiCss3, SiPandas
+  SiPhp, SiHtml5, SiCss3, SiPandas, SiArduino
 } from 'react-icons/si';
 import {
   FaBrain, FaRobot, FaChalkboardTeacher, FaMicrophone, FaUsers,
   FaHandshake, FaUserTie, FaCalendarAlt, FaLightbulb, FaAward,
   FaShoppingCart, FaHeadset, FaCode, FaShieldAlt, FaTerminal,
-  FaNetworkWired, FaJava, FaWindows, FaFlag
+  FaNetworkWired, FaJava, FaWindows, FaFlag,
+  FaLock, FaProjectDiagram, FaCloud, FaMobileAlt, FaCog,
+  FaCheckCircle, FaMicrochip, FaPaintBrush, FaWifi
 } from 'react-icons/fa';
 import { MdAgriculture } from 'react-icons/md';
 
@@ -134,6 +136,27 @@ export const TECH_ICONS: Record<string, IconType> = {
   'API Development': SiGraphql,
   'Agile': SiJira,
   'Confluence': SiJira,
+  'Arduino': SiArduino,
+  'IoT': FaWifi,
+  'Sensors': FaMicrochip,
+  'Automation': FaCog,
+  'Mobile Development': FaMobileAlt,
+  'UI/UX Design': FaPaintBrush,
+  'Privacy': FaLock,
+  'Security': FaShieldAlt,
+  'Network Analysis': FaNetworkWired,
+  'Knowledge Graphs': FaProjectDiagram,
+  'Graph Neural Networks': FaProjectDiagram,
+  'Cloud Architecture': FaCloud,
+  'Distributed Systems': FaNetworkWired,
+  'P2P': FaNetworkWired,
+  'Fault Tolerance': FaShieldAlt,
+  'YOLO': SiOpencv,
+  'End-to-End Testing': FaCheckCircle,
+  'Digital Twins': FaMicrochip,
+  'VPC': FaNetworkWired,
+  'Auto Scaling': FaCloud,
+  'Load Balancer': FaCloud,
   // Volunteering and soft skills icons
   'AI': FaBrain,
   'Machine Learning': SiPytorch,
