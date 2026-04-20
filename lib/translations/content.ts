@@ -11,8 +11,8 @@ export const contentTranslations = {
       de: "Student der Softwaretechnik & Entwickler"
     },
     summary: {
-      en: "Software Engineering master's student with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity. Seeking working student positions or research opportunities.",
-      de: "Masterstudent der Softwaretechnik mit Entwicklungserfahrung bei Fraunhofer IOSB und AirAsia. Fundament in KI und Cybersicherheit. Suche Werkstudentenstellen oder Forschungsmöglichkeiten."
+      en: "Software Engineering master's student and HiWi at SOFIA Data Center (IRS/DLR–NASA), with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity.",
+      de: "Masterstudent der Softwaretechnik und HiWi am SOFIA Data Center (IRS/DLR–NASA), mit Entwicklungserfahrung bei Fraunhofer IOSB und AirAsia. Fundament in KI und Cybersicherheit."
     },
     workPermitDetails: {
       en: "Working Student - Available on Request",
@@ -224,6 +224,16 @@ export const contentTranslations = {
 
   // Experience & Education
   timeline: {
+    "6": {
+      title: {
+        en: "Student Research Assistant\n(HiWi)",
+        de: "Wissenschaftliche Hilfskraft\n(HiWi)"
+      },
+      description: {
+        en: "Analyzing and optimizing a Python-based data processing pipeline for the SOFIA infrared astronomy archive (joint DLR–NASA airborne observatory, 750+ flights, 2010–2022), reviewing the scientific codebase to identify memory bottlenecks and improve resource efficiency",
+        de: "Analyse und Optimierung einer Python-basierten Datenverarbeitungspipeline für das SOFIA-Infrarotastronomie-Archiv (gemeinsames DLR–NASA-Projekt, 750+ Flüge, 2010–2022), mit Fokus auf die Identifikation von Speicherengpässen und die Verbesserung der Ressourceneffizienz"
+      }
+    },
     "1": {
       title: {
         en: "Research Assistant\nWorking Student",

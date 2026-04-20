@@ -556,7 +556,8 @@ html.loading {
   --round: 10px;
   --p-x: 8px;
   --p-y: 4px;
-  --w-label: 95px;
+  --active-left: 0px; /* Dynamic - set by JavaScript */
+  --active-width: 100px; /* Dynamic - set by JavaScript */
   display: flex;
   align-items: center;
   padding: var(--p-y) var(--p-x);
@@ -571,24 +572,7 @@ html.loading {
   border: 1px solid var(--border-color);
 }
 
-/* Responsive nav-wrap adjustments for different aspect ratios */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .nav-wrap {
-    --w-label: 105px;
-  }
-}
-
-@media (min-width: 1280px) and (max-width: 1535px) {
-  .nav-wrap {
-    --w-label: 115px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .nav-wrap {
-    --w-label: 125px;
-  }
-}
+/* Dynamic widths - no responsive breakpoints needed */
 
 .nav-wrap::-webkit-scrollbar {
   display: none;
@@ -611,9 +595,9 @@ html.loading {
   font-weight: 500;
   color: var(--text-secondary);
   background: transparent;
-  padding: 12px 10px;
-  width: var(--w-label);
-  min-width: var(--w-label);
+  padding: 12px 16px; /* Balanced padding for dynamic width */
+  width: auto; /* Dynamic width based on content */
+  min-width: fit-content;
   text-decoration: none;
   -webkit-user-select: none;
   user-select: none;
@@ -625,14 +609,17 @@ html.loading {
   position: relative;
   z-index: 2;
   -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
 }
 
 .nav-label span {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
   text-align: center;
+  white-space: nowrap;
+  line-height: 1.2;
+  /* Better text rendering across browsers */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Active label style - when checked */
@@ -647,12 +634,11 @@ html.loading {
   justify-content: center;
   flex-shrink: 0;
   position: absolute;
-  transform-origin: 0 0 0;
   height: 100%;
-  width: var(--w-label);
+  width: var(--active-width, 100px);
   z-index: 0;
-  left: var(--p-x);
-  transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
+  left: var(--active-left, 0);
+  transition: all 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
 }
 
 .nav-bar::before,
@@ -678,63 +664,15 @@ html.loading {
 .nav-slidebar {
   position: absolute;
   height: calc(100% - (var(--p-y) * 4));
-  width: var(--w-label);
+  width: var(--active-width, 100px);
   border-radius: calc(var(--round) - var(--p-y));
   background: linear-gradient(135deg, #3b82f6, #0ea5e9);
-  transform-origin: 0 0 0;
   z-index: 1;
-  left: var(--p-x);
-  transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
+  left: var(--active-left, 0);
+  transition: all 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
 }
 
-/* Position transforms for each nav item (8 items total) */
-/* about = index 0 */
-.nav-rd-about:checked ~ .nav-bar,
-.nav-rd-about:checked ~ .nav-slidebar {
-  transform: translateX(0) scaleX(1);
-}
-
-/* experience = index 1 */
-.nav-rd-experience:checked ~ .nav-bar,
-.nav-rd-experience:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 1)) scaleX(1);
-}
-
-/* projects = index 2 */
-.nav-rd-projects:checked ~ .nav-bar,
-.nav-rd-projects:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 2)) scaleX(1);
-}
-
-/* skills = index 3 */
-.nav-rd-skills:checked ~ .nav-bar,
-.nav-rd-skills:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 3)) scaleX(1);
-}
-
-/* education = index 4 */
-.nav-rd-education:checked ~ .nav-bar,
-.nav-rd-education:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 4)) scaleX(1);
-}
-
-/* volunteering = index 5 */
-.nav-rd-volunteering:checked ~ .nav-bar,
-.nav-rd-volunteering:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 5)) scaleX(1);
-}
-
-/* recommendations = index 6 */
-.nav-rd-recommendations:checked ~ .nav-bar,
-.nav-rd-recommendations:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 6)) scaleX(1);
-}
-
-/* contact = index 7 */
-.nav-rd-contact:checked ~ .nav-bar,
-.nav-rd-contact:checked ~ .nav-slidebar {
-  transform: translateX(calc(var(--w-label) * 7)) scaleX(1);
-}
+/* Dynamic position - controlled by JavaScript */
 
 /* ===== Video Loader - Jumping Cube Animation ===== */
 .video-loader {

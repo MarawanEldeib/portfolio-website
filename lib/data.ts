@@ -185,6 +185,19 @@ export const projects = sortByDateDescending(projectsData);
 
 const timelineData: TimelineItem[] = [
   {
+    id: "6",
+    type: "work",
+    title: "Student Research Assistant (HiWi)",
+    organization: "SOFIA Data Center — Institute of Space Systems (IRS), University of Stuttgart",
+    organizationLogo: "/images/logos/logo_irs_stuttgart.png.png",
+    location: "Stuttgart, Germany (Hybrid)",
+    startDate: "2026-04",
+    endDate: null,
+    description: "Analyzing and optimizing a Python-based data processing pipeline for the SOFIA infrared astronomy archive (joint DLR–NASA airborne observatory, 750+ flights, 2010–2022), reviewing the scientific codebase to identify memory bottlenecks and improve resource efficiency",
+    skills: ["Python"],
+    achievements: [],
+  },
+  {
     id: "1",
     type: "work",
     title: "Research Assistant (Working Student)",

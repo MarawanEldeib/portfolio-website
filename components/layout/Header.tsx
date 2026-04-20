@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import ThemeToggle from '@/components/ui/ThemeToggle';
@@ -18,6 +18,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMounted, setIsMounted] = useState(false);
+  const labelRefs = useRef<Record<string, HTMLLabelElement | null>>({});
 
   // Ensure client-side mounting for portal
   useEffect(() => {
@@ -130,16 +131,34 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navItems]);
 
+  // Update sliding bar position based on active section
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+
+    const activeLabel = labelRefs.current[activeSection];
+    const navWrap = document.querySelector('.nav-wrap');
+
+    if (activeLabel && navWrap) {
+      const labelRect = activeLabel.getBoundingClientRect();
+      const navWrapRect = navWrap.getBoundingClientRect();
+
+      const left = labelRect.left - navWrapRect.left;
+      const width = labelRect.width;
+
+      navWrap.setAttribute('style', `--active-left: ${left}px; --active-width: ${width}px;`);
+    }
+  }, [activeSection]);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
       <nav className="container mx-auto px-4 sm:px-6 py-4 max-w-none">
-        <div className="flex items-center justify-between gap-6">
-          <Link href={`/${locale}`} className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-sky-400 dark:from-blue-400 dark:to-sky-400 bg-clip-text text-transparent flex-shrink-0">
+        <div className="flex items-center justify-center gap-6 relative">
+          {/* Centered: Name + Navigation + Language - All Together */}
+          <Link href={`/${locale}`} className="hidden nav-desktop:block text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-sky-400 dark:from-blue-400 dark:to-sky-400 bg-clip-text text-transparent flex-shrink-0">
             {personalInfo.name}
           </Link>
 
-          {/* Desktop Navigation - Uiverse Sliding Bar */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden nav-desktop:flex items-center gap-4">
             <div className="nav-wrap">
               {navItems.map((item) => (
                 <React.Fragment key={item.id}>
@@ -153,6 +172,7 @@ export default function Header() {
                     readOnly
                   />
                   <label
+                    ref={(el) => (labelRefs.current[item.id] = el)}
                     className="nav-label"
                     htmlFor={`nav-${item.id}`}
                     onClick={(e) => {
@@ -168,8 +188,8 @@ export default function Header() {
               <div className="nav-slidebar"></div>
             </div>
 
-            {/* Language Switcher */}
-            <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1 border border-zinc-300 dark:border-zinc-700 ml-auto">
+            {/* Language Switcher - Grouped with Navigation */}
+            <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1 border border-zinc-300 dark:border-zinc-700 flex-shrink-0">
               <button
                 onClick={() => handleLanguageChange('en')}
                 className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${locale === 'en'
@@ -191,9 +211,14 @@ export default function Header() {
             </div>
           </div>
 
+          {/* Mobile: Name (left) + Menu Button (right) */}
+          <Link href={`/${locale}`} className="nav-desktop:hidden absolute left-4 text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-sky-400 dark:from-blue-400 dark:to-sky-400 bg-clip-text text-transparent">
+            {personalInfo.name}
+          </Link>
+
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px]"
+            className="nav-desktop:hidden absolute right-4 p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -214,7 +239,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-lg overflow-y-auto"
+              className="nav-desktop:hidden absolute left-0 right-0 top-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-lg overflow-y-auto"
               style={{ maxHeight: `calc(100vh - ${LAYOUT_CONSTANTS.HEADER_HEIGHT}px)` }}
             >
               <div className="container mx-auto px-10 py-4">
