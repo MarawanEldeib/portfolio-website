@@ -180,29 +180,29 @@ export default function Projects() {
                     </div>
 
                     {/* Status badge + Institute logo */}
-                    <div className="flex flex-col items-end gap-2">
-                      <ProjectStatusBadge status={project.status} />
+                    <div className="flex items-center gap-2">
                       {project.institute && (
                         project.institute.url ? (
-                          <a href={project.institute.url} target="_blank" rel="noopener noreferrer">
+                          <a href={project.institute.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                             <Image
                               src={project.institute.logo}
                               alt={project.institute.name}
-                              width={60}
-                              height={40}
-                              className="object-contain w-14 h-auto"
+                              width={44}
+                              height={28}
+                              className="object-contain h-7 w-auto"
                             />
                           </a>
                         ) : (
                           <Image
                             src={project.institute.logo}
                             alt={project.institute.name}
-                            width={60}
-                            height={40}
-                            className="object-contain w-14 h-auto"
+                            width={44}
+                            height={28}
+                            className="object-contain h-7 w-auto"
                           />
                         )
                       )}
+                      <ProjectStatusBadge status={project.status} />
                     </div>
                   </div>
 
