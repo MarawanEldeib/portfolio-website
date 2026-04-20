@@ -1,5 +1,9 @@
 # CV Files
 
-Place your CV/Resume PDF file here as `resume.pdf`.
+## Current Files
 
-This file will be available for download at `/cv/resume.pdf` on your portfolio website.
+- `Marawan_Eldeib_Resume.pdf` — CV/Resume, available for download from the portfolio
+
+## Notes
+
+Update this file whenever the CV is revised. The download button on the site points to this path.

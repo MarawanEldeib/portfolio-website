@@ -1,34 +1,20 @@
 # Recommendation Profile Images
 
-Place profile images here for your recommendations.
+Profile images for the recommendations section.
 
-## Required Images
+## Current Files
 
-1. **sarah-johnson.jpg** (or similar name)
-   - Dr. Sarah Johnson - Fraunhofer IOSB
-   
-2. **ahmad-rahman.jpg** (or similar name)
-   - Ahmad Rahman - AirAsia
-   
-3. **michael-weber.jpg** (or similar name)
-   - Prof. Dr. Michael Weber - Multimedia University
+- `hafiz.jpeg` — Muhammad Hafiz Bin Khairudin (AirAsia)
+- `haris.jpg` — Mohd Haris Lye Abdullah (Multimedia University)
+- `maximilian.jpg` — Maximilian Kühn (Fraunhofer IOSB)
+- `Aiello.png` — Prof. Dr. Marco Aiello (University of Stuttgart)
 
-## Image Specifications
+## Specifications
 
-- **Format**: JPG, PNG, or WebP
-- **Size**: 256x256px (or larger square)
-- **Aspect Ratio**: 1:1 (square)
-- **File Size**: Under 200KB recommended
-- **Quality**: Professional headshot with good lighting
+- Format: JPG, PNG, or WebP
+- Size: 256x256px or larger square
+- File size: Under 200KB recommended
 
-## How to Add
+## Notes
 
-1. Save profile images in this directory
-2. Update `lib/data.ts` with the correct file paths:
-   ```typescript
-   image: "/images/recommendations/sarah-johnson.jpg"
-   ```
-
-## Placeholder Behavior
-
-If you leave the `image` field empty (`""`), a purple gradient circle with a user icon will appear automatically.
+If the `image` field is left empty (`""`), a gradient placeholder with a user icon appears automatically.

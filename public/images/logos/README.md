@@ -1,27 +1,20 @@
 # Organization Logos
 
-Please download and place the following logos in this directory:
+Logos used for work experience and education entries.
 
-## Work Experience Logos:
-1. **Fraunhofer IOSB** → `fraunhofer-iosb.png`
-   - Download from: https://www.iosb.fraunhofer.de/
-   - Recommended: PNG with transparent background
+## Current Files
 
-2. **AirAsia** → `airasia.png`
-   - Download from: https://www.airasia.com/ (press kit/media)
-   - Recommended: PNG with transparent background
+- `Logo_fraunhofer_IOSB.webp` — Fraunhofer IOSB
+- `logo_AirAsia.png` — AirAsia
+- `logo_stuttgart.png` — University of Stuttgart
+- `logo-mmu.png` — Multimedia University
+- `logo_irs_stuttgart.png.png` — Institute of Space Systems (IRS), University of Stuttgart
+- `iaas_stuttgart.jpg` — Institute of Architecture of Application Systems (IaaS), University of Stuttgart
+- `ieee_mmu.jpg` — IEEE MMU Student Branch
+- `ieee_pes_mmu.jpg` — IEEE PES MMU Chapter
+- `skippy_snacks.jpg` — Skippy Snacks
 
-## Education Logos:
-3. **Stuttgart University** → `stuttgart-university.png`
-   - Download from: https://www.uni-stuttgart.de/
-   - Recommended: PNG with transparent background
+## Tips
 
-4. **Multimedia University** → `multimedia-university.png`
-   - Download from: https://www.mmu.edu.my/
-   - Recommended: PNG with transparent background
-
-## Tips:
-- Use PNG format with transparent backgrounds
-- Recommended size: 200x200px or 300x300px
+- PNG with transparent background preferred
 - Keep file sizes under 100KB for fast loading
-- Ensure logos are official and high quality

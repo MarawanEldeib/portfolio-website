@@ -1,10 +1,11 @@
 # Images
 
-Place your project images, certificates, and other visual assets here.
+Static image assets for the portfolio.
 
-Examples:
-- project1.jpg
-- project2.jpg
-- cert1.jpg
-- award1.jpg
-- person1.jpg
+## Structure
+
+- `Marawan.jpeg` — Profile/hero photo
+- `logos/` — Organization and institute logos
+- `recommendations/` — Recommender profile photos
+- `projects/` — Project screenshots (optional, handled gracefully if missing)
+- `awards/` — Award-related images
