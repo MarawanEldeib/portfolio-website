@@ -172,7 +172,7 @@ export default function Header() {
                     readOnly
                   />
                   <label
-                    ref={(el) => (labelRefs.current[item.id] = el)}
+                    ref={(el) => { labelRefs.current[item.id] = el; }}
                     className="nav-label"
                     htmlFor={`nav-${item.id}`}
                     onClick={(e) => {
