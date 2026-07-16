@@ -21,6 +21,7 @@ export default function Skills() {
     { key: 'cybersecurity', data: skills?.cybersecurity || [] },
     { key: 'languages', data: skills?.languages || [] },
     { key: 'systems', data: skills?.systems || [] },
+    { key: 'webBackend', data: skills?.webBackend || [] },
     { key: 'dataScience', data: skills?.dataScience || [] },
     { key: 'cloudDevOps', data: skills?.cloudDevOps || [] },
     { key: 'frameworks', data: skills?.frameworks || [] },

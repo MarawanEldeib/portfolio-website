@@ -23,12 +23,13 @@ export const personalInfo: PersonalInfo = {
 
 export const skills = {
   cybersecurity: ["mitmproxy", "Burp Suite", "GDB", "Nmap", "SQLmap", "OWASP", "picoCTF"],
-  languages: ["Python", "Java", "C/C++", "SQL", "PHP", "HTML", "CSS", "Assembly"],
-  systems: ["Kali Linux", "Ubuntu", "Windows"],
+  languages: ["Python", "TypeScript", "Java", "C/C++", "SQL", "PHP", "HTML", "CSS", "Assembly"],
+  systems: ["Kali Linux", "Ubuntu", "Pop!_OS", "Windows"],
+  webBackend: ["Next.js", "React", "Node.js", "Express", "Supabase", "PostgreSQL", "SQLite", "Stripe Connect", "Socket.IO"],
   dataScience: ["PyTorch", "Detectron2", "scikit-learn", "pandas", "NumPy"],
   cloudDevOps: ["AWS", "Firebase", "Docker", "Git"],
-  frameworks: ["Spring Boot", "Flutter", "GraphQL"],
-  tools: ["REST APIs", "Insomnia", "GitHub Copilot", "Claude", "MCP Server"],
+  frameworks: ["Spring Boot", "Flutter", "GraphQL", "PyQt6"],
+  tools: ["REST APIs", "Insomnia", "tmux", "SSH", "GitHub Copilot", "Claude", "MCP Server"],
   projectManagement: ["Jira", "Confluence", "Agile/Scrum"],
 };
 
@@ -79,9 +80,9 @@ const projectsData: Project[] = [
     github: "https://github.com/MarawanEldeib/saha",
     live: "https://sahasports.vercel.app",
     video: undefined,
-    status: "completed" as const,
+    status: "in-progress" as const,
     startDate: "2026-02",
-    endDate: "2026-07",
+    endDate: null,
     course: "Personal Project",
     highlights: [
       "Postgres row-level security isolating tenant data at the database",
@@ -99,9 +100,9 @@ const projectsData: Project[] = [
     tech: ["Node.js", "Express", "PostgreSQL", "Stripe Connect", "React", "TypeScript", "Security"],
     github: "https://github.com/MarawanEldeib/Makhzan",
     video: undefined,
-    status: "completed" as const,
+    status: "in-progress" as const,
     startDate: "2026-03",
-    endDate: "2026-07",
+    endDate: null,
     course: "Personal Project",
     highlights: [
       "httpOnly-cookie JWT sessions, no tokens exposed to JavaScript",
@@ -118,9 +119,9 @@ const projectsData: Project[] = [
     tech: ["Python", "PyQt6", "Gemini Live", "SQLite", "Security"],
     github: "https://github.com/MarawanEldeib/semsem",
     video: undefined,
-    status: "completed" as const,
+    status: "in-progress" as const,
     startDate: "2026-06",
-    endDate: "2026-07",
+    endDate: null,
     course: "Personal Project",
     highlights: [
       "Capability-based permission model, default-deny for dangerous actions",

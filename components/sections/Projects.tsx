@@ -111,7 +111,7 @@ export default function Projects() {
                             >
                               <Github size={18} className="text-white" />
                             </button>
-                            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                            <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                               Private Repo
                             </span>
                           </div>
@@ -136,7 +136,7 @@ export default function Projects() {
                           aria-label={`Open the live deployment of ${project.title}`}
                         >
                           <Globe size={18} className="text-white" />
-                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                          <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                             {t('buttons.live')}
                           </span>
                         </a>
@@ -151,7 +151,7 @@ export default function Projects() {
                           aria-label={`${t('buttons.publishedPaper')}: ${project.title}`}
                         >
                           <BookOpen size={18} className="text-white" />
-                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                          <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                             {t('buttons.publishedPaper')}
                           </span>
                         </a>

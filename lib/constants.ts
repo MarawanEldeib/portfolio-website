@@ -56,7 +56,7 @@ import {
   SiKalilinux, SiUbuntu, SiClaude, SiOwasp,
   SiPhp, SiHtml5, SiCss3, SiPandas, SiArduino,
   SiSupabase, SiStripe, SiNodedotjs, SiExpress, SiSqlite,
-  SiGooglegemini, SiQt
+  SiGooglegemini, SiQt, SiPopos, SiTmux, SiSocketdotio
 } from 'react-icons/si';
 import {
   FaBrain, FaRobot, FaChalkboardTeacher, FaMicrophone, FaUsers,
@@ -65,7 +65,7 @@ import {
   FaNetworkWired, FaJava, FaWindows, FaFlag,
   FaLock, FaProjectDiagram, FaCloud, FaMobileAlt, FaCog,
   FaCheckCircle, FaMicrochip, FaPaintBrush, FaWifi,
-  FaBug, FaTachometerAlt, FaMemory
+  FaBug, FaTachometerAlt, FaMemory, FaKey
 } from 'react-icons/fa';
 import { MdAgriculture } from 'react-icons/md';
 
@@ -104,6 +104,7 @@ export const TECH_ICONS: Record<string, IconType> = {
   'Linux': SiLinux,
   'Kali Linux': SiKalilinux,
   'Ubuntu': SiUbuntu,
+  'Pop!_OS': SiPopos,
   'Windows': FaWindows,
   'AWS': SiAmazon,
   'GCP': SiGooglecloud,
@@ -170,6 +171,9 @@ export const TECH_ICONS: Record<string, IconType> = {
   'SQLite': SiSqlite,
   'Gemini Live': SiGooglegemini,
   'PyQt6': SiQt,
+  'Socket.IO': SiSocketdotio,
+  'tmux': SiTmux,
+  'SSH': FaKey,
   'Performance Optimisation': FaTachometerAlt,
   'Memory Profiling': FaMemory,
   // Volunteering and soft skills icons
