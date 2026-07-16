@@ -152,14 +152,19 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-      <nav className="container mx-auto px-4 sm:px-6 py-4 max-w-none">
-        <div className="flex items-center justify-between gap-6">
-          <Link href={`/${locale}`} className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-sky-400 dark:from-blue-400 dark:to-sky-400 bg-clip-text text-transparent flex-shrink-0">
+      {/* Centred, capped container — matches the centred content columns below it.
+          Never `max-w-none`: that cancels the cap and lets the header drift on wide screens. */}
+      <nav className="mx-auto w-full max-w-[96rem] px-4 sm:px-6 py-4">
+        {/* Below nav-desktop: brand + burger. At/above it: three columns, where the equal
+            1fr side tracks centre the nav by construction, whatever the side widths are. */}
+        <div className="flex items-center justify-between gap-4 nav-desktop:grid nav-desktop:grid-cols-[1fr_minmax(0,auto)_1fr]">
+          <Link href={`/${locale}`} className="nav-desktop:col-start-1 nav-desktop:justify-self-start text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-sky-400 dark:from-blue-400 dark:to-sky-400 bg-clip-text text-transparent flex-shrink-0 whitespace-nowrap">
             {personalInfo.name}
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop Navigation — min-w-0 lets it shrink and scroll internally rather
+              than pushing the language switcher off-screen. */}
+          <div className="hidden nav-desktop:flex nav-desktop:col-start-2 nav-desktop:justify-self-center min-w-0 items-center">
             <div className="nav-wrap">
               {navItems.map((item) => (
                 <React.Fragment key={item.id}>
@@ -188,9 +193,13 @@ export default function Header() {
               <div className="nav-bar"></div>
               <div className="nav-slidebar"></div>
             </div>
+          </div>
 
+          {/* Right column: language switcher and burger, both keyed to the same
+              breakpoint, so there is no width where neither renders. */}
+          <div className="flex items-center gap-2 nav-desktop:col-start-3 nav-desktop:justify-self-end">
             {/* Language Switcher */}
-            <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1 border border-zinc-300 dark:border-zinc-700 ml-auto">
+            <div className="hidden nav-desktop:flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1 border border-zinc-300 dark:border-zinc-700">
               <button
                 onClick={() => handleLanguageChange('en')}
                 className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-w-[44px] text-center ${locale === 'en'
@@ -210,21 +219,21 @@ export default function Header() {
                 DE
               </button>
             </div>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px]"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <motion.div
-              animate={{ rotate: isMenuOpen ? 90 : 0 }}
-              transition={{ duration: 0.2 }}
+            {/* Mobile Menu Button */}
+            <button
+              className="nav-desktop:hidden p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px]"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.div>
-          </button>
+              <motion.div
+                animate={{ rotate: isMenuOpen ? 90 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </motion.div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation - Full Screen Overlay */}
@@ -235,7 +244,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-lg overflow-y-auto"
+              className="nav-desktop:hidden absolute left-0 right-0 top-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-lg overflow-y-auto"
               style={{ maxHeight: `calc(100vh - ${LAYOUT_CONSTANTS.HEADER_HEIGHT}px)` }}
             >
               <div className="container mx-auto px-10 py-4">

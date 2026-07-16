@@ -79,8 +79,10 @@ export default function Hero() {
     return () => cancelAnimationFrame(rafId);
   }, [displayText, isDeleting, currentRole, roles]);
 
+  // min-h-svh, not min-h-screen: 100vh is the *largest* mobile viewport height, so it
+  // overflows behind the URL bar and shifts as the bar retracts. svh is the stable one.
   return (
-    <section id="about" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 pb-10 overflow-hidden bg-zinc-950">
+    <section id="about" className="relative min-h-svh flex items-center justify-center px-4 sm:px-6 pt-32 pb-10 overflow-hidden bg-zinc-950">
       {/* Background — liquid wave blobs + grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Liquid wave blob 1 */}

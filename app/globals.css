@@ -266,6 +266,17 @@
 
 @variant dark (.dark &);
 
+/* Width at which the full horizontal nav replaces the burger.
+   Derived from measurement, not taste: the widest locale (DE) needs
+   brand 181 + nav 1010 + switcher 101 + gaps 32 + padding 48 = 1372px.
+   Below this the row cannot fit, so the burger takes over. Tailwind's xl (1280px)
+   is under that threshold and made the German brand collide with the nav.
+
+   Declared as a variant rather than `@theme { --breakpoint-* }` on purpose: a theme
+   breakpoint is global, so it also injects a `.container` max-width at this width and
+   silently narrows every bare `container` (e.g. the footer). This only adds the variant. */
+@custom-variant nav-desktop (@media (min-width: 1400px));
+
 /* Force dark mode globally */
 html {
   color-scheme: dark;
