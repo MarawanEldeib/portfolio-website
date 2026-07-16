@@ -97,7 +97,7 @@ const projectsData: Project[] = [
     title: "Makhzan",
     description: "Storage-rental marketplace hardened against the common web attack classes: JWTs held in httpOnly cookies so session tokens are unreachable from JavaScript, parameterised SQL throughout, IDOR checks on every object reference, a strict Content Security Policy, and signature-verified Stripe webhooks. Ships with a documented privacy-by-design gap analysis setting out the data-minimisation work still outstanding.",
     image: "",
-    tech: ["Node.js", "Express", "PostgreSQL", "Stripe Connect", "React", "TypeScript", "Security"],
+    tech: ["Node.js", "Express", "Socket.IO", "PostgreSQL", "Stripe Connect", "React", "TypeScript", "Security"],
     github: "https://github.com/MarawanEldeib/Makhzan",
     video: undefined,
     status: "in-progress" as const,
