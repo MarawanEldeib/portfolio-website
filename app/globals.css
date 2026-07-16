@@ -608,6 +608,7 @@ html.loading {
   background: transparent;
   padding: 12px 16px; /* Balanced padding for dynamic width */
   width: auto; /* Dynamic width based on content */
+  min-width: -webkit-fill-available; /* Samsung Internet fallback; overridden below */
   min-width: fit-content;
   text-decoration: none;
   -webkit-user-select: none;
