@@ -35,14 +35,14 @@ const geistMono = Geist_Mono({
 // Locale-specific metadata content
 const seoContent = {
   en: {
-    title: "Marawan Eldeib - Software Engineer & AI Developer",
-    description: "M.Sc. INFOTECH (Software Engineering) student at University of Stuttgart with experience at Fraunhofer IOSB and AirAsia. Specialized in AI, Machine Learning, and Full-Stack Development. Open to working student positions.",
-    ogDescription: "M.Sc. INFOTECH (Software Engineering) student with expertise in AI, Machine Learning, and Full-Stack Development. Currently at University of Stuttgart.",
+    title: "Marawan Eldeib - Privacy & Security | M.Sc. INFOTECH",
+    description: "M.Sc. Information Technology (INFOTECH) student at the University of Stuttgart, Software Engineering specialisation, focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software. Seeking a Master's thesis starting October 2026.",
+    ogDescription: "M.Sc. Information Technology (INFOTECH) student focused on privacy and security. Seeking a Master's thesis starting October 2026.",
   },
   de: {
-    title: "Marawan Eldeib - Software Engineer & AI-Entwickler",
-    description: "M.Sc. INFOTECH (Software Engineering) Student an der Universität Stuttgart mit Erfahrung bei Fraunhofer IOSB und AirAsia. Spezialisiert auf KI, Machine Learning und Full-Stack-Entwicklung. Offen für Werkstudentenstellen.",
-    ogDescription: "M.Sc. INFOTECH (Software Engineering) Student mit Expertise in KI, Machine Learning und Full-Stack-Entwicklung. Derzeit an der Universität Stuttgart.",
+    title: "Marawan Eldeib - Privatsphäre & Sicherheit | M.Sc. INFOTECH",
+    description: "M.Sc.-Student der Informationstechnologie (INFOTECH) an der Universität Stuttgart, Vertiefung Software Engineering, mit Schwerpunkt Privatsphäre und Sicherheit. Erfahrung in Netzwerkverkehrsanalyse, Backend-Entwicklung und Performance-Optimierung von Forschungssoftware. Auf der Suche nach einer Masterarbeit ab Oktober 2026.",
+    ogDescription: "M.Sc.-Student der Informationstechnologie (INFOTECH) mit Schwerpunkt Privatsphäre und Sicherheit. Auf der Suche nach einer Masterarbeit ab Oktober 2026.",
   },
 };
 
@@ -65,20 +65,22 @@ export async function generateMetadata({
     description: content.description,
     keywords: [
       'Marawan Eldeib',
-      'Software Engineer',
-      'Full-Stack Developer',
-      'AI/ML Engineer',
+      'Privacy Engineering',
+      'Security Engineering',
+      'Privacy and Security',
+      'Network Traffic Analysis',
+      'mitmproxy',
+      'Application Security',
+      'Software Engineering',
+      'M.Sc. INFOTECH',
+      'Information Technology',
       'Python',
-      'Java',
-      'Flutter',
-      'Machine Learning',
-      'Deep Learning',
-      'Computer Vision',
       'Stuttgart',
       'Germany',
-      'Fraunhofer IOSB',
       'University of Stuttgart',
-      ...(isGerman ? ['Werkstudent', 'Softwaretechnik', 'Künstliche Intelligenz'] : ['Working Student', 'Software Engineering', 'Artificial Intelligence']),
+      ...(isGerman
+        ? ['Masterarbeit', 'Masterarbeit Informatik', 'Datenschutz', 'IT-Sicherheit', 'Netzwerkverkehrsanalyse', 'Informationstechnologie']
+        : ["Master's Thesis", 'Masters Thesis 2026', 'Data Privacy', 'Cybersecurity', 'Security Research']),
     ],
     authors: [{ name: 'Marawan Eldeib' }],
     creator: 'Marawan Eldeib',
@@ -144,15 +146,11 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
-        {/* SEO: Meta Description - Ensures Lighthouse detects it */}
-        <meta
-          name="description"
-          content="Marawan Eldeib - Master's student in Software Engineering at Stuttgart University with 3+ years of experience in AI, machine learning, and full-stack development. Former Research Assistant at Fraunhofer IOSB specializing in computer vision and deep learning. Expert in Python, Java, Flutter, and modern web technologies."
-        />
+        {/* SEO: description comes from generateMetadata above, which emits it per locale */}
 
         {/* SEO: Additional meta tags for name visibility */}
         <meta name="author" content="Marawan Eldeib" />
-        <link rel="canonical" href="https://marawaneldeib.com" />
+        {/* SEO: canonical comes from alternates.canonical above, which is per-locale */}
 
         {/* Performance: Preconnect to critical domains */}
         <link rel="preconnect" href="https://vercel.live" />

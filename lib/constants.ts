@@ -54,7 +54,9 @@ import {
   SiDocker, SiKubernetes, SiGit, SiGithub, SiGitlab, SiJira,
   SiLinux, SiAmazon, SiGooglecloud, SiDart, SiInsomnia,
   SiKalilinux, SiUbuntu, SiClaude, SiOwasp,
-  SiPhp, SiHtml5, SiCss3, SiPandas, SiArduino
+  SiPhp, SiHtml5, SiCss3, SiPandas, SiArduino,
+  SiSupabase, SiStripe, SiNodedotjs, SiExpress, SiSqlite,
+  SiGooglegemini, SiQt
 } from 'react-icons/si';
 import {
   FaBrain, FaRobot, FaChalkboardTeacher, FaMicrophone, FaUsers,
@@ -62,7 +64,8 @@ import {
   FaShoppingCart, FaHeadset, FaCode, FaShieldAlt, FaTerminal,
   FaNetworkWired, FaJava, FaWindows, FaFlag,
   FaLock, FaProjectDiagram, FaCloud, FaMobileAlt, FaCog,
-  FaCheckCircle, FaMicrochip, FaPaintBrush, FaWifi
+  FaCheckCircle, FaMicrochip, FaPaintBrush, FaWifi,
+  FaBug, FaTachometerAlt, FaMemory
 } from 'react-icons/fa';
 import { MdAgriculture } from 'react-icons/md';
 
@@ -114,6 +117,8 @@ export const TECH_ICONS: Record<string, IconType> = {
   'SQLmap': FaTerminal,
   'OWASP': SiOwasp,
   'picoCTF': FaFlag,
+  'mitmproxy': FaNetworkWired,
+  'GDB': FaBug,
   'PHP': SiPhp,
   'HTML': SiHtml5,
   'CSS': SiCss3,
@@ -157,6 +162,16 @@ export const TECH_ICONS: Record<string, IconType> = {
   'VPC': FaNetworkWired,
   'Auto Scaling': FaCloud,
   'Load Balancer': FaCloud,
+  // Project stacks (shown on project cards only, not listed as skills)
+  'Supabase': SiSupabase,
+  'Stripe Connect': SiStripe,
+  'Node.js': SiNodedotjs,
+  'Express': SiExpress,
+  'SQLite': SiSqlite,
+  'Gemini Live': SiGooglegemini,
+  'PyQt6': SiQt,
+  'Performance Optimisation': FaTachometerAlt,
+  'Memory Profiling': FaMemory,
   // Volunteering and soft skills icons
   'AI': FaBrain,
   'Machine Learning': SiPytorch,
@@ -190,10 +205,6 @@ export const PROJECT_IDS = {
   MANGO_VISION: '1',
   FITNESS_CENTER: '2',
   RAIN_ROOT: '3',
-} as const;
-
-export const PROJECT_TITLES = {
-  MANGO_VISION: 'MangoVision',
 } as const;
 
 // Timeline item constants

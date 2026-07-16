@@ -1,9 +1,11 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Mail, Eye, ChevronDown, MapPin, Globe, Linkedin, Github, Phone } from 'lucide-react';
+import { Mail, Eye, ChevronDown, MapPin, Linkedin, Github, Phone } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
+import { getPersonalInfo } from '@/lib/data-localized';
+import type { Locale } from '@/lib/types';
 import { EXTERNAL_LINKS } from '@/lib/constants';
 import Image from 'next/image';
 import { useState, useEffect, useMemo } from 'react';
@@ -16,12 +18,14 @@ const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'),
 
 export default function Hero() {
   const t = useTranslations('hero');
+  const locale = useLocale() as Locale;
+  const localizedPersonalInfo = getPersonalInfo(locale);
 
   const roles = useMemo(() => [
-    "Computer Engineer",
+    "Privacy & Security Engineer",
     "Software Engineer",
-    "Cybersecurity Engineer",
-    "Full Stack Developer",
+    "Security Researcher",
+    "Computer Engineer",
   ], []);
 
   const [currentRole, setCurrentRole] = useState(0);
@@ -225,7 +229,7 @@ export default function Hero() {
                       {personalInfo.name.split(' ').slice(1).join(' ')}
                     </h2>
                     <p className="text-xs sm:text-sm text-zinc-500 mt-1 font-medium">
-                      {personalInfo.title}
+                      {localizedPersonalInfo.title}
                     </p>
                   </div>
 
@@ -290,7 +294,7 @@ export default function Hero() {
 
                     {/* Title */}
                     <p className="text-xs sm:text-sm text-zinc-400 font-medium text-center mb-5">
-                      {personalInfo.title}
+                      {localizedPersonalInfo.title}
                     </p>
 
                     {/* Blue accent divider */}

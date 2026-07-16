@@ -16,15 +16,16 @@ export default function Skills() {
   const t = useTranslations('skills');
   const pdfModal = useModal<PDFModalState>();
 
+  // Security and privacy tooling leads; the rest follows in the previous order.
   const skillCategories = [
-    { key: 'languages', data: skills?.languages || [] },
-    { key: 'dataScience', data: skills?.dataScience || [] },
-    { key: 'frameworks', data: skills?.frameworks || [] },
-    { key: 'cloudDevOps', data: skills?.cloudDevOps || [] },
-    { key: 'projectManagement', data: skills?.projectManagement || [] },
-    { key: 'tools', data: skills?.tools || [] },
     { key: 'cybersecurity', data: skills?.cybersecurity || [] },
+    { key: 'languages', data: skills?.languages || [] },
     { key: 'systems', data: skills?.systems || [] },
+    { key: 'dataScience', data: skills?.dataScience || [] },
+    { key: 'cloudDevOps', data: skills?.cloudDevOps || [] },
+    { key: 'frameworks', data: skills?.frameworks || [] },
+    { key: 'tools', data: skills?.tools || [] },
+    { key: 'projectManagement', data: skills?.projectManagement || [] },
   ];
 
   return (

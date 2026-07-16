@@ -23,6 +23,10 @@ const Education = dynamic(() => import('@/components/sections/Education'), {
   ssr: false,
 });
 
+const Publications = dynamic(() => import('@/components/sections/Publications'), {
+  ssr: false,
+});
+
 
 
 const Volunteering = dynamic(() => import('@/components/sections/Volunteering'), {
@@ -52,6 +56,9 @@ export default function PageContent() {
         <Skills />
         <Suspense fallback={<LoadingSpinner />}>
           <Education />
+        </Suspense>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Publications />
         </Suspense>
         <Suspense fallback={<LoadingSpinner />}>
           <Volunteering />

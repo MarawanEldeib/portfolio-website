@@ -19,7 +19,7 @@
 import { motion } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 
-export type TimelineVariant = 'experience' | 'education' | 'volunteering';
+export type TimelineVariant = 'experience' | 'education' | 'volunteering' | 'publication';
 
 interface TimelineItemProps {
     /** Timeline item content (typically a Card component) */
@@ -47,6 +47,11 @@ const variantStyles: Record<TimelineVariant, { border: string; dot: string; icon
         border: 'border-sky-300 dark:border-sky-700',
         dot: 'bg-white dark:bg-zinc-800 border-2 border-sky-500 dark:border-sky-500',
         icon: 'text-sky-600 dark:text-sky-400',
+    },
+    publication: {
+        border: 'border-amber-300 dark:border-amber-700',
+        dot: 'bg-white dark:bg-zinc-800 border-2 border-amber-500 dark:border-amber-600',
+        icon: 'text-amber-600 dark:text-amber-400',
     },
 };
 

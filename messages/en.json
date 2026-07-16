@@ -5,6 +5,7 @@
     "projects": "Projects",
     "experience": "Experience",
     "education": "Education",
+    "publications": "Publications",
     "skills": "Skills",
     "certifications": "Certifications & Awards",
     "volunteering": "Volunteering",
@@ -13,19 +14,18 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "tagline": "Master's student seeking working student positions or research opportunities in Software Engineering, AI, and Cybersecurity",
+    "tagline": "M.Sc. Information Technology (INFOTECH) student — Software Engineering specialisation — focused on privacy and security. Seeking a Master's thesis starting October 2026.",
     "workPermit": "Work Permit",
     "workPermitTooltip": "Working Student",
     "cta": {
       "contact": "Contact Me",
       "viewCV": "View CV",
-      "downloadCV": "Download CV",
-      "openCV": "Open"
+      "downloadCV": "Download CV"
     }
   },
   "about": {
     "title": "About Me",
-    "intro": "I'm a passionate Software Engineering student at Stuttgart University with a strong foundation in AI/ML, full-stack development, and research. My journey spans from developing award-winning machine learning models to building production applications serving thousands of users. I'm always open to opportunities in research, internships, or collaboration. Let's build something amazing together!",
+    "intro": "M.Sc. Information Technology student (Software Engineering specialisation) at the University of Stuttgart, focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software. Seeking a Master's thesis starting October 2026.",
     "downloadCV": "Download CV",
     "viewCV": "View CV",
     "contactMe": "Contact Me",
@@ -47,9 +47,11 @@
     "present": "Present",
     "buttons": {
       "code": "Code",
+      "live": "Live",
       "demo": "Demo",
       "video": "Video",
       "report": "View Report",
+      "publishedPaper": "Published Paper",
       "researchPaper": "Research Paper",
       "publishingSoon": "Publishing Soon"
     }
@@ -84,9 +86,15 @@
       "viewTranscript": "View Transcript"
     }
   },
+  "publications": {
+    "title": "Publications",
+    "subtitle": "Peer-reviewed research",
+    "viewPaper": "Published Paper",
+    "doi": "DOI"
+  },
   "skills": {
     "title": "Technical Expertise",
-    "subtitle": "Comprehensive skill set across the full development stack",
+    "subtitle": "Security and privacy engineering, backed by a broad development stack",
     "languages": "Programming Languages",
     "dataScience": "Data Science & AI",
     "frameworks": "Frameworks & Web Development",
@@ -121,7 +129,7 @@
   },
   "contact": {
     "title": "Let's Work Together",
-    "subtitle": "Have a project in mind? I'm available for internships, research opportunities, and collaborations. Let's create something extraordinary!",
+    "subtitle": "I'm looking for a Master's thesis starting October 2026 in privacy and security, and I'm always glad to hear about research collaborations.",
     "form": {
       "name": "Your Name",
       "email": "Your Email",

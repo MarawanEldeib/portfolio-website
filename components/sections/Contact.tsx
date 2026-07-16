@@ -195,7 +195,7 @@ export default function Contact() {
                 >
                   <GraduationCap className="text-green-600 dark:text-green-400 mt-1" size={24} />
                   <div>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Academic Profile</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('info.orcid')}</p>
                     <p className="font-medium text-zinc-900 dark:text-zinc-100">ORCID iD</p>
                   </div>
                 </a>
@@ -276,7 +276,7 @@ export default function Contact() {
                 <GraduationCap className="text-green-400" size={24} />
               </div>
               <div className="flex-1">
-                <p className="text-sm text-zinc-400 mb-1">Academic Profile</p>
+                <p className="text-sm text-zinc-400 mb-1">{t('info.orcid')}</p>
                 <a
                   href={personalInfo.orcid}
                   target="_blank"

@@ -7,16 +7,16 @@ export const contentTranslations = {
   // Personal Info
   personalInfo: {
     title: {
-      en: "M.Sc. INFOTECH — Software Engineering",
-      de: "M.Sc. INFOTECH — Software Engineering"
+      en: "M.Sc. Information Technology (INFOTECH) — Software Engineering specialisation",
+      de: "M.Sc. Informationstechnologie (INFOTECH) — Vertiefung Software Engineering"
     },
     summary: {
-      en: "M.Sc. INFOTECH (Software Engineering) student and HiWi at SOFIA Data Center (IRS/DLR–NASA), with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity.",
-      de: "M.Sc. INFOTECH (Software Engineering) Student und HiWi am SOFIA Data Center (IRS/DLR–NASA), mit Entwicklungserfahrung bei Fraunhofer IOSB und AirAsia. Fundament in KI und Cybersicherheit."
+      en: "M.Sc. Information Technology student (Software Engineering specialisation) focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software. Seeking a Master's thesis starting October 2026.",
+      de: "M.Sc.-Student der Informationstechnologie (Vertiefung Software Engineering) mit Schwerpunkt Privatsphäre und Sicherheit. Erfahrung in Netzwerkverkehrsanalyse, Backend-Entwicklung und Performance-Optimierung von Forschungssoftware. Auf der Suche nach einer Masterarbeit ab Oktober 2026."
     },
     workPermitDetails: {
-      en: "Working Student - Available on Request",
-      de: "Werkstudent - Auf Anfrage verfügbar"
+      en: "Available on Request",
+      de: "Auf Anfrage verfügbar"
     }
   },
 
@@ -28,7 +28,7 @@ export const contentTranslations = {
         de: "Datenschutz in KI-Tools: Wie viel sehen sie wirklich?"
       },
       description: {
-        en: "How much of your data do AI tools actually see? This research intercepts and analyzes outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",
+        en: "How much of your data do AI tools actually see? This research intercepts and analyses outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",
         de: "Wie viele deiner Daten sehen KI-Tools wirklich? Diese Forschung fängt den ausgehenden Netzwerkverkehr von LLM-integrierten Produktivitätswerkzeugen — Browser-Erweiterungen, Code-Editoren und Web-Interfaces — unter identischen kontrollierten Bedingungen ab und analysiert ihn, um ihren Datenexpositions-Fußabdruck systematisch zu vergleichen."
       },
       course: {
@@ -47,6 +47,92 @@ export const contentTranslations = {
           "Abfangen und Analyse ausgehenden Traffics mit mitmproxy",
           "Expositionsindikatoren: Dateninhalt, Volumen, Anfragen, Domains",
           "Expositionsbewertung pro Werkzeug mit Konfidenzniveau"
+        ]
+      }
+    },
+    "saha": {
+      title: {
+        en: "Saha",
+        de: "Saha"
+      },
+      description: {
+        en: "Deployed racket-sports booking platform, built security-first. Postgres row-level security isolates every tenant's data at the database rather than in application code, a strict Content Security Policy constrains what the browser will execute, MFA gates admin actions, an append-only audit log records privileged operations, and Stripe Connect webhooks are signature-verified before any payout is trusted. Self-audited the row-level security policies and closed a privilege-escalation gap.",
+        de: "Produktiv betriebene Buchungsplattform für Schlägersportarten, konsequent sicherheitsorientiert entwickelt. Postgres Row-Level Security isoliert die Daten jedes Mandanten in der Datenbank statt im Anwendungscode, eine strikte Content Security Policy begrenzt, was der Browser ausführt, MFA schützt Admin-Aktionen, ein Append-only-Audit-Log protokolliert privilegierte Operationen, und Stripe-Connect-Webhooks werden signaturgeprüft, bevor einer Auszahlung vertraut wird. Die RLS-Richtlinien selbst auditiert und eine Lücke zur Rechteausweitung geschlossen."
+      },
+      course: {
+        en: "Personal Project",
+        de: "Eigenes Projekt"
+      },
+      highlights: {
+        en: [
+          "Postgres row-level security isolating tenant data at the database",
+          "Strict Content Security Policy and MFA-gated admin actions",
+          "Append-only audit log over privileged operations",
+          "Signature-verified Stripe Connect webhooks",
+          "Self-audited the RLS policies and fixed a privilege-escalation gap"
+        ],
+        de: [
+          "Postgres Row-Level Security isoliert Mandantendaten in der Datenbank",
+          "Strikte Content Security Policy und MFA-geschützte Admin-Aktionen",
+          "Append-only-Audit-Log über privilegierte Operationen",
+          "Signaturgeprüfte Stripe-Connect-Webhooks",
+          "RLS-Richtlinien selbst auditiert und Rechteausweitung behoben"
+        ]
+      }
+    },
+    "makhzan": {
+      title: {
+        en: "Makhzan",
+        de: "Makhzan"
+      },
+      description: {
+        en: "Storage-rental marketplace hardened against the common web attack classes: JWTs held in httpOnly cookies so session tokens are unreachable from JavaScript, parameterised SQL throughout, IDOR checks on every object reference, a strict Content Security Policy, and signature-verified Stripe webhooks. Ships with a documented privacy-by-design gap analysis setting out the data-minimisation work still outstanding.",
+        de: "Marktplatz für Lagerraumvermietung, gehärtet gegen die gängigen Web-Angriffsklassen: JWTs in httpOnly-Cookies, sodass Session-Tokens für JavaScript unerreichbar bleiben, durchgängig parametrisiertes SQL, IDOR-Prüfungen bei jeder Objektreferenz, eine strikte Content Security Policy und signaturgeprüfte Stripe-Webhooks. Enthält eine dokumentierte Privacy-by-Design-Lückenanalyse, die die noch ausstehende Datenminimierung benennt."
+      },
+      course: {
+        en: "Personal Project",
+        de: "Eigenes Projekt"
+      },
+      highlights: {
+        en: [
+          "httpOnly-cookie JWT sessions, no tokens exposed to JavaScript",
+          "Parameterised SQL and IDOR checks on every object reference",
+          "Strict Content Security Policy and signed Stripe webhooks",
+          "Documented privacy-by-design gap analysis as future work"
+        ],
+        de: [
+          "JWT-Sessions in httpOnly-Cookies, keine Tokens für JavaScript sichtbar",
+          "Parametrisiertes SQL und IDOR-Prüfungen bei jeder Objektreferenz",
+          "Strikte Content Security Policy und signierte Stripe-Webhooks",
+          "Dokumentierte Privacy-by-Design-Lückenanalyse als Ausblick"
+        ]
+      }
+    },
+    "semsem": {
+      title: {
+        en: "Semsem",
+        de: "Semsem"
+      },
+      description: {
+        en: "Real-time voice-driven desktop AI assistant, designed around the question of what an assistant should be allowed to do. A capability-based permission model makes dangerous actions default-deny, a destructive-command denylist blocks irreversible operations outright, and filesystem access is confined to an approved root with symlink escapes resolved and rejected. Independently code-reviewed.",
+        de: "Sprachgesteuerter Desktop-KI-Assistent in Echtzeit, bei dessen Entwurf die Frage im Mittelpunkt stand, was ein Assistent überhaupt tun darf. Ein fähigkeitsbasiertes Berechtigungsmodell verweigert gefährliche Aktionen standardmäßig, eine Denylist destruktiver Befehle blockiert irreversible Operationen vollständig, und der Dateisystemzugriff ist auf ein freigegebenes Wurzelverzeichnis beschränkt, wobei Symlink-Ausbrüche aufgelöst und abgewiesen werden. Unabhängig per Code-Review geprüft."
+      },
+      course: {
+        en: "Personal Project",
+        de: "Eigenes Projekt"
+      },
+      highlights: {
+        en: [
+          "Capability-based permission model, default-deny for dangerous actions",
+          "Destructive-command denylist blocking irreversible operations",
+          "Symlink-safe filesystem confinement to an approved root",
+          "Independently code-reviewed"
+        ],
+        de: [
+          "Fähigkeitsbasiertes Berechtigungsmodell, gefährliche Aktionen standardmäßig verweigert",
+          "Denylist destruktiver Befehle blockiert irreversible Operationen",
+          "Symlink-sichere Beschränkung des Dateisystems auf ein freigegebenes Wurzelverzeichnis",
+          "Unabhängig per Code-Review geprüft"
         ]
       }
     },
@@ -254,12 +340,12 @@ export const contentTranslations = {
   timeline: {
     "6": {
       title: {
-        en: "Student Research Assistant",
+        en: "Research Assistant",
         de: "Wissenschaftliche Hilfskraft"
       },
       description: {
-        en: "Analyzing and optimizing a Python-based data processing pipeline for the SOFIA infrared astronomy archive (joint DLR–NASA airborne observatory, 750+ flights, 2010–2022), reviewing the scientific codebase to identify memory bottlenecks and improve resource efficiency",
-        de: "Analyse und Optimierung einer Python-basierten Datenverarbeitungspipeline für das SOFIA-Infrarotastronomie-Archiv (gemeinsames DLR–NASA-Projekt, 750+ Flüge, 2010–2022), mit Fokus auf die Identifikation von Speicherengpässen und die Verbesserung der Ressourceneffizienz"
+        en: "Performance and memory optimisation of a Python scientific data-reduction pipeline (reduced peak memory on a production job from ~150 GB to ~29 GB with identical output)",
+        de: "Performance- und Speicheroptimierung einer wissenschaftlichen Python-Datenreduktionspipeline (Spitzenspeicherbedarf eines Produktionslaufs von ~150 GB auf ~29 GB reduziert, bei identischem Ergebnis)"
       }
     },
     "1": {
@@ -292,8 +378,8 @@ export const contentTranslations = {
         de: "Okt 2024 - März 2027 (Erwartet)"
       },
       description: {
-        en: "Specialization: Software Engineering",
-        de: "Spezialisierung: Software Engineering"
+        en: "Specialisation: Software Engineering",
+        de: "Vertiefung: Software Engineering"
       },
       achievements: {
         en: [],
@@ -306,8 +392,8 @@ export const contentTranslations = {
         de: "Bachelor of Engineering (Hons.)\nComputer Engineering"
       },
       description: {
-        en: "CGPA: 3.7/4.0 (First Class Honors 🎖️)",
-        de: "CGPA: 3,7/4,0 (First Class Honors 🎖️)"
+        en: "CGPA: 3.7/4.0 (First Class Honours 🎖️)",
+        de: "CGPA: 3,7/4,0 (First Class Honours 🎖️)"
       },
       achievements: {
         en: [

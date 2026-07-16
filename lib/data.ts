@@ -1,10 +1,10 @@
 // Portfolio Data - Marawan Eldeib's Professional Profile
-import type { Project, PersonalInfo, TimelineItem, Certification, Award, Recommendation } from './types';
+import type { Project, PersonalInfo, TimelineItem, Certification, Award, Recommendation, Publication } from './types';
 import { sortByDateDescending, sortBySimpleDateDescending } from './utils/date';
 
 export const personalInfo: PersonalInfo = {
   name: "Marawan Eldeib",
-  title: "M.Sc. INFOTECH — Software Engineering",
+  title: "M.Sc. Information Technology (INFOTECH) — Software Engineering specialisation",
   email: "marawandeep13@gmail.com",
   phone: "+49 178 2374198",
   linkedin: "https://www.linkedin.com/in/marawan-el-deib/",
@@ -14,22 +14,22 @@ export const personalInfo: PersonalInfo = {
   orcid: "https://orcid.org/0009-0008-5285-424X",
   location: "Baden-Württemberg, Germany | Kuwait",
   image: "/images/Marawan.jpeg",
-  summary: "Software Engineering master's student with development experience at Fraunhofer IOSB and AirAsia. Foundation in AI and Cybersecurity. Seeking working student positions or research opportunities.",
+  summary: "M.Sc. Information Technology student (Software Engineering specialisation) focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software. Seeking a Master's thesis starting October 2026.",
   workPermit: {
     hasPermit: true,
-    details: "Working Student - Available on Request",
+    details: "Available on Request",
   },
 };
 
 export const skills = {
+  cybersecurity: ["mitmproxy", "Burp Suite", "GDB", "Nmap", "SQLmap", "OWASP", "picoCTF"],
   languages: ["Python", "Java", "C/C++", "SQL", "PHP", "HTML", "CSS", "Assembly"],
-  dataScience: ["PyTorch", "Detectron2", "scikit-learn", "pandas", "NumPy"],
-  frameworks: ["Spring Boot", "Flutter", "GraphQL"],
-  cloudDevOps: ["AWS", "Firebase", "Docker", "Git"],
-  projectManagement: ["Jira", "Confluence", "Agile/Scrum"],
-  tools: ["REST APIs", "Insomnia", "GitHub Copilot", "Claude", "MCP Server"],
-  cybersecurity: ["Burp Suite", "Nmap", "SQLmap", "OWASP", "picoCTF"],
   systems: ["Kali Linux", "Ubuntu", "Windows"],
+  dataScience: ["PyTorch", "Detectron2", "scikit-learn", "pandas", "NumPy"],
+  cloudDevOps: ["AWS", "Firebase", "Docker", "Git"],
+  frameworks: ["Spring Boot", "Flutter", "GraphQL"],
+  tools: ["REST APIs", "Insomnia", "GitHub Copilot", "Claude", "MCP Server"],
+  projectManagement: ["Jira", "Confluence", "Agile/Scrum"],
 };
 
 export const languages = {
@@ -43,11 +43,10 @@ const projectsData: Project[] = [
   {
     id: "new-4",
     title: "Privacy in AI Tools: How Much Do They See?",
-    description: "How much of your data do AI tools actually see? This research intercepts and analyzes outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",
+    description: "How much of your data do AI tools actually see? This research intercepts and analyses outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",
     image: "",
     tech: ["Python", "mitmproxy", "Network Analysis", "Privacy", "Security"],
-    github: "https://github.com/MarawanEldeib/llm-data-exposure", // private for now
-    privateGithub: true,
+    github: "https://github.com/MarawanEldeib/privacy-analysis-research",
     video: undefined,
     pdf: "/documents/Data-Exposure-Proposal.pdf",
     status: "in-progress" as const,
@@ -69,6 +68,65 @@ const projectsData: Project[] = [
       "Outbound traffic interception and analysis using mitmproxy",
       "Exposure indicators: data content, volume, requests, domains",
       "Per-tool exposure assessment with confidence level"
+    ],
+  },
+  {
+    id: "saha",
+    title: "Saha",
+    description: "Deployed racket-sports booking platform, built security-first. Postgres row-level security isolates every tenant's data at the database rather than in application code, a strict Content Security Policy constrains what the browser will execute, MFA gates admin actions, an append-only audit log records privileged operations, and Stripe Connect webhooks are signature-verified before any payout is trusted. Self-audited the row-level security policies and closed a privilege-escalation gap.",
+    image: "",
+    tech: ["Next.js", "Supabase", "PostgreSQL", "Stripe Connect", "TypeScript", "Security"],
+    github: "https://github.com/MarawanEldeib/saha",
+    live: "https://sahasports.vercel.app",
+    video: undefined,
+    status: "completed" as const,
+    startDate: "2026-02",
+    endDate: "2026-07",
+    course: "Personal Project",
+    highlights: [
+      "Postgres row-level security isolating tenant data at the database",
+      "Strict Content Security Policy and MFA-gated admin actions",
+      "Append-only audit log over privileged operations",
+      "Signature-verified Stripe Connect webhooks",
+      "Self-audited the RLS policies and fixed a privilege-escalation gap"
+    ],
+  },
+  {
+    id: "makhzan",
+    title: "Makhzan",
+    description: "Storage-rental marketplace hardened against the common web attack classes: JWTs held in httpOnly cookies so session tokens are unreachable from JavaScript, parameterised SQL throughout, IDOR checks on every object reference, a strict Content Security Policy, and signature-verified Stripe webhooks. Ships with a documented privacy-by-design gap analysis setting out the data-minimisation work still outstanding.",
+    image: "",
+    tech: ["Node.js", "Express", "PostgreSQL", "Stripe Connect", "React", "TypeScript", "Security"],
+    github: "https://github.com/MarawanEldeib/Makhzan",
+    video: undefined,
+    status: "completed" as const,
+    startDate: "2026-03",
+    endDate: "2026-07",
+    course: "Personal Project",
+    highlights: [
+      "httpOnly-cookie JWT sessions, no tokens exposed to JavaScript",
+      "Parameterised SQL and IDOR checks on every object reference",
+      "Strict Content Security Policy and signed Stripe webhooks",
+      "Documented privacy-by-design gap analysis as future work"
+    ],
+  },
+  {
+    id: "semsem",
+    title: "Semsem",
+    description: "Real-time voice-driven desktop AI assistant, designed around the question of what an assistant should be allowed to do. A capability-based permission model makes dangerous actions default-deny, a destructive-command denylist blocks irreversible operations outright, and filesystem access is confined to an approved root with symlink escapes resolved and rejected. Independently code-reviewed.",
+    image: "",
+    tech: ["Python", "PyQt6", "Gemini Live", "SQLite", "Security"],
+    github: "https://github.com/MarawanEldeib/semsem",
+    video: undefined,
+    status: "completed" as const,
+    startDate: "2026-06",
+    endDate: "2026-07",
+    course: "Personal Project",
+    highlights: [
+      "Capability-based permission model, default-deny for dangerous actions",
+      "Destructive-command denylist blocking irreversible operations",
+      "Symlink-safe filesystem confinement to an approved root",
+      "Independently code-reviewed"
     ],
   },
   {
@@ -140,6 +198,7 @@ const projectsData: Project[] = [
     github: "https://github.com/MarawanEldeib/MangoVision",
     video: "https://youtu.be/zmQG7ATSuj8",
     report: "/documents/mango-vision-report.pdf",
+    paperUrl: "https://doi.org/10.33093/jiwe.2026.5.2.17",
     status: "completed" as const,
     startDate: "2023-11",
     endDate: "2024-07",
@@ -223,14 +282,14 @@ const timelineData: TimelineItem[] = [
   {
     id: "6",
     type: "work",
-    title: "Student Research Assistant",
-    organization: "Institute of Space Systems (IRS), University of Stuttgart",
+    title: "Research Assistant",
+    organization: "University of Stuttgart, Institute of Space Systems (IRS), SOFIA Data Center",
     organizationLogo: "/images/logos/logo_irs_stuttgart.png.png",
     location: "Stuttgart, Germany (Hybrid)",
     startDate: "2026-04",
     endDate: null,
-    description: "Analyzing and optimizing a Python-based data processing pipeline for the SOFIA infrared astronomy archive (joint DLR–NASA airborne observatory, 750+ flights, 2010–2022), reviewing the scientific codebase to identify memory bottlenecks and improve resource efficiency",
-    skills: ["Python"],
+    description: "Performance and memory optimisation of a Python scientific data-reduction pipeline (reduced peak memory on a production job from ~150 GB to ~29 GB with identical output)",
+    skills: ["Python", "Performance Optimisation", "Memory Profiling"],
     achievements: [],
   },
   {
@@ -271,7 +330,7 @@ const timelineData: TimelineItem[] = [
     startDate: "2024-10",
     endDate: null,
     dateString: "Oct 2024 - March 2027 (Expected)",
-    description: "Specialization: Software Engineering",
+    description: "Specialisation: Software Engineering",
     skills: ["Distributed Systems", "Cloud Computing", "Operating Systems", "Security"],
     achievements: [],
     certificateUrl: "/certificates/Enrollment s26.pdf",
@@ -286,7 +345,7 @@ const timelineData: TimelineItem[] = [
     location: "Cyberjaya, Malaysia",
     startDate: "2020-07",
     endDate: "2024-10",
-    description: "CGPA: 3.7/4.0 (First Class Honors 🎖️)",
+    description: "CGPA: 3.7/4.0 (First Class Honours 🎖️)",
     skills: [],
     achievements: [
       "Best Research Project Award (MangoVision, 98.5% accuracy)",
@@ -301,6 +360,22 @@ const timelineData: TimelineItem[] = [
 ];
 
 export const timeline = sortByDateDescending(timelineData);
+
+// Peer-reviewed publications, newest first
+export const publications: Publication[] = [
+  {
+    id: "jiwe-2026-mango",
+    authors: "M. H. Lye and M. A. Eldeib",
+    highlightAuthor: "M. A. Eldeib",
+    title: "Performance Analysis of Faster R-CNN and YOLOv8 Model for Mango Fruits Detection",
+    venue: "Journal of Informatics and Web Engineering",
+    volume: "5",
+    issue: "2",
+    pages: "280–289",
+    year: "2026",
+    doi: "https://doi.org/10.33093/jiwe.2026.5.2.17",
+  },
+];
 
 const certificationsData: Certification[] = [
 

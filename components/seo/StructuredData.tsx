@@ -1,4 +1,4 @@
-import { personalInfo } from '@/lib/data';
+import { personalInfo, publications } from '@/lib/data';
 import { getPersonalInfo } from '@/lib/data-localized';
 import type { Locale } from '@/lib/types';
 
@@ -12,9 +12,13 @@ export default function StructuredData({ locale }: StructuredDataProps) {
   // Get localized personal info
   const localizedPersonalInfo = getPersonalInfo(locale);
 
-  const structuredData = {
-    '@context': 'https://schema.org',
+  const personId = `${siteUrl}/#person`;
+
+  // Person and the articles they authored are separate entities linked by @id:
+  // schema.org's `author` belongs on the CreativeWork, not on the Person.
+  const person = {
     '@type': 'Person',
+    '@id': personId,
     name: personalInfo.name,
     jobTitle: localizedPersonalInfo.title,
     email: personalInfo.email,
@@ -42,25 +46,54 @@ export default function StructuredData({ locale }: StructuredDataProps) {
     worksFor: [
       {
         '@type': 'Organization',
-        name: 'Fraunhofer IOSB',
-        url: 'https://www.iosb.fraunhofer.de/',
+        name: 'University of Stuttgart, Institute of Space Systems (IRS)',
+        url: 'https://www.irs.uni-stuttgart.de/en/',
       },
     ],
     knowsAbout: [
+      'Privacy Engineering',
+      'Security Engineering',
+      'Network Traffic Analysis',
+      'Application Security',
       'Software Engineering',
-      'Artificial Intelligence',
-      'Machine Learning',
-      'Full-Stack Development',
+      'Backend Development',
+      'Performance Optimisation',
       'Python',
-      'Java',
-      'Flutter',
-      'Deep Learning',
-      'Computer Vision',
     ],
     sameAs: [
+      personalInfo.orcid,
       personalInfo.linkedin,
       personalInfo.github,
     ],
+  };
+
+  const scholarlyArticles = publications.map((pub) => ({
+    '@type': 'ScholarlyArticle',
+    '@id': pub.doi,
+    headline: pub.title,
+    name: pub.title,
+    author: [{ '@id': personId }],
+    datePublished: pub.year,
+    pagination: pub.pages,
+    isPartOf: {
+      '@type': 'PublicationIssue',
+      issueNumber: pub.issue,
+      isPartOf: {
+        '@type': 'PublicationVolume',
+        volumeNumber: pub.volume,
+        isPartOf: {
+          '@type': 'Periodical',
+          name: pub.venue,
+        },
+      },
+    },
+    url: pub.doi,
+    sameAs: pub.doi,
+  }));
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [person, ...scholarlyArticles],
   };
 
   return (

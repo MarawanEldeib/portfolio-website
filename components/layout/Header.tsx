@@ -43,6 +43,7 @@ export default function Header() {
     { href: `/${locale}#projects`, label: t('projects'), id: 'projects' },
     { href: `/${locale}#skills`, label: t('skills'), id: 'skills' },
     { href: `/${locale}#education`, label: t('education'), id: 'education' },
+    { href: `/${locale}#publications`, label: t('publications'), id: 'publications' },
     { href: `/${locale}#volunteering`, label: t('volunteering'), id: 'volunteering' },
     { href: `/${locale}#recommendations`, label: t('recommendations'), id: 'recommendations' },
     { href: `/${locale}#contact`, label: t('contact'), id: 'contact' },

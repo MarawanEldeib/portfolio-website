@@ -153,8 +153,9 @@ export function getVolunteering(locale?: Locale) {
   });
 }
 
-// Export non-translatable data as-is
-export { skills, languages } from './data';
+// Export non-translatable data as-is.
+// Publications are citations — author list, title and venue stay as published in both locales.
+export { skills, languages, publications } from './data';
 
 // Re-export types
-export type { Project } from './types';
+export type { Project, Publication } from './types';

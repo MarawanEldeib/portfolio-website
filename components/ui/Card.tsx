@@ -13,7 +13,7 @@
  * ```
  */
 
-export type CardVariant = 'default' | 'experience' | 'education' | 'project' | 'volunteering';
+export type CardVariant = 'default' | 'experience' | 'education' | 'project' | 'volunteering' | 'publication';
 
 interface CardProps {
     /** Card content */
@@ -30,6 +30,7 @@ const variantStyles: Record<CardVariant, string> = {
     education: 'bg-white dark:bg-zinc-800 hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-950/30 dark:hover:to-green-900/30 hover:border-2 hover:border-green-500 dark:hover:border-green-600',
     project: 'bg-white dark:bg-zinc-800 hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-blue-50 hover:to-sky-50 dark:hover:from-blue-950/30 dark:hover:to-sky-950/30 hover:border-2 hover:border-blue-500 dark:hover:border-blue-500',
     volunteering: 'bg-white dark:bg-zinc-800 hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-sky-50 hover:to-blue-50 dark:hover:from-sky-950/30 dark:hover:to-blue-950/30 hover:border-2 hover:border-sky-500 dark:hover:border-sky-500',
+    publication: 'bg-white dark:bg-zinc-800 hover:shadow-2xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-amber-50 hover:to-amber-100 dark:hover:from-amber-950/30 dark:hover:to-amber-900/30 hover:border-2 hover:border-amber-500 dark:hover:border-amber-600',
 };
 
 export default function Card({

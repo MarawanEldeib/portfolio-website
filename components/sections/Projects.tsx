@@ -4,11 +4,10 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
-import { Github, Calendar, Play, FileText } from 'lucide-react';
+import { Github, Calendar, Globe, BookOpen } from 'lucide-react';
 import { getProjects } from '@/lib/data-localized';
-import { TECH_ICONS, PROJECT_IDS, PROJECT_TITLES } from '@/lib/constants';
+import { TECH_ICONS } from '@/lib/constants';
 import ProjectStatusBadge from '@/components/ui/ProjectStatusBadge';
-import ActionButton from '@/components/ui/ActionButton';
 import FilterButtons from '@/components/ui/FilterButtons';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
@@ -127,6 +126,36 @@ export default function Projects() {
                           </a>
                         )
                       )}
+                      {/* Live Deployment Button */}
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 rounded-full bg-green-600 dark:bg-green-700 flex items-center justify-center hover:scale-110 transition-transform group relative"
+                          aria-label={`Open the live deployment of ${project.title}`}
+                        >
+                          <Globe size={18} className="text-white" />
+                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                            {t('buttons.live')}
+                          </span>
+                        </a>
+                      )}
+                      {/* Published Paper Button */}
+                      {project.paperUrl && (
+                        <a
+                          href={project.paperUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 rounded-full bg-amber-600 dark:bg-amber-700 flex items-center justify-center hover:scale-110 transition-transform group relative"
+                          aria-label={`${t('buttons.publishedPaper')}: ${project.title}`}
+                        >
+                          <BookOpen size={18} className="text-white" />
+                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-zinc-800 text-white rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                            {t('buttons.publishedPaper')}
+                          </span>
+                        </a>
+                      )}
                       {/* Video Button */}
                       {project.video && (
                         <button
@@ -163,19 +192,6 @@ export default function Projects() {
                           📄
 
                         </button>
-                      )}
-                      {/* Research Paper (disabled) */}
-                      {(project.report === undefined && project.title.includes(PROJECT_TITLES.MANGO_VISION)) && (
-                        <div className="relative group">
-                          <button
-                            disabled
-                            className="w-10 h-10 rounded-full bg-amber-600/50 dark:bg-amber-700/50 flex items-center justify-center text-lg cursor-not-allowed opacity-70"
-                            aria-label="Research paper (coming soon)"
-                          >
-                            📝
-                          </button>
-
-                        </div>
                       )}
                     </div>
 

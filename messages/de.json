@@ -5,6 +5,7 @@
     "projects": "Projekte",
     "experience": "Berufserfahrung",
     "education": "Ausbildung",
+    "publications": "Publikationen",
     "skills": "Fähigkeiten",
     "certifications": "Zertifikate & Auszeichnungen",
     "volunteering": "Freiwilligenarbeit",
@@ -13,7 +14,7 @@
   },
   "hero": {
     "greeting": "Hallo, ich bin",
-    "tagline": "Masterstudent auf der Suche nach Werkstudentenstellen oder Forschungsmöglichkeiten in Softwaretechnik, KI und Cybersicherheit",
+    "tagline": "M.Sc.-Student Informationstechnologie (INFOTECH) — Vertiefung Software Engineering — mit Schwerpunkt Privatsphäre und Sicherheit. Auf der Suche nach einer Masterarbeit ab Oktober 2026.",
     "workPermit": "Arbeitserlaubnis",
     "workPermitTooltip": "Werkstudent",
     "cta": {
@@ -24,7 +25,7 @@
   },
   "about": {
     "title": "Über mich",
-    "intro": "Ich bin ein leidenschaftlicher Student der Softwaretechnik an der Universität Stuttgart mit fundierten Kenntnissen in KI/ML, Full-Stack-Entwicklung und Forschung. Meine Reise reicht von der Entwicklung preisgekrönter Machine-Learning-Modelle bis hin zur Erstellung von Produktionsanwendungen für Tausende von Benutzern. Ich bin immer offen für Möglichkeiten in Forschung, Praktika oder Zusammenarbeit. Lassen Sie uns gemeinsam etwas Großartiges schaffen!",
+    "intro": "M.Sc.-Student der Informationstechnologie (Vertiefung Software Engineering) an der Universität Stuttgart mit Schwerpunkt Privatsphäre und Sicherheit. Erfahrung in Netzwerkverkehrsanalyse, Backend-Entwicklung und Performance-Optimierung von Forschungssoftware. Auf der Suche nach einer Masterarbeit ab Oktober 2026.",
     "downloadCV": "Lebenslauf herunterladen",
     "viewCV": "Lebenslauf anzeigen",
     "contactMe": "Kontakt aufnehmen",
@@ -46,9 +47,11 @@
     "present": "Heute",
     "buttons": {
       "code": "Code",
+      "live": "Live",
       "demo": "Demo",
       "video": "Video",
       "report": "Projektbericht",
+      "publishedPaper": "Veröffentlichte Publikation",
       "researchPaper": "Forschungsarbeit",
       "publishingSoon": "Bald verfügbar"
     }
@@ -83,9 +86,15 @@
       "viewTranscript": "Transcript ansehen"
     }
   },
+  "publications": {
+    "title": "Publikationen",
+    "subtitle": "Begutachtete Forschung",
+    "viewPaper": "Veröffentlichte Publikation",
+    "doi": "DOI"
+  },
   "skills": {
     "title": "Technische Expertise",
-    "subtitle": "Umfassendes Fachwissen über den gesamten Entwicklungsstack",
+    "subtitle": "Security- und Privacy-Engineering, gestützt auf einen breiten Entwicklungsstack",
     "languages": "Programmiersprachen",
     "dataScience": "Data Science & KI",
     "frameworks": "Frameworks & Webentwicklung",
@@ -120,7 +129,7 @@
   },
   "contact": {
     "title": "Lassen Sie uns zusammenarbeiten",
-    "subtitle": "Haben Sie ein Projekt im Sinn? Ich bin verfügbar für Praktika, Forschungsmöglichkeiten und Kooperationen. Lassen Sie uns gemeinsam etwas Außergewöhnliches schaffen!",
+    "subtitle": "Ich suche eine Masterarbeit ab Oktober 2026 im Bereich Privatsphäre und Sicherheit und freue mich jederzeit über Forschungskooperationen.",
     "form": {
       "name": "Ihr Name",
       "email": "Ihre E-Mail",

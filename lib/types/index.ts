@@ -13,9 +13,13 @@ export interface Project {
   tech: string[];
   github?: string;
   privateGithub?: boolean;
+  /** Deployed, publicly reachable instance of the project */
+  live?: string;
   video?: string;
   pdf?: string;
   report?: string;
+  /** DOI (or publisher URL) of a peer-reviewed paper arising from this project */
+  paperUrl?: string;
   status: Exclude<ProjectStatus, 'all'>;
   startDate: string;
   endDate: string | null;
@@ -23,6 +27,22 @@ export interface Project {
   highlights?: string[];
   supervisor?: { name: string; image?: string; url?: string };
   institute?: { name: string; logo: string; url?: string };
+}
+
+// Publication Types
+export interface Publication {
+  id: string;
+  /** Author list as published, in publication order */
+  authors: string;
+  /** Substring of `authors` to emphasise as the portfolio owner */
+  highlightAuthor: string;
+  title: string;
+  venue: string;
+  volume: string;
+  issue: string;
+  pages: string;
+  year: string;
+  doi: string;
 }
 
 // Timeline Types
