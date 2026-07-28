@@ -90,6 +90,9 @@ export async function generateMetadata({
       languages: {
         'en': `${siteUrl}/en`,
         'de': `${siteUrl}/de`,
+        // Tells crawlers which locale to serve when none of the above match the
+        // user's language. Without it "/" has no declared fallback target.
+        'x-default': `${siteUrl}/en`,
       },
     },
     verification: {
