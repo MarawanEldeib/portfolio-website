@@ -30,7 +30,8 @@ import 'swiper/css/effect-cards';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import dynamic from 'next/dynamic';
-import { useModal, type PDFModalState } from '@/lib/hooks/useModal';
+import { type PDFModalState } from '@/lib/hooks/useModal';
+import { usePdfViewer } from '@/lib/hooks/usePdfViewer';
 import { createLoopedArray, generateCarouselKey, SWIPER_PRESETS } from '@/lib/utils/carousel';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import type { Certification, Award as AwardType } from '@/lib/types';
@@ -54,7 +55,7 @@ export default function Certifications() {
 
   // Get localized awards
   const awards = useMemo(() => getAwards(locale), [locale]);
-  const pdfModal = useModal<PDFModalState>();
+  const pdfModal = usePdfViewer();
 
   // Client-side only mounting to prevent hydration issues
   useEffect(() => {
