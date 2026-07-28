@@ -152,9 +152,9 @@ export default async function LocaleLayout({
         <meta name="author" content="Marawan Eldeib" />
         {/* SEO: canonical comes from alternates.canonical above, which is per-locale */}
 
-        {/* Performance: Preconnect to critical domains */}
-        <link rel="preconnect" href="https://vercel.live" />
-        <link rel="dns-prefetch" href="https://vercel.live" />
+        {/* No preconnect to vercel.live: that host only serves the preview-comments
+            toolbar, which never loads in production, so the connection was always
+            opened and never used. */}
 
         {/* SEO: Structured Data for ATS */}
         <StructuredData locale={locale as Locale} />
