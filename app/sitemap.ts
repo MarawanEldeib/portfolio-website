@@ -10,8 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     de: `${baseUrl}/de`,
   }
 
-  // "/" is deliberately absent: it redirects to /en, and a sitemap should list
-  // the canonical destination rather than a URL that redirects.
+  // "/" is deliberately absent: it redirects to whichever locale matches the
+  // visitor (/en or /de), and a sitemap should list the canonical destinations
+  // rather than a URL that redirects.
   return [
     {
       url: `${baseUrl}/en`,

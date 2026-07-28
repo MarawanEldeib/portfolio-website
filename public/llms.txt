@@ -2,7 +2,7 @@
 
 > M.Sc. Information Technology (INFOTECH) student at the University of Stuttgart, Software Engineering specialisation, focused on privacy and security. Seeking a Master's thesis starting October 2026.
 
-Personal portfolio site. Available in English at [/en](https://marawaneldeib.com/en) and German at [/de](https://marawaneldeib.com/de); `/` redirects to the English page.
+Personal portfolio site. Available in English at [/en](https://marawaneldeib.com/en) and German at [/de](https://marawaneldeib.com/de); `/` redirects to whichever locale matches the visitor's language.
 
 ## About
 
