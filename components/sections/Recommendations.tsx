@@ -110,6 +110,7 @@ export default function Recommendations() {
                               src={recommendation.image}
                               alt={recommendation.name}
                               fill
+                              sizes="64px" /* w-16 avatar */
                               className="object-cover"
                             />
                           </div>

@@ -63,6 +63,7 @@ export default function Experience() {
                           src={item.organizationLogo}
                           alt={`${item.organization} logo`}
                           fill
+                          sizes="96px" /* w-24 container */
                           className="object-contain p-2"
                         />
                       </div>

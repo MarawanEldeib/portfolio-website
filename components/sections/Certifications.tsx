@@ -223,6 +223,7 @@ function CertificationCard({ certification, onViewCertificate }: CertificationCa
             src={certification.image}
             alt={`${certification.title} logo`}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-contain p-4"
           />
         </div>

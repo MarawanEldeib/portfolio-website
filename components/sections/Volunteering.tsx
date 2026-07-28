@@ -60,6 +60,7 @@ export default function Volunteering() {
                         src={volunteer.organizationLogo}
                         alt={volunteer.organization}
                         fill
+                        sizes="96px" /* w-24 container */
                         className="object-contain p-2"
                       />
                     </div>
@@ -70,6 +71,7 @@ export default function Volunteering() {
                           src="/images/logos/ieee_pes_mmu.jpg"
                           alt="IEEE PES Chapter"
                           fill
+                          sizes="96px" /* w-24 container */
                           className="object-contain p-2"
                         />
                       </div>
