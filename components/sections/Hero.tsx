@@ -248,13 +248,31 @@ export default function Hero() {
                       <MapPin size={12} />
                       <span className="text-[10px] sm:text-xs font-medium uppercase tracking-wider">Germany</span>
                     </div>
+                    {/* Real links, not aria-labelled spans: aria-label is ignored on a
+                        generic span, and an agent or screen reader had no way to reach
+                        these profiles. stopPropagation keeps the card from flipping when
+                        the link itself is clicked. */}
                     <div className="flex items-center gap-2">
-                      <span className="text-blue-600" aria-label="LinkedIn">
-                        <Linkedin size={14} />
-                      </span>
-                      <span className="text-zinc-700" aria-label="GitHub">
-                        <Github size={14} />
-                      </span>
+                      <a
+                        href={personalInfo.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-blue-600 hover:text-blue-700 transition-colors"
+                        aria-label={`${personalInfo.name} on LinkedIn`}
+                      >
+                        <Linkedin size={14} aria-hidden="true" />
+                      </a>
+                      <a
+                        href={personalInfo.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-zinc-700 hover:text-zinc-900 transition-colors"
+                        aria-label={`${personalInfo.name} on GitHub`}
+                      >
+                        <Github size={14} aria-hidden="true" />
+                      </a>
                     </div>
                   </div>
 

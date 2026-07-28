@@ -1,0 +1,31 @@
+# Marawan Eldeib
+
+> M.Sc. Information Technology (INFOTECH) student at the University of Stuttgart, Software Engineering specialisation, focused on privacy and security. Seeking a Master's thesis starting October 2026.
+
+Personal portfolio site. Available in English at [/en](https://marawaneldeib.com/en) and German at [/de](https://marawaneldeib.com/de); `/` redirects to the English page.
+
+## About
+
+- [About](https://marawaneldeib.com/en#about): M.Sc. Information Technology student (Software Engineering specialisation) focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software.
+- [Experience](https://marawaneldeib.com/en#experience): Research Assistant at the University of Stuttgart, Institute of Space Systems (IRS), SOFIA Data Center. Previously Fraunhofer IOSB and AirAsia.
+- [Education](https://marawaneldeib.com/en#education): M.Sc. Information Technology (INFOTECH), University of Stuttgart. B.Eng. (Hons.) Computer Engineering, Multimedia University.
+- [Skills](https://marawaneldeib.com/en#skills): security and privacy tooling (mitmproxy, Burp Suite, GDB, Nmap, OWASP), Python, TypeScript, Java, C/C++.
+
+## Publications
+
+- [Performance Analysis of Faster R-CNN and YOLOv8 Model for Mango Fruits Detection](https://doi.org/10.33093/jiwe.2026.5.2.17): Journal of Informatics and Web Engineering, vol. 5, no. 2, pp. 280-289, 2026.
+- [ORCID](https://orcid.org/0009-0008-5285-424X): academic profile.
+
+## Projects
+
+- [Saha](https://github.com/MarawanEldeib/saha): racket-sports booking platform built security-first, with Postgres row-level security, a strict CSP, MFA-gated admin actions and signature-verified Stripe Connect webhooks. [Live site](https://sahasports.vercel.app).
+- [Makhzan](https://github.com/MarawanEldeib/Makhzan): storage-rental marketplace hardened against common web attack classes, with httpOnly-cookie JWTs, parameterised SQL, IDOR checks and a documented privacy-by-design gap analysis.
+- [Semsem](https://github.com/MarawanEldeib/semsem): voice-driven desktop AI assistant with a capability-based permission model, a destructive-command denylist and symlink-safe filesystem confinement.
+- [Privacy in AI Tools](https://github.com/MarawanEldeib/privacy-analysis-research): research measuring data exposure in LLM-integrated productivity tools using Python and mitmproxy.
+- [MangoVision](https://github.com/MarawanEldeib/MangoVision): deep-learning mango detection from drone imagery; the basis for the JIWE paper above.
+
+## Contact
+
+- [Email](mailto:marawandeep13@gmail.com): marawandeep13@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/marawan-el-deib/)
+- [GitHub](https://github.com/MarawanEldeib)
