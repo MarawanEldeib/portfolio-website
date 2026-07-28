@@ -215,7 +215,10 @@ export default function Hero() {
                         alt={personalInfo.name}
                         fill
                         priority
-                        quality={90}
+                        /* Card is w-[280px] sm:w-[320px] with px-5, so the photo box is
+                           240px / 280px wide. Without this, `fill` defaults to 100vw and
+                           the LCP preload pulls the 1920px variant for a 280px slot. */
+                        sizes="(max-width: 639px) 240px, 280px"
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AA8A/9k="
                         className="object-cover object-top"
@@ -244,13 +247,31 @@ export default function Hero() {
                       <MapPin size={12} />
                       <span className="text-[10px] sm:text-xs font-medium uppercase tracking-wider">Germany</span>
                     </div>
+                    {/* Real links, not aria-labelled spans: aria-label is ignored on a
+                        generic span, and an agent or screen reader had no way to reach
+                        these profiles. stopPropagation keeps the card from flipping when
+                        the link itself is clicked. */}
                     <div className="flex items-center gap-2">
-                      <span className="text-blue-600" aria-label="LinkedIn">
-                        <Linkedin size={14} />
-                      </span>
-                      <span className="text-zinc-700" aria-label="GitHub">
-                        <Github size={14} />
-                      </span>
+                      <a
+                        href={personalInfo.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-blue-600 hover:text-blue-700 transition-colors"
+                        aria-label={`${personalInfo.name} on LinkedIn`}
+                      >
+                        <Linkedin size={14} aria-hidden="true" />
+                      </a>
+                      <a
+                        href={personalInfo.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-zinc-700 hover:text-zinc-900 transition-colors"
+                        aria-label={`${personalInfo.name} on GitHub`}
+                      >
+                        <Github size={14} aria-hidden="true" />
+                      </a>
                     </div>
                   </div>
 

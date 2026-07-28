@@ -249,7 +249,7 @@ export default function Projects() {
                         >
                           {project.supervisor.image && (
                             <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
-                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill className="object-cover" />
+                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill sizes="28px" className="object-cover" />
                             </div>
                           )}
                           <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
@@ -258,7 +258,7 @@ export default function Projects() {
                         <div className="flex items-center gap-2">
                           {project.supervisor.image && (
                             <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
-                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill className="object-cover" />
+                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill sizes="28px" className="object-cover" />
                             </div>
                           )}
                           <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
