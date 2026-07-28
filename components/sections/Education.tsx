@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
-import { useModal, type PDFModalState } from '@/lib/hooks/useModal';
+import { usePdfViewer } from '@/lib/hooks/usePdfViewer';
 import type { Locale } from '@/lib/types';
 import ActionButton from '@/components/ui/ActionButton';
 import StatusBadge from '@/components/ui/StatusBadge';
@@ -28,7 +28,7 @@ export default function Education() {
   const t = useTranslations('education');
   const locale = useLocale() as Locale;
   const { formatShortDate } = useLocaleDate();
-  const pdfModal = useModal<PDFModalState>();
+  const pdfModal = usePdfViewer();
 
   // Get localized timeline and filter only education items
   const timeline = useMemo(() => getTimeline(locale), [locale]);

@@ -11,7 +11,8 @@ import ProjectStatusBadge from '@/components/ui/ProjectStatusBadge';
 import FilterButtons from '@/components/ui/FilterButtons';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
-import { useModal, type PDFModalState, type VideoModalState } from '@/lib/hooks/useModal';
+import { useModal, type VideoModalState } from '@/lib/hooks/useModal';
+import { usePdfViewer } from '@/lib/hooks/usePdfViewer';
 import type { Locale } from '@/lib/types';
 import dynamic from 'next/dynamic';
 
@@ -33,7 +34,7 @@ export default function Projects() {
   const { formatShortDate } = useLocaleDate();
   const projects = useMemo(() => getProjects(locale), [locale]);
   const [filter, setFilter] = useState<'all' | 'completed' | 'in-progress'>('all');
-  const pdfModal = useModal<PDFModalState>();
+  const pdfModal = usePdfViewer();
   const videoModal = useModal<VideoModalState>();
   const [githubLoader, setGithubLoader] = useState<{ isOpen: boolean; url: string }>({
     isOpen: false,

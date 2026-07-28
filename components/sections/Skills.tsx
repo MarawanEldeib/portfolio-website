@@ -6,7 +6,7 @@ import { skills, languages } from '@/lib/data';
 import { TECH_ICONS, fadeInUp } from '@/lib/constants';
 import { Languages as LanguagesIcon, FileText } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import { useModal, type PDFModalState } from '@/lib/hooks/useModal';
+import { usePdfViewer } from '@/lib/hooks/usePdfViewer';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
   ssr: false,
@@ -14,7 +14,7 @@ const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'),
 
 export default function Skills() {
   const t = useTranslations('skills');
-  const pdfModal = useModal<PDFModalState>();
+  const pdfModal = usePdfViewer();
 
   // Security and privacy tooling leads; the rest follows in the previous order.
   const skillCategories = [

@@ -1,14 +1,11 @@
 'use client';
 
 import { X } from 'lucide-react';
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import DownloadButton from './DownloadButton';
 import SnowLoader from './SnowLoader';
-
-const subscribe = () => () => { };
-const getSnapshot = () => true;
-const getServerSnapshot = () => false;
+import { prefersNativePdfViewer } from '@/lib/utils/pdf';
 
 interface PDFPreviewModalProps {
     isOpen: boolean;
@@ -18,8 +15,7 @@ interface PDFPreviewModalProps {
 }
 
 export default function PDFPreviewModal({ isOpen, onClose, pdfUrl, title }: PDFPreviewModalProps) {
-    const [isMobile, setIsMobile] = useState(false);
-    const isClient = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+    const [isMobile, setIsMobile] = useState(() => prefersNativePdfViewer());
     const [isLoading, setIsLoading] = useState(true);
     const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
 
@@ -29,29 +25,22 @@ export default function PDFPreviewModal({ isOpen, onClose, pdfUrl, title }: PDFP
         setIsLoading(true);
     }
 
-    // Detect mobile devices
+    // Detect mobile devices. Seeded synchronously so the desktop iframe never
+    // renders for a frame on a phone (this component is client-only).
     useEffect(() => {
-        const checkMobile = () => {
-            if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-                setIsMobile(window.innerWidth < 768 || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
-            }
-        };
-
+        const checkMobile = () => setIsMobile(prefersNativePdfViewer());
         checkMobile();
-
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', checkMobile);
-            return () => window.removeEventListener('resize', checkMobile);
-        }
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
-    // Auto-open in new tab for mobile devices
-    useEffect(() => {
-        if (isClient && isOpen && isMobile && typeof window !== 'undefined') {
-            window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-            onClose();
-        }
-    }, [isClient, isOpen, isMobile, pdfUrl, onClose]);
+    // NOTE: this modal deliberately does NOT call window.open any more.
+    // It used to do so from an effect, which runs after the lazily-imported chunk
+    // has loaded — hundreds of ms after the tap and outside its user gesture, so
+    // iOS Safari suppressed the tab and the modal closed itself, leaving nothing
+    // on screen. The handoff now happens in the click handler (lib/utils/pdf.ts).
+    // Reaching this component on a phone means that handoff did not happen, so we
+    // show a real link the user can tap instead of failing silently.
 
 
 
@@ -101,9 +90,12 @@ export default function PDFPreviewModal({ isOpen, onClose, pdfUrl, title }: PDFP
                 className="relative w-full max-w-5xl h-[90vh] bg-white dark:bg-zinc-900 rounded-lg shadow-2xl overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="flex items-center justify-between p-4 border-b border-zinc-200 dark:border-zinc-700">
-                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">{title}</h3>
-                    <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between gap-3 p-4 border-b border-zinc-200 dark:border-zinc-700">
+                    {/* min-w-0 + truncate: on a phone the title used to wrap and run under
+                        the Download button, which only became visible once this modal
+                        started rendering on mobile. */}
+                    <h3 className="text-base sm:text-lg font-semibold text-zinc-900 dark:text-zinc-50 min-w-0 truncate">{title}</h3>
+                    <div className="flex items-center gap-2 flex-shrink-0">
                         <DownloadButton
                             href={pdfUrl}
                             variant="solid"
@@ -120,6 +112,25 @@ export default function PDFPreviewModal({ isOpen, onClose, pdfUrl, title }: PDFP
                         </button>
                     </div>
                 </div>
+                {isMobile ? (
+                    /* Phones: never an iframe. iOS Safari will not render a PDF inline,
+                       so offer a real anchor — tapping it is a fresh user gesture, which
+                       is always permitted. */
+                    <div className="flex flex-col items-center justify-center gap-4 p-8 text-center h-[calc(100%-60px)]">
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                            PDFs open in your browser&apos;s own viewer.
+                        </p>
+                        <a
+                            href={pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={onClose}
+                            className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors min-h-[44px]"
+                        >
+                            Open PDF
+                        </a>
+                    </div>
+                ) : (
                 <div className="relative w-full h-[calc(100%-60px)]">
                     {/* Snow Loader inside PDF viewer */}
                     {isLoading && (
@@ -137,6 +148,7 @@ export default function PDFPreviewModal({ isOpen, onClose, pdfUrl, title }: PDFP
                         onLoad={() => setIsLoading(false)}
                     />
                 </div>
+                )}
             </div>
         </div>,
         document.body
