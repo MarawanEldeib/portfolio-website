@@ -21,7 +21,7 @@ Personal portfolio site. Available in English at [/en](https://marawaneldeib.com
 - [Saha](https://github.com/MarawanEldeib/saha): racket-sports booking platform built security-first, with Postgres row-level security, a strict CSP, MFA-gated admin actions and signature-verified Stripe Connect webhooks. [Live site](https://sahasports.vercel.app).
 - [Makhzan](https://github.com/MarawanEldeib/Makhzan): storage-rental marketplace hardened against common web attack classes, with httpOnly-cookie JWTs, parameterised SQL, IDOR checks and a documented privacy-by-design gap analysis.
 - [Semsem](https://github.com/MarawanEldeib/semsem): voice-driven desktop AI assistant with a capability-based permission model, a destructive-command denylist and symlink-safe filesystem confinement.
-- [Privacy in AI Tools](https://github.com/MarawanEldeib/privacy-analysis-research): research measuring data exposure in LLM-integrated productivity tools using Python and mitmproxy.
+- [PrivacyLens — LLM Data-Exposure Analysis](https://github.com/MarawanEldeib/privacy-analysis-research): research measuring data exposure in LLM-integrated productivity tools using Python and mitmproxy.
 - [MangoVision](https://github.com/MarawanEldeib/MangoVision): deep-learning mango detection from drone imagery; the basis for the JIWE paper above.
 
 ## Contact
