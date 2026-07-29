@@ -226,8 +226,8 @@ export const contentTranslations = {
         de: "MangoVision"
       },
       description: {
-        en: "Award-winning deep learning system achieving 98.5% accuracy in mango fruit detection from aerial drone imagery. Trained YOLO and Faster R-CNN models on 5,500+ curated images, built bilingual GUI with GPS-integrated mapping for precision agriculture applications.",
-        de: "Preisgekröntes Deep-Learning-System mit 98,5% Genauigkeit bei der Mangofruchterkennung aus Drohnenluftbildern. Trainierte YOLO- und Faster R-CNN-Modelle auf über 5.500 kuratierten Bildern, erstellte zweisprachige GUI mit GPS-integrierter Kartierung für Präzisionslandwirtschaft."
+        en: "Award-winning deep learning system for mango detection from aerial drone imagery. Developed and benchmarked YOLOv8 and Faster R-CNN detectors across a public benchmark and a custom drone dataset, reaching mAP@0.5 of 0.959 and 0.756, and built a bilingual GUI with GPS-integrated mapping for precision agriculture.",
+        de: "Preisgekröntes Deep-Learning-System zur Mangoerkennung aus Drohnenluftbildern. YOLOv8- und Faster-R-CNN-Detektoren auf einem öffentlichen Benchmark und einem eigenen Drohnendatensatz entwickelt und verglichen, mit mAP@0.5 von 0,959 bzw. 0,756, sowie zweisprachige GUI mit GPS-integrierter Kartierung für die Präzisionslandwirtschaft."
       },
       course: {
         en: "Final Year Project",
@@ -235,13 +235,13 @@ export const contentTranslations = {
       },
       highlights: {
         en: [
-          "98.5% detection accuracy with YOLO model",
+          "mAP@0.5 of 0.959 (YOLOv8) and 0.756 (Faster R-CNN)",
           "Awarded Best Research Project at MMU",
           "Bilingual GUI with GPS-integrated mapping",
           "Outperformed Detectron2 in accuracy benchmarks"
         ],
         de: [
-          "98,5% Erkennungsgenauigkeit mit YOLO-Modell",
+          "mAP@0.5 von 0,959 (YOLOv8) und 0,756 (Faster R-CNN)",
           "Bestes Forschungsprojekt an der MMU ausgezeichnet",
           "Zweisprachige GUI mit GPS-integrierter Kartierung",
           "Übertraf Detectron2 in Genauigkeits-Benchmarks"
@@ -340,18 +340,18 @@ export const contentTranslations = {
   timeline: {
     "6": {
       title: {
-        en: "Research Assistant",
-        de: "Wissenschaftliche Hilfskraft"
+        en: "Working Student – Software Engineer",
+        de: "Werkstudent – Software Engineer"
       },
       description: {
-        en: "Performance and memory optimisation of a Python scientific data-reduction pipeline (reduced peak memory on a production job from ~150 GB to ~29 GB with identical output)",
-        de: "Performance- und Speicheroptimierung einer wissenschaftlichen Python-Datenreduktionspipeline (Spitzenspeicherbedarf eines Produktionslaufs von ~150 GB auf ~29 GB reduziert, bei identischem Ergebnis)"
+        en: "• Performance optimisation: took a stalling NASA/DLR data-reduction job from over 50 GB (could not complete) to 14.4 GB with bit-identical output\n• Root-cause analysis: traced the peak to redundant concurrent calculations; a two-line config change gave 39%, and memray-guided dtype fixes a further 32%",
+        de: "• Performance-Optimierung: einen blockierenden NASA/DLR-Datenreduktionslauf von über 50 GB (nicht abschließbar) auf 14,4 GB gebracht, bei bit-identischem Ergebnis\n• Ursachenanalyse: die Spitze auf redundante nebenläufige Berechnungen zurückgeführt; eine zweizeilige Konfigurationsänderung brachte 39%, memray-geleitete dtype-Korrekturen weitere 32%"
       }
     },
     "1": {
       title: {
-        en: "Student Research Assistant",
-        de: "Wissenschaftliche Hilfskraft"
+        en: "Working Student – Software Engineer",
+        de: "Werkstudent – Software Engineer"
       },
       description: {
         en: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",
@@ -388,22 +388,22 @@ export const contentTranslations = {
     },
     "5": {
       title: {
-        en: "Bachelor of Engineering (Hons.)\nComputer Engineering",
-        de: "Bachelor of Engineering (Hons.)\nComputer Engineering"
+        en: "B.Eng. (Hons.)\nElectronics Majoring in Computer",
+        de: "B.Eng. (Hons.)\nElectronics Majoring in Computer"
       },
       description: {
-        en: "CGPA: 3.7/4.0 (First Class Honours 🎖️)",
-        de: "CGPA: 3,7/4,0 (First Class Honours 🎖️)"
+        en: "CGPA: 3.7/4.0 — First Class Honours (German equivalent ≈ 1.4) 🎖️",
+        de: "CGPA: 3,7/4,0 — First Class Honours (deutsche Entsprechung ≈ 1,4) 🎖️"
       },
       achievements: {
         en: [
-          "Best Research Project Award (MangoVision, 98.5% accuracy)",
+          "Best Research Project Award (MangoVision, mAP@0.5 0.959)",
           "Gold Medal - INVENTX Invention Exhibition 2024",
           "2nd Place - Intel VLSI Design Challenge",
           "Merit International Scholarship (50%)"
         ],
         de: [
-          "Best Research Project Award (MangoVision, 98.5% accuracy)",
+          "Best Research Project Award (MangoVision, mAP@0.5 0.959)",
           "Goldmedaille - INVENTX Erfindungsausstellung 2024",
           "2. Platz - Intel VLSI Design Challenge",
           "Merit International Scholarship (50%)"

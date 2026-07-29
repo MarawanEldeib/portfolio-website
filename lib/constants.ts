@@ -56,7 +56,8 @@ import {
   SiKalilinux, SiUbuntu, SiClaude, SiOwasp,
   SiPhp, SiHtml5, SiCss3, SiPandas, SiArduino,
   SiSupabase, SiStripe, SiNodedotjs, SiExpress, SiSqlite,
-  SiGooglegemini, SiQt, SiPopos, SiTmux, SiSocketdotio
+  SiGooglegemini, SiQt, SiPopos, SiTmux, SiSocketdotio,
+  SiWireshark, SiSplunk, SiTailwindcss, SiGithubactions
 } from 'react-icons/si';
 import {
   FaBrain, FaRobot, FaChalkboardTeacher, FaMicrophone, FaUsers,
@@ -65,7 +66,7 @@ import {
   FaNetworkWired, FaJava, FaWindows, FaFlag,
   FaLock, FaProjectDiagram, FaCloud, FaMobileAlt, FaCog,
   FaCheckCircle, FaMicrochip, FaPaintBrush, FaWifi,
-  FaBug, FaTachometerAlt, FaMemory, FaKey
+  FaBug, FaTachometerAlt, FaMemory, FaKey, FaChartLine, FaVial
 } from 'react-icons/fa';
 import { MdAgriculture } from 'react-icons/md';
 
@@ -120,6 +121,15 @@ export const TECH_ICONS: Record<string, IconType> = {
   'picoCTF': FaFlag,
   'mitmproxy': FaNetworkWired,
   'GDB': FaBug,
+  'Web App Penetration Testing': FaShieldAlt,
+  'OWASP ZAP': SiOwasp,
+  'OWASP Top 10': SiOwasp,
+  'Wireshark': SiWireshark,
+  'Splunk': SiSplunk,
+  'IBM QRadar': FaChartLine,
+  'Tailwind CSS': SiTailwindcss,
+  'GitHub Actions': SiGithubactions,
+  'Playwright': FaVial,
   'PHP': SiPhp,
   'HTML': SiHtml5,
   'CSS': SiCss3,
