@@ -334,7 +334,7 @@ const timelineData: TimelineItem[] = [
     description: "Specialisation: Software Engineering",
     skills: ["Distributed Systems", "Cloud Computing", "Operating Systems", "Security"],
     achievements: [],
-    certificateUrl: "/certificates/Enrollment s26.pdf",
+    certificateUrl: "/certificates/Enrollment_2026W.pdf",
     // transcriptUrl: "/certificates/Master_Transcript.pdf", // Uncomment to show transcript button
   },
   {
