@@ -24,8 +24,8 @@ export const contentTranslations = {
   projects: {
     "new-4": {
       title: {
-        en: "Privacy in AI Tools: How Much Do They See?",
-        de: "Datenschutz in KI-Tools: Wie viel sehen sie wirklich?"
+        en: "PrivacyLens — LLM Data-Exposure Analysis",
+        de: "PrivacyLens — Analyse der LLM-Datenexposition"
       },
       description: {
         en: "How much of your data do AI tools actually see? This research intercepts and analyses outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",

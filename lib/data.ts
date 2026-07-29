@@ -43,7 +43,7 @@ export const languages = {
 const projectsData: Project[] = [
   {
     id: "new-4",
-    title: "Privacy in AI Tools: How Much Do They See?",
+    title: "PrivacyLens — LLM Data-Exposure Analysis",
     description: "How much of your data do AI tools actually see? This research intercepts and analyses outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",
     image: "",
     tech: ["Python", "mitmproxy", "Network Analysis", "Privacy", "Security"],
