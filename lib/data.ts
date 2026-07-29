@@ -22,12 +22,12 @@ export const personalInfo: PersonalInfo = {
 };
 
 export const skills = {
-  cybersecurity: ["mitmproxy", "Burp Suite", "GDB", "Nmap", "SQLmap", "OWASP", "picoCTF"],
-  languages: ["Python", "TypeScript", "Java", "C/C++", "SQL", "PHP", "HTML", "CSS", "Assembly"],
+  cybersecurity: ["Web App Penetration Testing", "Burp Suite", "OWASP ZAP", "mitmproxy", "Wireshark", "Nmap", "SQLmap", "GDB", "OWASP Top 10", "Splunk", "IBM QRadar", "picoCTF"],
+  languages: ["Python", "TypeScript", "JavaScript", "Java", "C/C++", "SQL", "PHP", "HTML", "CSS", "Assembly"],
   systems: ["Kali Linux", "Ubuntu", "Pop!_OS", "Windows"],
-  webBackend: ["Next.js", "React", "Node.js", "Express", "Supabase", "PostgreSQL", "SQLite", "Stripe Connect", "Socket.IO"],
+  webBackend: ["Next.js", "React", "Tailwind CSS", "Node.js", "Express", "Supabase", "PostgreSQL", "Redis", "SQLite", "Stripe Connect", "Socket.IO"],
   dataScience: ["PyTorch", "Detectron2", "scikit-learn", "pandas", "NumPy"],
-  cloudDevOps: ["AWS", "Firebase", "Docker", "Git"],
+  cloudDevOps: ["AWS", "Firebase", "Docker", "Git", "GitHub Actions", "Playwright"],
   frameworks: ["Spring Boot", "Flutter", "GraphQL", "PyQt6"],
   tools: ["REST APIs", "Insomnia", "tmux", "SSH", "GitHub Copilot", "Claude", "MCP Server"],
   projectManagement: ["Jira", "Confluence", "Agile/Scrum"],
@@ -81,7 +81,7 @@ const projectsData: Project[] = [
     live: "https://sahasports.vercel.app",
     video: undefined,
     status: "in-progress" as const,
-    startDate: "2026-02",
+    startDate: "2026-03",
     endDate: null,
     course: "Personal Project",
     highlights: [
@@ -193,7 +193,7 @@ const projectsData: Project[] = [
   {
     id: "1",
     title: "MangoVision",
-    description: "Award-winning deep learning system achieving 98.5% accuracy in mango fruit detection from aerial drone imagery. Trained YOLO and Faster R-CNN models on 5,500+ curated images, built bilingual GUI with GPS-integrated mapping for precision agriculture applications.",
+    description: "Award-winning deep learning system for mango detection from aerial drone imagery. Developed and benchmarked YOLOv8 and Faster R-CNN detectors across a public benchmark and a custom drone dataset, reaching mAP@0.5 of 0.959 and 0.756, and built a bilingual GUI with GPS-integrated mapping for precision agriculture.",
     image: "",
     tech: ["PyTorch", "Computer Vision", "YOLO", "Deep Learning", "Python"],
     github: "https://github.com/MarawanEldeib/MangoVision",
@@ -210,7 +210,7 @@ const projectsData: Project[] = [
       url: "https://www.linkedin.com/in/harislye/",
     },
     highlights: [
-      "98.5% detection accuracy with YOLO model",
+      "mAP@0.5 of 0.959 (YOLOv8) and 0.756 (Faster R-CNN)",
       "Awarded Best Research Project at MMU",
       "Bilingual GUI with GPS-integrated mapping",
       "Outperformed Detectron2 in accuracy benchmarks"
@@ -283,20 +283,20 @@ const timelineData: TimelineItem[] = [
   {
     id: "6",
     type: "work",
-    title: "Research Assistant",
+    title: "Working Student – Software Engineer",
     organization: "University of Stuttgart, Institute of Space Systems (IRS), SOFIA Data Center",
     organizationLogo: "/images/logos/logo_irs_stuttgart.png.png",
     location: "Stuttgart, Germany (Hybrid)",
     startDate: "2026-04",
     endDate: null,
-    description: "Performance and memory optimisation of a Python scientific data-reduction pipeline (reduced peak memory on a production job from ~150 GB to ~29 GB with identical output)",
+    description: "• Performance optimisation: took a stalling NASA/DLR data-reduction job from over 50 GB (could not complete) to 14.4 GB with bit-identical output\n• Root-cause analysis: traced the peak to redundant concurrent calculations; a two-line config change gave 39%, and memray-guided dtype fixes a further 32%",
     skills: ["Python", "Performance Optimisation", "Memory Profiling"],
     achievements: [],
   },
   {
     id: "1",
     type: "work",
-    title: "Student Research Assistant",
+    title: "Working Student – Software Engineer",
     organization: "Fraunhofer IOSB",
     organizationLogo: "/images/logos/Logo_fraunhofer_IOSB.webp",
     location: "Karlsruhe, Germany (Hybrid)",
@@ -340,16 +340,16 @@ const timelineData: TimelineItem[] = [
   {
     id: "5",
     type: "education",
-    title: "Bachelor of Engineering (Hons.) - Computer Engineering",
+    title: "B.Eng. (Hons.) Electronics Majoring in Computer",
     organization: "Multimedia University",
     organizationLogo: "/images/logos/logo-mmu.png",
     location: "Cyberjaya, Malaysia",
     startDate: "2020-07",
     endDate: "2024-10",
-    description: "CGPA: 3.7/4.0 (First Class Honours 🎖️)",
+    description: "CGPA: 3.7/4.0 — First Class Honours (German equivalent ≈ 1.4) 🎖️",
     skills: [],
     achievements: [
-      "Best Research Project Award (MangoVision, 98.5% accuracy)",
+      "Best Research Project Award (MangoVision, mAP@0.5 0.959)",
       "Gold Medal - INVENTX Invention Exhibition 2024",
       "2nd Place - Intel VLSI Design Challenge",
       "Merit International Scholarship (50%)"
