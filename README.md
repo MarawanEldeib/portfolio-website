@@ -24,7 +24,7 @@ Modern portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
 
 - Student Research Assistant (HiWi), ISW, University of Stuttgart (Oct 2026 – Present)
 - Working Student – Software Engineer, IRS, University of Stuttgart (Apr 2026 – Aug 2026)
-- Working Student – Software Engineer, Fraunhofer IOSB (Apr 2025 – Dec 2025)
+- Working Student – Software Engineer, Fraunhofer (Apr 2025 – Dec 2025)
 - Intern – Software Engineer, Ikhlas Com Sdn Bhd (AirAsia Group) (Jul 2023 – Oct 2023)
 
 ### Education

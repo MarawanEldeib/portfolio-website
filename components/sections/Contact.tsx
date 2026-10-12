@@ -181,7 +181,7 @@ export default function Contact() {
                 <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg">
                   <MapPin className="text-blue-600 dark:text-blue-400 mt-1" size={24} />
                   <div>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Location</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('info.location')}</p>
                     <p className="font-medium text-zinc-900 dark:text-zinc-100">{personalInfo.location}</p>
                   </div>
                 </div>
@@ -265,7 +265,7 @@ export default function Contact() {
                 <MapPin className="text-blue-400" size={24} />
               </div>
               <div className="flex-1">
-                <p className="text-sm text-zinc-400 mb-1">Location</p>
+                <p className="text-sm text-zinc-400 mb-1">{t('info.location')}</p>
                 <p className="text-white font-medium">{personalInfo.location}</p>
               </div>
             </div>

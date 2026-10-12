@@ -4,7 +4,7 @@ import { sortByDateDescending, sortBySimpleDateDescending } from './utils/date';
 
 export const personalInfo: PersonalInfo = {
   name: "Marawan Eldeib",
-  title: "M.Sc. Information Technology (INFOTECH) — Software Engineering specialisation",
+  title: "M.Sc. Information Technology",
   email: "marawandeep13@gmail.com",
   phone: "+49 178 2374198",
   linkedin: "https://www.linkedin.com/in/marawaneldeib/",
@@ -14,7 +14,8 @@ export const personalInfo: PersonalInfo = {
   orcid: "https://orcid.org/0009-0008-5285-424X",
   location: "Stuttgart, Germany",
   image: "/images/Marawan.jpeg",
-  summary: "M.Sc. Information Technology student (Software Engineering specialisation) focused on application security, privacy and AI systems. Experience in LLM evaluation and test automation, network traffic analysis, and performance optimisation of research software. Writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027) and open to full-time positions in software, security or AI engineering.",
+  summary: "Software engineer and M.Sc. Information Technology student working on secure system design and LLM-based AI systems. Optimised NASA/DLR research software at the Institute of Space Systems, measured how LLM-integrated tools leak confidential data, and built and hardened a production full-stack platform. Currently writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027).",
+  current: "Currently: HiWi at [ISW](https://www.isw.uni-stuttgart.de/) · Master's thesis with [HLRS](https://www.hlrs.de/)",
   workPermit: {
     hasPermit: true,
     details: "Available on Request",
@@ -30,7 +31,7 @@ export const skills = {
   // Hands-on tools first, then coursework
   cloudDevOps: ["Docker", "Git", "GitHub Actions", "Playwright", "AWS", "Kubernetes", "Terraform", "Ansible", "ArgoCD", "Jenkins"],
   frameworks: ["Spring Boot", "Flutter", "GraphQL", "PyQt6"],
-  tools: ["REST APIs", "Insomnia", "tmux", "SSH", "Claude Code", "GitHub Copilot", "MCP Server"],
+  tools: ["REST APIs", "Insomnia", "tmux", "SSH", "Claude Code", "GitHub Copilot", "MCP Server", "memray"],
   projectManagement: ["Jira", "Confluence", "Agile/Scrum"],
 };
 
@@ -45,9 +46,9 @@ const projectsData: Project[] = [
   {
     id: "master-thesis",
     title: "Master's Thesis: A GitOps-Constrained Agentic Workflow for System Manipulation",
-    description: "Guardrails for AI agents on shared infrastructure: agents can change an HPC cluster only through reviewed pull requests, applied by a sandboxed GitOps pipeline with full audit trail and rollback; includes threat modelling and a security evaluation. Instead of giving LLM agents direct system access, agents work only through Git (branches, commits, pull requests), and a deterministic pipeline executes a change only after a human or a second AI agent approves it. A second target, such as Kubernetes, tests which guarantees transfer.",
+    description: "Guardrails for AI agents on shared infrastructure: agents can change an HPC cluster only through reviewed pull requests, applied by a sandboxed GitOps pipeline with full audit trail and rollback; includes threat modelling and a security evaluation. Instead of giving LLM agents direct system access, agents work only through Git (branches, commits, pull requests), with code changes and HPC job submission controlled through MCP servers and gateways. A deterministic pipeline executes a change only after a human or a second AI agent approves it. A second target, such as Kubernetes, tests which guarantees transfer.",
     image: "",
-    tech: ["Python", "Git/GitOps", "LLM Agents", "HPC", "DevSecOps", "Kubernetes"],
+    tech: ["Python", "Git/GitOps", "LLM Agents", "MCP", "HPC", "DevSecOps", "Kubernetes"],
     github: "",
     video: undefined,
     status: "in-progress" as const,
@@ -60,9 +61,16 @@ const projectsData: Project[] = [
       url: "https://www.linkedin.com/in/aiellom/",
     },
     institute: {
-      name: "Institute of Architecture of Application Systems (IAAS), in collaboration with HLRS",
+      name: "Institute of Architecture of Application Systems (IAAS)",
       logo: "/images/logos/iaas_stuttgart.jpg",
       url: "https://www.iaas.uni-stuttgart.de/en/",
+    },
+    collaborator: {
+      name: "HLRS",
+      fullName: "High Performance Computing Center Stuttgart",
+      logo: "/images/logos/logo_hlrs.png",
+      url: "https://www.hlrs.de/",
+      contact: { name: "Dr. Kerem Kayabay", url: "https://www.linkedin.com/in/keremkayabay/" },
     },
     highlights: [
       "Git-only agent interface, no direct system access",
@@ -314,7 +322,7 @@ const timelineData: TimelineItem[] = [
     type: "work",
     title: "Student Research Assistant (HiWi)",
     organization: "University of Stuttgart, Institute for Control Engineering of Machine Tools (ISW)",
-    organizationLogo: "/images/logos/logo_stuttgart.png",
+    organizationLogo: "/images/logos/logo_isw.png",
     location: "Stuttgart, Germany",
     startDate: "2026-10",
     endDate: null,
@@ -495,7 +503,7 @@ export const recommendations: Recommendation[] = [
     id: "3",
     name: "Maximilian Kühn",
     title: "Supervisor",
-    company: "Fraunhofer IOSB",
+    company: "Fraunhofer",
     image: "/images/recommendations/maximilian.jpg",
     text: "Marawan demonstrated exemplary initiative and identified fully with his tasks and our institute, showing great dedication. Even under difficult working conditions and increased pressure, he reliably completed all tasks. He worked consistently fast, prudent, careful, and precise. Trustworthiness and great reliability always characterized his work style. He possesses solid technical knowledge, which he applied confidently and purposefully in practice. His quick comprehension enabled him to overview difficult situations and recognize what is essential. We were always very satisfied with his performance.",
     profileUrl: "/certificates/Fraunhofer IOSB Certificate.pdf",

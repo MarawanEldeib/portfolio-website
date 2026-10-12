@@ -219,6 +219,18 @@ export default function Projects() {
                           />
                         )
                       )}
+                      {project.collaborator && (
+                        <a href={project.collaborator.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                          {/* The logo is an opaque white rectangle; the white pad makes that look intentional in dark mode */}
+                          <Image
+                            src={project.collaborator.logo}
+                            alt={project.collaborator.fullName}
+                            width={113}
+                            height={28}
+                            className="object-contain h-7 w-auto bg-white p-1 rounded"
+                          />
+                        </a>
+                      )}
                       <ProjectStatusBadge status={project.status} />
                     </div>
                   </div>
@@ -229,8 +241,10 @@ export default function Projects() {
                   {/* Date */}
                   <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-4 justify-center md:justify-start">
                     <Calendar size={14} />
-                    {formatShortDate(project.startDate)} -{' '}
-                    {project.endDate ? formatShortDate(project.endDate) : t('present')}
+                    {/* Paused work has no meaningful end, so show when it started rather than "- Present" */}
+                    {project.status === 'paused'
+                      ? t('since', { date: formatShortDate(project.startDate) })
+                      : <>{formatShortDate(project.startDate)} -{' '}{project.endDate ? formatShortDate(project.endDate) : t('present')}</>}
                   </div>
 
                   {/* Description */}
@@ -266,6 +280,27 @@ export default function Projects() {
                         </div>
                       )}
                     </div>
+                  )}
+
+                  {/* Collaboration */}
+                  {project.collaborator && (
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4 text-center md:text-left">
+                      {t.rich('collaboration', {
+                        org: (chunks) => (
+                          <a href={project.collaborator!.url} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                            {chunks}
+                          </a>
+                        ),
+                        person: (chunks) => (
+                          <a href={project.collaborator!.contact?.url} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                            {chunks}
+                          </a>
+                        ),
+                        orgName: project.collaborator.name,
+                        orgFull: project.collaborator.fullName,
+                        personName: project.collaborator.contact?.name ?? '',
+                      })}
+                    </p>
                   )}
 
                   {/* Tech chips */}

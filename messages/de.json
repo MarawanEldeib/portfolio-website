@@ -14,9 +14,14 @@
   },
   "hero": {
     "greeting": "Hallo, ich bin",
-    "tagline": "M.Sc.-Student Information Technology (INFOTECH), Schwerpunkt Software Engineering, mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Offen für Festanstellungen.",
+    "tagline": "Software-, Security- und KI-Engineering. Offen für Festanstellungen.",
+    "roles": [
+      "Softwareentwickler",
+      "Security Engineer",
+      "KI-Engineer"
+    ],
     "workPermit": "Arbeitserlaubnis",
-    "workPermitTooltip": "Werkstudent",
+    "workPermitTooltip": "Arbeitserlaubnis: Details auf Anfrage",
     "cta": {
       "contact": "Kontakt aufnehmen",
       "viewCV": "Lebenslauf ansehen",
@@ -25,7 +30,7 @@
   },
   "about": {
     "title": "Über mich",
-    "intro": "M.Sc.-Student Information Technology (Schwerpunkt Software Engineering) an der Universität Stuttgart mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Erfahrung in LLM-Evaluation und Testautomatisierung, Netzwerkverkehrsanalyse und Performance-Optimierung von Forschungssoftware. Schreibe meine Masterarbeit und bin offen für Festanstellungen in Software-, Security- oder KI-Engineering.",
+    "intro": "Softwareentwickler und M.Sc.-Student Information Technology mit Schwerpunkten in sicherem Systemdesign und LLM-basierten KI-Systemen. Optimierte NASA/DLR-Forschungssoftware am Institut für Raumfahrtsysteme, untersuchte, wie LLM-integrierte Werkzeuge vertrauliche Daten preisgeben, und entwickelte und härtete eine produktive Full-Stack-Plattform. Schreibe derzeit meine Masterarbeit zu GitOps-beschränkten agentischen Workflows (10/2026 bis 03/2027).",
     "downloadCV": "Lebenslauf herunterladen",
     "viewCV": "Lebenslauf anzeigen",
     "contactMe": "Kontakt aufnehmen",
@@ -34,7 +39,6 @@
   },
   "projects": {
     "title": "Ausgewählte Projekte",
-    "subtitle": "Innovative Lösungen, die modernste Technologien mit realer Wirkung verbinden",
     "filter": {
       "all": "Alle Projekte",
       "ongoing": "In Bearbeitung",
@@ -46,6 +50,8 @@
     "viewMore": "Alle Details anzeigen",
     "highlights": "Wichtige Highlights",
     "present": "Heute",
+    "since": "Seit {date}",
+    "collaboration": "In Kooperation mit dem <org>{orgName}</org> ({orgFull}), mit <person>{personName}</person>",
     "buttons": {
       "code": "Code",
       "live": "Live",

@@ -7,12 +7,16 @@ export const contentTranslations = {
   // Personal Info
   personalInfo: {
     title: {
-      en: "M.Sc. Information Technology (INFOTECH) — Software Engineering specialisation",
-      de: "M.Sc. Informationstechnologie (INFOTECH) — Vertiefung Software Engineering"
+      en: "M.Sc. Information Technology",
+      de: "M.Sc. Information Technology"
     },
     summary: {
-      en: "M.Sc. Information Technology student (Software Engineering specialisation) focused on application security, privacy and AI systems. Experience in LLM evaluation and test automation, network traffic analysis, and performance optimisation of research software. Writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027) and open to full-time positions in software, security or AI engineering.",
-      de: "M.Sc.-Student Information Technology (Schwerpunkt Software Engineering) mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Erfahrung in LLM-Evaluation und Testautomatisierung, Netzwerkverkehrsanalyse und Performance-Optimierung von Forschungssoftware. Schreibe meine Masterarbeit zu GitOps-beschränkten agentischen Workflows (10/2026 bis 03/2027) und bin offen für Festanstellungen in Software-, Security- oder KI-Engineering."
+      en: "Software engineer and M.Sc. Information Technology student working on secure system design and LLM-based AI systems. Optimised NASA/DLR research software at the Institute of Space Systems, measured how LLM-integrated tools leak confidential data, and built and hardened a production full-stack platform. Currently writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027).",
+      de: "Softwareentwickler und M.Sc.-Student Information Technology mit Schwerpunkten in sicherem Systemdesign und LLM-basierten KI-Systemen. Optimierte NASA/DLR-Forschungssoftware am Institut für Raumfahrtsysteme, untersuchte, wie LLM-integrierte Werkzeuge vertrauliche Daten preisgeben, und entwickelte und härtete eine produktive Full-Stack-Plattform. Schreibe derzeit meine Masterarbeit zu GitOps-beschränkten agentischen Workflows (10/2026 bis 03/2027)."
+    },
+    current: {
+      en: "Currently: HiWi at [ISW](https://www.isw.uni-stuttgart.de/) · Master's thesis with [HLRS](https://www.hlrs.de/)",
+      de: "Aktuell: HiWi am [ISW](https://www.isw.uni-stuttgart.de/) · Masterarbeit mit dem [HLRS](https://www.hlrs.de/)"
     },
     workPermitDetails: {
       en: "Available on Request",
@@ -28,12 +32,16 @@ export const contentTranslations = {
         de: "Masterarbeit: A GitOps-Constrained Agentic Workflow for System Manipulation"
       },
       description: {
-        en: "Guardrails for AI agents on shared infrastructure: agents can change an HPC cluster only through reviewed pull requests, applied by a sandboxed GitOps pipeline with full audit trail and rollback; includes threat modelling and a security evaluation. Instead of giving LLM agents direct system access, agents work only through Git (branches, commits, pull requests), and a deterministic pipeline executes a change only after a human or a second AI agent approves it. A second target, such as Kubernetes, tests which guarantees transfer.",
-        de: "Leitplanken für KI-Agenten auf gemeinsam genutzter Infrastruktur: Agenten können einen HPC-Cluster nur über geprüfte Pull Requests verändern, die eine in einer Sandbox laufende GitOps-Pipeline mit vollständigem Audit-Trail und Rollback anwendet; inklusive Bedrohungsmodellierung und Sicherheitsevaluation. Statt LLM-Agenten direkten Systemzugriff zu geben, arbeiten die Agenten ausschließlich über Git (Branches, Commits, Pull Requests), und eine deterministische Pipeline führt eine Änderung erst aus, nachdem ein Mensch oder ein zweiter KI-Agent sie freigegeben hat. Ein zweites Zielsystem, etwa Kubernetes, prüft, welche Garantien sich übertragen lassen."
+        en: "Guardrails for AI agents on shared infrastructure: agents can change an HPC cluster only through reviewed pull requests, applied by a sandboxed GitOps pipeline with full audit trail and rollback; includes threat modelling and a security evaluation. Instead of giving LLM agents direct system access, agents work only through Git (branches, commits, pull requests), with code changes and HPC job submission controlled through MCP servers and gateways. A deterministic pipeline executes a change only after a human or a second AI agent approves it. A second target, such as Kubernetes, tests which guarantees transfer.",
+        de: "Leitplanken für KI-Agenten auf gemeinsam genutzter Infrastruktur: Agenten können einen HPC-Cluster nur über geprüfte Pull Requests verändern, die eine in einer Sandbox laufende GitOps-Pipeline mit vollständigem Audit-Trail und Rollback anwendet; inklusive Bedrohungsmodellierung und Sicherheitsevaluation. Statt LLM-Agenten direkten Systemzugriff zu geben, arbeiten die Agenten ausschließlich über Git (Branches, Commits, Pull Requests), wobei Codeänderungen und das Einreichen von HPC-Jobs über MCP-Server und -Gateways kontrolliert werden. Eine deterministische Pipeline führt eine Änderung erst aus, nachdem ein Mensch oder ein zweiter KI-Agent sie freigegeben hat. Ein zweites Zielsystem, etwa Kubernetes, prüft, welche Garantien sich übertragen lassen."
       },
       course: {
         en: "Master's Thesis",
         de: "Masterarbeit"
+      },
+      collaboratorFullName: {
+        en: "High Performance Computing Center Stuttgart",
+        de: "Höchstleistungsrechenzentrum Stuttgart"
       },
       highlights: {
         en: [

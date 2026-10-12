@@ -16,6 +16,7 @@ export function getPersonalInfo(locale?: Locale) {
     ...originalData.personalInfo,
     title: getLocalizedContent(translations.title, safeLocale),
     summary: getLocalizedContent(translations.summary, safeLocale),
+    current: getLocalizedContent(translations.current, safeLocale),
     workPermit: {
       hasPermit: originalData.personalInfo.workPermit.hasPermit,
       details: getLocalizedContent(translations.workPermitDetails, safeLocale),
@@ -43,6 +44,9 @@ export function getProjects(locale?: Locale): Project[] {
       description: getLocalizedContent(translation.description, safeLocale),
       course: translation.course ? getLocalizedContent(translation.course, safeLocale) : project.course,
       highlights: translation.highlights ? getLocalizedContent(translation.highlights, safeLocale) : project.highlights,
+      collaborator: project.collaborator && 'collaboratorFullName' in translation
+        ? { ...project.collaborator, fullName: getLocalizedContent(translation.collaboratorFullName, safeLocale) }
+        : project.collaborator,
     };
   });
 }

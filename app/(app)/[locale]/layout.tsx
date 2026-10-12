@@ -35,14 +35,14 @@ const geistMono = Geist_Mono({
 // Locale-specific metadata content
 const seoContent = {
   en: {
-    title: "Marawan Eldeib - Privacy & Security | M.Sc. INFOTECH",
-    description: "M.Sc. Information Technology (INFOTECH) student at the University of Stuttgart, Software Engineering specialisation, focused on application security, privacy and AI systems. Experience in LLM evaluation and test automation, network traffic analysis, and performance optimisation of research software. Writing my Master's thesis on GitOps-constrained agentic workflows and open to full-time positions in software, security or AI engineering.",
-    ogDescription: "M.Sc. Information Technology student focused on application security, privacy and AI systems. Writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027) and open to full-time positions in software, security or AI engineering.",
+    title: "Marawan Eldeib | Software, Security & AI Engineering",
+    description: "Software engineer and M.Sc. Information Technology student working on secure system design and LLM-based AI systems. Optimised NASA/DLR research software at the Institute of Space Systems, measured how LLM-integrated tools leak confidential data, and built and hardened a production full-stack platform. Currently writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027).",
+    ogDescription: "Software engineer and M.Sc. Information Technology student working on secure system design and LLM-based AI systems. Optimised NASA/DLR research software at the Institute of Space Systems, measured how LLM-integrated tools leak confidential data, and built and hardened a production full-stack platform.",
   },
   de: {
-    title: "Marawan Eldeib - Privatsphäre & Sicherheit | M.Sc. INFOTECH",
-    description: "M.Sc.-Student Information Technology (INFOTECH) an der Universität Stuttgart, Schwerpunkt Software Engineering, mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Erfahrung in LLM-Evaluation und Testautomatisierung, Netzwerkverkehrsanalyse und Performance-Optimierung von Forschungssoftware. Schreibe meine Masterarbeit zu GitOps-beschränkten agentischen Workflows und bin offen für Festanstellungen in Software-, Security- oder KI-Engineering.",
-    ogDescription: "M.Sc.-Student Information Technology mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Schreibe meine Masterarbeit zu GitOps-beschränkten agentischen Workflows (10/2026 bis 03/2027) und bin offen für Festanstellungen in Software-, Security- oder KI-Engineering.",
+    title: "Marawan Eldeib | Software-, Security- & KI-Engineering",
+    description: "Softwareentwickler und M.Sc.-Student Information Technology mit Schwerpunkten in sicherem Systemdesign und LLM-basierten KI-Systemen. Optimierte NASA/DLR-Forschungssoftware am Institut für Raumfahrtsysteme, untersuchte, wie LLM-integrierte Werkzeuge vertrauliche Daten preisgeben, und entwickelte und härtete eine produktive Full-Stack-Plattform. Schreibe derzeit meine Masterarbeit zu GitOps-beschränkten agentischen Workflows (10/2026 bis 03/2027).",
+    ogDescription: "Softwareentwickler und M.Sc.-Student Information Technology mit Schwerpunkten in sicherem Systemdesign und LLM-basierten KI-Systemen. Optimierte NASA/DLR-Forschungssoftware am Institut für Raumfahrtsysteme, untersuchte, wie LLM-integrierte Werkzeuge vertrauliche Daten preisgeben, und entwickelte und härtete eine produktive Full-Stack-Plattform.",
   },
 };
 
