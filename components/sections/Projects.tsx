@@ -13,7 +13,7 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import { useModal, type VideoModalState } from '@/lib/hooks/useModal';
 import { usePdfViewer } from '@/lib/hooks/usePdfViewer';
-import type { Locale } from '@/lib/types';
+import type { Locale, ProjectStatus } from '@/lib/types';
 import dynamic from 'next/dynamic';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
@@ -33,7 +33,7 @@ export default function Projects() {
   const locale = useLocale() as Locale;
   const { formatShortDate } = useLocaleDate();
   const projects = useMemo(() => getProjects(locale), [locale]);
-  const [filter, setFilter] = useState<'all' | 'completed' | 'in-progress'>('all');
+  const [filter, setFilter] = useState<ProjectStatus>('all');
   const pdfModal = usePdfViewer();
   const videoModal = useModal<VideoModalState>();
   const [githubLoader, setGithubLoader] = useState<{ isOpen: boolean; url: string }>({
@@ -78,10 +78,10 @@ export default function Projects() {
 
           {/* Filter Buttons */}
           <FilterButtons
-            options={['all', 'completed', 'in-progress'] as const}
+            options={['all', 'completed', 'in-progress', 'paused'] as const}
             activeFilter={filter}
             onChange={setFilter}
-            getLabel={(option: 'all' | 'completed' | 'in-progress') => t(`filter.${option}`)}
+            getLabel={(option: ProjectStatus) => t(`filter.${option}`)}
             className="mb-12"
           />
 
@@ -219,6 +219,18 @@ export default function Projects() {
                           />
                         )
                       )}
+                      {project.collaborator && (
+                        <a href={project.collaborator.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                          {/* The logo is an opaque white rectangle; the white pad makes that look intentional in dark mode */}
+                          <Image
+                            src={project.collaborator.logo}
+                            alt={project.collaborator.fullName}
+                            width={113}
+                            height={28}
+                            className="object-contain h-7 w-auto bg-white p-1 rounded"
+                          />
+                        </a>
+                      )}
                       <ProjectStatusBadge status={project.status} />
                     </div>
                   </div>
@@ -229,8 +241,10 @@ export default function Projects() {
                   {/* Date */}
                   <div className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-500 mb-4 justify-center md:justify-start">
                     <Calendar size={14} />
-                    {formatShortDate(project.startDate)} -{' '}
-                    {project.endDate ? formatShortDate(project.endDate) : t('present')}
+                    {/* Paused work has no meaningful end, so show when it started rather than "- Present" */}
+                    {project.status === 'paused'
+                      ? t('since', { date: formatShortDate(project.startDate) })
+                      : <>{formatShortDate(project.startDate)} -{' '}{project.endDate ? formatShortDate(project.endDate) : t('present')}</>}
                   </div>
 
                   {/* Description */}
@@ -238,34 +252,31 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Supervisor */}
-                  {project.supervisor && (
-                    <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
-                      {project.supervisor.url ? (
-                        <a
-                          href={project.supervisor.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-                        >
-                          {project.supervisor.image && (
-                            <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
-                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill sizes="28px" className="object-cover" />
-                            </div>
-                          )}
-                          <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
-                        </a>
-                      ) : (
-                        <div className="flex items-center gap-2">
-                          {project.supervisor.image && (
-                            <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
-                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill sizes="28px" className="object-cover" />
-                            </div>
-                          )}
-                          <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
-                        </div>
+                  {/* Supervisor and advisor, side by side; they stack when the card is too narrow */}
+                  {(project.supervisor || project.advisor) && (
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-4 justify-center md:justify-start">
+                      {project.supervisor && (
+                        <ProjectPerson person={project.supervisor} label={t('supervisor')} />
+                      )}
+                      {project.advisor && (
+                        <ProjectPerson person={project.advisor} label={project.advisor.label} />
                       )}
                     </div>
+                  )}
+
+                  {/* Collaboration */}
+                  {project.collaborator && (
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4 text-center md:text-left">
+                      {t.rich('collaboration', {
+                        org: (chunks) => (
+                          <a href={project.collaborator!.url} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                            {chunks}
+                          </a>
+                        ),
+                        orgName: project.collaborator.name,
+                        orgFull: project.collaborator.fullName,
+                      })}
+                    </p>
                   )}
 
                   {/* Tech chips */}
@@ -313,5 +324,30 @@ export default function Projects() {
         onComplete={handleGithubLoaderComplete}
       />
     </section>
+  );
+}
+
+/** Round photo, small role label and name; links out when a URL is given */
+function ProjectPerson({ person, label }: { person: { name: string; image?: string; url?: string }; label: string }) {
+  const content = (
+    <>
+      {person.image && (
+        <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
+          <Image src={person.image} alt={person.name} fill sizes="28px" className="object-cover" />
+        </div>
+      )}
+      <span className="flex flex-col leading-tight">
+        <span className="text-[10px] uppercase tracking-wide text-zinc-400 dark:text-zinc-500">{label}</span>
+        <span className="text-xs text-zinc-500 dark:text-zinc-400">{person.name}</span>
+      </span>
+    </>
+  );
+
+  return person.url ? (
+    <a href={person.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+      {content}
+    </a>
+  ) : (
+    <div className="flex items-center gap-2">{content}</div>
   );
 }

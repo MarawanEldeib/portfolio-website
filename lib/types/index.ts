@@ -3,7 +3,7 @@
  */
 
 // Project Types
-export type ProjectStatus = 'all' | 'completed' | 'in-progress';
+export type ProjectStatus = 'all' | 'completed' | 'in-progress' | 'paused';
 
 export interface Project {
   id: string;
@@ -26,7 +26,17 @@ export interface Project {
   course?: string;
   highlights?: string[];
   supervisor?: { name: string; image?: string; url?: string };
+  /** Second person shown beside the supervisor; `label` names their role or organisation */
+  advisor?: { name: string; image?: string; url?: string; label: string };
   institute?: { name: string; logo: string; url?: string };
+  /** Partner organisation shown as a second logo plus a collaboration line */
+  collaborator?: {
+    name: string;
+    /** Spelled-out name, localised via content translations */
+    fullName: string;
+    logo: string;
+    url: string;
+  };
 }
 
 // Publication Types
@@ -112,6 +122,8 @@ export interface PersonalInfo {
   orcid: string;
   image: string;
   summary: string;
+  /** Short "currently" line on the hero card; supports [label](url) links */
+  current: string;
   workPermit: {
     hasPermit: boolean;
     details: string;

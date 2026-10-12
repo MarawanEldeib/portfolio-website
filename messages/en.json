@@ -14,9 +14,14 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "tagline": "M.Sc. Information Technology (INFOTECH) student — Software Engineering specialisation — focused on privacy and security. Seeking a Master's thesis starting October 2026.",
+    "tagline": "Software, security and AI engineering. Open to full-time roles.",
+    "roles": [
+      "Software Engineer",
+      "Security Engineer",
+      "AI Engineer"
+    ],
     "workPermit": "Work Permit",
-    "workPermitTooltip": "Working Student",
+    "workPermitTooltip": "Work authorisation: details on request",
     "cta": {
       "contact": "Contact Me",
       "viewCV": "View CV",
@@ -25,7 +30,7 @@
   },
   "about": {
     "title": "About Me",
-    "intro": "M.Sc. Information Technology student (Software Engineering specialisation) at the University of Stuttgart, focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software. Seeking a Master's thesis starting October 2026.",
+    "intro": "Software engineer and M.Sc. Information Technology student working on secure system design and LLM-based AI systems. Optimised NASA/DLR research software at the Institute of Space Systems, measured how LLM-integrated tools leak confidential data, and built and hardened a production full-stack platform. Currently writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027).",
     "downloadCV": "Download CV",
     "viewCV": "View CV",
     "contactMe": "Contact Me",
@@ -34,17 +39,20 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "subtitle": "Innovative solutions combining cutting-edge technologies with real-world impact",
     "filter": {
       "all": "All Projects",
       "ongoing": "In Progress",
       "in-progress": "In Progress",
-      "completed": "Completed"
+      "completed": "Completed",
+      "paused": "Paused"
     },
     "viewCode": "View Source Code",
     "viewMore": "View Full Details",
     "highlights": "Key Highlights",
     "present": "Present",
+    "since": "Since {date}",
+    "collaboration": "In collaboration with <org>{orgName}</org> ({orgFull})",
+    "supervisor": "Supervisor",
     "buttons": {
       "code": "Code",
       "live": "Live",
@@ -124,13 +132,13 @@
     "subtitle": "Contributing to causes I care about through technology and service",
     "present": "Present",
     "cta": {
-      "title": "Passionate About Giving Back",
+      "title": "Giving Back",
       "message": "I believe in using technology to make a positive impact on society. If you have a volunteer opportunity or know of a cause that could benefit from my skills, I'd love to hear about it!"
     }
   },
   "contact": {
     "title": "Let's Work Together",
-    "subtitle": "I'm looking for a Master's thesis starting October 2026 in privacy and security, and I'm always glad to hear about research collaborations.",
+    "subtitle": "I'm open to full-time positions in software, security or AI engineering, and always glad to hear about research collaborations.",
     "form": {
       "name": "Your Name",
       "email": "Your Email",

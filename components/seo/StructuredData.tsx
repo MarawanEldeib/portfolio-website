@@ -20,7 +20,8 @@ export default function StructuredData({ locale }: StructuredDataProps) {
     '@type': 'Person',
     '@id': personId,
     name: personalInfo.name,
-    jobTitle: localizedPersonalInfo.title,
+    jobTitle: locale === 'de' ? 'Softwareentwickler' : 'Software Engineer',
+    description: localizedPersonalInfo.summary,
     email: personalInfo.email,
     telephone: personalInfo.phone,
     url: siteUrl,
@@ -46,8 +47,8 @@ export default function StructuredData({ locale }: StructuredDataProps) {
     worksFor: [
       {
         '@type': 'Organization',
-        name: 'University of Stuttgart, Institute of Space Systems (IRS)',
-        url: 'https://www.irs.uni-stuttgart.de/en/',
+        name: 'University of Stuttgart, Institute for Control Engineering of Machine Tools (ISW)',
+        url: 'https://www.isw.uni-stuttgart.de/en/',
       },
     ],
     knowsAbout: [

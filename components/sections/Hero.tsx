@@ -22,12 +22,7 @@ export default function Hero() {
   const locale = useLocale() as Locale;
   const localizedPersonalInfo = getPersonalInfo(locale);
 
-  const roles = useMemo(() => [
-    "Privacy & Security Engineer",
-    "Software Engineer",
-    "Security Researcher",
-    "Computer Engineer",
-  ], []);
+  const roles = useMemo(() => t.raw('roles') as string[], [t]);
 
   const [currentRole, setCurrentRole] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -237,6 +232,9 @@ export default function Hero() {
                     <p className="text-xs sm:text-sm text-zinc-500 mt-1 font-medium">
                       {localizedPersonalInfo.title}
                     </p>
+                    <p className="text-[11px] text-zinc-600 mt-1 sm:whitespace-nowrap">
+                      <CurrentLine text={localizedPersonalInfo.current} linkClassName="font-semibold text-blue-600 hover:text-blue-700 hover:underline" />
+                    </p>
                   </div>
 
                   {/* Divider */}
@@ -284,7 +282,7 @@ export default function Hero() {
                           <polyline points="20 6 9 17 4 12" />
                         </svg>
                       </div>
-                      <span className="text-[10px] sm:text-xs font-semibold text-green-700 uppercase tracking-wide">
+                      <span className="text-[10px] sm:text-xs font-semibold text-green-700 uppercase tracking-wide" title={t('workPermitTooltip')}>
                         {t('workPermit')}
                       </span>
                     </div>
@@ -317,8 +315,11 @@ export default function Hero() {
                     </div>
 
                     {/* Title */}
-                    <p className="text-xs sm:text-sm text-zinc-400 font-medium text-center mb-5">
+                    <p className="text-xs sm:text-sm text-zinc-400 font-medium text-center">
                       {localizedPersonalInfo.title}
+                    </p>
+                    <p className="text-[11px] text-zinc-400 text-center mt-1 mb-5">
+                      <CurrentLine text={localizedPersonalInfo.current} linkClassName="font-semibold text-sky-400 hover:text-sky-300 hover:underline" />
                     </p>
 
                     {/* Blue accent divider */}
@@ -340,7 +341,7 @@ export default function Hero() {
                     {/* Work permit badge */}
                     <div className="mt-5 inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-900/40 border border-green-700/50 rounded-full">
                       <div className="w-2 h-2 bg-green-500 rounded-full" />
-                      <span className="text-[10px] font-semibold text-green-400 uppercase tracking-wide">
+                      <span className="text-[10px] font-semibold text-green-400 uppercase tracking-wide" title={t('workPermitTooltip')}>
                         {t('workPermit')}
                       </span>
                     </div>
@@ -440,5 +441,33 @@ export default function Hero() {
         />
       )}
     </section>
+  );
+}
+
+/**
+ * Renders the hero card's "currently" line, turning [label](url) markers from
+ * the data file into links. Clicks don't propagate, so the card doesn't flip.
+ */
+function CurrentLine({ text, linkClassName }: { text: string; linkClassName: string }) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (!match) return part;
+        return (
+          <a
+            key={i}
+            href={match[2]}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className={linkClassName}
+          >
+            {match[1]}
+          </a>
+        );
+      })}
+    </>
   );
 }

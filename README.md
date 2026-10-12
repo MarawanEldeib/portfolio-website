@@ -22,14 +22,20 @@ Modern portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
 
 ### Experience
 
-- Student Research Assistant (HiWi) — IRS, University of Stuttgart (Apr 2026 – Present)
-- Research Assistant (Working Student) — Fraunhofer IOSB (Apr 2025 – Dec 2025)
-- Software Engineer Intern — AirAsia (Jul 2023 – Oct 2023)
+- Student Research Assistant (HiWi), ISW, University of Stuttgart (Oct 2026 – Present)
+- Working Student – Software Engineer, IRS, University of Stuttgart (Apr 2026 – Aug 2026)
+- Working Student – Software Engineer, Fraunhofer (Apr 2025 – Dec 2025)
+- Intern – Software Engineer, Ikhlas Com Sdn Bhd (AirAsia Group) (Jul 2023 – Oct 2023)
 
 ### Education
 
-- M.Sc. Software Engineering — University of Stuttgart (Oct 2024 – Present)
+- M.Sc. Information Technology (INFOTECH), Software Engineering specialisation, University of Stuttgart (Oct 2024 – Mar 2027, expected)
 - B.Eng. Computer Engineering — Multimedia University (Jul 2020 – Oct 2024)
+
+### Projects
+
+- Master's Thesis: A GitOps-Constrained Agentic Workflow for System Manipulation (Oct 2026 – Mar 2027, in progress)
+- Measuring Data Exposure in LLM-Integrated Productivity Tools: measured what AI productivity tools send out from a confidential document without being asked, using an HTTPS interception proxy and planted canary identifiers.
 
 ### Assets
 
@@ -45,5 +51,5 @@ Modern portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
 
 - Portfolio: [marawaneldeib.com](https://marawaneldeib.com/en)
 - Email: marawandeep13@gmail.com
-- LinkedIn: [linkedin.com/in/marawan-el-deib](https://www.linkedin.com/in/marawan-el-deib/)
+- LinkedIn: [linkedin.com/in/marawaneldeib](https://www.linkedin.com/in/marawaneldeib/)
 - GitHub: [github.com/MarawanEldeib](https://github.com/MarawanEldeib)
