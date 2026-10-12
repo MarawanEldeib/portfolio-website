@@ -36,7 +36,7 @@ export default function FilterButtons<T extends string>({
     className = '',
 }: FilterButtonsProps<T>) {
     return (
-        <div className={`flex justify-center gap-4 ${className}`}>
+        <div className={`flex flex-wrap justify-center gap-4 ${className}`}>
             {options.map((option) => (
                 <button
                     key={option}

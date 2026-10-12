@@ -3,7 +3,7 @@
  */
 
 // Project Types
-export type ProjectStatus = 'all' | 'completed' | 'in-progress';
+export type ProjectStatus = 'all' | 'completed' | 'in-progress' | 'paused';
 
 export interface Project {
   id: string;

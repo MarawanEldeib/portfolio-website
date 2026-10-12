@@ -182,7 +182,7 @@ export default function Contact() {
                   <MapPin className="text-blue-600 dark:text-blue-400 mt-1" size={24} />
                   <div>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400">Location</p>
-                    <p className="font-medium text-zinc-900 dark:text-zinc-100">Germany | Kuwait</p>
+                    <p className="font-medium text-zinc-900 dark:text-zinc-100">{personalInfo.location}</p>
                   </div>
                 </div>
 
@@ -266,7 +266,7 @@ export default function Contact() {
               </div>
               <div className="flex-1">
                 <p className="text-sm text-zinc-400 mb-1">Location</p>
-                <p className="text-white font-medium">Germany | Kuwait</p>
+                <p className="text-white font-medium">{personalInfo.location}</p>
               </div>
             </div>
 

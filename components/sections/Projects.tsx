@@ -13,7 +13,7 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import { useLocaleDate } from '@/lib/hooks/useLocaleDate';
 import { useModal, type VideoModalState } from '@/lib/hooks/useModal';
 import { usePdfViewer } from '@/lib/hooks/usePdfViewer';
-import type { Locale } from '@/lib/types';
+import type { Locale, ProjectStatus } from '@/lib/types';
 import dynamic from 'next/dynamic';
 
 const PDFPreviewModal = dynamic(() => import('@/components/ui/PDFPreviewModal'), {
@@ -33,7 +33,7 @@ export default function Projects() {
   const locale = useLocale() as Locale;
   const { formatShortDate } = useLocaleDate();
   const projects = useMemo(() => getProjects(locale), [locale]);
-  const [filter, setFilter] = useState<'all' | 'completed' | 'in-progress'>('all');
+  const [filter, setFilter] = useState<ProjectStatus>('all');
   const pdfModal = usePdfViewer();
   const videoModal = useModal<VideoModalState>();
   const [githubLoader, setGithubLoader] = useState<{ isOpen: boolean; url: string }>({
@@ -78,10 +78,10 @@ export default function Projects() {
 
           {/* Filter Buttons */}
           <FilterButtons
-            options={['all', 'completed', 'in-progress'] as const}
+            options={['all', 'completed', 'in-progress', 'paused'] as const}
             activeFilter={filter}
             onChange={setFilter}
-            getLabel={(option: 'all' | 'completed' | 'in-progress') => t(`filter.${option}`)}
+            getLabel={(option: ProjectStatus) => t(`filter.${option}`)}
             className="mb-12"
           />
 

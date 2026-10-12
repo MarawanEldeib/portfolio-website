@@ -46,8 +46,8 @@ export default function StructuredData({ locale }: StructuredDataProps) {
     worksFor: [
       {
         '@type': 'Organization',
-        name: 'University of Stuttgart, Institute of Space Systems (IRS)',
-        url: 'https://www.irs.uni-stuttgart.de/en/',
+        name: 'University of Stuttgart, Institute for Control Engineering of Machine Tools (ISW)',
+        url: 'https://www.isw.uni-stuttgart.de/en/',
       },
     ],
     knowsAbout: [

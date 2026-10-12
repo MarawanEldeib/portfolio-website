@@ -14,7 +14,7 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "tagline": "M.Sc. Information Technology (INFOTECH) student — Software Engineering specialisation — focused on privacy and security. Seeking a Master's thesis starting October 2026.",
+    "tagline": "M.Sc. Information Technology (INFOTECH) student, Software Engineering specialisation, focused on application security, privacy and AI systems. Open to full-time roles.",
     "workPermit": "Work Permit",
     "workPermitTooltip": "Working Student",
     "cta": {
@@ -25,7 +25,7 @@
   },
   "about": {
     "title": "About Me",
-    "intro": "M.Sc. Information Technology student (Software Engineering specialisation) at the University of Stuttgart, focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software. Seeking a Master's thesis starting October 2026.",
+    "intro": "M.Sc. Information Technology student (Software Engineering specialisation) at the University of Stuttgart, focused on application security, privacy and AI systems. Experience in LLM evaluation and test automation, network traffic analysis, and performance optimisation of research software. Writing my Master's thesis and open to full-time positions in software, security or AI engineering.",
     "downloadCV": "Download CV",
     "viewCV": "View CV",
     "contactMe": "Contact Me",
@@ -39,7 +39,8 @@
       "all": "All Projects",
       "ongoing": "In Progress",
       "in-progress": "In Progress",
-      "completed": "Completed"
+      "completed": "Completed",
+      "paused": "Paused"
     },
     "viewCode": "View Source Code",
     "viewMore": "View Full Details",
@@ -124,13 +125,13 @@
     "subtitle": "Contributing to causes I care about through technology and service",
     "present": "Present",
     "cta": {
-      "title": "Passionate About Giving Back",
+      "title": "Giving Back",
       "message": "I believe in using technology to make a positive impact on society. If you have a volunteer opportunity or know of a cause that could benefit from my skills, I'd love to hear about it!"
     }
   },
   "contact": {
     "title": "Let's Work Together",
-    "subtitle": "I'm looking for a Master's thesis starting October 2026 in privacy and security, and I'm always glad to hear about research collaborations.",
+    "subtitle": "I'm open to full-time positions in software, security or AI engineering, and always glad to hear about research collaborations.",
     "form": {
       "name": "Your Name",
       "email": "Your Email",

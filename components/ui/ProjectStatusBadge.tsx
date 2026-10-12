@@ -1,7 +1,7 @@
 /**
  * ProjectStatusBadge Component
  * Displays a status badge for project completion state
- * Provides consistent styling for 'completed' and 'in-progress' statuses
+ * Provides consistent styling for 'completed', 'in-progress' and 'paused' statuses
  */
 
 import { useTranslations } from 'next-intl';
@@ -25,6 +25,8 @@ export default function ProjectStatusBadge({ status, className }: ProjectStatusB
             status === 'completed',
           'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100':
             status === 'in-progress',
+          'bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-200':
+            status === 'paused',
         },
         className
       )}

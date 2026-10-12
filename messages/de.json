@@ -14,7 +14,7 @@
   },
   "hero": {
     "greeting": "Hallo, ich bin",
-    "tagline": "M.Sc.-Student Informationstechnologie (INFOTECH) — Vertiefung Software Engineering — mit Schwerpunkt Privatsphäre und Sicherheit. Auf der Suche nach einer Masterarbeit ab Oktober 2026.",
+    "tagline": "M.Sc.-Student Information Technology (INFOTECH), Schwerpunkt Software Engineering, mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Offen für Festanstellungen.",
     "workPermit": "Arbeitserlaubnis",
     "workPermitTooltip": "Werkstudent",
     "cta": {
@@ -25,7 +25,7 @@
   },
   "about": {
     "title": "Über mich",
-    "intro": "M.Sc.-Student der Informationstechnologie (Vertiefung Software Engineering) an der Universität Stuttgart mit Schwerpunkt Privatsphäre und Sicherheit. Erfahrung in Netzwerkverkehrsanalyse, Backend-Entwicklung und Performance-Optimierung von Forschungssoftware. Auf der Suche nach einer Masterarbeit ab Oktober 2026.",
+    "intro": "M.Sc.-Student Information Technology (Schwerpunkt Software Engineering) an der Universität Stuttgart mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Erfahrung in LLM-Evaluation und Testautomatisierung, Netzwerkverkehrsanalyse und Performance-Optimierung von Forschungssoftware. Schreibe meine Masterarbeit und bin offen für Festanstellungen in Software-, Security- oder KI-Engineering.",
     "downloadCV": "Lebenslauf herunterladen",
     "viewCV": "Lebenslauf anzeigen",
     "contactMe": "Kontakt aufnehmen",
@@ -39,7 +39,8 @@
       "all": "Alle Projekte",
       "ongoing": "In Bearbeitung",
       "in-progress": "In Bearbeitung",
-      "completed": "Abgeschlossen"
+      "completed": "Abgeschlossen",
+      "paused": "Pausiert"
     },
     "viewCode": "Quellcode ansehen",
     "viewMore": "Alle Details anzeigen",
@@ -124,13 +125,13 @@
     "subtitle": "Einen Beitrag für wichtige Anliegen durch Technologie und Service leisten",
     "present": "Heute",
     "cta": {
-      "title": "Leidenschaft für soziales Engagement",
+      "title": "Soziales Engagement",
       "message": "Ich glaube daran, Technologie zu nutzen, um einen positiven Einfluss auf die Gesellschaft zu haben. Wenn Sie eine Freiwilligenmöglichkeit haben oder eine Sache kennen, die von meinen Fähigkeiten profitieren könnte, würde ich gerne davon hören!"
     }
   },
   "contact": {
     "title": "Lassen Sie uns zusammenarbeiten",
-    "subtitle": "Ich suche eine Masterarbeit ab Oktober 2026 im Bereich Privatsphäre und Sicherheit und freue mich jederzeit über Forschungskooperationen.",
+    "subtitle": "Ich bin offen für Festanstellungen in Software-, Security- oder KI-Engineering und freue mich jederzeit über Forschungskooperationen.",
     "form": {
       "name": "Ihr Name",
       "email": "Ihre E-Mail",

@@ -36,13 +36,13 @@ const geistMono = Geist_Mono({
 const seoContent = {
   en: {
     title: "Marawan Eldeib - Privacy & Security | M.Sc. INFOTECH",
-    description: "M.Sc. Information Technology (INFOTECH) student at the University of Stuttgart, Software Engineering specialisation, focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software. Seeking a Master's thesis starting October 2026.",
-    ogDescription: "M.Sc. Information Technology (INFOTECH) student focused on privacy and security. Seeking a Master's thesis starting October 2026.",
+    description: "M.Sc. Information Technology (INFOTECH) student at the University of Stuttgart, Software Engineering specialisation, focused on application security, privacy and AI systems. Experience in LLM evaluation and test automation, network traffic analysis, and performance optimisation of research software. Writing my Master's thesis on GitOps-constrained agentic workflows and open to full-time positions in software, security or AI engineering.",
+    ogDescription: "M.Sc. Information Technology student focused on application security, privacy and AI systems. Writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027) and open to full-time positions in software, security or AI engineering.",
   },
   de: {
     title: "Marawan Eldeib - Privatsphäre & Sicherheit | M.Sc. INFOTECH",
-    description: "M.Sc.-Student der Informationstechnologie (INFOTECH) an der Universität Stuttgart, Vertiefung Software Engineering, mit Schwerpunkt Privatsphäre und Sicherheit. Erfahrung in Netzwerkverkehrsanalyse, Backend-Entwicklung und Performance-Optimierung von Forschungssoftware. Auf der Suche nach einer Masterarbeit ab Oktober 2026.",
-    ogDescription: "M.Sc.-Student der Informationstechnologie (INFOTECH) mit Schwerpunkt Privatsphäre und Sicherheit. Auf der Suche nach einer Masterarbeit ab Oktober 2026.",
+    description: "M.Sc.-Student Information Technology (INFOTECH) an der Universität Stuttgart, Schwerpunkt Software Engineering, mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Erfahrung in LLM-Evaluation und Testautomatisierung, Netzwerkverkehrsanalyse und Performance-Optimierung von Forschungssoftware. Schreibe meine Masterarbeit zu GitOps-beschränkten agentischen Workflows und bin offen für Festanstellungen in Software-, Security- oder KI-Engineering.",
+    ogDescription: "M.Sc.-Student Information Technology mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Schreibe meine Masterarbeit zu GitOps-beschränkten agentischen Workflows (10/2026 bis 03/2027) und bin offen für Festanstellungen in Software-, Security- oder KI-Engineering.",
   },
 };
 
@@ -70,7 +70,6 @@ export async function generateMetadata({
       'Privacy and Security',
       'Network Traffic Analysis',
       'mitmproxy',
-      'Application Security',
       'Software Engineering',
       'M.Sc. INFOTECH',
       'Information Technology',
@@ -78,9 +77,19 @@ export async function generateMetadata({
       'Stuttgart',
       'Germany',
       'University of Stuttgart',
+      'Software Engineer',
+      'Security Engineer',
+      'AI Engineer',
+      'Full-time',
+      'Application Security',
+      'GitOps',
+      'LLM Agents',
+      'Data Privacy',
+      'Cybersecurity',
+      'Security Research',
       ...(isGerman
-        ? ['Masterarbeit', 'Masterarbeit Informatik', 'Datenschutz', 'IT-Sicherheit', 'Netzwerkverkehrsanalyse', 'Informationstechnologie']
-        : ["Master's Thesis", 'Masters Thesis 2026', 'Data Privacy', 'Cybersecurity', 'Security Research']),
+        ? ['Datenschutz', 'IT-Sicherheit', 'Netzwerkverkehrsanalyse', 'Informationstechnologie']
+        : []),
     ],
     authors: [{ name: 'Marawan Eldeib' }],
     creator: 'Marawan Eldeib',

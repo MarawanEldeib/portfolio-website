@@ -11,8 +11,8 @@ export const contentTranslations = {
       de: "M.Sc. Informationstechnologie (INFOTECH) — Vertiefung Software Engineering"
     },
     summary: {
-      en: "M.Sc. Information Technology student (Software Engineering specialisation) focused on privacy and security. Experience across network traffic analysis, backend development, and performance optimisation of research software. Seeking a Master's thesis starting October 2026.",
-      de: "M.Sc.-Student der Informationstechnologie (Vertiefung Software Engineering) mit Schwerpunkt Privatsphäre und Sicherheit. Erfahrung in Netzwerkverkehrsanalyse, Backend-Entwicklung und Performance-Optimierung von Forschungssoftware. Auf der Suche nach einer Masterarbeit ab Oktober 2026."
+      en: "M.Sc. Information Technology student (Software Engineering specialisation) focused on application security, privacy and AI systems. Experience in LLM evaluation and test automation, network traffic analysis, and performance optimisation of research software. Writing my Master's thesis on GitOps-constrained agentic workflows (Oct 2026 to Mar 2027) and open to full-time positions in software, security or AI engineering.",
+      de: "M.Sc.-Student Information Technology (Schwerpunkt Software Engineering) mit Fokus auf Anwendungssicherheit, Datenschutz und KI-Systeme. Erfahrung in LLM-Evaluation und Testautomatisierung, Netzwerkverkehrsanalyse und Performance-Optimierung von Forschungssoftware. Schreibe meine Masterarbeit zu GitOps-beschränkten agentischen Workflows (10/2026 bis 03/2027) und bin offen für Festanstellungen in Software-, Security- oder KI-Engineering."
     },
     workPermitDetails: {
       en: "Available on Request",
@@ -22,14 +22,42 @@ export const contentTranslations = {
 
   // Projects - All project translations
   projects: {
-    "new-4": {
+    "master-thesis": {
       title: {
-        en: "PrivacyLens — LLM Data-Exposure Analysis",
-        de: "PrivacyLens — Analyse der LLM-Datenexposition"
+        en: "Master's Thesis: A GitOps-Constrained Agentic Workflow for System Manipulation",
+        de: "Masterarbeit: A GitOps-Constrained Agentic Workflow for System Manipulation"
       },
       description: {
-        en: "How much of your data do AI tools actually see? This research intercepts and analyses outbound network traffic from LLM-integrated productivity tools — browser extensions, code editors, and web interfaces — under identical controlled conditions to systematically compare their data exposure footprint.",
-        de: "Wie viele deiner Daten sehen KI-Tools wirklich? Diese Forschung fängt den ausgehenden Netzwerkverkehr von LLM-integrierten Produktivitätswerkzeugen — Browser-Erweiterungen, Code-Editoren und Web-Interfaces — unter identischen kontrollierten Bedingungen ab und analysiert ihn, um ihren Datenexpositions-Fußabdruck systematisch zu vergleichen."
+        en: "Guardrails for AI agents on shared infrastructure: agents can change an HPC cluster only through reviewed pull requests, applied by a sandboxed GitOps pipeline with full audit trail and rollback; includes threat modelling and a security evaluation. Instead of giving LLM agents direct system access, agents work only through Git (branches, commits, pull requests), and a deterministic pipeline executes a change only after a human or a second AI agent approves it. A second target, such as Kubernetes, tests which guarantees transfer.",
+        de: "Leitplanken für KI-Agenten auf gemeinsam genutzter Infrastruktur: Agenten können einen HPC-Cluster nur über geprüfte Pull Requests verändern, die eine in einer Sandbox laufende GitOps-Pipeline mit vollständigem Audit-Trail und Rollback anwendet; inklusive Bedrohungsmodellierung und Sicherheitsevaluation. Statt LLM-Agenten direkten Systemzugriff zu geben, arbeiten die Agenten ausschließlich über Git (Branches, Commits, Pull Requests), und eine deterministische Pipeline führt eine Änderung erst aus, nachdem ein Mensch oder ein zweiter KI-Agent sie freigegeben hat. Ein zweites Zielsystem, etwa Kubernetes, prüft, welche Garantien sich übertragen lassen."
+      },
+      course: {
+        en: "Master's Thesis",
+        de: "Masterarbeit"
+      },
+      highlights: {
+        en: [
+          "Git-only agent interface, no direct system access",
+          "Deterministic, sandboxed executor triggered only on PR merge",
+          "Human or AI reviewer gate with audit trail and rollback",
+          "Threat model and security evaluation, tested for transfer to a second domain"
+        ],
+        de: [
+          "Agenten-Schnittstelle ausschließlich über Git, kein direkter Systemzugriff",
+          "Deterministischer Executor in einer Sandbox, ausgelöst nur beim Merge eines PR",
+          "Freigabe durch menschliche oder KI-Prüfinstanz, mit Audit-Trail und Rollback",
+          "Bedrohungsmodell und Sicherheitsevaluation, Übertragbarkeit auf eine zweite Domäne geprüft"
+        ]
+      }
+    },
+    "new-4": {
+      title: {
+        en: "Measuring Data Exposure in LLM-Integrated Productivity Tools",
+        de: "Measuring Data Exposure in LLM-Integrated Productivity Tools"
+      },
+      description: {
+        en: "Measured what AI productivity tools send out from a confidential document without being asked, using an HTTPS interception proxy and planted canary identifiers, across writing-assistant extensions, Microsoft Word, Edge Copilot and desktop assistants. A paper with Prof. Dr. Marco Aiello is in preparation, targeting PoPETs 2027.",
+        de: "Gemessen, was KI-Produktivitätswerkzeuge ungefragt aus einem vertraulichen Dokument nach außen senden, mithilfe eines HTTPS-Interception-Proxys und platzierter Canary-Kennungen, über Schreibassistenz-Erweiterungen, Microsoft Word, Edge Copilot und Desktop-Assistenten hinweg. Ein Paper mit Prof. Dr. Marco Aiello ist in Vorbereitung, Ziel ist PoPETs 2027."
       },
       course: {
         en: "Research Project",
@@ -37,16 +65,16 @@ export const contentTranslations = {
       },
       highlights: {
         en: [
-          "Controlled experimental setup with identical tasks per tool",
-          "Outbound traffic interception and analysis using mitmproxy",
-          "Exposure indicators: data content, volume, requests, domains",
-          "Per-tool exposure assessment with confidence level"
+          "Canary-based, per-secret attribution of every transmitted fragment",
+          "Controlled browser comparison against a no-extension baseline",
+          "Host-level measurement across Office, Copilot and desktop clients",
+          "Paper in preparation, targeting PoPETs 2027"
         ],
         de: [
-          "Kontrolliertes Versuchsdesign mit identischen Aufgaben pro Werkzeug",
-          "Abfangen und Analyse ausgehenden Traffics mit mitmproxy",
-          "Expositionsindikatoren: Dateninhalt, Volumen, Anfragen, Domains",
-          "Expositionsbewertung pro Werkzeug mit Konfidenzniveau"
+          "Canary-basierte Zuordnung jedes übertragenen Fragments zum jeweiligen Geheimnis",
+          "Kontrollierter Browser-Vergleich gegen eine Baseline ohne Erweiterung",
+          "Messung auf Host-Ebene über Office-, Copilot- und Desktop-Clients",
+          "Paper in Vorbereitung, Ziel: PoPETs 2027"
         ]
       }
     },
@@ -56,8 +84,8 @@ export const contentTranslations = {
         de: "Saha"
       },
       description: {
-        en: "Deployed racket-sports booking platform, built security-first. Postgres row-level security isolates every tenant's data at the database rather than in application code, a strict Content Security Policy constrains what the browser will execute, MFA gates admin actions, an append-only audit log records privileged operations, and Stripe Connect webhooks are signature-verified before any payout is trusted. Self-audited the row-level security policies and closed a privilege-escalation gap.",
-        de: "Produktiv betriebene Buchungsplattform für Schlägersportarten, konsequent sicherheitsorientiert entwickelt. Postgres Row-Level Security isoliert die Daten jedes Mandanten in der Datenbank statt im Anwendungscode, eine strikte Content Security Policy begrenzt, was der Browser ausführt, MFA schützt Admin-Aktionen, ein Append-only-Audit-Log protokolliert privilegierte Operationen, und Stripe-Connect-Webhooks werden signaturgeprüft, bevor einer Auszahlung vertraut wird. Die RLS-Richtlinien selbst auditiert und eine Lücke zur Rechteausweitung geschlossen."
+        en: "Deployed racket-sports booking platform with security built into every layer. Postgres row-level security isolates every tenant's data at the database rather than in application code, a strict Content Security Policy constrains what the browser will execute, MFA gates admin actions, an append-only audit log records privileged operations, and Stripe Connect webhooks are signature-verified before any payout is trusted. Self-audited the row-level security policies and closed a privilege-escalation gap.",
+        de: "Produktiv betriebene Buchungsplattform für Schlägersportarten, bei der Sicherheit in jede Schicht eingebaut ist. Postgres Row-Level Security isoliert die Daten jedes Mandanten in der Datenbank statt im Anwendungscode, eine strikte Content Security Policy begrenzt, was der Browser ausführt, MFA schützt Admin-Aktionen, ein Append-only-Audit-Log protokolliert privilegierte Operationen, und Stripe-Connect-Webhooks werden signaturgeprüft, bevor einer Auszahlung vertraut wird. Die RLS-Richtlinien selbst auditiert und eine Lücke zur Rechteausweitung geschlossen."
       },
       course: {
         en: "Personal Project",
@@ -138,12 +166,12 @@ export const contentTranslations = {
     },
     "new-2": {
       title: {
-        en: "Decentralized Public Chat Room",
-        de: "Dezentraler öffentlicher Chatraum"
+        en: "Decentralized P2P Chat System",
+        de: "Dezentrales P2P-Chat-System"
       },
       description: {
-        en: "Engineered a resilient, decentralized P2P chat ecosystem. Implements Causal and Total Ordering via Vector Clocks to guarantee message consistency across concurrent events. Features robust fault-tolerance utilizing the Bully Algorithm for dynamic leader election and reliable multicast to ensure delivery during node failures. Architected to handle asynchronous communication and crash failures in distributed environments.",
-        de: "Entwickelte ein widerstandsfähiges, dezentrales P2P-Chat-Ökosystem. Implementiert kausale und totale Ordnung über Vector Clocks zur Gewährleistung der Nachrichtenkonsistenz bei nebenläufigen Ereignissen. Bietet robuste Fehlertoleranz durch den Bully-Algorithmus für dynamische Leader-Wahl und zuverlässigen Multicast zur Sicherstellung der Zustellung bei Knotenausfällen. Architektur für asynchrone Kommunikation und Crash-Fehler in verteilten Umgebungen."
+        en: "In a six-person team, implemented fault-tolerant P2P messaging using Causal and Total Ordering via Vector Clocks. Built the Bully Algorithm for dynamic leader election and reliable multicast delivery. Designed to handle asynchronous communication and node crash failures.",
+        de: "Im Sechserteam implementiert: fehlertolerantes P2P-Messaging mit kausaler und totaler Ordnung über Vector Clocks, der Bully-Algorithmus für dynamische Leader-Wahl sowie zuverlässiger Multicast. Ausgelegt für asynchrone Kommunikation und Knotenausfälle (Crash Failures)."
       },
       course: {
         en: "Distributed Systems",
@@ -155,14 +183,14 @@ export const contentTranslations = {
           "Leader election using Bully Algorithm",
           "Reliable multicast and fault detection",
           "Vector clocks for message synchronization",
-          "Team Project (Group 6)"
+          "Six-person team project (Group 6)"
         ],
         de: [
           "Dezentrale P2P-Architektur mit kausaler Ordnung",
           "Leader-Wahl mit Bully-Algorithmus",
           "Zuverlässiger Multicast und Fehlererkennung",
           "Vector Clocks für Nachrichtensynchronisierung",
-          "Teamprojekt (Gruppe 6)"
+          "Teamprojekt mit sechs Personen (Gruppe 6)"
         ]
       }
     },
@@ -176,8 +204,8 @@ export const contentTranslations = {
         de: "Entwarf skalierbare 3-Tier-AWS-Infrastruktur für E-Commerce-Plattform mit VPC-Sicherheit, Load Balancing, Auto-Scaling und RDS-Transaktionsverwaltung für hochverfügbare Retail-Workloads."
       },
       course: {
-        en: "Cloud Computing",
-        de: "Cloud Computing"
+        en: "Service Management and Cloud Computing",
+        de: "Service Management and Cloud Computing"
       },
       highlights: {
         en: [
@@ -194,12 +222,12 @@ export const contentTranslations = {
     },
     "new-1": {
       title: {
-        en: "Knowledge Graph Models for Universal Database Reasoning",
-        de: "Knowledge Graph Models für universelles Datenbank-Reasoning"
+        en: "KGFM: Foundation Models for Relational Databases",
+        de: "KGFM: Foundation Models für relationale Datenbanken"
       },
       description: {
-        en: "Extended ULTRA foundation models to create schema-agnostic knowledge graphs capable of complex reasoning across unseen databases. Evaluated performance on F1 Formula 1 data using RelBench framework.",
-        de: "Erweiterte ULTRA-Foundation-Modelle zur Erstellung schema-agnostischer Knowledge Graphs für komplexes Reasoning über ungesehene Datenbanken. Evaluierte Leistung an F1-Formel-1-Daten mit RelBench-Framework."
+        en: "Three-person research project (supervised by Mojtaba Nayyeri) that ran the first systematic comparison of random-walk (Flock) and message-passing (ULTRA/POSTRA) knowledge-graph foundation models for zero-shot transfer to relational-database tasks on RelBench F1. Flock reached 0.894 MRR on link prediction, a 17.6% zero-shot gain over ULTRA, with its zero-shot result exceeding ULTRA's fine-tuned performance.",
+        de: "Forschungsprojekt zu dritt (betreut von Mojtaba Nayyeri), das erstmals Random-Walk-basierte (Flock) und Message-Passing-basierte (ULTRA/POSTRA) Knowledge-Graph-Foundation-Models systematisch für den Zero-Shot-Transfer auf Aufgaben relationaler Datenbanken mit RelBench F1 verglich. Flock erreichte 0,894 MRR bei der Link-Vorhersage, ein Zero-Shot-Gewinn von 17,6 % gegenüber ULTRA, und übertraf mit seinem Zero-Shot-Ergebnis sogar die feinabgestimmte Leistung von ULTRA."
       },
       course: {
         en: "Research Project",
@@ -209,14 +237,12 @@ export const contentTranslations = {
         en: [
           "Converting RelBench datasets to knowledge graphs",
           "Zero-shot and fine-tuned link prediction using KGFMs",
-          "Extending KGFMs for entity classification/regression tasks",
-          "Building plug-and-play database intelligence framework"
+          "Three-person team, supervised by Mojtaba Nayyeri"
         ],
         de: [
           "Konvertierung von RelBench-Datensätzen in Knowledge Graphs",
           "Zero-Shot- und Fine-Tuned-Link-Vorhersage mit KGFMs",
-          "Erweiterung von KGFMs für Entity-Klassifikation/Regression",
-          "Aufbau eines Plug-and-Play-Datenbank-Intelligenz-Frameworks"
+          "Dreierteam, betreut von Mojtaba Nayyeri"
         ]
       }
     },
@@ -226,8 +252,8 @@ export const contentTranslations = {
         de: "MangoVision"
       },
       description: {
-        en: "Award-winning deep learning system for mango detection from aerial drone imagery. Developed and benchmarked YOLOv8 and Faster R-CNN detectors across a public benchmark and a custom drone dataset, reaching mAP@0.5 of 0.959 and 0.756, and built a bilingual GUI with GPS-integrated mapping for precision agriculture.",
-        de: "Preisgekröntes Deep-Learning-System zur Mangoerkennung aus Drohnenluftbildern. YOLOv8- und Faster-R-CNN-Detektoren auf einem öffentlichen Benchmark und einem eigenen Drohnendatensatz entwickelt und verglichen, mit mAP@0.5 von 0,959 bzw. 0,756, sowie zweisprachige GUI mit GPS-integrierter Kartierung für die Präzisionslandwirtschaft."
+        en: "Deep learning system for mango detection from aerial drone imagery. Developed and benchmarked YOLOv8 and Faster R-CNN detectors across a public benchmark and a custom drone dataset, reaching mAP@0.5 of 0.959 and 0.756, and built a bilingual GUI with GPS-integrated mapping for precision agriculture.",
+        de: "Deep-Learning-System zur Mangoerkennung aus Drohnenluftbildern. YOLOv8- und Faster-R-CNN-Detektoren auf einem öffentlichen Benchmark und einem eigenen Drohnendatensatz entwickelt und verglichen, mit mAP@0.5 von 0,959 bzw. 0,756, sowie zweisprachige GUI mit GPS-integrierter Kartierung für die Präzisionslandwirtschaft."
       },
       course: {
         en: "Final Year Project",
@@ -283,8 +309,8 @@ export const contentTranslations = {
         de: "Smart Door Lock: IoT-Sicherheitssystem"
       },
       description: {
-        en: "Led 3-member team to build Arduino-based smart lock with motion detection and emergency alerts. Developed Flutter mobile app for remote control, fingerprint management, and real-time monitoring using Firebase backend.",
-        de: "Leitete 3-köpfiges Team zum Aufbau eines Arduino-basierten Smart Locks mit Bewegungserkennung und Notfallalarmen. Entwickelte Flutter-Mobile-App für Fernsteuerung, Fingerabdruck-Verwaltung und Echtzeit-Überwachung mit Firebase-Backend."
+        en: "Led 3-member team to build Arduino-based smart lock with motion detection and emergency alerts. Developed Flutter mobile app for remote control, fingerprint management, and real-time monitoring via a cloud backend.",
+        de: "Leitete 3-köpfiges Team zum Aufbau eines Arduino-basierten Smart Locks mit Bewegungserkennung und Notfallalarmen. Entwickelte Flutter-Mobile-App für Fernsteuerung, Fingerabdruck-Verwaltung und Echtzeit-Überwachung über ein Cloud-Backend."
       },
       course: {
         en: "Capstone Project",
@@ -294,13 +320,13 @@ export const contentTranslations = {
         en: [
           "Led 3-member team on IoT security project",
           "PCB-based smart lock with motion detection",
-          "Flutter mobile app with Firebase backend",
+          "Flutter mobile app with cloud backend",
           "Remote control and real-time monitoring"
         ],
         de: [
           "Leitete 3-köpfiges Team bei IoT-Sicherheitsprojekt",
           "PCB-basiertes intelligentes Schloss mit Bewegungserkennung",
-          "Flutter-Mobile-App mit Firebase-Backend",
+          "Flutter-Mobile-App mit Cloud-Backend",
           "Fernsteuerung und Echtzeit-Überwachung"
         ]
       }
@@ -311,8 +337,8 @@ export const contentTranslations = {
         de: "BodyMath: Gesundheits- & Fitness-Tracker"
       },
       description: {
-        en: "Flutter mobile app with BMI, calorie, body fat, and ideal weight calculators using Firebase backend. Includes admin mode for user management and health advice with GIF demonstrations.",
-        de: "Flutter-Mobile-App mit BMI-, Kalorien-, Körperfett- und Idealgewicht-Rechnern mit Firebase-Backend. Enthält Admin-Modus für Benutzerverwaltung und Gesundheitsratschläge mit GIF-Demonstrationen."
+        en: "Flutter mobile app with BMI, calorie, body fat, and ideal weight calculators with a cloud backend. Includes admin mode for user management and health advice with GIF demonstrations.",
+        de: "Flutter-Mobile-App mit BMI-, Kalorien-, Körperfett- und Idealgewicht-Rechnern mit Cloud-Backend. Enthält Admin-Modus für Benutzerverwaltung und Gesundheitsratschläge mit GIF-Demonstrationen."
       },
       course: {
         en: "Software Engineering",
@@ -321,13 +347,13 @@ export const contentTranslations = {
       highlights: {
         en: [
           "Four fitness calculators (BMI, calorie, body fat, ideal weight)",
-          "Firebase backend with admin management",
+          "Cloud backend with admin management",
           "Enhanced user engagement with health advice and GIF images",
           "User-friendly interface design"
         ],
         de: [
           "Vier Fitness-Rechner (BMI, Kalorien, Körperfett, Idealgewicht)",
-          "Firebase-Backend mit Admin-Verwaltung",
+          "Cloud-Backend mit Admin-Verwaltung",
           "Verbessertes Benutzerengagement mit Gesundheitsratschlägen und GIF-Bildern",
           "Benutzerfreundliches Interface-Design"
         ]
@@ -338,14 +364,24 @@ export const contentTranslations = {
 
   // Experience & Education
   timeline: {
+    "7": {
+      title: {
+        en: "Student Research Assistant (HiWi)",
+        de: "Studentische Hilfskraft (HiWi)"
+      },
+      description: {
+        en: "• Research software: supporting the INTERFACE4CPPS research project (ISW with KASTEL at KIT), which develops a software prototype that integrates engineering artifacts and data exchange formats for cyber-physical production systems",
+        de: "• Forschungssoftware: Unterstützung des Forschungsprojekts INTERFACE4CPPS (ISW mit KASTEL am KIT), das einen Software-Prototyp entwickelt, der Engineering-Artefakte und Datenaustauschformate für cyber-physische Produktionssysteme integriert"
+      }
+    },
     "6": {
       title: {
         en: "Working Student – Software Engineer",
         de: "Werkstudent – Software Engineer"
       },
       description: {
-        en: "• Performance optimisation: took a stalling NASA/DLR data-reduction job from over 50 GB (could not complete) to 14.4 GB with bit-identical output\n• Root-cause analysis: traced the peak to redundant concurrent calculations; a two-line config change gave 39%, and memray-guided dtype fixes a further 32%",
-        de: "• Performance-Optimierung: einen blockierenden NASA/DLR-Datenreduktionslauf von über 50 GB (nicht abschließbar) auf 14,4 GB gebracht, bei bit-identischem Ergebnis\n• Ursachenanalyse: die Spitze auf redundante nebenläufige Berechnungen zurückgeführt; eine zweizeilige Konfigurationsänderung brachte 39%, memray-geleitete dtype-Korrekturen weitere 32%"
+        en: "• Performance optimisation: took a NASA/DLR data-reduction job that could not complete within available memory down to a 14.4 GB peak, without changing the output\n• Root-cause analysis: traced the peak to redundant concurrent calculations; a two-line config change gave 39%, and memray-guided dtype fixes a further 32%",
+        de: "• Performance-Optimierung: einen NASA/DLR-Datenreduktionslauf, der mit dem verfügbaren Speicher nicht abschließen konnte, auf eine Spitze von 14,4 GB gebracht, ohne das Ergebnis zu verändern\n• Ursachenanalyse: die Spitze auf redundante nebenläufige Berechnungen zurückgeführt; eine zweizeilige Konfigurationsänderung brachte 39%, memray-geleitete dtype-Korrekturen weitere 32%"
       }
     },
     "1": {
@@ -354,18 +390,18 @@ export const contentTranslations = {
         de: "Werkstudent – Software Engineer"
       },
       description: {
-        en: "• Developed Java and Spring Boot backend for LLM-based data extraction evaluating 6 models in Asset Administration Shell (AAS) digital twin applications\n• Implemented automated end-to-end tests and prepared 30+ test datasets for model evaluation",
-        de: "• Entwickelte Java- und Spring Boot-Backend für LLM-basierte Datenextraktion zur Evaluierung von 6 Modellen in Asset Administration Shell (AAS) Digital-Twin-Anwendungen\n• Implementierte automatisierte End-to-End-Tests und erstellte über 30 Testdatensätze für Modellevaluierung"
+        en: "• LLM evaluation: tested and evaluated Java and Spring Boot backend services for LLM-based data extraction across Asset Administration Shell (AAS) digital-twin applications, benchmarking six large language models\n• Test automation: developed automated end-to-end test suites and curated 30+ evaluation datasets to validate model performance",
+        de: "• LLM-Evaluation: Java- und Spring-Boot-Backend-Services für LLM-basierte Datenextraktion in Asset-Administration-Shell-(AAS)-Digital-Twin-Anwendungen getestet und evaluiert, mit Benchmarking von sechs großen Sprachmodellen\n• Testautomatisierung: automatisierte End-to-End-Testsuites entwickelt und über 30 Evaluationsdatensätze zur Validierung der Modellleistung kuratiert"
       }
     },
     "3": {
       title: {
-        en: "Software Engineer Intern",
-        de: "Software Engineer Praktikant"
+        en: "Intern – Software Engineer",
+        de: "Praktikant – Software Engineer"
       },
       description: {
-        en: "• Debugged 14 software bugs and implemented 5 checkout calculation features, enhancing app stability for 10,000+ users\n• Refactored 2 app pages and integrated GraphQL APIs for bilingual content management in Agile sprints",
-        de: "• Behob 14 Software-Bugs und implementierte 5 Checkout-Berechnungsfunktionen, verbesserte App-Stabilität für über 10.000 Benutzer\n• Refaktorierte 2 App-Seiten und integrierte GraphQL-APIs für zweisprachiges Content-Management in Agile-Sprints"
+        en: "• Feature delivery: resolved 14 defects and shipped 5 checkout-calculation features, improving application stability for 10,000+ users\n• Refactoring & APIs: refactored 2 application modules and integrated GraphQL APIs for bilingual content management within Agile sprints",
+        de: "• Feature-Entwicklung: 14 Fehler behoben und 5 Checkout-Berechnungsfunktionen ausgeliefert, was die Anwendungsstabilität für über 10.000 Nutzer verbesserte\n• Refactoring & APIs: 2 Anwendungsmodule refaktoriert und GraphQL-APIs für zweisprachiges Content-Management in agilen Sprints integriert"
       }
     },
     "4": {
@@ -378,8 +414,8 @@ export const contentTranslations = {
         de: "Okt 2024 - März 2027 (Erwartet)"
       },
       description: {
-        en: "Specialisation: Software Engineering",
-        de: "Vertiefung: Software Engineering"
+        en: "Specialisation: Software Engineering · Master's thesis: A GitOps-Constrained Agentic Workflow for System Manipulation (Oct 2026 – Mar 2027)",
+        de: "Vertiefung: Software Engineering · Masterarbeit: A GitOps-Constrained Agentic Workflow for System Manipulation (Okt 2026 – März 2027)"
       },
       achievements: {
         en: [],
@@ -392,8 +428,8 @@ export const contentTranslations = {
         de: "B.Eng. (Hons.)\nElectronics Majoring in Computer"
       },
       description: {
-        en: "CGPA: 3.7/4.0 — First Class Honours (German equivalent ≈ 1.4) 🎖️",
-        de: "CGPA: 3,7/4,0 — First Class Honours (deutsche Entsprechung ≈ 1,4) 🎖️"
+        en: "CGPA: 3.7/4.0 — First Class Honours (German equivalent ≈ 1.4)",
+        de: "CGPA: 3,7/4,0 — First Class Honours (deutsche Entsprechung ≈ 1,4)"
       },
       achievements: {
         en: [
