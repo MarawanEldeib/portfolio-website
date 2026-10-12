@@ -70,7 +70,12 @@ const projectsData: Project[] = [
       fullName: "High Performance Computing Center Stuttgart",
       logo: "/images/logos/logo_hlrs.png",
       url: "https://www.hlrs.de/",
-      contact: { name: "Dr. Kerem Kayabay", url: "https://www.linkedin.com/in/keremkayabay/" },
+    },
+    advisor: {
+      name: "Dr. Kerem Kayabay",
+      image: "/images/recommendations/Kayabay.jpg",
+      url: "https://www.hlrs.de/de/team/kerem-kayabay",
+      label: "HLRS",
     },
     highlights: [
       "Git-only agent interface, no direct system access",

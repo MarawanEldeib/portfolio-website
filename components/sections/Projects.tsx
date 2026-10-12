@@ -252,32 +252,14 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Supervisor */}
-                  {project.supervisor && (
-                    <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
-                      {project.supervisor.url ? (
-                        <a
-                          href={project.supervisor.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-                        >
-                          {project.supervisor.image && (
-                            <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
-                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill sizes="28px" className="object-cover" />
-                            </div>
-                          )}
-                          <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
-                        </a>
-                      ) : (
-                        <div className="flex items-center gap-2">
-                          {project.supervisor.image && (
-                            <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
-                              <Image src={project.supervisor.image} alt={project.supervisor.name} fill sizes="28px" className="object-cover" />
-                            </div>
-                          )}
-                          <span className="text-xs text-zinc-500 dark:text-zinc-400">{project.supervisor.name}</span>
-                        </div>
+                  {/* Supervisor and advisor, side by side; they stack when the card is too narrow */}
+                  {(project.supervisor || project.advisor) && (
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-4 justify-center md:justify-start">
+                      {project.supervisor && (
+                        <ProjectPerson person={project.supervisor} label={t('supervisor')} />
+                      )}
+                      {project.advisor && (
+                        <ProjectPerson person={project.advisor} label={project.advisor.label} />
                       )}
                     </div>
                   )}
@@ -291,14 +273,8 @@ export default function Projects() {
                             {chunks}
                           </a>
                         ),
-                        person: (chunks) => (
-                          <a href={project.collaborator!.contact?.url} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 hover:underline">
-                            {chunks}
-                          </a>
-                        ),
                         orgName: project.collaborator.name,
                         orgFull: project.collaborator.fullName,
-                        personName: project.collaborator.contact?.name ?? '',
                       })}
                     </p>
                   )}
@@ -348,5 +324,30 @@ export default function Projects() {
         onComplete={handleGithubLoaderComplete}
       />
     </section>
+  );
+}
+
+/** Round photo, small role label and name; links out when a URL is given */
+function ProjectPerson({ person, label }: { person: { name: string; image?: string; url?: string }; label: string }) {
+  const content = (
+    <>
+      {person.image && (
+        <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 border border-zinc-300 dark:border-zinc-600 relative">
+          <Image src={person.image} alt={person.name} fill sizes="28px" className="object-cover" />
+        </div>
+      )}
+      <span className="flex flex-col leading-tight">
+        <span className="text-[10px] uppercase tracking-wide text-zinc-400 dark:text-zinc-500">{label}</span>
+        <span className="text-xs text-zinc-500 dark:text-zinc-400">{person.name}</span>
+      </span>
+    </>
+  );
+
+  return person.url ? (
+    <a href={person.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+      {content}
+    </a>
+  ) : (
+    <div className="flex items-center gap-2">{content}</div>
   );
 }

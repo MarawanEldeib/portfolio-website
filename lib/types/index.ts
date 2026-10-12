@@ -26,6 +26,8 @@ export interface Project {
   course?: string;
   highlights?: string[];
   supervisor?: { name: string; image?: string; url?: string };
+  /** Second person shown beside the supervisor; `label` names their role or organisation */
+  advisor?: { name: string; image?: string; url?: string; label: string };
   institute?: { name: string; logo: string; url?: string };
   /** Partner organisation shown as a second logo plus a collaboration line */
   collaborator?: {
@@ -34,7 +36,6 @@ export interface Project {
     fullName: string;
     logo: string;
     url: string;
-    contact?: { name: string; url: string };
   };
 }
 

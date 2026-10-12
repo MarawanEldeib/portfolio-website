@@ -51,7 +51,8 @@
     "highlights": "Key Highlights",
     "present": "Present",
     "since": "Since {date}",
-    "collaboration": "In collaboration with <org>{orgName}</org> ({orgFull}), with <person>{personName}</person>",
+    "collaboration": "In collaboration with <org>{orgName}</org> ({orgFull})",
+    "supervisor": "Supervisor",
     "buttons": {
       "code": "Code",
       "live": "Live",
