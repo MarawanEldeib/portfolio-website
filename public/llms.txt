@@ -7,7 +7,7 @@ Personal portfolio site. Available in English at [/en](https://marawaneldeib.com
 ## About
 
 - [About](https://marawaneldeib.com/en#about): software, security and AI engineering. Secure system design, LLM-based AI systems, network traffic analysis, and performance optimisation of research software.
-- [Experience](https://marawaneldeib.com/en#experience): Student Research Assistant (HiWi) at the Institute for Control Engineering of Machine Tools (ISW), University of Stuttgart. Previously Working Student at the Institute of Space Systems (IRS), University of Stuttgart (SOFIA Data Center); Working Student, Fraunhofer, Apr 2025 – Dec 2025, testing and evaluation of LLM-based services; and an internship at Ikhlas Com Sdn Bhd (AirAsia Group).
+- [Experience](https://marawaneldeib.com/en#experience): Student Research Assistant (HiWi) at the Institute for Control Engineering of Machine Tools (ISW), University of Stuttgart. Previously Research Assistant (Software Development) at the Institute of Space Systems (IRS), University of Stuttgart (SOFIA Data Center); Research Assistant, Fraunhofer IOSB, Apr 2025 – Dec 2025, evaluation of LLM-based data extraction; and an internship at Ikhlas Com Sdn Bhd (AirAsia Group).
 - [Education](https://marawaneldeib.com/en#education): M.Sc. Information Technology (INFOTECH), University of Stuttgart. B.Eng. (Hons.) Computer Engineering, Multimedia University.
 - [Skills](https://marawaneldeib.com/en#skills): security and privacy tooling (mitmproxy, Burp Suite, GDB, Nmap, OWASP), Python, TypeScript, Java, C/C++.
 
