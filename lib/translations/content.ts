@@ -378,14 +378,14 @@ export const contentTranslations = {
         de: "Studentische Hilfskraft (HiWi)"
       },
       description: {
-        en: "• Research software: supporting the INTERFACE4CPPS research project (ISW with KASTEL at KIT), which develops a software prototype that integrates engineering artifacts and data exchange formats for cyber-physical production systems",
-        de: "• Forschungssoftware: Unterstützung des Forschungsprojekts INTERFACE4CPPS (ISW mit KASTEL am KIT), das einen Software-Prototyp entwickelt, der Engineering-Artefakte und Datenaustauschformate für cyber-physische Produktionssysteme integriert"
+        en: "• Research software: developing a software prototype in the INTERFACE4CPPS research project to integrate engineering artifacts for cyber-physical production systems",
+        de: "• Forschungssoftware: Entwicklung eines Software-Prototyps im Forschungsprojekt INTERFACE4CPPS zur Integration von Engineering-Artefakten für cyber-physische Produktionssysteme"
       }
     },
     "6": {
       title: {
-        en: "Working Student – Software Engineer",
-        de: "Werkstudent – Software Engineer"
+        en: "Research Assistant – Software Development",
+        de: "Wissenschaftliche Hilfskraft – Softwareentwicklung"
       },
       description: {
         en: "• Performance optimisation: took a NASA/DLR data-reduction job that could not complete within available memory down to a 14.4 GB peak, without changing the output\n• Root-cause analysis: traced the peak to redundant concurrent calculations; a two-line config change gave 39%, and memray-guided dtype fixes a further 32%",
@@ -394,8 +394,8 @@ export const contentTranslations = {
     },
     "1": {
       title: {
-        en: "Working Student – Software Engineer",
-        de: "Werkstudent – Software Engineer"
+        en: "Research Assistant",
+        de: "Wissenschaftliche Hilfskraft"
       },
       description: {
         en: "• LLM evaluation: tested and evaluated Java and Spring Boot backend services for LLM-based data extraction across Asset Administration Shell (AAS) digital-twin applications, benchmarking six large language models\n• Test automation: developed automated end-to-end test suites and curated 30+ evaluation datasets to validate model performance",
