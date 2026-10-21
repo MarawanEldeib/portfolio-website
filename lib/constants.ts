@@ -113,7 +113,7 @@ export const TECH_ICONS: Record<string, IconType> = {
   'Insomnia': SiInsomnia,
   'GitHub Copilot': SiGithub,
   'Claude': SiClaude,
-  'MCP Server': FaNetworkWired,
+  'MCP': FaNetworkWired,
   'Burp Suite': FaShieldAlt,
   'Nmap': FaNetworkWired,
   'SQLmap': FaTerminal,

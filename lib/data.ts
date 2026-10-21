@@ -29,9 +29,9 @@ export const skills = {
   webBackend: ["Next.js", "React", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Redis", "SQLite", "Stripe Connect", "Socket.IO"],
   dataScience: ["PyTorch", "PyTorch Geometric", "Detectron2", "scikit-learn", "pandas", "NumPy", "LLMs", "Computer Vision", "Model Evaluation & Benchmarking"],
   // Hands-on tools first, then coursework
-  cloudDevOps: ["Docker", "Git", "GitHub Actions", "Playwright", "AWS", "Kubernetes", "Terraform", "Ansible", "ArgoCD", "Jenkins"],
+  cloudDevOps: ["Docker", "Git", "GitHub Actions", "Playwright", "AWS", "Kubernetes", "Terraform", "Ansible"],
   frameworks: ["Spring Boot", "Flutter", "GraphQL", "PyQt6"],
-  tools: ["REST APIs", "Insomnia", "tmux", "SSH", "Claude Code", "GitHub Copilot", "MCP Server", "memray"],
+  tools: ["REST APIs", "Insomnia", "tmux", "SSH", "Claude Code", "GitHub Copilot", "MCP", "memray"],
   projectManagement: ["Jira", "Confluence", "Agile/Scrum"],
 };
 
@@ -331,14 +331,14 @@ const timelineData: TimelineItem[] = [
     location: "Stuttgart, Germany",
     startDate: "2026-10",
     endDate: null,
-    description: "• Research software: supporting the INTERFACE4CPPS research project (ISW with KASTEL at KIT), which develops a software prototype that integrates engineering artifacts and data exchange formats for cyber-physical production systems",
+    description: "• Research software: developing a software prototype in the INTERFACE4CPPS research project to integrate engineering artifacts for cyber-physical production systems",
     skills: ["Software Engineering", "Cyber-Physical Production Systems", "Research"],
     achievements: [],
   },
   {
     id: "6",
     type: "work",
-    title: "Working Student – Software Engineer",
+    title: "Research Assistant – Software Development",
     organization: "University of Stuttgart, Institute of Space Systems (IRS), SOFIA Data Center",
     organizationLogo: "/images/logos/logo_irs_stuttgart.png.png",
     location: "Stuttgart, Germany (Hybrid)",
@@ -351,7 +351,7 @@ const timelineData: TimelineItem[] = [
   {
     id: "1",
     type: "work",
-    title: "Working Student – Software Engineer",
+    title: "Research Assistant",
     organization: "Fraunhofer IOSB",
     organizationLogo: "/images/logos/Logo_fraunhofer_IOSB.webp",
     location: "Karlsruhe, Germany (Hybrid)",
