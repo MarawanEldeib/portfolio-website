@@ -6,7 +6,7 @@ import { Mail, Eye, ChevronDown, MapPin, Linkedin, Github, Phone } from 'lucide-
 import { personalInfo } from '@/lib/data';
 import { getPersonalInfo } from '@/lib/data-localized';
 import type { Locale } from '@/lib/types';
-import { EXTERNAL_LINKS } from '@/lib/constants';
+import { getCVPath } from '@/lib/constants';
 import { openPdfNatively } from '@/lib/utils/pdf';
 import Image from 'next/image';
 import { useState, useEffect, useMemo } from 'react';
@@ -394,7 +394,7 @@ export default function Hero() {
                 onClick={() => {
                   // Synchronous, inside the tap: iOS Safari only honours window.open
                   // from the gesture's own call stack. Falls back to the modal.
-                  if (!openPdfNatively(EXTERNAL_LINKS.CV_PATH)) setShowCVPreview(true);
+                  if (!openPdfNatively(getCVPath(locale))) setShowCVPreview(true);
                 }}
                 className="inline-flex items-center justify-center px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] border border-zinc-700 flex-shrink-0"
                 title={t('cta.viewCV')}
@@ -405,7 +405,7 @@ export default function Hero() {
                 <Eye size={18} className="sm:w-5 sm:h-5 text-zinc-300" />
               </motion.button>
               <DownloadButton
-                href={EXTERNAL_LINKS.CV_PATH}
+                href={getCVPath(locale)}
                 className="flex-shrink-0"
               >
                 {t('cta.downloadCV')}
@@ -436,7 +436,7 @@ export default function Hero() {
         <PDFPreviewModal
           isOpen={showCVPreview}
           onClose={() => setShowCVPreview(false)}
-          pdfUrl={EXTERNAL_LINKS.CV_PATH}
+          pdfUrl={getCVPath(locale)}
           title={`${t('cta.viewCV')} - ${personalInfo.name}`}
         />
       )}
