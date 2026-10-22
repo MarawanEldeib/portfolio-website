@@ -9,7 +9,7 @@ import YouTubeButton from '@/components/ui/YouTubeButton';
 import GitHubButton from '@/components/ui/GitHubButton';
 import EmailButton from '@/components/ui/EmailButton';
 
-import { EXTERNAL_LINKS } from '@/lib/constants';
+import { getCVPath } from '@/lib/constants';
 import type { Locale } from '@/lib/types';
 
 export default function Footer() {
@@ -48,7 +48,7 @@ export default function Footer() {
 
           <div className="flex gap-4">
             <DownloadButton
-              href={EXTERNAL_LINKS.CV_PATH}
+              href={getCVPath(locale)}
               variant="solid"
             >
               {t('downloadCV')}
