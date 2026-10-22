@@ -210,8 +210,13 @@ export const TECH_ICONS: Record<string, IconType> = {
 // External Links
 export const EXTERNAL_LINKS = {
   CV_PATH: '/cv/Marawan_Eldeib_Resume.pdf',
+  CV_PATH_DE: '/cv/Marawan_Eldeib_Lebenslauf.pdf',
   REPO_URL: 'https://github.com/MarawanEldeib/portfolio-website',
 } as const;
+
+// CV matching the site language: German Lebenslauf on /de, English CV otherwise
+export const getCVPath = (locale: string): string =>
+  locale === 'de' ? EXTERNAL_LINKS.CV_PATH_DE : EXTERNAL_LINKS.CV_PATH;
 
 // Project-specific constants
 export const PROJECT_IDS = {
